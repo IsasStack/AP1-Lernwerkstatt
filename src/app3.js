@@ -34,9 +34,25 @@ function startAbkCards() {
   if (!list.length) list = shuffle(ABKC).slice(0, 30);
   CS = { list, i: 0, flip: false, ok: 0, no: 0 }; go("karten");
 }
-TRAINERS.push({ id: "abk", cat: "Planung", icon: "🔤", t: "Abkürzungen", d: "Was bedeutet …? – 4 Abkürzungen pro Runde", gen() {
-  const sel = shuffle(ABK.filter(x => x[1].length > 3)).slice(0, 4);
-  return { q: "Wofür stehen diese Abkürzungen?", fields: sel.map(x => ({ l: x[0], ans: x[1], opts: shuffle([x[1], ...shuffle(ABK.filter(y => y !== x)).slice(0, 3).map(y => y[1])]) })), sol: sel.map(x => `<b>${esc(x[0])}</b> = ${esc(x[1])}${x[2] ? " – " + esc(x[2]) : ""}`).join("\n") };
+function abkNorm(s) { return String(s || "").toLowerCase().replace(/ä/g, "ae").replace(/ö/g, "oe").replace(/ü/g, "ue").replace(/ß/g, "ss").replace(/[^a-z0-9]/g, ""); }
+function abkVariants(full) {
+  const v = new Set([full, full.replace(/\([^)]*\)/g, ""), full.replace(/[()]/g, "")]);
+  return [...v].map(abkNorm).filter(Boolean);
+}
+function lev(a, b) {
+  const m = a.length, n = b.length; let prev = Array.from({ length: n + 1 }, (_, j) => j);
+  for (let i = 1; i <= m; i++) { const cur = [i]; for (let j = 1; j <= n; j++) cur[j] = Math.min(prev[j] + 1, cur[j - 1] + 1, prev[j - 1] + (a[i - 1] === b[j - 1] ? 0 : 1)); prev = cur; }
+  return prev[n];
+}
+function abkOk(v, full) {
+  const x = abkNorm(v); if (x.length < 2) return false;
+  return abkVariants(full).some(a => lev(x, a) <= Math.floor(a.length / 9));
+}
+const ABK_ALT = { CIA: ["Vertraulichkeit, Integrität, Verfügbarkeit"], SMART: ["Specific, Measurable, Achievable, Realistic, Time-bound"], KVM: ["Keyboard, Video, Maus"] };
+const ABK_Q = ABK.filter(x => !x[0].includes("/") && !x[1].includes(" / ") && x[1].length > 3);
+TRAINERS.push({ id: "abk", cat: "Planung", icon: "🔤", t: "Abkürzungen", d: "Ausschreiben: Wofür steht …? – 4 pro Runde", gen() {
+  const sel = shuffle(ABK_Q).slice(0, 4);
+  return { q: "Schreibe aus, wofür diese Abkürzungen stehen:", hint: "Groß-/Kleinschreibung, Leerzeichen und Bindestriche sind egal, kleine Tippfehler werden toleriert. Klammerteile darfst du weglassen.", fields: sel.map(x => ({ l: x[0], ans: x[1], alt: ABK_ALT[x[0]] || [], type: "abk" })), sol: sel.map(x => `<b>${esc(x[0])}</b> = ${esc(x[1])}${x[2] ? " – " + esc(x[2]) : ""}`).join("\n") };
 }});
 TRBY.abk = TRAINERS[TRAINERS.length - 1];
 

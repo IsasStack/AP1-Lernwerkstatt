@@ -857,6 +857,7 @@ function fieldOkT(f, v) {
   v = String(v || "").trim();
   if (f.type === "bin") return v.replace(/\s/g, "").replace(/^0b/i, "").padStart(8, "0") === f.ans;
   if (f.type === "hex") return v.replace(/\s/g, "").replace(/^0x/i, "").replace(/^0+(?=.)/, "").toUpperCase() === f.ans;
+  if (f.type === "abk") return [f.ans, ...(f.alt || [])].some(x => abkOk(v, x));
   if (f.type === "days") { const norm = s => s.split(/[,;\s]+/).filter(Boolean).map(x => x.slice(0, 2).toLowerCase()).sort().join(","); return norm(v) === norm(f.ans); }
   return fieldOk(f, v);
 }
@@ -877,10 +878,10 @@ function renderTrainerRun(app) {
       ${grid}
       <div class="tr-fields">${k.fields.map((f, i) => `<div><label>${f.l}</label>${inp("f" + i, f)}</div>`).join("")}</div>
       <div class="row"><button class="btn pri" onclick="checkTrainer()">Prüfen</button><button class="btn" onclick="TRS.showSol=!TRS.showSol;render()">${TRS.showSol ? "Lösung ausblenden" : "Lösungsweg zeigen"}</button><button class="btn" onclick="startTrainer('${tr.id}')">🎲 Neue Aufgabe</button></div>
-      ${TRS.result != null ? `<div class="fb ${TRS.result ? "ok" : "no"}"><h4>${TRS.result ? "✓ Alles richtig!" : "✗ Noch nicht ganz – rote Felder prüfen."}</h4></div>` : ""}
+      ${TRS.result != null ? `<div class="fb ${TRS.result ? "ok" : "no"}"><h4>${TRS.result ? "✓ Alles richtig!" : "✗ Noch nicht ganz – rote Felder prüfen."}</h4>${!TRS.result && k.fields.some(f => f.type === "abk") ? `<div class="small">${k.fields.filter((f, i) => !fieldOkT(f, TRS.vals["f" + i])).map(f => `<b>${esc(f.l)}</b> = ${esc(f.ans)}`).join("<br>")}</div>` : ""}</div>` : ""}
       ${TRS.showSol ? `<div class="fb inf"><h4>Lösungsweg</h4><div class="sol">${k.sol}</div></div>` : ""}
     </div>
-    <p class="small dim" style="margin-top:12px">Tipp: IP-Adressen ohne Leerzeichen eingeben. Dezimalzahlen mit Komma oder Punkt.</p></div>`;
+    <p class="small dim" style="margin-top:12px">Tipp: ${k.hint || "IP-Adressen ohne Leerzeichen eingeben. Dezimalzahlen mit Komma oder Punkt."}</p></div>`;
   if (!TRS.checked) { const f = document.querySelector("#app input[data-k]"); if (f && !TRS.task.fields.some(x => x.opts)) f.focus(); }
 }
 function checkTrainer() {

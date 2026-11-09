@@ -3740,6 +3740,7 @@ function fieldOkT(f, v) {
   v = String(v || "").trim();
   if (f.type === "bin") return v.replace(/\s/g, "").replace(/^0b/i, "").padStart(8, "0") === f.ans;
   if (f.type === "hex") return v.replace(/\s/g, "").replace(/^0x/i, "").replace(/^0+(?=.)/, "").toUpperCase() === f.ans;
+  if (f.type === "abk") return [f.ans, ...(f.alt || [])].some(x => abkOk(v, x));
   if (f.type === "days") { const norm = s => s.split(/[,;\s]+/).filter(Boolean).map(x => x.slice(0, 2).toLowerCase()).sort().join(","); return norm(v) === norm(f.ans); }
   return fieldOk(f, v);
 }
@@ -3760,10 +3761,10 @@ function renderTrainerRun(app) {
       ${grid}
       <div class="tr-fields">${k.fields.map((f, i) => `<div><label>${f.l}</label>${inp("f" + i, f)}</div>`).join("")}</div>
       <div class="row"><button class="btn pri" onclick="checkTrainer()">Prüfen</button><button class="btn" onclick="TRS.showSol=!TRS.showSol;render()">${TRS.showSol ? "Lösung ausblenden" : "Lösungsweg zeigen"}</button><button class="btn" onclick="startTrainer('${tr.id}')">🎲 Neue Aufgabe</button></div>
-      ${TRS.result != null ? `<div class="fb ${TRS.result ? "ok" : "no"}"><h4>${TRS.result ? "✓ Alles richtig!" : "✗ Noch nicht ganz – rote Felder prüfen."}</h4></div>` : ""}
+      ${TRS.result != null ? `<div class="fb ${TRS.result ? "ok" : "no"}"><h4>${TRS.result ? "✓ Alles richtig!" : "✗ Noch nicht ganz – rote Felder prüfen."}</h4>${!TRS.result && k.fields.some(f => f.type === "abk") ? `<div class="small">${k.fields.filter((f, i) => !fieldOkT(f, TRS.vals["f" + i])).map(f => `<b>${esc(f.l)}</b> = ${esc(f.ans)}`).join("<br>")}</div>` : ""}</div>` : ""}
       ${TRS.showSol ? `<div class="fb inf"><h4>Lösungsweg</h4><div class="sol">${k.sol}</div></div>` : ""}
     </div>
-    <p class="small dim" style="margin-top:12px">Tipp: IP-Adressen ohne Leerzeichen eingeben. Dezimalzahlen mit Komma oder Punkt.</p></div>`;
+    <p class="small dim" style="margin-top:12px">Tipp: ${k.hint || "IP-Adressen ohne Leerzeichen eingeben. Dezimalzahlen mit Komma oder Punkt."}</p></div>`;
   if (!TRS.checked) { const f = document.querySelector("#app input[data-k]"); if (f && !TRS.task.fields.some(x => x.opts)) f.focus(); }
 }
 function checkTrainer() {
@@ -4238,9 +4239,25 @@ function startAbkCards() {
   if (!list.length) list = shuffle(ABKC).slice(0, 30);
   CS = { list, i: 0, flip: false, ok: 0, no: 0 }; go("karten");
 }
-TRAINERS.push({ id: "abk", cat: "Planung", icon: "🔤", t: "Abkürzungen", d: "Was bedeutet …? – 4 Abkürzungen pro Runde", gen() {
-  const sel = shuffle(ABK.filter(x => x[1].length > 3)).slice(0, 4);
-  return { q: "Wofür stehen diese Abkürzungen?", fields: sel.map(x => ({ l: x[0], ans: x[1], opts: shuffle([x[1], ...shuffle(ABK.filter(y => y !== x)).slice(0, 3).map(y => y[1])]) })), sol: sel.map(x => `<b>${esc(x[0])}</b> = ${esc(x[1])}${x[2] ? " – " + esc(x[2]) : ""}`).join("\n") };
+function abkNorm(s) { return String(s || "").toLowerCase().replace(/ä/g, "ae").replace(/ö/g, "oe").replace(/ü/g, "ue").replace(/ß/g, "ss").replace(/[^a-z0-9]/g, ""); }
+function abkVariants(full) {
+  const v = new Set([full, full.replace(/\([^)]*\)/g, ""), full.replace(/[()]/g, "")]);
+  return [...v].map(abkNorm).filter(Boolean);
+}
+function lev(a, b) {
+  const m = a.length, n = b.length; let prev = Array.from({ length: n + 1 }, (_, j) => j);
+  for (let i = 1; i <= m; i++) { const cur = [i]; for (let j = 1; j <= n; j++) cur[j] = Math.min(prev[j] + 1, cur[j - 1] + 1, prev[j - 1] + (a[i - 1] === b[j - 1] ? 0 : 1)); prev = cur; }
+  return prev[n];
+}
+function abkOk(v, full) {
+  const x = abkNorm(v); if (x.length < 2) return false;
+  return abkVariants(full).some(a => lev(x, a) <= Math.floor(a.length / 9));
+}
+const ABK_ALT = { CIA: ["Vertraulichkeit, Integrität, Verfügbarkeit"], SMART: ["Specific, Measurable, Achievable, Realistic, Time-bound"], KVM: ["Keyboard, Video, Maus"] };
+const ABK_Q = ABK.filter(x => !x[0].includes("/") && !x[1].includes(" / ") && x[1].length > 3);
+TRAINERS.push({ id: "abk", cat: "Planung", icon: "🔤", t: "Abkürzungen", d: "Ausschreiben: Wofür steht …? – 4 pro Runde", gen() {
+  const sel = shuffle(ABK_Q).slice(0, 4);
+  return { q: "Schreibe aus, wofür diese Abkürzungen stehen:", hint: "Groß-/Kleinschreibung, Leerzeichen und Bindestriche sind egal, kleine Tippfehler werden toleriert. Klammerteile darfst du weglassen.", fields: sel.map(x => ({ l: x[0], ans: x[1], alt: ABK_ALT[x[0]] || [], type: "abk" })), sol: sel.map(x => `<b>${esc(x[0])}</b> = ${esc(x[1])}${x[2] ? " – " + esc(x[2]) : ""}`).join("\n") };
 }});
 TRBY.abk = TRAINERS[TRAINERS.length - 1];
 
