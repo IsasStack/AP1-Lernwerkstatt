@@ -1,0 +1,301 @@
+# 📖 Glossar & Abkürzungen
+
+174 Begriffe, alphabetisch.
+
+[⬅ Inhaltsverzeichnis](README.md)
+
+[0–9](#09) · [A](#a) · [B](#b) · [C](#c) · [D](#d) · [E](#e) · [F](#f) · [G](#g) · [H](#h) · [I](#i) · [K](#k) · [L](#l) · [M](#m) · [N](#n) · [O](#o) · [P](#p) · [Q](#q) · [R](#r) · [S](#s) · [T](#t) · [U](#u) · [V](#v) · [W](#w) · [X](#x)
+
+## 0–9
+
+| Abkürzung | Ausgeschrieben | Bedeutung |
+|---|---|---|
+| **2FA / MFA** | Zwei-/Multi-Faktor-Authentifizierung | Anmeldung mit mindestens zwei verschiedenen Faktoren (Wissen, Besitz, Inhärenz). |
+
+## A
+
+| Abkürzung | Ausgeschrieben | Bedeutung |
+|---|---|---|
+| **AD / AD DS** | Active Directory (Domain Services) | Verzeichnisdienst von Microsoft für Benutzer, Gruppen, Computer, Richtlinien. |
+| **AES** | Advanced Encryption Standard | Symmetrisches Verschlüsselungsverfahren (128/192/256 Bit). |
+| **AfA** | Absetzung für Abnutzung | Abschreibung – Verteilung der Anschaffungskosten über die Nutzungsdauer. |
+| **AGB** | Allgemeine Geschäftsbedingungen | Vorformulierte Vertragsbedingungen. |
+| **AkA** | Aufgabenstelle für kaufmännische Abschluss- und Zwischenprüfungen | Erstellt die bundeseinheitlichen IHK-Prüfungen (IT-Berufe). |
+| **AP** | Access Point | Bindet WLAN-Geräte ins kabelgebundene Netz ein. |
+| **API** | Application Programming Interface | Programmierschnittstelle zum Datenaustausch zwischen Anwendungen. |
+| **APIPA** | Automatic Private IP Addressing | Selbstvergebene Adresse 169.254.x.x, wenn kein DHCP antwortet. |
+| **ARP** | Address Resolution Protocol | Ermittelt zur IPv4-Adresse die MAC-Adresse. |
+| **ASCII** | American Standard Code for Information Interchange | 7-Bit-Zeichensatz mit 128 Zeichen. |
+| **AVV** | Auftragsverarbeitungsvertrag | Vertrag nach Art. 28 DSGVO mit Dienstleistern, die personenbezogene Daten verarbeiten. |
+
+## B
+
+| Abkürzung | Ausgeschrieben | Bedeutung |
+|---|---|---|
+| **BDSG** | Bundesdatenschutzgesetz | Ergänzt die DSGVO in Deutschland (z. B. Datenschutzbeauftragter ab 20 Personen). |
+| **BFSG** | Barrierefreiheitsstärkungsgesetz | Barrierefreiheitspflichten für Produkte/Dienstleistungen seit 28.06.2025. |
+| **BGB** | Bürgerliches Gesetzbuch | Regelt u. a. Kauf-, Werk-, Dienst- und Mietvertrag. |
+| **BIOS** | Basic Input/Output System | Alte PC-Firmware, abgelöst durch UEFI. |
+| **BITV** | Barrierefreie-Informationstechnik-Verordnung | Barrierefreiheit für öffentliche Stellen. |
+| **BSI** | Bundesamt für Sicherheit in der Informationstechnik | Gibt u. a. den IT-Grundschutz heraus. |
+| **BYOD** | Bring Your Own Device | Private Geräte werden dienstlich genutzt. |
+
+## C
+
+| Abkürzung | Ausgeschrieben | Bedeutung |
+|---|---|---|
+| **CA** | Certificate Authority | Zertifizierungsstelle, die digitale Zertifikate ausstellt. |
+| **CAL** | Client Access License | Zugriffslizenz für Benutzer oder Geräte auf einen Server. |
+| **CE** | Conformité Européenne | Hersteller erklärt Konformität mit EU-Richtlinien. |
+| **CGNAT** | Carrier-Grade NAT | Provider teilt eine öffentliche IPv4-Adresse auf viele Kunden auf. |
+| **CIA** | Confidentiality, Integrity, Availability | Schutzziele Vertraulichkeit, Integrität, Verfügbarkeit. |
+| **CIDR** | Classless Inter-Domain Routing | Präfix-Schreibweise wie /24. |
+| **CLI** | Command Line Interface | Kommandozeile. |
+| **CPU** | Central Processing Unit | Hauptprozessor. |
+| **CRL** | Certificate Revocation List | Sperrliste für Zertifikate. |
+| **CRM** | Customer Relationship Management | Software für Kundenbeziehungen, Vertrieb, Service. |
+| **CSV** | Comma-Separated Values | Einfaches Textformat für Tabellendaten. |
+| **CVE** | Common Vulnerabilities and Exposures | Eindeutige Kennung öffentlich bekannter Schwachstellen. |
+| **CVSS** | Common Vulnerability Scoring System | Bewertung der Schwere einer Schwachstelle (0–10). |
+
+## D
+
+| Abkürzung | Ausgeschrieben | Bedeutung |
+|---|---|---|
+| **DC** | Domain Controller | Server, der die Domäne (AD) bereitstellt und authentifiziert. |
+| **DDoS** | Distributed Denial of Service | Überlastungsangriff aus vielen Quellen. |
+| **DHCP** | Dynamic Host Configuration Protocol | Vergibt IP-Konfiguration automatisch (DORA, UDP 67/68). |
+| **DIN** | Deutsches Institut für Normung | Normungsorganisation, z. B. DIN 66399 Datenträgervernichtung. |
+| **DMS** | Dokumentenmanagementsystem | Verwaltung und Archivierung digitaler Dokumente. |
+| **DMZ** | Demilitarisierte Zone | Netzsegment für öffentlich erreichbare Server. |
+| **DNS** | Domain Name System | Löst Namen in IP-Adressen auf (Port 53). |
+| **DOCSIS** | Data Over Cable Service Interface Specification | Standard für Internet über das TV-Kabelnetz. |
+| **DoD** | Definition of Done | Scrum: Kriterien, wann ein Inkrement fertig ist. |
+| **DP** | DisplayPort | Digitale Bildschnittstelle. |
+| **dpi** | dots per inch | Auflösung bei Druckern/Scannern. |
+| **DSB** | Datenschutzbeauftragte(r) | Berät und überwacht den Datenschutz im Unternehmen. |
+| **DSFA** | Datenschutz-Folgenabschätzung | Pflicht bei hohem Risiko (Art. 35 DSGVO). |
+| **DSGVO** | Datenschutz-Grundverordnung | EU-Verordnung zum Schutz personenbezogener Daten. |
+
+## E
+
+| Abkürzung | Ausgeschrieben | Bedeutung |
+|---|---|---|
+| **ECC** | Error-Correcting Code (RAM) / Elliptic Curve Cryptography | Fehlerkorrigierender Arbeitsspeicher bzw. asymmetrisches Kryptoverfahren. |
+| **EDR** | Endpoint Detection and Response | Erkennung und Reaktion auf Angriffe an Endgeräten. |
+| **ElektroG** | Elektro- und Elektronikgerätegesetz | Rücknahme und Entsorgung von Elektroaltgeräten. |
+| **EOL** | End of Life | Ende des Supports/Produktlebens. |
+| **ERP** | Enterprise Resource Planning | Integrierte Unternehmenssoftware (Finanzen, Lager, Einkauf, Personal …). |
+| **ESU** | Extended Security Updates | Kostenpflichtige Sicherheitsupdates nach Supportende (z. B. Windows 10). |
+| **EULA** | End User License Agreement | Lizenzvertrag für Endnutzer. |
+
+## F
+
+| Abkürzung | Ausgeschrieben | Bedeutung |
+|---|---|---|
+| **FAZ / FEZ** | Frühester Anfangs-/Endzeitpunkt | Netzplantechnik, Vorwärtsrechnung. |
+| **FIDO2** | Fast Identity Online 2 | Standard für passwortlose, phishingresistente Anmeldung (Passkeys). |
+| **FP / GP** | Freier Puffer / Gesamtpuffer | Netzplantechnik. |
+| **FTP** | File Transfer Protocol | Dateiübertragung (Port 20/21, unverschlüsselt). |
+| **FTTH / FTTB / FTTC** | Fiber to the Home / Building / Curb | Glasfaser bis in die Wohnung / ins Gebäude / zum Verteilerkasten. |
+
+## G
+
+| Abkürzung | Ausgeschrieben | Bedeutung |
+|---|---|---|
+| **GB / GiB** | Gigabyte / Gibibyte | 10⁹ Byte bzw. 2³⁰ Byte. |
+| **GPO** | Group Policy Object | Gruppenrichtlinie in Active Directory. |
+| **GPT** | GUID Partition Table | Modernes Partitionsschema (UEFI). |
+| **GPU** | Graphics Processing Unit | Grafikprozessor. |
+| **GUI** | Graphical User Interface | Grafische Benutzeroberfläche. |
+
+## H
+
+| Abkürzung | Ausgeschrieben | Bedeutung |
+|---|---|---|
+| **HDD** | Hard Disk Drive | Magnetische Festplatte. |
+| **HDMI** | High-Definition Multimedia Interface | Digitale Bild- und Tonschnittstelle. |
+| **HE** | Höheneinheit | Maß für Geräte im 19-Zoll-Rack (1 HE = 44,45 mm). |
+| **HTTP(S)** | Hypertext Transfer Protocol (Secure) | Webprotokoll, Port 80 / 443 (mit TLS). |
+
+## I
+
+| Abkürzung | Ausgeschrieben | Bedeutung |
+|---|---|---|
+| **IaaS** | Infrastructure as a Service | Cloud: virtuelle Server, Speicher, Netz. |
+| **ICMP** | Internet Control Message Protocol | Steuer-/Fehlermeldungen (ping, traceroute). |
+| **IDE** | Integrated Development Environment | Entwicklungsumgebung, z. B. VS Code, IntelliJ. |
+| **IDS / IPS** | Intrusion Detection / Prevention System | Erkennt bzw. verhindert Angriffe im Netz. |
+| **IEC** | International Electrotechnical Commission | Normungsorganisation; Binärpräfixe KiB, MiB … |
+| **IEEE** | Institute of Electrical and Electronics Engineers | Normiert z. B. 802.3 (Ethernet), 802.11 (WLAN). |
+| **IHK** | Industrie- und Handelskammer | Zuständige Stelle für die Prüfung. |
+| **IMAP** | Internet Message Access Protocol | E-Mails auf dem Server verwalten (143/993). |
+| **IoT** | Internet of Things | Vernetzte Geräte, Sensoren. |
+| **IP** | Internet Protocol | Adressierung und Weiterleitung auf Schicht 3. |
+| **IPsec** | Internet Protocol Security | Verschlüsselung/Authentifizierung auf IP-Ebene (VPN). |
+| **ISMS** | Informationssicherheits-Managementsystem | Systematisches Management der Informationssicherheit. |
+| **ISO** | International Organization for Standardization | Internationale Normen, z. B. ISO 9001, 9241. |
+| **ISP** | Internet Service Provider | Internetanbieter. |
+| **IT** | Informationstechnik |  |
+
+## K
+
+| Abkürzung | Ausgeschrieben | Bedeutung |
+|---|---|---|
+| **KI** | Künstliche Intelligenz | Systeme, die Aufgaben wie Text-/Bilderkennung oder -erzeugung lösen. |
+| **KMU** | Kleine und mittlere Unternehmen |  |
+| **KVM** | Keyboard, Video, Mouse | KVM-Switch: ein Satz Peripherie für mehrere Rechner. |
+| **KVP** | Kontinuierlicher Verbesserungsprozess | Qualitätsmanagement (vgl. PDCA). |
+
+## L
+
+| Abkürzung | Ausgeschrieben | Bedeutung |
+|---|---|---|
+| **LAN** | Local Area Network | Lokales Netzwerk. |
+| **LDAP** | Lightweight Directory Access Protocol | Zugriff auf Verzeichnisdienste (389/636). |
+| **LLM** | Large Language Model | Großes Sprachmodell, Grundlage generativer KI. |
+| **LTE** | Long Term Evolution | Mobilfunkstandard (4G). |
+| **LTSC** | Long-Term Servicing Channel | Windows/Office-Variante mit langem Support ohne Funktionsupdates. |
+| **LWL** | Lichtwellenleiter | Glasfaserkabel. |
+
+## M
+
+| Abkürzung | Ausgeschrieben | Bedeutung |
+|---|---|---|
+| **MAC** | Media Access Control | 48-Bit-Hardwareadresse einer Netzwerkkarte. |
+| **MAN** | Metropolitan Area Network | Stadt-/Regionalnetz. |
+| **MBR** | Master Boot Record | Altes Partitionsschema (max. 2 TiB). |
+| **MDM** | Mobile Device Management | Zentrale Verwaltung mobiler Geräte (z. B. Intune). |
+| **MFP** | Multifunktionsprinter | Drucker, Scanner, Kopierer in einem. |
+
+## N
+
+| Abkürzung | Ausgeschrieben | Bedeutung |
+|---|---|---|
+| **NAS** | Network Attached Storage | Netzwerkspeicher. |
+| **NAT** | Network Address Translation | Übersetzt private in öffentliche IP-Adressen. |
+| **NFC** | Near Field Communication | Funk über wenige Zentimeter (kontaktloses Bezahlen, Zutritt). |
+| **NFS** | Network File System | Dateifreigabe unter Unix/Linux. |
+| **NTFS** | New Technology File System | Windows-Dateisystem mit Rechten und Journaling. |
+| **NTP** | Network Time Protocol | Zeitsynchronisation (Port 123). |
+| **NVMe** | Non-Volatile Memory Express | Schnelles SSD-Protokoll über PCIe. |
+
+## O
+
+| Abkürzung | Ausgeschrieben | Bedeutung |
+|---|---|---|
+| **OCR** | Optical Character Recognition | Texterkennung in Scans. |
+| **OEM** | Original Equipment Manufacturer | Lizenz/Produkt, das an Hardware gebunden ist. |
+| **OS** | Operating System | Betriebssystem. |
+| **OSI** | Open Systems Interconnection | 7-Schichten-Referenzmodell für Netzwerke. |
+| **OU** | Organizational Unit | Organisationseinheit im Active Directory. |
+
+## P
+
+| Abkürzung | Ausgeschrieben | Bedeutung |
+|---|---|---|
+| **PaaS** | Platform as a Service | Cloud: Laufzeit-/Entwicklungsplattform. |
+| **PAN** | Personal Area Network | Netz im Nahbereich einer Person (Bluetooth). |
+| **PCIe** | Peripheral Component Interconnect Express | Schnittstelle für Grafikkarten, NVMe-SSDs. |
+| **PDCA** | Plan – Do – Check – Act | Deming-Kreis für kontinuierliche Verbesserung. |
+| **PKI** | Public Key Infrastructure | System aus CAs, Zertifikaten, Sperrdiensten. |
+| **PO** | Product Owner | Scrum-Rolle: verantwortet das Product Backlog. |
+| **PoE** | Power over Ethernet | Stromversorgung über das Netzwerkkabel. |
+| **POP3** | Post Office Protocol 3 | E-Mails herunterladen (110/995). |
+| **ppm** | pages per minute | Druckgeschwindigkeit. |
+| **PSK** | Pre-Shared Key | Gemeinsamer WLAN-Schlüssel (WPA2-Personal). |
+| **PSP** | Projektstrukturplan | Hierarchische Zerlegung des Projekts in Arbeitspakete. |
+
+## Q
+
+| Abkürzung | Ausgeschrieben | Bedeutung |
+|---|---|---|
+| **QoS** | Quality of Service | Priorisierung von Datenverkehr, z. B. Sprache vor Downloads. |
+
+## R
+
+| Abkürzung | Ausgeschrieben | Bedeutung |
+|---|---|---|
+| **RADIUS** | Remote Authentication Dial-In User Service | Zentraler Authentifizierungsserver (z. B. für 802.1X). |
+| **RAM** | Random Access Memory | Arbeitsspeicher (flüchtig). |
+| **RDP** | Remote Desktop Protocol | Fernzugriff auf Windows (Port 3389). |
+| **RDS** | Remote Desktop Services | Terminalserver-Dienste von Windows Server. |
+| **RFC** | Request for Comments | Internet-Standarddokumente, z. B. RFC 1918. |
+| **RPO / RTO** | Recovery Point / Time Objective | Max. tolerierter Datenverlust / max. Wiederherstellungszeit. |
+| **RSA** | Rivest–Shamir–Adleman | Asymmetrisches Verschlüsselungsverfahren. |
+
+## S
+
+| Abkürzung | Ausgeschrieben | Bedeutung |
+|---|---|---|
+| **SaaS** | Software as a Service | Cloud: fertige Anwendung, z. B. Microsoft 365. |
+| **SAZ / SEZ** | Spätester Anfangs-/Endzeitpunkt | Netzplantechnik, Rückwärtsrechnung. |
+| **SCM** | Supply Chain Management | Steuerung der Lieferkette. |
+| **SD-WAN** | Software-Defined WAN | Zentral gesteuerte Nutzung mehrerer WAN-Leitungen. |
+| **SFTP** | SSH File Transfer Protocol | Verschlüsselte Dateiübertragung über SSH (Port 22). |
+| **SHA** | Secure Hash Algorithm | Hashverfahren, z. B. SHA-256. |
+| **SIEM** | Security Information and Event Management | Sammelt und korreliert Sicherheitslogs. |
+| **SLA** | Service Level Agreement | Vereinbarung über Servicequalität (Verfügbarkeit, Reaktionszeit). |
+| **SLAAC** | Stateless Address Autoconfiguration | Automatische IPv6-Adressbildung. |
+| **SMART** | Spezifisch, Messbar, Attraktiv, Realistisch, Terminiert | Methode zur Zielformulierung. |
+| **SMB** | Server Message Block | Windows-Dateifreigaben (Port 445). |
+| **SMTP** | Simple Mail Transfer Protocol | E-Mail-Versand (25/587/465). |
+| **SNMP** | Simple Network Management Protocol | Überwachung von Netzwerkgeräten (UDP 161/162). |
+| **SPOF** | Single Point of Failure | Komponente, deren Ausfall das Gesamtsystem lahmlegt. |
+| **SSD** | Solid State Drive | Flash-Speicher ohne mechanische Teile. |
+| **SSH** | Secure Shell | Verschlüsselte Fernwartung (Port 22). |
+| **SSO** | Single Sign-On | Einmal anmelden, mehrere Dienste nutzen. |
+
+## T
+
+| Abkürzung | Ausgeschrieben | Bedeutung |
+|---|---|---|
+| **TCO** | Total Cost of Ownership | Gesamtkosten über die Nutzungsdauer. |
+| **TCP** | Transmission Control Protocol | Verbindungsorientiertes, zuverlässiges Transportprotokoll. |
+| **TLS** | Transport Layer Security | Verschlüsselung für HTTPS, Mail usw. |
+| **TOM** | Technische und organisatorische Maßnahmen | Schutzmaßnahmen nach Art. 32 DSGVO. |
+| **TOTP** | Time-based One-Time Password | Zeitbasierter Einmalcode (Authenticator-App). |
+| **TPM** | Trusted Platform Module | Sicherheitschip für Schlüssel (BitLocker, Windows 11). |
+
+## U
+
+| Abkürzung | Ausgeschrieben | Bedeutung |
+|---|---|---|
+| **UDP** | User Datagram Protocol | Verbindungsloses, schnelles Transportprotokoll. |
+| **UEFI** | Unified Extensible Firmware Interface | Moderne Firmware mit Secure Boot und GPT. |
+| **UML** | Unified Modeling Language | Standard für Diagramme (z. B. Aktivitätsdiagramm). |
+| **UNC** | Universal Naming Convention | Netzwerkpfad \\Server\Freigabe. |
+| **UrhG** | Urheberrechtsgesetz | Schützt u. a. Software. |
+| **USB** | Universal Serial Bus | Universelle Schnittstelle. |
+| **USt** | Umsatzsteuer | In Deutschland i. d. R. 19 %. |
+| **USV** | Unterbrechungsfreie Stromversorgung | Überbrückt Stromausfälle (engl. UPS). |
+| **UTF-8** | Unicode Transformation Format 8 Bit | Unicode-Kodierung, 1–4 Byte pro Zeichen. |
+
+## V
+
+| Abkürzung | Ausgeschrieben | Bedeutung |
+|---|---|---|
+| **VDI** | Virtual Desktop Infrastructure | Zentral betriebene virtuelle Desktops. |
+| **VDSL** | Very High Speed Digital Subscriber Line | Schneller DSL-Anschluss über Kupfer. |
+| **VLAN** | Virtual Local Area Network | Logische Netztrennung auf einem Switch (802.1Q). |
+| **VLSM** | Variable Length Subnet Mask | Subnetze unterschiedlicher Größe. |
+| **VM** | Virtuelle Maschine | Software-emulierter Computer auf einem Hypervisor. |
+| **VoIP** | Voice over IP | Telefonie über IP-Netze. |
+| **VPN** | Virtual Private Network | Verschlüsselter Tunnel über unsichere Netze. |
+
+## W
+
+| Abkürzung | Ausgeschrieben | Bedeutung |
+|---|---|---|
+| **WAF** | Web Application Firewall | Schützt Webanwendungen vor Angriffen. |
+| **WAN** | Wide Area Network | Weitverkehrsnetz, z. B. Internet. |
+| **WCAG** | Web Content Accessibility Guidelines | Richtlinien für barrierefreie Webinhalte. |
+| **WEEE** | Waste of Electrical and Electronic Equipment | EU-Richtlinie für Elektroschrott (→ ElektroG). |
+| **WLAN** | Wireless LAN | Funknetz nach IEEE 802.11. |
+| **WPA2 / WPA3** | Wi-Fi Protected Access 2/3 | WLAN-Verschlüsselung (Personal mit PSK, Enterprise mit 802.1X). |
+
+## X
+
+| Abkürzung | Ausgeschrieben | Bedeutung |
+|---|---|---|
+| **XSS** | Cross-Site Scripting | Angriff durch eingeschleusten Script-Code in Webseiten. |
