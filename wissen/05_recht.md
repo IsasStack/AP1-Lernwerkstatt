@@ -9,7 +9,7 @@
 ---
 
 > [!WARNING]
-> **Katalog 2025:** Gestrichen: Grundlagen des Urheberrechts, Rollout-Prozesse, Inhalt des Abnahmeprotokolls, Arten der Dokumentation, Stilllegung von Altsystemen/Archivdaten. Weiterhin wichtig: Vertragsarten, Vertragsbestandteile inkl. Sanktionen/Konventionalstrafen, Vertragsstörungen, Lizenzmodelle, SLA.
+> **Katalog 2025:** Gestrichen: Grundlagen des Urheberrechts, Rollout-Prozesse, Arten der zu übergebenden Dokumentation, Stilllegung von Altsystemen/Archivdaten. Weiterhin wichtig: Inhalt des Abnahmeprotokolls, Vertragsarten, Vertragsbestandteile inkl. Sanktionen/Konventionalstrafen, Vertragsstörungen, Lizenzmodelle, SLA.
 
 ## Vertragsarten (BGB)
 

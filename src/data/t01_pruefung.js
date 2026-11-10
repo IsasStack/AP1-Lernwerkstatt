@@ -39,7 +39,7 @@ cards:[
 ["Operator „Erläutern“","Beschreiben + Zusammenhänge/Ursachen erklären, gern mit Beispiel."],
 ["Operator „Begründen“","Entscheidung + fachliches Argument + Bezug zur Ausgangssituation."],
 ["Zeitregel in der Prüfung","1 Punkt ≈ 1 Minute. Blockaden überspringen und später zurückkehren."],
-["Welche Themen sind seit 2025 aus der AP1 raus?","SQL-Abfragen und NoSQL (relationale DB-Grundlagen bleiben!), RAID/SAN, Struktogramm/PAP, Vererbung, Kanban/XP/SWOT, LTE/5G, ISO 2700x, Eisbergmodell, Fragetechniken, Cross-/Upselling, Suchoperatoren, Audit, Abnahmeprotokoll, Deckungsbeitrag."],
+["Welche Themen sind seit 2025 aus der AP1 raus?","SQL-Abfragen und NoSQL (relationale DB-Grundlagen bleiben!), RAID/SAN, Struktogramm/PAP, Vererbung, Kanban/XP/SWOT, LTE/5G, ISO 2700x, Eisbergmodell, Fragetechniken, Cross-/Upselling, Suchoperatoren, Audit, Arten der Dokumentation, Deckungsbeitrag. Das Abnahmeprotokoll bleibt."],
 ["Welche Themen sind seit 2025 neu/betont?","Projektmerkmale, SMART, KI, Sensoren, Client-Server, DaaS, Domäne, IPv4/IPv6, HDD/SSD, Datenmengen, Klassen/Sichtbarkeit, Aktivitätsdiagramm, Schreibtischtest, Corporate Identity, Schutzziele, Hash, 2FA, Härtung, Anonymisierung, Betroffenenrechte/Einwilligung, Barrierefreiheit."],
 ["Wie heißt der Prüfungsbereich der AP1?","„Einrichten eines IT-gestützten Arbeitsplatzes“."]
 ],
