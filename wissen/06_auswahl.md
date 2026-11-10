@@ -145,50 +145,34 @@ Inventar aller Lizenzen und Installationen, regelmäßiger Abgleich. **Unterlize
 ## ✍️ Übungsfragen (21)
 
 **1.** Ein Steuerbüro mit 12 Mitarbeitenden will alle PCs in eine Active-Directory-Domäne einbinden. Welche Windows-Edition ist mindestens nötig?
-- A) Windows 11 Home
-- B) Windows 11 Pro
-- C) Windows 11 Enterprise LTSC
-- D) Windows Server Essentials
 
 <details><summary>Lösung</summary>
 
-**B) Windows 11 Pro**<br>Home kann keiner Domäne beitreten; Pro ist die günstigste Edition mit Domänenbeitritt.
+**Musterlösung (2 P):** Windows 11 Pro<br>Home kann keiner Domäne beitreten; Pro ist die günstigste Edition mit Domänenbeitritt.
 
 </details>
 
 **2.** Ein Callcenter mit 60 identischen Arbeitsplätzen nutzt nur eine webbasierte CRM-Anwendung und Telefonie. Welche Hardware ist am sinnvollsten?
-- A) Grafik-Workstations
-- B) Thin Clients mit Terminalserver/VDI und Headsets
-- C) Gaming-PCs
-- D) Rugged-Tablets
 
 <details><summary>Lösung</summary>
 
-**B) Thin Clients mit Terminalserver/VDI und Headsets**<br>Zentral verwaltbar, günstig, stromsparend, keine Daten lokal.
+**Musterlösung (2 P):** Thin Clients mit Terminalserver/VDI und Headsets<br>Zentral verwaltbar, günstig, stromsparend, keine Daten lokal.
 
 </details>
 
 **3.** Ein Pflegedienst-Mitarbeiter arbeitet mit PC im Büro, Notebook unterwegs und Smartphone. Welche CAL-Art ist für ihn günstiger?
-- A) Device-CAL
-- B) User-CAL
-- C) RDS-Device-CAL
-- D) Keine CAL
 
 <details><summary>Lösung</summary>
 
-**B) User-CAL**<br>1 User-CAL statt 3 Device-CALs.
+**Musterlösung (2 P):** User-CAL<br>1 User-CAL statt 3 Device-CALs.
 
 </details>
 
 **4.** Eine Produktion arbeitet in 3 Schichten mit je 15 Personen an denselben 15 PCs. Welche CAL-Art ist günstiger?
-- A) 45 User-CALs
-- B) 15 Device-CALs
-- C) 30 User-CALs
-- D) 1 Server-CAL
 
 <details><summary>Lösung</summary>
 
-**B) 15 Device-CALs**<br>Mehrere Personen pro Gerät → Device-CAL.
+**Musterlösung (2 P):** 15 Device-CALs<br>Mehrere Personen pro Gerät → Device-CAL.
 
 </details>
 
@@ -217,110 +201,74 @@ Inventar aller Lizenzen und Installationen, regelmäßiger Abgleich. **Unterlize
 </details>
 
 **8.** Ein Unternehmen will 10 virtuelle Windows-Server auf einem Host betreiben. Welche Edition ist in der Regel wirtschaftlicher?
-- A) Standard
-- B) Datacenter
-- C) Essentials
-- D) Home
 
 <details><summary>Lösung</summary>
 
-**B) Datacenter**<br>Standard deckt nur 2 VMs pro Lizenzierung ab; Datacenter erlaubt unbegrenzt viele VMs.
+**Musterlösung (2 P):** Datacenter<br>Standard deckt nur 2 VMs pro Lizenzierung ab; Datacenter erlaubt unbegrenzt viele VMs.
 
 </details>
 
 **9.** Ein Handwerksbetrieb mit 8 Mitarbeitenden möchte Mail, Teams und Office auf dem PC, aber keine Geräteverwaltung. Welcher Plan passt?
-- A) Business Basic
-- B) Business Standard
-- C) Business Premium
-- D) Microsoft 365 E5
 
 <details><summary>Lösung</summary>
 
-**B) Business Standard**<br>Desktop-Apps sind ab Standard enthalten; Premium wäre nur für Intune/Entra P1 nötig.
+**Musterlösung (2 P):** Business Standard<br>Desktop-Apps sind ab Standard enthalten; Premium wäre nur für Intune/Entra P1 nötig.
 
 </details>
 
 **10.** Ein Unternehmen mit 450 Mitarbeitenden sucht eine Microsoft-365-Lizenz. Was gilt?
-- A) Business Premium für alle
-- B) Enterprise-Pläne (z. B. E3), da Business-Pläne auf 300 Nutzer begrenzt sind
-- C) Business Basic ohne Grenze
-- D) Office LTSC ist Pflicht
 
 <details><summary>Lösung</summary>
 
-**B) Enterprise-Pläne (z. B. E3), da Business-Pläne auf 300 Nutzer begrenzt sind**
+**Musterlösung (2 P):** Enterprise-Pläne (z. B. E3), da Business-Pläne auf 300 Nutzer begrenzt sind
 
 </details>
 
 **11.** Welcher Plan enthält Intune und Entra ID P1 für bedingten Zugriff?
-- A) Business Basic
-- B) Business Standard
-- C) Business Premium
-- D) Office LTSC 2024
 
 <details><summary>Lösung</summary>
 
-**C) Business Premium**
+**Musterlösung (2 P):** Business Premium
 
 </details>
 
 **12.** Ein Architekturbüro nutzt eine teure CAD-Software, die 15 Mitarbeitende gelegentlich, aber nie mehr als 4 gleichzeitig nutzen. Welches Lizenzmodell?
-- A) 15 Named-User-Lizenzen
-- B) 4 Concurrent/Floating-Lizenzen
-- C) OEM-Lizenzen
-- D) Freeware
 
 <details><summary>Lösung</summary>
 
-**B) 4 Concurrent/Floating-Lizenzen**<br>Lizenzserver vergibt bis zu 4 gleichzeitige Nutzungen.
+**Musterlösung (2 P):** 4 Concurrent/Floating-Lizenzen<br>Lizenzserver vergibt bis zu 4 gleichzeitige Nutzungen.
 
 </details>
 
 **13.** Ein Lagerarbeiter erfasst Wareneingänge im Kühlhaus. Welches Gerät ist geeignet?
-- A) Consumer-Tablet
-- B) Rugged-Handheld mit Barcodescanner und hoher IP-Schutzklasse
-- C) Desktop-PC
-- D) Thin Client
 
 <details><summary>Lösung</summary>
 
-**B) Rugged-Handheld mit Barcodescanner und hoher IP-Schutzklasse**
+**Musterlösung (2 P):** Rugged-Handheld mit Barcodescanner und hoher IP-Schutzklasse
 
 </details>
 
 **14.** Was passiert seit dem 14.10.2025 mit Windows 10?
-- A) Es wird kostenlos auf Windows 12 aktualisiert
-- B) Es erhält keine regulären Sicherheitsupdates mehr
-- C) Es kann nicht mehr gestartet werden
-- D) Nichts
 
 <details><summary>Lösung</summary>
 
-**B) Es erhält keine regulären Sicherheitsupdates mehr**<br>Nur noch kostenpflichtige Extended Security Updates.
+**Musterlösung (2 P):** Es erhält keine regulären Sicherheitsupdates mehr<br>Nur noch kostenpflichtige Extended Security Updates.
 
 </details>
 
-**15.** Welche Funktionen fehlen Windows 11 Home im Vergleich zu Pro? (mehrere)
-- A) Domänenbeitritt
-- B) BitLocker-Verwaltung
-- C) Microsoft Store
-- D) Remotedesktop-Host
+**15.** Welche Funktionen fehlen Windows 11 Home im Vergleich zu Pro? Nennen Sie drei.
 
 <details><summary>Lösung</summary>
 
-**A) Domänenbeitritt, B) BitLocker-Verwaltung, D) Remotedesktop-Host**<br>Den Store haben beide.
+**Musterlösung (3 P):** Je 1 Punkt (max. 3): Domänenbeitritt; BitLocker-Verwaltung; Remotedesktop-Host. Den Store haben beide.
 
 </details>
 
-**16.** Welche Gründe sprechen für ein Software-Abo statt Kauf? (mehrere)
-- A) Immer aktuelle Version
-- B) Planbare laufende Kosten
-- C) Nutzung auch nach Kündigung
-- D) Flexible Anpassung der Nutzerzahl
+**16.** Welche Gründe sprechen für ein Software-Abo statt Kauf? Nennen Sie drei.
 
 <details><summary>Lösung</summary>
 
-**A) Immer aktuelle Version, B) Planbare laufende Kosten, D) Flexible Anpassung der Nutzerzahl**<br>Nach Kündigung endet die Nutzung.
+**Musterlösung (3 P):** Je 1 Punkt (max. 3): Immer aktuelle Version; Planbare laufende Kosten; Flexible Anpassung der Nutzerzahl. Nach Kündigung endet die Nutzung.
 
 </details>
 
@@ -336,7 +284,7 @@ Inventar aller Lizenzen und Installationen, regelmäßiger Abgleich. **Unterlize
 
 <details><summary>Lösung</summary>
 
-**Musterlösung:** Je Komponente 1 + Begründung 1, z. B.: leistungsstarke Mehrkern-CPU (Rendering/Encoding ist rechenintensiv); 32–64 GB RAM (große Projekte/Timeline im Speicher); dedizierte GPU (Hardwarebeschleunigung bei Schnitt/Effekten); schnelle NVMe-SSD mit großer Kapazität (große Videodateien, hohe Datenraten); farbkalibrierbarer 4K-IPS-Monitor (farbverbindliches Arbeiten, Detaildarstellung).
+**Musterlösung (6 P):** Je Komponente 1 + Begründung 1, z. B.: leistungsstarke Mehrkern-CPU (Rendering/Encoding ist rechenintensiv); 32–64 GB RAM (große Projekte/Timeline im Speicher); dedizierte GPU (Hardwarebeschleunigung bei Schnitt/Effekten); schnelle NVMe-SSD mit großer Kapazität (große Videodateien, hohe Datenraten); farbkalibrierbarer 4K-IPS-Monitor (farbverbindliches Arbeiten, Detaildarstellung).
 
 </details>
 
@@ -344,7 +292,7 @@ Inventar aller Lizenzen und Installationen, regelmäßiger Abgleich. **Unterlize
 
 <details><summary>Lösung</summary>
 
-**Musterlösung:** Probleme (je 1): Home kann keiner Domäne/Entra ID beitreten → keine zentrale Verwaltung/GPO/Intune; kein BitLocker → bei Diebstahl/Verlust sind Daten ungeschützt (DSGVO-Risiko); kein RDP-Host für Fernwartung. Lösung (2): Upgrade auf Windows 11 Pro (bzw. Business), Einbindung in Entra ID/Intune, BitLocker mit TPM aktivieren.
+**Musterlösung (4 P):** Probleme (je 1): Home kann keiner Domäne/Entra ID beitreten → keine zentrale Verwaltung/GPO/Intune; kein BitLocker → bei Diebstahl/Verlust sind Daten ungeschützt (DSGVO-Risiko); kein RDP-Host für Fernwartung. Lösung (2): Upgrade auf Windows 11 Pro (bzw. Business), Einbindung in Entra ID/Intune, BitLocker mit TPM aktivieren.
 
 </details>
 
@@ -352,7 +300,7 @@ Inventar aller Lizenzen und Installationen, regelmäßiger Abgleich. **Unterlize
 
 <details><summary>Lösung</summary>
 
-**Musterlösung:** User-CAL: lizenziert eine Person für den Serverzugriff von beliebig vielen Geräten (1) – z. B. Außendienstmitarbeitende mit Notebook, Smartphone und Büro-PC (1). Device-CAL: lizenziert ein Gerät, von dem beliebig viele Personen zugreifen dürfen (1) – z. B. Schichtbetrieb, in dem mehrere Mitarbeitende denselben PC nutzen (1).
+**Musterlösung (4 P):** User-CAL: lizenziert eine Person für den Serverzugriff von beliebig vielen Geräten (1) – z. B. Außendienstmitarbeitende mit Notebook, Smartphone und Büro-PC (1). Device-CAL: lizenziert ein Gerät, von dem beliebig viele Personen zugreifen dürfen (1) – z. B. Schichtbetrieb, in dem mehrere Mitarbeitende denselben PC nutzen (1).
 
 </details>
 
@@ -360,7 +308,7 @@ Inventar aller Lizenzen und Installationen, regelmäßiger Abgleich. **Unterlize
 
 <details><summary>Lösung</summary>
 
-**Musterlösung:** Vorteile (je 1): keine eigene Serverhardware/Wartung nötig; Anbieter kümmert sich um Updates, Verfügbarkeit, Backup der Infrastruktur; ortsunabhängiger Zugriff; skalierbar, planbare monatliche Kosten. Zu klären (je 1): Datenschutz – Serverstandort EU, AV-Vertrag nach Art. 28 DSGVO; ausreichende und ausfallsichere Internetanbindung; Migrationsaufwand/Schulung; Kosten über die Laufzeit; Exit-Strategie/Vendor-Lock-in; eigenes Backup der Daten.
+**Musterlösung (4 P):** Vorteile (je 1): keine eigene Serverhardware/Wartung nötig; Anbieter kümmert sich um Updates, Verfügbarkeit, Backup der Infrastruktur; ortsunabhängiger Zugriff; skalierbar, planbare monatliche Kosten. Zu klären (je 1): Datenschutz – Serverstandort EU, AV-Vertrag nach Art. 28 DSGVO; ausreichende und ausfallsichere Internetanbindung; Migrationsaufwand/Schulung; Kosten über die Laufzeit; Exit-Strategie/Vendor-Lock-in; eigenes Backup der Daten.
 
 </details>
 

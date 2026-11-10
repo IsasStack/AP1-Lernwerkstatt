@@ -102,9 +102,34 @@ Ein **Datenbanksystem (DBS)** besteht aus der Datenbank (Daten) und dem **DBMS**
 > [!WARNING]
 > SQL-Abfragen (SELECT …) und NoSQL sind seit 2025 nicht mehr AP1, sondern AP2.
 
+## ER-Modell: Daten vor dem Bau der Tabellen planen
+
+Das **Entity-Relationship-Modell** beschreibt, welche Dinge gespeichert werden und wie sie zusammenhängen – noch ohne Technik.
+
+<table><tr><th>Begriff</th><th>Bedeutung</th><th>Beispiel</th></tr>
+<tr><td>Entitätstyp</td><td>Art von Objekten, über die Daten gespeichert werden (im Diagramm ein Rechteck)</td><td>Kunde, Gerät</td></tr>
+<tr><td>Attribut</td><td>Eigenschaft eines Entitätstyps</td><td>Name, Seriennummer</td></tr>
+<tr><td>Schlüsselattribut</td><td>identifiziert jede Entität eindeutig (unterstrichen)</td><td>KundenNr</td></tr>
+<tr><td>Beziehung</td><td>Zusammenhang zwischen Entitätstypen (Raute oder Linie mit Verb)</td><td>Kunde <i>besitzt</i> Gerät</td></tr>
+<tr><td>Kardinalität</td><td>wie viele Entitäten auf jeder Seite beteiligt sind</td><td>1:1, 1:n, n:m</td></tr></table>
+
+## Vom ER-Modell zur Tabelle
+
+- Jeder Entitätstyp wird eine **Tabelle**, jedes Attribut eine **Spalte**, das Schlüsselattribut der **Primärschlüssel**.
+- **1:n** – der Fremdschlüssel kommt in die Tabelle auf der **n-Seite**. Beispiel: Ein Kunde hat viele Geräte → Tabelle Gerät bekommt die Spalte KundenNr.
+- **n:m** – eine **Zwischentabelle** mit den Primärschlüsseln beider Seiten als Fremdschlüssel.
+- **1:1** – Fremdschlüssel in einer der beiden Tabellen, oder beide zu einer Tabelle zusammenfassen.
+
+```
+Kunde (KundenNr, Name, Ort)
+Gerät (SerienNr, Typ, Kaufdatum, KundenNr)      ← KundenNr ist Fremdschlüssel
+```
+
+**Datentypen der Spalten:** Ganzzahl für Nummern und Mengen, Text für Namen, Datum für Termine, Dezimalzahl für Geldbeträge, Wahrheitswert für Ja/Nein.
+
 ---
 
-## 🃏 Karteikarten (30)
+## 🃏 Karteikarten (36)
 
 | Frage | Antwort |
 |---|---|
@@ -138,66 +163,52 @@ Ein **Datenbanksystem (DBS)** besteht aus der Datenbank (Daten) und dem **DBMS**
 | n:m-Beziehung in Tabellen | Wird über eine Zwischentabelle mit zwei Fremdschlüsseln aufgelöst. |
 | Redundanz – Problem | Doppelt gespeicherte Daten führen zu Anomalien/Inkonsistenzen. |
 | Datensatz / Attribut | Datensatz = Zeile, Attribut = Spalte. |
+| ER-Modell | Entity-Relationship-Modell: beschreibt Entitätstypen, ihre Attribute und Beziehungen – Planung vor dem Anlegen der Tabellen. |
+| Entitätstyp | Art von Objekten, über die Daten gespeichert werden, z. B. Kunde. Wird zur Tabelle. |
+| Attribut im ER-Modell | Eigenschaft eines Entitätstyps, z. B. Name. Wird zur Spalte. |
+| Wo steht der Fremdschlüssel bei 1:n? | In der Tabelle auf der n-Seite. |
+| Datentypen für Tabellenspalten | Ganzzahl, Dezimalzahl, Text, Datum, Wahrheitswert. |
+| ER-Diagramm: Symbole | Entitätstyp = Rechteck, Beziehung = Raute bzw. Linie, Attribut = Oval; Schlüsselattribut unterstrichen. |
 
-## ✍️ Übungsfragen (21)
+## ✍️ Übungsfragen (26)
 
 **1.** Ein 4-TB-Laufwerk soll als Bootlaufwerk komplett nutzbar sein. Welches Partitionsschema?
-- A) MBR
-- B) GPT
-- C) FAT32
-- D) NTFS
 
 <details><summary>Lösung</summary>
 
-**B) GPT**<br>MBR ist auf 2 TiB begrenzt; GPT (mit UEFI) nicht.
+**Musterlösung (2 P):** GPT<br>MBR ist auf 2 TiB begrenzt; GPT (mit UEFI) nicht.
 
 </details>
 
 **2.** Eine 6-GB-Videodatei lässt sich nicht auf einen USB-Stick kopieren, obwohl 30 GB frei sind. Wahrscheinlichste Ursache?
-- A) Stick ist mit FAT32 formatiert
-- B) Stick ist mit NTFS formatiert
-- C) USB 2.0
-- D) Secure Boot aktiv
 
 <details><summary>Lösung</summary>
 
-**A) Stick ist mit FAT32 formatiert**<br>FAT32 erlaubt max. 4 GiB pro Datei → exFAT/NTFS verwenden.
+**Musterlösung (2 P):** Stick ist mit FAT32 formatiert<br>FAT32 erlaubt max. 4 GiB pro Datei → exFAT/NTFS verwenden.
 
 </details>
 
 **3.** Welche Voraussetzung gilt für Windows 11?
-- A) BIOS mit MBR
-- B) TPM 2.0 und Secure Boot
-- C) Mindestens 64 GB RAM
-- D) FAT32-Systempartition
 
 <details><summary>Lösung</summary>
 
-**B) TPM 2.0 und Secure Boot**<br>Windows 11 verlangt UEFI, Secure Boot und TPM 2.0.
+**Musterlösung (2 P):** TPM 2.0 und Secure Boot<br>Windows 11 verlangt UEFI, Secure Boot und TPM 2.0.
 
 </details>
 
 **4.** Welcher Befehl zeigt unter Windows die vollständige IP-Konfiguration inkl. DNS-Server an?
-- A) ping
-- B) ipconfig /all
-- C) tracert
-- D) arp -a
 
 <details><summary>Lösung</summary>
 
-**B) ipconfig /all**
+**Musterlösung (2 P):** ipconfig /all
 
 </details>
 
 **5.** Welche Rechte ergeben sich aus chmod 750?
-- A) rwxr-x---
-- B) rwxrwx---
-- C) rw-r-x---
-- D) rwxr--r--
 
 <details><summary>Lösung</summary>
 
-**A) rwxr-x---**<br>7 = rwx, 5 = r-x, 0 = ---.
+**Musterlösung (2 P):** rwxr-x---<br>7 = rwx, 5 = r-x, 0 = ---.
 
 </details>
 
@@ -210,74 +221,50 @@ Ein **Datenbanksystem (DBS)** besteht aus der Datenbank (Daten) und dem **DBMS**
 </details>
 
 **7.** Welcher Linux-Befehl ersetzt das veraltete ifconfig?
-- A) ip a
-- B) netsh
-- C) ipconfig
-- D) route print
 
 <details><summary>Lösung</summary>
 
-**A) ip a**<br>ip aus dem Paket iproute2.
+**Musterlösung (2 P):** ip a<br>ip aus dem Paket iproute2.
 
 </details>
 
 **8.** Welches Dateisystem bietet unter Windows Zugriffsrechte und Journaling?
-- A) FAT32
-- B) exFAT
-- C) NTFS
-- D) FAT16
 
 <details><summary>Lösung</summary>
 
-**C) NTFS**
+**Musterlösung (2 P):** NTFS
 
 </details>
 
-**9.** Welche Nachteile hat Individualsoftware gegenüber Standardsoftware? (mehrere)
-- A) Hohe Entwicklungskosten
-- B) Lange Entwicklungszeit
-- C) Exakt an Prozesse angepasst
-- D) Abhängigkeit vom Entwickler
+**9.** Welche Nachteile hat Individualsoftware gegenüber Standardsoftware? Nennen Sie drei.
 
 <details><summary>Lösung</summary>
 
-**A) Hohe Entwicklungskosten, B) Lange Entwicklungszeit, D) Abhängigkeit vom Entwickler**<br>Passgenauigkeit ist ein Vorteil.
+**Musterlösung (3 P):** Je 1 Punkt (max. 3): Hohe Entwicklungskosten; Lange Entwicklungszeit; Abhängigkeit vom Entwickler. Passgenauigkeit ist ein Vorteil.
 
 </details>
 
 **10.** Mit welchem Verfahren werden 50 identische PCs am schnellsten mit vorkonfiguriertem System versehen?
-- A) Manuelle Installation vom USB-Stick
-- B) Imaging/Softwareverteilung
-- C) Upgrade-Installation
-- D) Neuinstallation mit Assistent
 
 <details><summary>Lösung</summary>
 
-**B) Imaging/Softwareverteilung**<br>Ein Image wird einmal erstellt und verteilt.
+**Musterlösung (2 P):** Imaging/Softwareverteilung<br>Ein Image wird einmal erstellt und verteilt.
 
 </details>
 
 **11.** Welcher Befehl leert unter Windows den DNS-Cache?
-- A) ipconfig /renew
-- B) ipconfig /flushdns
-- C) nslookup /clear
-- D) netstat -r
 
 <details><summary>Lösung</summary>
 
-**B) ipconfig /flushdns**
+**Musterlösung (2 P):** ipconfig /flushdns
 
 </details>
 
 **12.** Was bewirkt eine Schnellformatierung?
-- A) Daten werden sicher überschrieben
-- B) Nur Verwaltungsstrukturen werden neu angelegt – Daten sind wiederherstellbar
-- C) Die Festplatte wird partitioniert
-- D) Die SSD wird per Secure Erase gelöscht
 
 <details><summary>Lösung</summary>
 
-**B) Nur Verwaltungsstrukturen werden neu angelegt – Daten sind wiederherstellbar**<br>Für sichere Löschung reicht Formatieren nicht.
+**Musterlösung (2 P):** Nur Verwaltungsstrukturen werden neu angelegt – Daten sind wiederherstellbar<br>Für sichere Löschung reicht Formatieren nicht.
 
 </details>
 
@@ -285,7 +272,7 @@ Ein **Datenbanksystem (DBS)** besteht aus der Datenbank (Daten) und dem **DBMS**
 
 <details><summary>Lösung</summary>
 
-**Musterlösung:** Z. B.: UEFI unterstützt GPT, dadurch Bootlaufwerke > 2 TiB und bis zu 128 Partitionen (2); Secure Boot startet nur signierte Bootloader und schützt so vor Bootkits/Rootkits (2); grafische Oberfläche mit Mausbedienung und Netzwerkfunktionen (2); schnellerer Systemstart (2).
+**Musterlösung (4 P):** Z. B.: UEFI unterstützt GPT, dadurch Bootlaufwerke > 2 TiB und bis zu 128 Partitionen (2); Secure Boot startet nur signierte Bootloader und schützt so vor Bootkits/Rootkits (2); grafische Oberfläche mit Mausbedienung und Netzwerkfunktionen (2); schnellerer Systemstart (2).
 
 </details>
 
@@ -293,79 +280,55 @@ Ein **Datenbanksystem (DBS)** besteht aus der Datenbank (Daten) und dem **DBMS**
 
 <details><summary>Lösung</summary>
 
-**Musterlösung:** Je 1: Treiber und Updates installieren; Anwendungssoftware installieren; Netzwerk konfigurieren und in Domäne/Entra ID einbinden; Benutzerkonto und Rechte einrichten (keine Adminrechte); Sicherheit: Virenschutz, Firewall, BitLocker; Drucker/Netzlaufwerke verbinden; Funktionstest und Dokumentation/Inventarisierung; Einweisung des Nutzers.
+**Musterlösung (4 P):** Je 1: Treiber und Updates installieren; Anwendungssoftware installieren; Netzwerk konfigurieren und in Domäne/Entra ID einbinden; Benutzerkonto und Rechte einrichten (keine Adminrechte); Sicherheit: Virenschutz, Firewall, BitLocker; Drucker/Netzlaufwerke verbinden; Funktionstest und Dokumentation/Inventarisierung; Einweisung des Nutzers.
 
 </details>
 
 **15.** Welches Attribut eignet sich als Primärschlüssel einer Tabelle „Mitarbeiter“?
-- A) Nachname
-- B) Personalnummer
-- C) Abteilung
-- D) Geburtsdatum
 
 <details><summary>Lösung</summary>
 
-**B) Personalnummer**<br>Eindeutig und nie leer – Namen und Geburtsdaten können doppelt vorkommen.
+**Musterlösung (2 P):** Personalnummer<br>Eindeutig und nie leer – Namen und Geburtsdaten können doppelt vorkommen.
 
 </details>
 
 **16.** Eine Abteilung hat viele Mitarbeitende, jede Person gehört zu genau einer Abteilung. Welche Kardinalität?
-- A) 1:1
-- B) 1:n
-- C) n:m
-- D) 0:0
 
 <details><summary>Lösung</summary>
 
-**B) 1:n**
+**Musterlösung (2 P):** 1:n
 
 </details>
 
 **17.** Mitarbeitende arbeiten in mehreren Projekten, Projekte haben mehrere Mitarbeitende. Wie wird das in Tabellen umgesetzt?
-- A) Ein Feld mit allen Projektnamen
-- B) Zwischentabelle mit den Fremdschlüsseln MitarbeiterNr und ProjektNr
-- C) Alle Daten in eine Tabelle
-- D) Gar nicht möglich
 
 <details><summary>Lösung</summary>
 
-**B) Zwischentabelle mit den Fremdschlüsseln MitarbeiterNr und ProjektNr**<br>n:m wird über eine Zwischentabelle aufgelöst.
+**Musterlösung (2 P):** Zwischentabelle mit den Fremdschlüsseln MitarbeiterNr und ProjektNr<br>n:m wird über eine Zwischentabelle aufgelöst.
 
 </details>
 
 **18.** Was ist ein Fremdschlüssel?
-- A) Ein verschlüsseltes Passwort
-- B) Ein Attribut, das auf den Primärschlüssel einer anderen Tabelle verweist
-- C) Ein Schlüssel für den Serverraum
-- D) Eine Tabelle
 
 <details><summary>Lösung</summary>
 
-**B) Ein Attribut, das auf den Primärschlüssel einer anderen Tabelle verweist**
+**Musterlösung (2 P):** Ein Attribut, das auf den Primärschlüssel einer anderen Tabelle verweist
 
 </details>
 
-**19.** Welche Vorteile bietet eine relationale Datenbank gegenüber mehreren Excel-Listen? (mehrere)
-- A) Mehrbenutzerbetrieb
-- B) Weniger Redundanz
-- C) Zugriffsrechte und Datensicherung
-- D) Keine Struktur nötig
+**19.** Welche Vorteile bietet eine relationale Datenbank gegenüber mehreren Excel-Listen? Nennen Sie drei.
 
 <details><summary>Lösung</summary>
 
-**A) Mehrbenutzerbetrieb, B) Weniger Redundanz, C) Zugriffsrechte und Datensicherung**
+**Musterlösung (3 P):** Je 1 Punkt (max. 3): Mehrbenutzerbetrieb; Weniger Redundanz; Zugriffsrechte und Datensicherung.
 
 </details>
 
-**20.** Welche Aussage zum Client-Server-Modell ist richtig?
-- A) Alle Rechner sind gleichberechtigt
-- B) Ein Server stellt zentral Dienste bereit, die Clients nutzen
-- C) Es gibt keinen Single Point of Failure
-- D) Es funktioniert nur im WLAN
+**20.** Beschreiben Sie das Client-Server-Modell und nennen Sie einen Nachteil.
 
 <details><summary>Lösung</summary>
 
-**B) Ein Server stellt zentral Dienste bereit, die Clients nutzen**
+**Musterlösung (3 P):** Ein Server stellt zentral Dienste oder Ressourcen bereit, z. B. Dateien, Anmeldung, Datenbank (1). Die Clients fordern diese über das Netz an und nutzen sie (1). Nachteil (1): Der Server ist ein Single Point of Failure; höhere Kosten und mehr Administrationsaufwand als bei Peer-to-Peer.
 
 </details>
 
@@ -373,7 +336,47 @@ Ein **Datenbanksystem (DBS)** besteht aus der Datenbank (Daten) und dem **DBMS**
 
 <details><summary>Lösung</summary>
 
-**Musterlösung:** Problem: Kundendaten sind redundant mehrfach gespeichert (1); bei Änderungen (z. B. neue Adresse) entstehen Inkonsistenzen/Änderungsanomalien (1). Lösung: zwei Tabellen Kunde (Primärschlüssel KundenNr) und Bestellung (1), Bestellung erhält den Fremdschlüssel KundenNr → 1:n-Beziehung, Kundendaten nur einmal gespeichert (1).
+**Musterlösung (4 P):** Problem: Kundendaten sind redundant mehrfach gespeichert (1); bei Änderungen (z. B. neue Adresse) entstehen Inkonsistenzen/Änderungsanomalien (1). Lösung: zwei Tabellen Kunde (Primärschlüssel KundenNr) und Bestellung (1), Bestellung erhält den Fremdschlüssel KundenNr → 1:n-Beziehung, Kundendaten nur einmal gespeichert (1).
+
+</details>
+
+**22.** Ein Systemhaus will Kunden und deren Geräte speichern. Ein Kunde kann mehrere Geräte haben, jedes Gerät gehört genau einem Kunden. Geben Sie die beiden Tabellen mit sinnvollen Spalten an und kennzeichnen Sie Primär- und Fremdschlüssel.
+
+<details><summary>Lösung</summary>
+
+**Musterlösung (4 P):** Kunde (KundenNr als Primärschlüssel, Name, Ort …) (1,5). Gerät (SerienNr oder GeräteNr als Primärschlüssel, Typ, Kaufdatum …) (1,5), dazu KundenNr als Fremdschlüssel in der Tabelle Gerät (1) – denn bei 1:n steht der Fremdschlüssel auf der n-Seite.
+
+</details>
+
+**23.** Eine Abteilung hat viele Mitarbeitende, jede Person gehört zu genau einer Abteilung. In welcher Tabelle steht der Fremdschlüssel?
+
+<details><summary>Lösung</summary>
+
+**Musterlösung (2 P):** In der Tabelle Mitarbeiter (n-Seite) – sie erhält die AbteilungsNr
+
+</details>
+
+**24.** Mit welchem Symbol wird ein Entitätstyp im ER-Diagramm dargestellt?
+
+<details><summary>Lösung</summary>
+
+**Musterlösung (2 P):** Rechteck
+
+</details>
+
+**25.** Nennen Sie für die Spalten Name, Geburtsdatum und Monatsgehalt jeweils einen geeigneten Datentyp.
+
+<details><summary>Lösung</summary>
+
+**Musterlösung (3 P):** Name: Text/Zeichenkette (1). Geburtsdatum: Datum (1). Monatsgehalt: Dezimalzahl (1).
+
+</details>
+
+**26.** Mitarbeitende besuchen mehrere Schulungen, an einer Schulung nehmen mehrere Mitarbeitende teil. Beschreiben Sie, wie diese Beziehung in Tabellen umgesetzt wird.
+
+<details><summary>Lösung</summary>
+
+**Musterlösung (4 P):** Es ist eine n:m-Beziehung (1). Sie wird über eine Zwischentabelle aufgelöst, z. B. Teilnahme (1). Diese enthält die Primärschlüssel beider Tabellen als Fremdschlüssel: MitarbeiterNr und SchulungsNr (1); zusammen bilden sie den Primärschlüssel, weitere Spalten wie das Datum sind möglich (1).
 
 </details>
 

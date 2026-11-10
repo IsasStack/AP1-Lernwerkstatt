@@ -110,9 +110,27 @@ In der AP1 kann eine Anlage auf Englisch sein (Datenblatt, Handbuch, Sicherheits
 
 **Benutzeroberflächen**: **GUI** (grafisch, intuitiv, für Endanwender) vs. **CLI** (Kommandozeile, schnell, skriptbar/automatisierbar, für Admins) vs. **Web-UI** (im Browser, plattformunabhängig) vs. **Touch/Sprache**.
 
+## Präsentieren und moderieren
+
+- **Vorbereitung:** Ziel klären, Zielgruppe einschätzen (Vorwissen, Interesse), Zeit und Medien festlegen.
+- **Aufbau:** Einleitung (Thema, Ablauf, Nutzen) – Hauptteil (wenige Kernaussagen, roter Faden) – Schluss (Zusammenfassung, Empfehlung, Fragen).
+- **Folien:** wenig Text, eine Aussage pro Folie, gut lesbare Schrift, Zahlen als Diagramm, einheitliches Design.
+- **Vor Fachfremden:** Fachbegriffe erklären, Nutzen statt Technik betonen.
+- **Moderation:** Der Moderator leitet das Gespräch neutral, achtet auf Zeit und Ziel und hält Ergebnisse fest.
+
+**Kreativitätstechniken:** Beim **Brainstorming** werden Ideen gesammelt, ohne sie zu bewerten – Menge vor Qualität, Kritik erst danach. Eine **Mindmap** ordnet Gedanken ausgehend von einem zentralen Begriff in Ästen.
+
+## Markt und Preis (Hintergrund)
+
+Ist das Angebot größer als die Nachfrage, sinken die Preise und Käufer können wählen (**Käufermarkt**). Ist die Nachfrage größer als das Angebot, steigen die Preise (**Verkäufermarkt**). Beim Gleichgewichtspreis sind angebotene und nachgefragte Menge gleich.
+
+## Geschäftsprozesse (Hintergrund)
+
+**Kernprozesse** schaffen den Wert für den Kunden (z. B. Beratung, Installation, Support). **Unterstützungsprozesse** halten den Betrieb am Laufen (Personal, Buchhaltung, interne IT). **Managementprozesse** steuern das Unternehmen (Strategie, Controlling).
+
 ---
 
-## 🃏 Karteikarten (31)
+## 🃏 Karteikarten (39)
 
 | Frage | Antwort |
 |---|---|
@@ -147,114 +165,86 @@ In der AP1 kann eine Anlage auf Englisch sein (Datenblatt, Handbuch, Sicherheits
 | Unified Communications | Chat, Telefonie, Video, Dateien in einer Plattform (z. B. Teams). |
 | VoIP – Voraussetzungen im Netz | PoE für IP-Telefone, QoS/VLAN für Sprachqualität, ausreichende Bandbreite, geringe Latenz. |
 | GUI vs. CLI | GUI: grafisch, intuitiv. CLI: Kommandozeile, schnell, automatisierbar per Skript. |
+| Aufbau einer Präsentation | Einleitung (Thema, Ablauf) – Hauptteil (Kernaussagen) – Schluss (Zusammenfassung, Empfehlung, Fragen). |
+| Regeln für gute Folien | Wenig Text, eine Aussage pro Folie, lesbare Schrift, Zahlen als Diagramm, einheitliches Design. |
+| Präsentation vor Fachfremden | Fachbegriffe erklären, Beispiele nutzen, den Nutzen statt der Technik betonen. |
+| Aufgabe des Moderators | Leitet das Gespräch neutral, achtet auf Zeit und Ziel, hält Ergebnisse fest. |
+| Brainstorming – Regeln | Ideen frei sammeln, keine Bewertung oder Kritik währenddessen, Menge vor Qualität, Ideen anderer aufgreifen. |
+| Mindmap | Gedanken werden um einen zentralen Begriff in Haupt- und Nebenästen geordnet. |
+| Käufermarkt vs. Verkäufermarkt | Käufermarkt: Angebot > Nachfrage, Preise sinken. Verkäufermarkt: Nachfrage > Angebot, Preise steigen. |
+| Kern- vs. Unterstützungsprozess | Kernprozess schafft Wert für den Kunden (Beratung, Support). Unterstützungsprozess hält den Betrieb am Laufen (Personal, Buchhaltung). |
 
-## ✍️ Übungsfragen (19)
+## ✍️ Übungsfragen (22)
 
 **1.** Ein Kollege sagt: „Die Grafikkarte ist ja schon wieder überhitzt.“ Welche Seite steht beim Satz „Kümmer dich endlich darum!“ im Vordergrund?
-- A) Sachinhalt
-- B) Selbstoffenbarung
-- C) Beziehung
-- D) Appell
 
 <details><summary>Lösung</summary>
 
-**D) Appell**<br>Aufforderung zum Handeln = Appell.
+**Musterlösung (2 P):** Appell<br>Aufforderung zum Handeln = Appell.
 
 </details>
 
-**2.** Welche Frage eignet sich am besten, um im Erstgespräch den Bedarf zu ermitteln?
-- A) „Sie möchten doch sicher 32 GB RAM?“
-- B) „Welche Anwendungen nutzen Sie im Arbeitsalltag?“
-- C) „Möchten Sie das Gerät?“
-- D) „Schwarz oder Silber?“
+**2.** Formulieren Sie eine Frage, mit der Sie im Erstgespräch den Bedarf einer Kundin für einen neuen Arbeitsplatz-PC ermitteln, und begründen Sie die Frageform.
 
 <details><summary>Lösung</summary>
 
-**B) „Welche Anwendungen nutzen Sie im Arbeitsalltag?“**<br>Offene W-Frage – der Kunde liefert Informationen.
+**Musterlösung (2 P):** Z. B. „Welche Anwendungen nutzen Sie im Arbeitsalltag?“ (1) – eine offene W-Frage: Die Kundin erzählt frei und liefert viele Informationen. Geschlossene oder Suggestivfragen („Sie möchten doch sicher 32 GB RAM?“) schränken die Antwort ein (1).<br>Offene W-Frage – der Kunde liefert Informationen.
 
 </details>
 
 **3.** Eine Kundin kauft ein Notebook. Der Verkäufer empfiehlt zusätzlich eine Dockingstation. Das ist …
-- A) Upselling
-- B) Cross-Selling
-- C) Benchmarking
-- D) Direktvertrieb
 
 <details><summary>Lösung</summary>
 
-**B) Cross-Selling**<br>Ergänzendes Produkt = Cross-Selling.
+**Musterlösung (2 P):** Cross-Selling<br>Ergänzendes Produkt = Cross-Selling.
 
 </details>
 
 **4.** Welche Support-Ebene nimmt Störungsmeldungen an und löst Standardprobleme?
-- A) 1st Level
-- B) 2nd Level
-- C) 3rd Level
-- D) Management
 
 <details><summary>Lösung</summary>
 
-**A) 1st Level**<br>Der Service Desk (1st Level) ist der Single Point of Contact.
+**Musterlösung (2 P):** 1st Level<br>Der Service Desk (1st Level) ist der Single Point of Contact.
 
 </details>
 
 **5.** Wenige Anbieter stehen vielen Nachfragern gegenüber. Welche Marktform?
-- A) Polypol
-- B) Oligopol
-- C) Monopol
-- D) Monopson
 
 <details><summary>Lösung</summary>
 
-**B) Oligopol**<br>Oligopol, z. B. Betriebssysteme oder CPU-Hersteller.
+**Musterlösung (2 P):** Oligopol<br>Oligopol, z. B. Betriebssysteme oder CPU-Hersteller.
 
 </details>
 
-**6.** Welche Merkmale gehören zum aktiven Zuhören? (mehrere)
-- A) Paraphrasieren
-- B) Unterbrechen, um Zeit zu sparen
-- C) Nachfragen
-- D) Blickkontakt halten
+**6.** Welche Merkmale gehören zum aktiven Zuhören? Nennen Sie drei.
 
 <details><summary>Lösung</summary>
 
-**A) Paraphrasieren, C) Nachfragen, D) Blickkontakt halten**<br>Unterbrechen widerspricht aktivem Zuhören.
+**Musterlösung (3 P):** Je 1 Punkt (max. 3): Paraphrasieren; Nachfragen; Blickkontakt halten. Unterbrechen widerspricht aktivem Zuhören.
 
 </details>
 
 **7.** Was liegt laut Eisbergmodell „unter Wasser“?
-- A) Zahlen und Fakten
-- B) Gefühle, Werte, Erfahrungen
-- C) Die Tagesordnung
-- D) Technische Daten
 
 <details><summary>Lösung</summary>
 
-**B) Gefühle, Werte, Erfahrungen**<br>Beziehungsebene = großer unsichtbarer Teil.
+**Musterlösung (2 P):** Gefühle, Werte, Erfahrungen<br>Beziehungsebene = großer unsichtbarer Teil.
 
 </details>
 
 **8.** Bei welcher Organisationsform hat ein Mitarbeiter mehrere fachliche Vorgesetzte?
-- A) Einliniensystem
-- B) Mehrliniensystem
-- C) Stabliniensystem
-- D) Spartenorganisation
 
 <details><summary>Lösung</summary>
 
-**B) Mehrliniensystem**<br>Mehrliniensystem (Taylor): kurze Wege, aber mögliche Weisungskonflikte.
+**Musterlösung (2 P):** Mehrliniensystem<br>Mehrliniensystem (Taylor): kurze Wege, aber mögliche Weisungskonflikte.
 
 </details>
 
 **9.** Was unterscheidet ein Problem von einem Incident?
-- A) Ein Problem ist immer schwerer.
-- B) Ein Problem ist die Ursache einer oder mehrerer Störungen.
-- C) Ein Incident betrifft nur Hardware.
-- D) Es gibt keinen Unterschied.
 
 <details><summary>Lösung</summary>
 
-**B) Ein Problem ist die Ursache einer oder mehrerer Störungen.**<br>Incident = Symptom/Störung, Problem = Ursache.
+**Musterlösung (2 P):** Ein Problem ist die Ursache einer oder mehrerer Störungen.<br>Incident = Symptom/Störung, Problem = Ursache.
 
 </details>
 
@@ -262,7 +252,7 @@ In der AP1 kann eine Anlage auf Englisch sein (Datenblatt, Handbuch, Sicherheits
 
 <details><summary>Lösung</summary>
 
-**Musterlösung:** Ursachen (je 1): Angst vor Kompetenzverlust/Überforderung; Wissenslücken zum neuen System; schlechte Erfahrungen mit früheren Einführungen; Angst vor Kontrolle. Maßnahmen (je 1): frühzeitig informieren und Nutzen erklären; Mitarbeiter einbeziehen (Feedback, Testphase); Schulungen/Key-User als Multiplikatoren; Unterstützung/Ansprechpartner während der Einführung.
+**Musterlösung (4 P):** Ursachen (je 1): Angst vor Kompetenzverlust/Überforderung; Wissenslücken zum neuen System; schlechte Erfahrungen mit früheren Einführungen; Angst vor Kontrolle. Maßnahmen (je 1): frühzeitig informieren und Nutzen erklären; Mitarbeiter einbeziehen (Feedback, Testphase); Schulungen/Key-User als Multiplikatoren; Unterstützung/Ansprechpartner während der Einführung.
 
 </details>
 
@@ -270,7 +260,7 @@ In der AP1 kann eine Anlage auf Englisch sein (Datenblatt, Handbuch, Sicherheits
 
 <details><summary>Lösung</summary>
 
-**Musterlösung:** Je 1 Punkt: Erfassung von Anfragen; Priorisierung/Kategorisierung; Zuweisung an Bearbeiter/Level; Verfolgung des Bearbeitungsstatus; Dokumentation der Lösung/Wissensdatenbank; Auswertungen/Statistiken und SLA-Überwachung; Benachrichtigung des Kunden.
+**Musterlösung (4 P):** Je 1 Punkt: Erfassung von Anfragen; Priorisierung/Kategorisierung; Zuweisung an Bearbeiter/Level; Verfolgung des Bearbeitungsstatus; Dokumentation der Lösung/Wissensdatenbank; Auswertungen/Statistiken und SLA-Überwachung; Benachrichtigung des Kunden.
 
 </details>
 
@@ -278,91 +268,87 @@ In der AP1 kann eine Anlage auf Englisch sein (Datenblatt, Handbuch, Sicherheits
 
 <details><summary>Lösung</summary>
 
-**Musterlösung:** Sachinhalt: Das Programm ist komplex zu bedienen (1). Selbstoffenbarung: Ich fühle mich überfordert/unsicher (1). Beziehung: Ihr habt mir etwas Ungeeignetes gegeben bzw. mich nicht gut eingewiesen (1). Appell: Erklärt es mir/schult mich bzw. vereinfacht es (1).
+**Musterlösung (4 P):** Sachinhalt: Das Programm ist komplex zu bedienen (1). Selbstoffenbarung: Ich fühle mich überfordert/unsicher (1). Beziehung: Ihr habt mir etwas Ungeeignetes gegeben bzw. mich nicht gut eingewiesen (1). Appell: Erklärt es mir/schult mich bzw. vereinfacht es (1).
 
 </details>
 
 **13.** Sie suchen nur PDF-Datenblätter eines Monitors auf der Herstellerseite example.com. Welche Suchanfrage passt?
-- A) Monitor Datenblatt pdf example
-- B) site:example.com Datenblatt filetype:pdf
-- C) "example.com" OR pdf
-- D) -pdf site:example.com
 
 <details><summary>Lösung</summary>
 
-**B) site:example.com Datenblatt filetype:pdf**
+**Musterlösung (2 P):** site:example.com Datenblatt filetype:pdf
 
 </details>
 
 **14.** Welche Quelle ist für die Frage „Unterstützt Gerät X DisplayPort Alt Mode?“ am verlässlichsten?
-- A) Ein Forenbeitrag von 2019
-- B) Das aktuelle Datenblatt des Herstellers
-- C) Eine Werbeanzeige
-- D) Ein Video ohne Quellenangabe
 
 <details><summary>Lösung</summary>
 
-**B) Das aktuelle Datenblatt des Herstellers**<br>Primärquelle, aktuell.
+**Musterlösung (2 P):** Das aktuelle Datenblatt des Herstellers<br>Primärquelle, aktuell.
 
 </details>
 
 **15.** In einer Sicherheitsmeldung steht „Affected versions: 2.1.0 – 2.3.4. Fixed in 2.3.5“. Ihre Firmware ist 2.3.4. Was tun?
-- A) Nichts – nicht betroffen
-- B) Auf 2.3.5 oder neuer aktualisieren
-- C) Auf 2.1.0 zurückgehen
-- D) Gerät entsorgen
 
 <details><summary>Lösung</summary>
 
-**B) Auf 2.3.5 oder neuer aktualisieren**<br>2.3.4 ist betroffen; die Korrektur ist in 2.3.5.
+**Musterlösung (2 P):** Auf 2.3.5 oder neuer aktualisieren<br>2.3.4 ist betroffen; die Korrektur ist in 2.3.5.
 
 </details>
 
 **16.** Was bedeutet „The licensee may not transfer the software without prior written consent“?
-- A) Die Software darf frei weitergegeben werden
-- B) Der Lizenznehmer darf die Software nur mit vorheriger schriftlicher Zustimmung übertragen
-- C) Die Software ist kostenlos
-- D) Die Lizenz ist zeitlich unbegrenzt
 
 <details><summary>Lösung</summary>
 
-**B) Der Lizenznehmer darf die Software nur mit vorheriger schriftlicher Zustimmung übertragen**
+**Musterlösung (2 P):** Der Lizenznehmer darf die Software nur mit vorheriger schriftlicher Zustimmung übertragen
 
 </details>
 
-**17.** Welche Formulierung entspricht den Feedbackregeln?
-- A) „Du bist immer unpünktlich.“
-- B) „Mir ist aufgefallen, dass du diese Woche zweimal zu spät zum Daily kamst. Können wir das ändern?“
-- C) „Alle finden dich nervig.“
-- D) „Das war schlecht.“
+**17.** Ein Kollege kam diese Woche zweimal zu spät zum Daily. Formulieren Sie ein Feedback nach den Feedbackregeln und nennen Sie zwei Regeln, die Sie dabei beachtet haben.
 
 <details><summary>Lösung</summary>
 
-**B) „Mir ist aufgefallen, dass du diese Woche zweimal zu spät zum Daily kamst. Können wir das ändern?“**<br>Ich-Botschaft, konkret, beschreibend, lösungsorientiert.
+**Musterlösung (3 P):** Z. B.: „Mir ist aufgefallen, dass du diese Woche zweimal zu spät zum Daily kamst. Dadurch mussten wir Themen wiederholen. Können wir das ändern?“ (1) Regeln (je 1): Ich-Botschaft; konkret und beschreibend statt verallgemeinernd („immer“); zeitnah; auf veränderbares Verhalten bezogen; lösungsorientiert; unter vier Augen.<br>Ich-Botschaft, konkret, beschreibend, lösungsorientiert.
 
 </details>
 
 **18.** Ein Unternehmen stellt auf IP-Telefonie um. Was ist im Netzwerk besonders wichtig?
-- A) Nur WLAN 2,4 GHz
-- B) PoE für die Telefone und QoS/VLAN zur Priorisierung der Sprachdaten
-- C) FAT32-Dateisystem
-- D) Ein zweiter Drucker
 
 <details><summary>Lösung</summary>
 
-**B) PoE für die Telefone und QoS/VLAN zur Priorisierung der Sprachdaten**
+**Musterlösung (2 P):** PoE für die Telefone und QoS/VLAN zur Priorisierung der Sprachdaten
 
 </details>
 
 **19.** Ein Admin will 200 Benutzerkonten automatisiert anlegen. Welche Oberfläche ist am besten geeignet?
-- A) GUI mit Mausklicks
-- B) CLI/Skript (z. B. PowerShell)
-- C) Touchscreen
-- D) Sprachsteuerung
 
 <details><summary>Lösung</summary>
 
-**B) CLI/Skript (z. B. PowerShell)**<br>Automatisierbar und schnell.
+**Musterlösung (2 P):** CLI/Skript (z. B. PowerShell)<br>Automatisierbar und schnell.
+
+</details>
+
+**20.** Sie sollen der Geschäftsführung in zehn Minuten Ihr Konzept für neue Arbeitsplätze vorstellen. Nennen Sie vier Punkte, die Sie bei Vorbereitung und Gestaltung beachten.
+
+<details><summary>Lösung</summary>
+
+**Musterlösung (4 P):** Je 1: Ziel und Kernaussage festlegen; Zielgruppe berücksichtigen – Nutzen und Kosten statt technischer Details; klarer Aufbau aus Einleitung, Hauptteil, Schluss; wenig Text und Diagramme auf den Folien; Fachbegriffe erklären; Zeit einhalten und Probedurchlauf; mit einer klaren Empfehlung enden und Fragen zulassen.
+
+</details>
+
+**21.** Nennen Sie zwei Regeln für ein Brainstorming.
+
+<details><summary>Lösung</summary>
+
+**Musterlösung (2 P):** Je 1: Ideen werden während der Sammlung nicht bewertet oder kritisiert; Menge geht vor Qualität; freies Assoziieren ist erwünscht; Ideen anderer dürfen aufgegriffen werden; alle Ideen werden sichtbar festgehalten.
+
+</details>
+
+**22.** Wie heißt die Marktsituation, in der das Angebot größer ist als die Nachfrage?
+
+<details><summary>Lösung</summary>
+
+**Musterlösung (2 P):** Käufermarkt
 
 </details>
 

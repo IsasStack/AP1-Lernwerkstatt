@@ -102,122 +102,82 @@ Externe Social Media (LinkedIn, Instagram, YouTube) für Marketing, Recruiting, 
 ## ✍️ Übungsfragen (15)
 
 **1.** Ein Unternehmen nutzt Microsoft 365 im Browser. Welches Cloud-Modell?
-- A) IaaS
-- B) PaaS
-- C) SaaS
-- D) On-Premises
 
 <details><summary>Lösung</summary>
 
-**C) SaaS**<br>Fertige Anwendung = SaaS.
+**Musterlösung (2 P):** SaaS<br>Fertige Anwendung = SaaS.
 
 </details>
 
 **2.** Ein Entwicklerteam mietet virtuelle Maschinen und installiert eigenes Linux darauf. Welches Modell?
-- A) IaaS
-- B) PaaS
-- C) SaaS
-- D) FaaS
 
 <details><summary>Lösung</summary>
 
-**A) IaaS**<br>Infrastruktur gemietet, OS selbst verwaltet.
+**Musterlösung (2 P):** IaaS<br>Infrastruktur gemietet, OS selbst verwaltet.
 
 </details>
 
-**3.** Welcher Hypervisor gehört zu Typ 2?
-- A) VMware ESXi
-- B) Microsoft Hyper-V Server
-- C) Oracle VirtualBox
-- D) Proxmox VE
+**3.** Nennen Sie einen Typ-2-Hypervisor.
 
 <details><summary>Lösung</summary>
 
-**C) Oracle VirtualBox**<br>VirtualBox läuft als Anwendung auf einem Host-OS.
+**Musterlösung (2 P):** Z. B. Oracle VirtualBox oder VMware Workstation<br>VirtualBox läuft als Anwendung auf einem Host-OS.
 
 </details>
 
 **4.** Welche Software verwaltet Kundenkontakte, Angebote und Verkaufschancen?
-- A) ERP
-- B) CRM
-- C) SCM
-- D) DMS
 
 <details><summary>Lösung</summary>
 
-**B) CRM**<br>CRM = Customer Relationship Management.
+**Musterlösung (2 P):** CRM<br>CRM = Customer Relationship Management.
 
 </details>
 
 **5.** Welches System integriert Buchhaltung, Lager, Einkauf und Personal in einer zentralen Datenbank?
-- A) CRM
-- B) ERP
-- C) CMS
-- D) SIEM
 
 <details><summary>Lösung</summary>
 
-**B) ERP**<br>ERP.
+**Musterlösung (2 P):** ERP<br>ERP.
 
 </details>
 
-**6.** Welche Risiken bestehen beim Einsatz öffentlicher KI-Chatbots im Unternehmen? (mehrere)
-- A) Halluzinationen
-- B) Abfluss vertraulicher Daten
-- C) Garantiert fehlerfreie Ergebnisse
-- D) Datenschutzverstöße
+**6.** Welche Risiken bestehen beim Einsatz öffentlicher KI-Chatbots im Unternehmen? Nennen Sie drei.
 
 <details><summary>Lösung</summary>
 
-**A) Halluzinationen, B) Abfluss vertraulicher Daten, D) Datenschutzverstöße**<br>KI-Ergebnisse sind nicht garantiert korrekt.
+**Musterlösung (3 P):** Je 1 Punkt (max. 3): Halluzinationen; Abfluss vertraulicher Daten; Datenschutzverstöße. KI-Ergebnisse sind nicht garantiert korrekt.
 
 </details>
 
 **7.** Was ist ein wesentlicher Unterschied zwischen Container und virtueller Maschine?
-- A) Container enthalten ein vollständiges Gast-Betriebssystem
-- B) Container teilen sich den Kernel des Hosts
-- C) VMs starten schneller als Container
-- D) Container benötigen einen Typ-2-Hypervisor
 
 <details><summary>Lösung</summary>
 
-**B) Container teilen sich den Kernel des Hosts**<br>Darum sind Container leichtgewichtig.
+**Musterlösung (2 P):** Container teilen sich den Kernel des Hosts<br>Darum sind Container leichtgewichtig.
 
 </details>
 
 **8.** Welches Bereitstellungsmodell kombiniert eigene Infrastruktur mit Ressourcen eines öffentlichen Anbieters?
-- A) Public Cloud
-- B) Private Cloud
-- C) Hybrid Cloud
-- D) Community Cloud
 
 <details><summary>Lösung</summary>
 
-**C) Hybrid Cloud**
+**Musterlösung (2 P):** Hybrid Cloud
 
 </details>
 
 **9.** Eine Rechnung im ERP-System ist ein Beispiel für …
-- A) Stammdaten
-- B) Bewegungsdaten
-- C) Metadaten
-- D) Konfigurationsdaten
 
 <details><summary>Lösung</summary>
 
-**B) Bewegungsdaten**<br>Rechnungen entstehen laufend = Bewegungsdaten.
+**Musterlösung (2 P):** Bewegungsdaten<br>Rechnungen entstehen laufend = Bewegungsdaten.
 
 </details>
 
 **10.** Welche Pflicht aus dem EU AI Act gilt seit Februar 2025 für Unternehmen, die KI einsetzen?
-- A) Jede KI muss zertifiziert sein
-- B) Förderung der KI-Kompetenz der Beschäftigten
-- C) KI darf nicht für Texte genutzt werden
-- D) Meldung jedes Prompts an die Behörde
 
 <details><summary>Lösung</summary>
 
-**B) Förderung der KI-Kompetenz der Beschäftigten**<br>Art. 4 – KI-Kompetenz.
+**Musterlösung (2 P):** Förderung der KI-Kompetenz der Beschäftigten<br>Art. 4 – KI-Kompetenz.
 
 </details>
 
@@ -225,7 +185,7 @@ Externe Social Media (LinkedIn, Instagram, YouTube) für Marketing, Recruiting, 
 
 <details><summary>Lösung</summary>
 
-**Musterlösung:** Z. B.: Halluzinationen/falsche Ergebnisse (1) → Ergebnisse prüfen, Human in the Loop, Schulung (1). Abfluss vertraulicher oder personenbezogener Daten (1) → nur freigegebene Enterprise-Tools ohne Trainingsnutzung, KI-Richtlinie, AV-Vertrag (1). Urheberrechtsverletzungen (1) → Quellen prüfen, Kennzeichnung (1).
+**Musterlösung (4 P):** Z. B.: Halluzinationen/falsche Ergebnisse (1) → Ergebnisse prüfen, Human in the Loop, Schulung (1). Abfluss vertraulicher oder personenbezogener Daten (1) → nur freigegebene Enterprise-Tools ohne Trainingsnutzung, KI-Richtlinie, AV-Vertrag (1). Urheberrechtsverletzungen (1) → Quellen prüfen, Kennzeichnung (1).
 
 </details>
 
@@ -233,7 +193,7 @@ Externe Social Media (LinkedIn, Instagram, YouTube) für Marketing, Recruiting, 
 
 <details><summary>Lösung</summary>
 
-**Musterlösung:** Z. B.: Mehrere virtuelle Server teilen sich eine physische Hardware → bessere Auslastung, weniger Anschaffungs-, Strom- und Platzkosten (2). Snapshots/Backups ganzer VMs und schnelle Wiederherstellung (2). Neue Server lassen sich in Minuten bereitstellen (2). Isolation: Fehler in einer VM betreffen andere nicht (2).
+**Musterlösung (4 P):** Z. B.: Mehrere virtuelle Server teilen sich eine physische Hardware → bessere Auslastung, weniger Anschaffungs-, Strom- und Platzkosten (2). Snapshots/Backups ganzer VMs und schnelle Wiederherstellung (2). Neue Server lassen sich in Minuten bereitstellen (2). Isolation: Fehler in einer VM betreffen andere nicht (2).
 
 </details>
 
@@ -241,31 +201,23 @@ Externe Social Media (LinkedIn, Instagram, YouTube) für Marketing, Recruiting, 
 
 <details><summary>Lösung</summary>
 
-**Musterlösung:** IaaS: z. B. Azure VM – Kunde verwaltet das Betriebssystem (1). PaaS: z. B. Azure App Service – Anbieter verwaltet das OS, Kunde nur die Anwendung (1). SaaS: z. B. Microsoft 365 – Anbieter verwaltet alles bis zur Anwendung (1).
+**Musterlösung (3 P):** IaaS: z. B. Azure VM – Kunde verwaltet das Betriebssystem (1). PaaS: z. B. Azure App Service – Anbieter verwaltet das OS, Kunde nur die Anwendung (1). SaaS: z. B. Microsoft 365 – Anbieter verwaltet alles bis zur Anwendung (1).
 
 </details>
 
 **14.** Ein Unternehmen stellt 10 befristete Projektmitarbeitende ein, die von eigenen Geräten auf einen Firmen-Windows-Desktop zugreifen sollen. Was passt?
-- A) Desktop as a Service
-- B) On-Premises-Mailserver
-- C) Floppy-Disk
-- D) Peer-to-Peer
 
 <details><summary>Lösung</summary>
 
-**A) Desktop as a Service**<br>Schnell bereitgestellt, Daten bleiben zentral, monatlich kündbar.
+**Musterlösung (2 P):** Desktop as a Service<br>Schnell bereitgestellt, Daten bleiben zentral, monatlich kündbar.
 
 </details>
 
 **15.** Warum sollten vor der Einführung eines KI-Assistenten mit Zugriff auf Unternehmensdaten die Berechtigungen geprüft werden?
-- A) Damit die KI schneller ist
-- B) Weil die KI alles findet, was der Nutzer sehen darf – zu weit gefasste Rechte werden sonst sichtbar
-- C) Wegen der Lizenzkosten
-- D) Gar nicht nötig
 
 <details><summary>Lösung</summary>
 
-**B) Weil die KI alles findet, was der Nutzer sehen darf – zu weit gefasste Rechte werden sonst sichtbar**
+**Musterlösung (2 P):** Weil die KI alles findet, was der Nutzer sehen darf – zu weit gefasste Rechte werden sonst sichtbar
 
 </details>
 

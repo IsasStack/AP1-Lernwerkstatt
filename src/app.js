@@ -254,7 +254,17 @@ function renderTopic(app, t) {
     <div class="row" style="margin-top:10px"><button class="btn pri" onclick="S.notes['${t.id}']=$('#note').value;save();toast('Notiz gespeichert')">Speichern</button></div>`;
   }
 }
-function typeLabel(q) { return { sc: "Single", mc: "Multi", num: "Rechnen", open: "Offen " + (q.p || "") + "P" }[q.t]; }
+function typeLabel(q) { return { sc: "Auswahl", mc: "Mehrfachauswahl", num: "Rechnen", open: (q.short ? "Kurzantwort " : "Offen ") + (q.p || "") + "P" }[q.t]; }
+/* Kurzantworten: kurze, eindeutige Lösungen werden automatisch erkannt (Tippfehler und Schreibweise egal) */
+function keyOk(v, q) {
+  const raw = String(v || "").trim(); if (!raw || !q.keys) return false;
+  const x = abkNorm(raw), toks = raw.split(/[\s,;()"„“]+/).map(abkNorm).filter(Boolean);
+  if ((q.not || []).some(n => x.includes(abkNorm(n)))) return false;
+  return q.keys.some(k => { const kn = abkNorm(k); if (!kn) return false;
+    if (kn.length <= 3 || /^\d+$/.test(kn)) return x === kn || toks.includes(kn);
+    const tol = Math.floor(kn.length / 8);
+    return x.includes(kn) || (Math.abs(x.length - kn.length) <= 2 && lev(x, kn) <= tol) || (tol > 0 && toks.some(t => Math.abs(t.length - kn.length) <= tol && lev(t, kn) <= tol)); });
+}
 function boxPill(st) {
   if (!st) return `<span class="pill">neu</span>`;
   const cls = st.b >= 4 ? "gr" : st.b >= 2 ? "cy" : "rd";
@@ -323,13 +333,13 @@ function renderQuizHome(app) {
   const wrong = ALLQ.filter(q => S.q[q.k] && !S.q[q.k].l).length;
   const bm = Object.keys(S.bm).filter(k => QBY[k]).length;
   const unseen = ALLQ.filter(q => !S.q[q.k]).length;
-  app.innerHTML = `<h1>❓ Quiz</h1><p class="sub">Lernmodus mit sofortiger Erklärung. Offene Aufgaben (wie in der echten AP1): erst selbst formulieren, dann Musterlösung ansehen und ehrlich Punkte vergeben.</p>
+  app.innerHTML = `<h1>❓ Quiz</h1><p class="sub">Wie in der echten AP1 gibt es hier nichts zum Ankreuzen: Du schreibst die Antwort selbst. Kurze, eindeutige Antworten erkennt die App automatisch, bei längeren vergleichst du mit der Musterlösung und vergibst ehrlich Punkte${HAS_AI ? " – oder lässt die KI bewerten" : ""}.</p>
   <div class="grid g3">
     <div class="card click" onclick="startQuiz(shuffle(ALLQ).slice(0,20),'Mix: 20 Fragen')"><b>🎲 Zufallsmix</b><div class="small muted">20 Fragen aus allen Themen</div></div>
     <div class="card click" onclick="startQuiz(shuffle(ALLQ.filter(q=>!S.q[q.k])).slice(0,25),'Neue Fragen')"><b>🆕 Neue Fragen</b><div class="small muted">${unseen} noch nie beantwortet</div></div>
     <div class="card click" onclick="${wrong ? "startQuiz(ALLQ.filter(q=>S.q[q.k]&&!S.q[q.k].l),'Fehlertraining')" : "toast('Keine offenen Fehler 👍')"}"><b>🔁 Fehlertraining</b><div class="small muted">${wrong} zuletzt falsch beantwortet</div></div>
     <div class="card click" onclick="${bm ? "startQuiz(Object.keys(S.bm).map(k=>QBY[k]).filter(Boolean),'Lesezeichen')" : "toast('Noch keine Lesezeichen')"}"><b>🔖 Lesezeichen</b><div class="small muted">${bm} markiert</div></div>
-    <div class="card click" onclick="startQuiz(shuffle(ALLQ.filter(q=>q.t==='open')).slice(0,10),'Offene IHK-Aufgaben')"><b>✍️ Offene Aufgaben</b><div class="small muted">10 Aufgaben mit Musterlösung</div></div>
+    <div class="card click" onclick="startQuiz(shuffle(ALLQ.filter(q=>q.t==='open'&&!q.short)).slice(0,10),'Offene IHK-Aufgaben')"><b>✍️ Ausführliche Aufgaben</b><div class="small muted">10 Aufgaben mit 2–6 Punkten: nennen, erläutern, begründen</div></div>
     <div class="card click" onclick="startQuiz(shuffle(ALLQ.filter(q=>q.t==='num')).slice(0,15),'Rechenaufgaben')"><b>🔢 Rechenaufgaben</b><div class="small muted">15 Aufgaben aus dem Fragenpool</div></div>
   </div>
   <h2>Eigene Auswahl</h2>
@@ -401,14 +411,17 @@ function renderQuizRun(app) {
     }).join("");
     if (q.t === "mc") body = `<div class="small dim">Mehrere Antworten möglich.</div>` + body;
   } else if (q.t === "num") {
-    body = `<div class="row" style="flex-wrap:nowrap"><input id="numin" inputmode="decimal" placeholder="Ergebnis" value="${esc(it.ans || "")}" ${locked ? "disabled" : ""} oninput="QS.items[QS.i].ans=this.value" onkeydown="if(event.key==='Enter')submitQ()" style="max-width:260px;font-family:var(--mono);font-size:17px">${q.unit ? `<span class="muted">${esc(q.unit)}</span>` : ""}</div><div class="small dim" style="margin-top:6px">Komma oder Punkt als Dezimaltrennzeichen. Nebenrechnung auf Papier – wie in der Prüfung.</div>`;
+    body = `<div class="row" style="flex-wrap:nowrap"><input id="numin" inputmode="decimal" placeholder="Ergebnis" value="${esc(it.ans || "")}" ${locked ? "disabled" : ""} oninput="QS.items[QS.i].ans=this.value" onkeydown="if(event.key==='Enter'){event.stopPropagation();if(!QS.exam)submitQ()}" style="max-width:260px;font-family:var(--mono);font-size:17px">${q.unit ? `<span class="muted">${esc(q.unit)}</span>` : ""}</div><div class="small dim" style="margin-top:6px">Komma oder Punkt als Dezimaltrennzeichen. Nebenrechnung auf Papier – wie in der Prüfung.</div>`;
   } else {
-    body = `<textarea id="opin" placeholder="Formuliere deine Antwort wie in der Prüfung …" ${locked && it.pts != null ? "disabled" : ""} oninput="QS.items[QS.i].ans=this.value">${esc(it.ans || "")}</textarea>`;
+    body = q.keys ? `<input id="opin" placeholder="Deine Antwort …" value="${esc(it.ans || "")}" ${locked ? "disabled" : ""} oninput="QS.items[QS.i].ans=this.value" onkeydown="if(event.key==='Enter'){event.stopPropagation();if(!QS.exam)submitQ()}" autocomplete="off" spellcheck="false" style="font-size:16px">`
+      : `<textarea id="opin" placeholder="Formuliere deine Antwort wie in der Prüfung …" ${locked && it.pts != null ? "disabled" : ""} oninput="QS.items[QS.i].ans=this.value">${esc(it.ans || "")}</textarea>`;
   }
   let fb = "";
   if (locked) {
-    if (q.t === "open") {
-      fb = `<div class="fb inf"><h4>Musterlösung (${q.p} Punkte)</h4><div class="sol">${esc(q.a)}</div>${q.e ? `<div class="small muted" style="margin-top:6px">${esc(q.e)}</div>` : ""}
+    if (q.t === "open" && it.auto) {
+      fb = `<div class="fb ok"><h4>✓ Richtig!</h4><div>Lösung: <b>${esc(q.a)}</b></div>${q.e ? `<div class="muted" style="margin-top:4px">${esc(q.e)}</div>` : ""}</div>`;
+    } else if (q.t === "open") {
+      fb = `<div class="fb inf"><h4>${q.keys ? "Nicht automatisch als richtig erkannt – vergleiche selbst" : `Musterlösung (${q.p} Punkte)`}</h4><div class="sol">${esc(q.a)}</div>${q.e ? `<div class="small muted" style="margin-top:6px">${esc(q.e)}</div>` : ""}
       <div style="margin-top:10px"><b class="small">Wie viele Punkte hättest du bekommen?</b><div class="pts">${Array.from({ length: q.p + 1 }, (_, p) => `<button class="btn sm ${it.pts === p ? "pri" : ""}" onclick="gradeOpen(${p})">${p}</button>`).join("")}</div><div class="row" style="margin-top:8px">${aiButton("quiz", QS.i, "🤖 Von KI bewerten lassen")}</div></div>${aiPanel("quiz", QS.i)}</div>`;
     } else {
       const ok = it.ok;
@@ -422,7 +435,7 @@ function renderQuizRun(app) {
   if (QS.exam) {
     actions = `<button class="btn" ${QS.i ? "" : "disabled"} onclick="QS.i--;render()">← Zurück</button>${QS.i < n - 1 ? `<button class="btn pri" onclick="QS.i++;render()">Weiter →</button>` : ""}<button class="btn ${QS.i === n - 1 ? "pri" : ""}" onclick="confirmFinish()">Abgeben</button>`;
   } else if (!it.done) {
-    actions = q.t === "open" ? (HAS_AI ? `<button class="btn pri" onclick="runAi('quiz',QS.i)">🤖 KI bewerten</button><button class="btn" onclick="submitQ()">Musterlösung zeigen & selbst bewerten</button>` : `<button class="btn pri" onclick="submitQ()">Musterlösung zeigen & selbst bewerten</button>`) : `<button class="btn pri" onclick="submitQ()">Prüfen</button>`;
+    actions = q.t === "open" && !q.keys ? (HAS_AI ? `<button class="btn pri" onclick="runAi('quiz',QS.i)">🤖 KI bewerten</button><button class="btn" onclick="submitQ()">Musterlösung zeigen & selbst bewerten</button>` : `<button class="btn pri" onclick="submitQ()">Musterlösung zeigen & selbst bewerten</button>`) : `<button class="btn pri" onclick="submitQ()">Prüfen</button>`;
     actions += `<button class="btn sm" onclick="skipQ()">Überspringen</button>`;
   } else {
     actions = (q.t === "open" && it.pts == null) ? `<span class="small muted">${it.aiLoading ? "KI bewertet …" : "Bitte Punkte wählen."}</span>` : `<button class="btn pri" id="nextbtn" onclick="nextQ()">${QS.i < n - 1 ? "Nächste Frage →" : "Auswertung"}</button>`;
@@ -446,7 +459,7 @@ function renderQuizRun(app) {
       <div class="row" style="margin-top:16px">${actions}</div>
     </div></div>`;
   if (QS.exam) { tick(); if (!timerH) timerH = setInterval(tick, 1000); }
-  const ni = $("#numin"); if (ni && !locked) ni.focus();
+  const ni = $("#numin") || (q.keys ? $("#opin") : null); if (ni && !locked) ni.focus();
 }
 function toggleBm(k) { if (S.bm[k]) delete S.bm[k]; else S.bm[k] = 1; save(); render(); }
 function pickOpt(oi) {
@@ -457,7 +470,7 @@ function pickOpt(oi) {
 }
 function submitQ() {
   const it = QS.items[QS.i], q = it.q;
-  if (q.t === "open") { const el = $("#opin"); if (el) it.ans = el.value; it.done = true; return render(); }
+  if (q.t === "open") { const el = $("#opin"); if (el) it.ans = el.value; it.done = true; if (keyOk(it.ans, q)) { it.auto = true; it.pts = q.p; it.ok = true; recordQ(q, true); } return render(); }
   if (q.t === "num") { const el = $("#numin"); if (el) it.ans = el.value; if (!String(it.ans || "").trim()) return toast("Bitte ein Ergebnis eingeben"); }
   if (q.t === "mc" && !it.ans.length) return toast("Bitte mindestens eine Antwort wählen");
   if (q.t === "sc" && it.ans == null) return toast("Bitte eine Antwort wählen");
@@ -493,30 +506,37 @@ document.addEventListener("keydown", e => {
 /* ====================== Prüfungssimulation ====================== */
 let confirmState = null;
 function renderExamHome(app) {
+  if (FS && FS.kind === "exam") return renderCaseRun(app);
   if (QS && QS.exam) return go("quiz");
-  const hist = S.ex.slice().reverse();
-  app.innerHTML = `<h1>⏱️ Prüfungssimulation</h1>
-  <p class="sub">Wie die echte AP1: <b>90 Minuten</b>, ca. <b>100 Punkte</b>, gemischte Themen gewichtet nach Prüfungsrelevanz, rund die Hälfte offene Aufgaben. Kein Feedback während der Bearbeitung – Auswertung am Ende mit IHK-Notenschlüssel. Offene Aufgaben bewertest du selbst anhand der Musterlösung.</p>
+  const hist = S.ex.slice().reverse(); S.cs = S.cs || {};
+  app.innerHTML = `<h1>⏱️ Prüfung</h1>
+  <p class="sub">Die AP1 besteht aus <b>offenen Aufgaben</b>: eine Firma als Ausgangssituation, vier große Aufgaben mit Teilaufgaben a), b), c) …, dazu Anlagen wie Datenblätter oder Angebote. <b>90 Minuten, 100 Punkte.</b> Nichts zum Ankreuzen – du schreibst, rechnest und begründest.</p>
+  <h2 style="margin-top:8px">Prüfungssätze im Originalformat</h2>
+  <div class="grid g2">${EXAMS.map(c => { const s = S.cs[c.id], max = c.steps.reduce((a, x) => a + stepPts(x), 0); return `<div class="card click" onclick="startCase('${c.id}')"><div class="row" style="justify-content:space-between"><b>${c.icon} ${esc(c.title)}</b>${s ? `<span class="pill ${s.pct >= 81 ? "gr" : s.pct >= 50 ? "am" : "rd"}">${s.pct}% · Note ${ihkNote(s.pct)[0]}</span>` : `<span class="pill">neu</span>`}</div><div class="small muted" style="margin:6px 0 8px">${esc(c.sit.slice(0, 170))}…</div><div class="row" style="gap:5px">${c.tags.map(t => `<span class="pill cy">${t}</span>`).join("")}<span class="pill">${c.steps.length} Teilaufgaben · ${max} P</span></div></div>`; }).join("")}</div>
+  <p class="small muted" style="margin-top:10px">Ablauf: Starten → 90 Minuten bearbeiten (Papier für Nebenrechnungen bereitlegen) → abgeben → Antworten mit den Musterlösungen vergleichen${HAS_AI ? " oder von der KI bewerten lassen" : ""} → Note nach IHK-Schlüssel.</p>
+  <h2>Zufallsprüfung aus dem Fragenpool</h2>
   <div class="grid g2">
-    <div class="card"><h3 style="margin-top:0">Vollständige Simulation</h3><p class="muted small">90 Minuten · ~100 Punkte · Faustregel 1 Punkt ≈ 1 Minute</p><button class="btn pri" onclick="startExam(100)">▶ Simulation starten</button></div>
-    <div class="card"><h3 style="margin-top:0">Kurzprüfung</h3><p class="muted small">Halbe Länge – ~50 Punkte, Timer läuft trotzdem 90 Min. (zum Üben des Formats)</p><button class="btn" onclick="startExam(50)">▶ Kurzprüfung</button></div>
+    <div class="card"><h3 style="margin-top:0">Volle Länge</h3><p class="muted small">90 Minuten · ~100 Punkte · gemischte Einzelaufgaben, gewichtet nach Prüfungsrelevanz: ausführliche Aufgaben, Rechenaufgaben und Kurzantworten</p><button class="btn pri" onclick="startExam(100)">▶ Zufallsprüfung starten</button></div>
+    <div class="card"><h3 style="margin-top:0">Kurzprüfung</h3><p class="muted small">Halbe Länge – ~50 Punkte, zum Üben zwischendurch</p><button class="btn" onclick="startExam(50)">▶ Kurzprüfung</button></div>
   </div>
   <h2>IHK-Notenschlüssel</h2>
   <div class="card"><table class="info-tbl"><tr><th>Punkte</th><th>Note</th></tr><tr><td>100–92</td><td>1 sehr gut</td></tr><tr><td>91–81</td><td>2 gut</td></tr><tr><td>80–67</td><td>3 befriedigend</td></tr><tr><td>66–50</td><td>4 ausreichend</td></tr><tr><td>49–30</td><td>5 mangelhaft</td></tr><tr><td>29–0</td><td>6 ungenügend</td></tr></table>
-  <p class="small muted">Ziel vor der echten Prüfung: dreimal in Folge ≥ 81 % (Note 2) in der Simulation.</p></div>
+  <p class="small muted">Ziel vor der echten Prüfung: alle Prüfungssätze mit ≥ 81 % (Note 2).</p></div>
   <h2>Verlauf</h2>
-  <div class="card">${hist.length ? hist.map(h => `<div class="hit row" style="justify-content:space-between"><span>${new Date(h.d).toLocaleString("de-DE", { dateStyle: "medium", timeStyle: "short" })} · ${h.min} Min.</span><span class="pill ${h.pct >= 81 ? "gr" : h.pct >= 50 ? "am" : "rd"}">${h.got}/${h.max} P · ${h.pct}% · Note ${ihkNote(h.pct)[0]}</span></div>`).join("") : `<div class="empty">Noch keine Simulation absolviert.</div>`}</div>`;
+  <div class="card">${hist.length ? hist.map(h => `<div class="hit row" style="justify-content:space-between"><span>${new Date(h.d).toLocaleString("de-DE", { dateStyle: "medium", timeStyle: "short" })} · ${esc(h.name || "Zufallsprüfung")} · ${h.min} Min.</span><span class="pill ${h.pct >= 81 ? "gr" : h.pct >= 50 ? "am" : "rd"}">${fmt(h.got, 1)}/${h.max} P · ${h.pct}% · Note ${ihkNote(h.pct)[0]}</span></div>`).join("") : `<div class="empty">Noch keine Prüfung absolviert.</div>`}</div>`;
 }
 function startExam(target) {
   const pts = q => q.t === "open" ? q.p : TYPE_PTS[q.t];
   const weighted = [];
-  TOPICS.forEach(t => t.qs.forEach(q => { for (let i = 0; i < t.weight; i++) weighted.push(q); }));
+  TOPICS.forEach(t => t.qs.forEach(q => { if (q.t === "open" || q.t === "num") for (let i = 0; i < t.weight; i++) weighted.push(q); }));
   const pool = shuffle(weighted), used = new Set(), sel = [];
-  let openPts = 0, total = 0;
-  for (const q of pool) { if (q.t === "open" && !used.has(q.k) && openPts + q.p <= target * 0.5) { sel.push(q); used.add(q.k); openPts += q.p; total += q.p; } if (openPts >= target * 0.45) break; }
-  for (const q of pool) { if (q.t !== "open" && !used.has(q.k) && total + pts(q) <= target) { sel.push(q); used.add(q.k); total += pts(q); } if (total >= target - 1) break; }
+  let total = 0;
+  const take = (filter, limit) => { let got = 0; for (const q of pool) { if (got >= limit || total >= target) break; if (used.has(q.k) || !filter(q) || total + pts(q) > target) continue; sel.push(q); used.add(q.k); got += pts(q); total += pts(q); } };
+  take(q => q.t === "open" && !q.short, target * 0.5);   // ausführliche Aufgaben: nennen, erläutern, begründen
+  take(q => q.t === "num", target * 0.25);                // Rechenaufgaben
+  take(q => true, target);                                // Kurzantworten zum Auffüllen
   const ordered = TOPICS.flatMap(t => shuffle(sel.filter(q => q.tid === t.id)));
-  startQuiz(ordered, target >= 100 ? "Prüfungssimulation AP1" : "Kurzprüfung", true);
+  startQuiz(ordered, target >= 100 ? "Zufallsprüfung AP1" : "Kurzprüfung", true);
   QS.started = Date.now(); QS.max = total;
 }
 function confirmFinish() {
@@ -532,6 +552,7 @@ function closeModal() { const m = $("#modal"); if (m) m.innerHTML = ""; }
 function finishExam() {
   stopTimer();
   QS.items.forEach(it => { if (it.q.t !== "open") { const has = !(it.ans == null || it.ans === "" || (Array.isArray(it.ans) && !it.ans.length)); it.ok = has ? checkItem(it) : false; it.done = true; recordQ(it.q, it.ok); } });
+  QS.items.forEach(it => { if (it.q.t === "open" && it.pts == null && keyOk(it.ans, it.q)) { it.auto = true; it.pts = it.q.p; it.ok = true; } });
   QS.finished = true; QS.min = Math.round((Date.now() - QS.started) / 60000); QS.saved = false;
   render();
 }
@@ -552,7 +573,7 @@ function renderExamResult(app) {
     <div class="card" style="display:flex;gap:20px;align-items:center;flex-wrap:wrap">
       ${ring(pct, pct >= 81 ? "var(--gr)" : pct >= 50 ? "var(--am)" : "var(--rd)")}
       <div><div class="stat"><div class="v">${got} / ${max} Punkte</div><div class="l">${pending ? "vorläufig" : `Note ${nn} – ${nt}`} · Bearbeitungszeit ${QS.min} Min.</div></div>
-      <div class="row" style="margin-top:10px"><button class="btn" onclick="QS=null;go('pruefung')">Zur Übersicht</button><button class="btn" onclick="startQuiz(QS.items.filter(x=>!x.ok&&x.q.t!=='open').map(x=>x.q),'Fehler aus Simulation')">🔁 Fehler üben</button></div></div>
+      <div class="row" style="margin-top:10px"><button class="btn" onclick="QS=null;go('pruefung')">Zur Übersicht</button><button class="btn" onclick="startQuiz(QS.items.filter(x=>!x.ok).map(x=>x.q),'Fehler aus der Prüfung')">🔁 Fehler üben</button></div></div>
     </div>
     <h2>Nach Thema</h2>
     <div class="card">${Object.entries(byT).map(([tid, b]) => `<div class="hit"><div class="row" style="justify-content:space-between"><span>${TBY[tid].icon} ${esc(TBY[tid].title)}</span><span class="small mono">${b.g}/${b.m}</span></div><div class="bar" style="margin-top:6px"><i style="width:${100 * b.g / b.m}%"></i></div></div>`).join("")}</div>
@@ -562,7 +583,7 @@ function renderExamResult(app) {
       <div class="small muted">Deine Antwort:</div><div class="sol" style="background:var(--bg2);border:1px solid var(--line);border-radius:10px;padding:10px;margin:4px 0 10px">${x.ans ? esc(x.ans) : "<span class='dim'>(keine Antwort)</span>"}</div>
       <div class="fb inf"><h4>Musterlösung</h4><div class="sol">${esc(x.q.a)}</div></div>
       <div class="pts">${Array.from({ length: x.q.p + 1 }, (_, p) => `<button class="btn sm ${x.pts === p ? "pri" : ""}" onclick="QS.items[${ix}].pts=${p};QS.items[${ix}].ok=${p}>=${x.q.p / 2};render()">${p}</button>`).join("")}</div><div class="row" style="margin-top:8px">${aiButton("exam", ix)}</div>${aiPanel("exam", ix)}</div>`; }).join("")}
-    <h2>Geschlossene Aufgaben</h2>
+    <h2>Rechenaufgaben</h2>
     <div class="card">${closed.map(x => `<div class="hit"><div class="row" style="justify-content:space-between;flex-wrap:nowrap"><span class="small">${esc(x.q.q)}</span><span class="pill ${x.ok ? "gr" : "rd"}">${x.ok ? "+" + TYPE_PTS[x.q.t] : "0"}</span></div>${!x.ok ? `<div class="small muted" style="margin-top:4px">Richtig: <b>${esc(correctText(x.q))}</b>${x.q.e ? " – " + esc(x.q.e) : ""}</div>` : ""}</div>`).join("")}</div>
   </div>`;
 }
@@ -765,7 +786,7 @@ const TRAINERS = [
 { id: "power", cat: "Wirtschaft", icon: "⚡", t: "Stromkosten", d: "P × t × Preis", gen() {
   const n = pick([1, 1, 5, 10, 20, 25]), w = pick([45, 60, 80, 120, 150, 200, 250]), h = pick([6, 8, 10, 24]), d = pick([220, 230, 250, 365]), pr = pick([0.28, 0.30, 0.32, 0.35, 0.40]);
   const kwh = n * w / 1000 * h * d, cost = kwh * pr;
-  return { q: `${n > 1 ? n + " Geräte mit je" : "Ein Gerät mit"} <b>${w} W</b> laufen <b>${h} h</b> pro Tag an <b>${d} Tagen</b>. Strompreis: <b>${fmt(pr)} €/kWh</b>.`,
+  return { q: `${n > 1 ? n + " Geräte mit je" : "Ein Gerät mit"} <b>${w} W</b> ${n > 1 ? "laufen" : "läuft"} <b>${h} h</b> pro Tag an <b>${d} Tagen</b>. Strompreis: <b>${fmt(pr)} €/kWh</b>.`,
     fields: [{ l: "Energie pro Jahr in kWh", ans: kwh, type: "num", tol: 0.05 }, { l: "Kosten pro Jahr in €", ans: cost, type: "num", tol: 0.05 }],
     sol: `${n} × ${w} W = ${n * w} W = ${fmt(n * w / 1000, 3)} kW\n${fmt(n * w / 1000, 3)} kW × ${h} h × ${d} = <b>${fmt(kwh)} kWh</b>\n× ${fmt(pr)} € = <b>${fmt(cost)} €</b>` };
 }},
@@ -793,8 +814,8 @@ const TRAINERS = [
 { id: "nwa", cat: "Wirtschaft", icon: "📊", t: "Nutzwertanalyse", d: "Gewichtete Punktbewertung", gen() {
   const crit = shuffle(["Preis", "Leistung", "Ergonomie", "Energieverbrauch", "Service", "Garantie", "Lieferzeit"]).slice(0, rnd(3, 4));
   let rest = 100; const w = crit.map((c, i) => { if (i === crit.length - 1) return rest; const v = 5 * rnd(2, Math.max(2, Math.floor((rest - 10 * (crit.length - i - 1)) / 5 / 1.5))); rest -= v; return v; });
-  const offers = ["A", "B", "C"].slice(0, rnd(2, 3)), pts = offers.map(() => crit.map(() => rnd(2, 10)));
-  const tot = pts.map(p => p.reduce((s, x, i) => s + x * w[i] / 100, 0));
+  const offers = ["A", "B", "C"].slice(0, rnd(2, 3)); let pts, tot;
+  do { pts = offers.map(() => crit.map(() => rnd(2, 10))); tot = pts.map(p => Math.round(p.reduce((s, x, i) => s + x * w[i] / 100, 0) * 100) / 100); } while (tot.filter(x => x === Math.max(...tot)).length > 1);
   const best = offers[tot.indexOf(Math.max(...tot))];
   const tbl = `<table class="info-tbl"><tr><th>Kriterium</th><th>Gewicht</th>${offers.map(o => `<th>Angebot ${o}</th>`).join("")}</tr>${crit.map((c, i) => `<tr><td>${c}</td><td>${w[i]} %</td>${pts.map(p => `<td>${p[i]}</td>`).join("")}</tr>`).join("")}</table>`;
   return { q: `Berechne den Gesamtnutzwert (Punkte 1–10):\n${tbl}`,
@@ -853,11 +874,25 @@ function renderTrainerHome(app) {
   ${cats.map(c => `<h2>${c}</h2><div class="grid g3">${TRAINERS.filter(t => t.cat === c).map(t => { const s = S.tr[t.id]; return `<div class="card click" onclick="startTrainer('${t.id}')"><div class="row" style="justify-content:space-between"><b>${t.icon} ${t.t}</b>${s ? `<span class="pill ${s.r / (s.r + s.w) >= .8 ? "gr" : "am"}">${s.r}/${s.r + s.w}</span>` : ""}</div><div class="small muted" style="margin-top:4px">${t.d}</div></div>`; }).join("")}</div>`).join("")}`;
 }
 function startTrainer(id) { TRS = { id, task: TRBY[id].gen(), checked: false, showSol: false, vals: {} }; if (view === "trainer") render(); else go("trainer"); }
+/* Pseudocode-Eingaben vergleichen: Leerzeichen, Groß-/Kleinschreibung und Schreibweisen wie <- / ← / = sind egal */
+function codeNorm(s) {
+  let x = String(s || "").toLowerCase().replace(/<-|:=|←/g, "=").replace(/==/g, "=").replace(/≥|=>/g, ">=").replace(/≤|=</g, "<=").replace(/≠|!=/g, "<>").replace(/−|–/g, "-").replace(/×/g, "*").replace(/÷/g, "/").replace(/(\d),(\d)/g, "$1.$2")
+    .replace(/\bdann\b|\bthen\b/g, "").replace(/\band\b|&&/g, "und").replace(/\bor\b|\|\|/g, "oder").replace(/\bnot\b/g, "nicht").replace(/\btrue\b/g, "wahr").replace(/\bfalse\b/g, "falsch").replace(/%/g, "mod").replace(/laenge/g, "länge").replace(/[\s"'„“;]/g, "");
+  x = x.replace(/^(wenn|if)/, "");
+  const bal = t => { let d = 0; for (const c of t) { if (c === "(") d++; else if (c === ")") { d--; if (d < 0) return false; } } return d === 0; };
+  while (x.length > 2 && x[0] === "(" && x[x.length - 1] === ")" && bal(x.slice(1, -1))) x = x.slice(1, -1);
+  return x;
+}
+function guardNorm(s) { return codeNorm(String(s || "").replace(/[\[\]€]/g, "").replace(/(\d)\.(\d{3})/g, "$1$2")); }
 function fieldOkT(f, v) {
   v = String(v || "").trim();
   if (f.type === "bin") return v.replace(/\s/g, "").replace(/^0b/i, "").padStart(8, "0") === f.ans;
   if (f.type === "hex") return v.replace(/\s/g, "").replace(/^0x/i, "").replace(/^0+(?=.)/, "").toUpperCase() === f.ans;
   if (f.type === "abk") return [f.ans, ...(f.alt || [])].some(x => abkOk(v, x));
+  if (f.type === "code") return [f.ans, ...(f.alt || [])].some(x => codeNorm(v) === codeNorm(x));
+  if (f.type === "guard") return [f.ans, ...(f.alt || [])].some(x => guardNorm(v) === guardNorm(x));
+  if (f.type === "kw") { const x = abkNorm(v); return x.length > 3 && f.kw.every(g => g.some(k => x.includes(abkNorm(k)))); }
+  if (f.type === "syn") { const x = abkNorm(v); return f.syn.some(s => { const n = abkNorm(s); return x === n || (n.length > 6 && lev(x, n) <= 1); }); }
   if (f.type === "days") { const norm = s => s.split(/[,;\s]+/).filter(Boolean).map(x => x.slice(0, 2).toLowerCase()).sort().join(","); return norm(v) === norm(f.ans); }
   return fieldOk(f, v);
 }
@@ -878,7 +913,7 @@ function renderTrainerRun(app) {
       ${grid}
       <div class="tr-fields">${k.fields.map((f, i) => `<div><label>${f.l}</label>${inp("f" + i, f)}</div>`).join("")}</div>
       <div class="row"><button class="btn pri" onclick="checkTrainer()">Prüfen</button><button class="btn" onclick="TRS.showSol=!TRS.showSol;render()">${TRS.showSol ? "Lösung ausblenden" : "Lösungsweg zeigen"}</button><button class="btn" onclick="startTrainer('${tr.id}')">🎲 Neue Aufgabe</button></div>
-      ${TRS.result != null ? `<div class="fb ${TRS.result ? "ok" : "no"}"><h4>${TRS.result ? "✓ Alles richtig!" : "✗ Noch nicht ganz – rote Felder prüfen."}</h4>${!TRS.result && k.fields.some(f => f.type === "abk") ? `<div class="small">${k.fields.filter((f, i) => !fieldOkT(f, TRS.vals["f" + i])).map(f => `<b>${esc(f.l)}</b> = ${esc(f.ans)}`).join("<br>")}</div>` : ""}</div>` : ""}
+      ${TRS.result != null ? `<div class="fb ${TRS.result ? "ok" : "no"}"><h4>${TRS.result ? "✓ Alles richtig!" : "✗ Noch nicht ganz – rote Felder prüfen."}</h4>${!TRS.result && k.fields.some(f => ["abk", "code", "guard", "kw", "syn"].includes(f.type)) ? `<div class="small">${k.fields.filter((f, i) => ["abk", "code", "guard", "kw", "syn"].includes(f.type) && !fieldOkT(f, TRS.vals["f" + i])).map(f => `<b>${esc(f.l)}</b>: <span class="mono">${esc(f.ans)}</span>`).join("<br>")}</div>` : ""}</div>` : ""}
       ${TRS.showSol ? `<div class="fb inf"><h4>Lösungsweg</h4><div class="sol">${k.sol}</div></div>` : ""}
     </div>
     <p class="small dim" style="margin-top:12px">Tipp: ${k.hint || "IP-Adressen ohne Leerzeichen eingeben. Dezimalzahlen mit Komma oder Punkt."}</p></div>`;

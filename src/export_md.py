@@ -74,7 +74,7 @@ def esc(s):
 
 
 def q_md(i, q):
-    out = [f"**{i}.** {md_inline(q['q'])}"]
+    out = [f"**{q.get('lbl') or str(i) + '.'}** {md_inline(q['q'])}" + (f" *({q['p']} Punkte)*" if q.get("lbl") and q.get("p") else "")]
     if q["t"] in ("sc", "mc"):
         out += [f"- {chr(65 + k)}) {md_inline(o)}" for k, o in enumerate(q["o"])]
     if q["t"] == "sc":
@@ -84,7 +84,8 @@ def q_md(i, q):
     elif q["t"] == "num":
         sol = f"**{q['a']} {q.get('unit', '')}**".replace(" **", "**")
     else:
-        sol = "**Musterlösung:** " + md_inline(q["a"])
+        a = str(q["a"])
+        sol = "**Musterlösung" + (f" ({q['p']} P)" if q.get("p") else "") + ":** " + (md_inline(a) if "\n" not in a else "\n\n```text\n" + a + "\n```\n")
     if q.get("e"):
         sol += "<br>" + md_inline(q["e"])
     out.append(f"\n<details><summary>Lösung</summary>\n\n{sol}\n\n</details>\n")
@@ -148,6 +149,24 @@ open(os.path.join(WD, "anlagen.md"), "w", encoding="utf-8").write(
     "# 📎 Aufgaben mit Anlagen\n\nWie in der echten Prüfung: Datenblätter, Verträge, Logs und Angebote auswerten.\n\n[⬅ Inhaltsverzeichnis](README.md)\n\n"
     + "\n\n---\n\n".join(case_md(c, True) for c in d["ANL"]) + "\n")
 
+def exam_md(e):
+    p = [f"## {e['icon']} {e['title']}", f"**Ausgangssituation:** {md_inline(e['sit'])}", "*90 Minuten · 100 Punkte · Lösungen zum Aufklappen*"]
+    for i, s in enumerate(e["steps"], 1):
+        if s.get("h"):
+            p.append("### " + s["h"])
+        if s.get("ctx"):
+            p.append("> " + md_inline(s["ctx"]))
+        if s.get("att"):
+            p += ["**Anlage:**", att_md({"att": s["att"], "id": f"{e['id']}_{i}", "title": e["title"]})]
+        p.append(q_md(i, s))
+    return "\n\n".join(p)
+
+
+if d.get("EXAMS"):
+    open(os.path.join(WD, "pruefungssaetze.md"), "w", encoding="utf-8").write(
+        "# ⏱️ Prüfungssätze im AP1-Format\n\nJe eine Firma als Ausgangssituation, vier Aufgaben zu je 25 Punkten, offene Teilaufgaben mit Anlagen. Inoffizielle Übungsaufgaben – am besten in der App mit Timer bearbeiten.\n\n[⬅ Inhaltsverzeichnis](README.md)\n\n"
+        + "\n\n---\n\n".join(exam_md(e) for e in d["EXAMS"]) + "\n")
+
 groups = {}
 for a, full, expl in d["ABK"]:
     k = a[0].upper()
@@ -166,6 +185,7 @@ toc = ["# 📚 AP1 – Wissen zum Nachschlagen", "[⬅ zurück zum Repo](../READ
            f"| {n} | [{t['icon']} {t['title']}]({fn}) | {t['area']} | {stars(t['weight'])} | {len(t['cards'])} | {len(t['qs'])} |"
            for n, (fn, t) in enumerate(index_rows, 1)),
        "## Extras",
+       f"- [⏱️ Prüfungssätze im AP1-Format](pruefungssaetze.md) – {len(d.get('EXAMS', []))} komplette Aufgabensätze mit je 100 Punkten",
        f"- [🏢 Fallstudien]({'fallstudien.md'}) – {len(d['CASES'])} Unternehmen, Auswahl & Begründung",
        f"- [📎 Aufgaben mit Anlagen](anlagen.md) – {len(d['ANL'])} Aufgaben",
        f"- [📖 Glossar & Abkürzungen](glossar.md) – {len(d['ABK'])} Begriffe"]

@@ -6,7 +6,7 @@ import glob, os
 os.chdir(os.path.dirname(os.path.abspath(__file__)))
 shell = open("shell.html", encoding="utf-8").read()
 data = "\n".join(open(f, encoding="utf-8").read() for f in sorted(glob.glob("data/*.js")))
-app = "\n".join(open(f, encoding="utf-8").read() for f in ("app.js", "app2.js", "app3.js"))
+app = "\n".join(open(f, encoding="utf-8").read() for f in ("app.js", "app2.js", "app3.js", "app4.js"))
 out = shell.replace("/*DATA*/", data).replace("/*APP*/", app)
 open("../index.html", "w", encoding="utf-8").write(out)
 print("index.html gebaut:", len(out) // 1024, "KB")

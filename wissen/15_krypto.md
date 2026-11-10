@@ -110,38 +110,26 @@ Aktuell: **TLS 1.3** (1.2 noch akzeptiert; SSL, TLS 1.0/1.1 veraltet). Schützt 
 ## ✍️ Übungsfragen (16)
 
 **1.** Alice möchte Bob eine vertrauliche Datei asymmetrisch verschlüsselt senden. Welchen Schlüssel verwendet sie?
-- A) Ihren privaten
-- B) Ihren öffentlichen
-- C) Bobs öffentlichen
-- D) Bobs privaten
 
 <details><summary>Lösung</summary>
 
-**C) Bobs öffentlichen**<br>Nur Bob kann dann mit seinem privaten Schlüssel entschlüsseln.
+**Musterlösung (2 P):** Bobs öffentlichen<br>Nur Bob kann dann mit seinem privaten Schlüssel entschlüsseln.
 
 </details>
 
 **2.** Mit welchem Schlüssel prüft Bob die digitale Signatur von Alice?
-- A) Alices öffentlichem Schlüssel
-- B) Alices privatem Schlüssel
-- C) Bobs privatem Schlüssel
-- D) Einem Sitzungsschlüssel
 
 <details><summary>Lösung</summary>
 
-**A) Alices öffentlichem Schlüssel**
+**Musterlösung (2 P):** Alices öffentlichem Schlüssel
 
 </details>
 
-**3.** Welches Verfahren ist symmetrisch?
-- A) RSA
-- B) AES
-- C) ECC
-- D) Diffie-Hellman
+**3.** Nennen Sie ein symmetrisches Verschlüsselungsverfahren.
 
 <details><summary>Lösung</summary>
 
-**B) AES**
+**Musterlösung (2 P):** AES (Advanced Encryption Standard)
 
 </details>
 
@@ -162,98 +150,66 @@ Aktuell: **TLS 1.3** (1.2 noch akzeptiert; SSL, TLS 1.0/1.1 veraltet). Schützt 
 </details>
 
 **6.** Warum nutzt TLS ein hybrides Verfahren?
-- A) Weil symmetrische Verfahren unsicher sind
-- B) Um die Geschwindigkeit symmetrischer und den sicheren Schlüsselaustausch asymmetrischer Verfahren zu kombinieren
-- C) Weil asymmetrische Verfahren schneller sind
-- D) Wegen der Kompatibilität mit FTP
 
 <details><summary>Lösung</summary>
 
-**B) Um die Geschwindigkeit symmetrischer und den sicheren Schlüsselaustausch asymmetrischer Verfahren zu kombinieren**
+**Musterlösung (2 P):** Um die Geschwindigkeit symmetrischer und den sicheren Schlüsselaustausch asymmetrischer Verfahren zu kombinieren
 
 </details>
 
-**7.** Welche Hashfunktion gilt als sicher?
-- A) MD5
-- B) SHA-1
-- C) SHA-256
-- D) CRC32
+**7.** Nennen Sie eine Hashfunktion, die heute als sicher gilt.
 
 <details><summary>Lösung</summary>
 
-**C) SHA-256**<br>MD5/SHA-1 sind gebrochen, CRC ist nur eine Prüfsumme.
+**Musterlösung (2 P):** SHA-256 (SHA-2-Familie) oder SHA-3<br>MD5/SHA-1 sind gebrochen, CRC ist nur eine Prüfsumme.
 
 </details>
 
 **8.** Wozu dient ein Salt bei der Passwortspeicherung?
-- A) Verschlüsselt das Passwort
-- B) Gleiche Passwörter ergeben unterschiedliche Hashes, Rainbow Tables werden nutzlos
-- C) Verkürzt den Hash
-- D) Macht Hashes umkehrbar
 
 <details><summary>Lösung</summary>
 
-**B) Gleiche Passwörter ergeben unterschiedliche Hashes, Rainbow Tables werden nutzlos**
+**Musterlösung (2 P):** Gleiche Passwörter ergeben unterschiedliche Hashes, Rainbow Tables werden nutzlos
 
 </details>
 
-**9.** Welche Eigenschaft hat eine kryptografische Hashfunktion NICHT?
-- A) Feste Ausgabelänge
-- B) Umkehrbarkeit mit Schlüssel
-- C) Lawineneffekt
-- D) Kollisionsresistenz
+**9.** Nennen Sie drei Eigenschaften einer kryptografischen Hashfunktion.
 
 <details><summary>Lösung</summary>
 
-**B) Umkehrbarkeit mit Schlüssel**<br>Hashes sind Einwegfunktionen.
+**Musterlösung (3 P):** Je 1: feste Ausgabelänge unabhängig von der Eingabe; Einwegfunktion (nicht umkehrbar); deterministisch (gleiche Eingabe → gleicher Hash); Lawineneffekt (kleine Änderung → völlig anderer Hash); kollisionsresistent.<br>Hashes sind Einwegfunktionen.
 
 </details>
 
-**10.** Welche Schutzziele erfüllt eine digitale Signatur? (mehrere)
-- A) Integrität
-- B) Vertraulichkeit
-- C) Authentizität
-- D) Nichtabstreitbarkeit
+**10.** Welche Schutzziele erfüllt eine digitale Signatur? Nennen Sie drei.
 
 <details><summary>Lösung</summary>
 
-**A) Integrität, C) Authentizität, D) Nichtabstreitbarkeit**<br>Der Inhalt bleibt lesbar – keine Vertraulichkeit.
+**Musterlösung (3 P):** Je 1 Punkt (max. 3): Integrität; Authentizität; Nichtabstreitbarkeit. Der Inhalt bleibt lesbar – keine Vertraulichkeit.
 
 </details>
 
 **11.** Wer bestätigt in einer PKI, dass ein öffentlicher Schlüssel zu einer Domain gehört?
-- A) Der Browser
-- B) Die Certificate Authority (CA)
-- C) Der DNS-Server
-- D) Der Router
 
 <details><summary>Lösung</summary>
 
-**B) Die Certificate Authority (CA)**
+**Musterlösung (2 P):** Die Certificate Authority (CA)
 
 </details>
 
 **12.** Ein Download wird mit einer veröffentlichten SHA-256-Prüfsumme verglichen. Welches Schutzziel wird geprüft?
-- A) Verfügbarkeit
-- B) Integrität
-- C) Vertraulichkeit
-- D) Anonymität
 
 <details><summary>Lösung</summary>
 
-**B) Integrität**
+**Musterlösung (2 P):** Integrität
 
 </details>
 
 **13.** Welche TLS-Version sollte heute bevorzugt eingesetzt werden?
-- A) SSL 3.0
-- B) TLS 1.0
-- C) TLS 1.1
-- D) TLS 1.3
 
 <details><summary>Lösung</summary>
 
-**D) TLS 1.3**
+**Musterlösung (2 P):** TLS 1.3
 
 </details>
 
@@ -261,7 +217,7 @@ Aktuell: **TLS 1.3** (1.2 noch akzeptiert; SSL, TLS 1.0/1.1 veraltet). Schützt 
 
 <details><summary>Lösung</summary>
 
-**Musterlösung:** Die Nutzdaten werden mit einem zufällig erzeugten symmetrischen Sitzungsschlüssel verschlüsselt, weil dies schnell ist (1). Der Sitzungsschlüssel wird mit dem öffentlichen Schlüssel des Empfängers asymmetrisch verschlüsselt übertragen; nur der Empfänger kann ihn mit seinem privaten Schlüssel entschlüsseln (1). So werden Geschwindigkeit und sicherer Schlüsselaustausch kombiniert (1). Beispiel: TLS/HTTPS, S/MIME, PGP (1).
+**Musterlösung (4 P):** Die Nutzdaten werden mit einem zufällig erzeugten symmetrischen Sitzungsschlüssel verschlüsselt, weil dies schnell ist (1). Der Sitzungsschlüssel wird mit dem öffentlichen Schlüssel des Empfängers asymmetrisch verschlüsselt übertragen; nur der Empfänger kann ihn mit seinem privaten Schlüssel entschlüsseln (1). So werden Geschwindigkeit und sicherer Schlüsselaustausch kombiniert (1). Beispiel: TLS/HTTPS, S/MIME, PGP (1).
 
 </details>
 
@@ -269,7 +225,7 @@ Aktuell: **TLS 1.3** (1.2 noch akzeptiert; SSL, TLS 1.0/1.1 veraltet). Schützt 
 
 <details><summary>Lösung</summary>
 
-**Musterlösung:** Erstellen: Der Absender bildet den Hashwert des Dokuments (1) und verschlüsselt diesen mit seinem privaten Schlüssel → Signatur (1). Prüfen: Der Empfänger entschlüsselt die Signatur mit dem öffentlichen Schlüssel des Absenders (1), bildet selbst den Hash des empfangenen Dokuments und vergleicht beide Werte – Gleichheit bestätigt Integrität und Authentizität (1).
+**Musterlösung (4 P):** Erstellen: Der Absender bildet den Hashwert des Dokuments (1) und verschlüsselt diesen mit seinem privaten Schlüssel → Signatur (1). Prüfen: Der Empfänger entschlüsselt die Signatur mit dem öffentlichen Schlüssel des Absenders (1), bildet selbst den Hash des empfangenen Dokuments und vergleicht beide Werte – Gleichheit bestätigt Integrität und Authentizität (1).
 
 </details>
 
@@ -277,7 +233,7 @@ Aktuell: **TLS 1.3** (1.2 noch akzeptiert; SSL, TLS 1.0/1.1 veraltet). Schützt 
 
 <details><summary>Lösung</summary>
 
-**Musterlösung:** MD5 ist veraltet/gebrochen und sehr schnell berechenbar → Brute-Force möglich (1). Ohne Salt erzeugen gleiche Passwörter gleiche Hashes und Rainbow Tables können eingesetzt werden (1). Besser: Passwort-Hashverfahren wie Argon2, bcrypt oder PBKDF2 (1) mit individuellem zufälligem Salt pro Benutzer (ggf. Pepper) (1).
+**Musterlösung (4 P):** MD5 ist veraltet/gebrochen und sehr schnell berechenbar → Brute-Force möglich (1). Ohne Salt erzeugen gleiche Passwörter gleiche Hashes und Rainbow Tables können eingesetzt werden (1). Besser: Passwort-Hashverfahren wie Argon2, bcrypt oder PBKDF2 (1) mit individuellem zufälligem Salt pro Benutzer (ggf. Pepper) (1).
 
 </details>
 

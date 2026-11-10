@@ -135,9 +135,22 @@ Ein **Virtual LAN** teilt einen physischen Switch logisch in getrennte Netze (Br
 - **Proxy-Server**: Stellvertreter für Webzugriffe der Clients – Filtern von Inhalten, Caching, Protokollierung, Verbergen der internen Adressen. **Reverse Proxy**: steht vor internen Webservern (Lastverteilung, TLS-Terminierung, Schutz).
 - **Monitoring**: **SNMP** (Simple Network Management Protocol, UDP 161/162) fragt Zustände von Netzwerkgeräten ab (Auslastung, Fehler, Traps bei Störungen); **Syslog** (UDP 514) sammelt Protokollmeldungen zentral; Monitoring-Tools (z. B. Zabbix, PRTG, Checkmk) alarmieren bei Ausfällen.
 
+## TCP/IP-Modell im Vergleich zum OSI-Modell
+
+In der Praxis wird meist das TCP/IP-Modell mit vier Schichten verwendet. Es fasst mehrere OSI-Schichten zusammen.
+
+<table><tr><th>TCP/IP-Schicht</th><th>entspricht OSI</th><th>Aufgabe</th><th>Beispiele</th></tr>
+<tr><td>4 Anwendung</td><td>5–7</td><td>Dienste für Programme</td><td>HTTP/HTTPS, DNS, DHCP, SMTP, SSH</td></tr>
+<tr><td>3 Transport</td><td>4</td><td>Ende-zu-Ende-Verbindung, Ports</td><td>TCP, UDP</td></tr>
+<tr><td>2 Internet</td><td>3</td><td>Adressierung und Wegewahl zwischen Netzen</td><td>IPv4, IPv6, ICMP</td></tr>
+<tr><td>1 Netzzugang</td><td>1–2</td><td>Übertragung im lokalen Netz</td><td>Ethernet, WLAN</td></tr></table>
+
+> [!IMPORTANT]
+> **Merke:** Adressen je Schicht: Netzzugang = MAC-Adresse, Internet = IP-Adresse, Transport = Portnummer.
+
 ---
 
-## 🃏 Karteikarten (41)
+## 🃏 Karteikarten (45)
 
 | Frage | Antwort |
 |---|---|
@@ -182,42 +195,34 @@ Ein **Virtual LAN** teilt einen physischen Switch logisch in getrennte Netze (Br
 | Proxy-Server | Stellvertreter für Webzugriffe: Filter, Cache, Protokollierung, verbirgt interne Clients. |
 | SNMP | Protokoll zur Überwachung/Verwaltung von Netzwerkgeräten (UDP 161/162). |
 | Syslog | Standard zum zentralen Sammeln von Protokollmeldungen (UDP 514). |
+| Schichten des TCP/IP-Modells | Netzzugang, Internet, Transport, Anwendung (4 Schichten). |
+| Welche OSI-Schichten fasst die TCP/IP-Anwendungsschicht zusammen? | Die Schichten 5 bis 7 (Sitzung, Darstellung, Anwendung). |
+| Adressen je Schicht | Netzzugang: MAC-Adresse. Internet: IP-Adresse. Transport: Portnummer. |
+| Auf welcher TCP/IP-Schicht arbeitet IP? | Auf der Internetschicht (entspricht OSI-Schicht 3). |
 
-## ✍️ Übungsfragen (31)
+## ✍️ Übungsfragen (34)
 
 **1.** Auf welcher OSI-Schicht arbeitet ein klassischer Switch?
-- A) 1
-- B) 2
-- C) 3
-- D) 4
 
 <details><summary>Lösung</summary>
 
-**B) 2**<br>Sicherungsschicht, MAC-Adressen.
+**Musterlösung (2 P):** 2<br>Sicherungsschicht, MAC-Adressen.
 
 </details>
 
 **2.** Welches Gerät verbindet das Firmen-LAN mit dem Internet?
-- A) Hub
-- B) Switch
-- C) Router
-- D) Repeater
 
 <details><summary>Lösung</summary>
 
-**C) Router**<br>Verschiedene Netze → Router.
+**Musterlösung (2 P):** Router<br>Verschiedene Netze → Router.
 
 </details>
 
 **3.** Auf welcher OSI-Schicht ist TCP angesiedelt?
-- A) 2
-- B) 3
-- C) 4
-- D) 7
 
 <details><summary>Lösung</summary>
 
-**C) 4**<br>Transportschicht.
+**Musterlösung (2 P):** 4<br>Transportschicht.
 
 </details>
 
@@ -230,110 +235,74 @@ Ein **Virtual LAN** teilt einen physischen Switch logisch in getrennte Netze (Br
 </details>
 
 **5.** Welche Kategorie benötigen Sie mindestens für 10 Gbit/s über 90 m Kupferkabel?
-- A) Cat 5e
-- B) Cat 6
-- C) Cat 6A
-- D) Cat 3
 
 <details><summary>Lösung</summary>
 
-**C) Cat 6A**<br>Cat 6 schafft 10G nur bis ca. 55 m.
+**Musterlösung (2 P):** Cat 6A<br>Cat 6 schafft 10G nur bis ca. 55 m.
 
 </details>
 
 **6.** Warum wird zwischen zwei Gebäuden (300 m) häufig LWL verlegt?
-- A) Es ist günstiger als Kupfer
-- B) Kupfer ist auf 100 m begrenzt und LWL ist unempfindlich gegen Störungen/Potenzialunterschiede
-- C) LWL braucht keinen Switch
-- D) LWL unterstützt PoE
 
 <details><summary>Lösung</summary>
 
-**B) Kupfer ist auf 100 m begrenzt und LWL ist unempfindlich gegen Störungen/Potenzialunterschiede**<br>Reichweite + EMV + galvanische Trennung.
+**Musterlösung (2 P):** Kupfer ist auf 100 m begrenzt und LWL ist unempfindlich gegen Störungen/Potenzialunterschiede<br>Reichweite + EMV + galvanische Trennung.
 
 </details>
 
 **7.** Ein WLAN-AP benötigt 25 W. Welcher PoE-Standard reicht mindestens?
-- A) 802.3af
-- B) 802.3at (PoE+)
-- C) 802.3ab
-- D) 802.11ax
 
 <details><summary>Lösung</summary>
 
-**B) 802.3at (PoE+)**<br>802.3af liefert nur 15,4 W, PoE+ 30 W.
+**Musterlösung (2 P):** 802.3at (PoE+)<br>802.3af liefert nur 15,4 W, PoE+ 30 W.
 
 </details>
 
 **8.** Welches WLAN-Verfahren erlaubt individuelle Anmeldung jedes Mitarbeiters über einen RADIUS-Server?
-- A) WPA2-Personal
-- B) WEP
-- C) WPA2/WPA3-Enterprise (802.1X)
-- D) WPS
 
 <details><summary>Lösung</summary>
 
-**C) WPA2/WPA3-Enterprise (802.1X)**
+**Musterlösung (2 P):** WPA2/WPA3-Enterprise (802.1X)
 
 </details>
 
 **9.** Welcher IEEE-Standard heißt Wi-Fi 6?
-- A) 802.11n
-- B) 802.11ac
-- C) 802.11ax
-- D) 802.11be
 
 <details><summary>Lösung</summary>
 
-**C) 802.11ax**<br>n = Wi-Fi 4, ac = Wi-Fi 5, be = Wi-Fi 7.
+**Musterlösung (2 P):** 802.11ax<br>n = Wi-Fi 4, ac = Wi-Fi 5, be = Wi-Fi 7.
 
 </details>
 
-**10.** Welche Vorteile bieten VLANs? (mehrere)
-- A) Trennung von Abteilungen/Gästen
-- B) Reduzierung der Broadcast-Last
-- C) Mehr Bandbreite pro Kabel
-- D) Flexible Zuordnung unabhängig vom Standort
+**10.** Welche Vorteile bieten VLANs? Nennen Sie drei.
 
 <details><summary>Lösung</summary>
 
-**A) Trennung von Abteilungen/Gästen, B) Reduzierung der Broadcast-Last, D) Flexible Zuordnung unabhängig vom Standort**<br>Die Bandbreite eines Kabels ändert sich nicht.
+**Musterlösung (3 P):** Je 1 Punkt (max. 3): Trennung von Abteilungen/Gästen; Reduzierung der Broadcast-Last; Flexible Zuordnung unabhängig vom Standort. Die Bandbreite eines Kabels ändert sich nicht.
 
 </details>
 
 **11.** Was ist ein Nachteil der Sterntopologie?
-- A) Kabelbruch legt das ganze Netz lahm
-- B) Der zentrale Switch ist ein Single Point of Failure
-- C) Sie ist nicht erweiterbar
-- D) Es entstehen ständig Kollisionen
 
 <details><summary>Lösung</summary>
 
-**B) Der zentrale Switch ist ein Single Point of Failure**
+**Musterlösung (2 P):** Der zentrale Switch ist ein Single Point of Failure
 
 </details>
 
 **12.** Welche Kanäle sind im 2,4-GHz-Band in Europa üblicherweise überlappungsfrei?
-- A) 1, 2, 3
-- B) 1, 6, 11
-- C) 36, 40, 44
-- D) 1, 7, 13
 
 <details><summary>Lösung</summary>
 
-**B) 1, 6, 11**<br>Klassisch 1/6/11 (in EU auch 1/5/9/13 möglich).
+**Musterlösung (2 P):** 1, 6, 11<br>Klassisch 1/6/11 (in EU auch 1/5/9/13 möglich).
 
 </details>
 
 **13.** Welche Übertragungsart nutzt WLAN?
-- A) Simplex
-- B) Halbduplex
-- C) Vollduplex
-- D) Multiplex-Vollduplex
 
 <details><summary>Lösung</summary>
 
-**B) Halbduplex**<br>Geteiltes Medium, abwechselnd.
+**Musterlösung (2 P):** Halbduplex<br>Geteiltes Medium, abwechselnd.
 
 </details>
 
@@ -341,7 +310,7 @@ Ein **Virtual LAN** teilt einen physischen Switch logisch in getrennte Netze (Br
 
 <details><summary>Lösung</summary>
 
-**Musterlösung:** Empfehlung: WPA2/WPA3-Enterprise mit IEEE 802.1X und RADIUS-Server (2). Begründung: Jeder Mitarbeiter meldet sich individuell (Benutzer/Zertifikat) an, Zugänge ausgeschiedener Mitarbeiter können einzeln gesperrt werden, kein gemeinsames Passwort muss verteilt/geändert werden, Anmeldungen sind nachvollziehbar (2).
+**Musterlösung (4 P):** Empfehlung: WPA2/WPA3-Enterprise mit IEEE 802.1X und RADIUS-Server (2). Begründung: Jeder Mitarbeiter meldet sich individuell (Benutzer/Zertifikat) an, Zugänge ausgeschiedener Mitarbeiter können einzeln gesperrt werden, kein gemeinsames Passwort muss verteilt/geändert werden, Anmeldungen sind nachvollziehbar (2).
 
 </details>
 
@@ -349,7 +318,7 @@ Ein **Virtual LAN** teilt einen physischen Switch logisch in getrennte Netze (Br
 
 <details><summary>Lösung</summary>
 
-**Musterlösung:** Ein Switch arbeitet auf OSI-Schicht 2 und verbindet Endgeräte innerhalb desselben Netzes (2); er leitet Frames anhand der MAC-Adresstabelle gezielt an den Zielport. Ein Router arbeitet auf Schicht 3, verbindet unterschiedliche (Sub-)Netze, z. B. LAN und Internet, und leitet Pakete anhand der IP-Adresse und seiner Routingtabelle weiter (2).
+**Musterlösung (4 P):** Ein Switch arbeitet auf OSI-Schicht 2 und verbindet Endgeräte innerhalb desselben Netzes (2); er leitet Frames anhand der MAC-Adresstabelle gezielt an den Zielport. Ein Router arbeitet auf Schicht 3, verbindet unterschiedliche (Sub-)Netze, z. B. LAN und Internet, und leitet Pakete anhand der IP-Adresse und seiner Routingtabelle weiter (2).
 
 </details>
 
@@ -357,43 +326,31 @@ Ein **Virtual LAN** teilt einen physischen Switch logisch in getrennte Netze (Br
 
 <details><summary>Lösung</summary>
 
-**Musterlösung:** Je 1: keine separate Steckdose/Stromleitung an der Decke nötig; nur ein Kabel für Strom und Daten; zentrale Absicherung über USV am Switch; APs können per Switch-Port neu gestartet werden; geringere Installationskosten, flexible Platzierung.
+**Musterlösung (3 P):** Je 1: keine separate Steckdose/Stromleitung an der Decke nötig; nur ein Kabel für Strom und Daten; zentrale Absicherung über USV am Switch; APs können per Switch-Port neu gestartet werden; geringere Installationskosten, flexible Platzierung.
 
 </details>
 
 **17.** Ein PC hat 192.168.10.57/24 und Gateway 192.168.1.1. Was ist falsch?
-- A) Nichts
-- B) Das Gateway liegt nicht im Subnetz des PCs
-- C) Die Maske ist zu groß
-- D) Die IP ist öffentlich
 
 <details><summary>Lösung</summary>
 
-**B) Das Gateway liegt nicht im Subnetz des PCs**<br>Das Gateway muss im eigenen Subnetz liegen (z. B. 192.168.10.1).
+**Musterlösung (2 P):** Das Gateway liegt nicht im Subnetz des PCs<br>Das Gateway muss im eigenen Subnetz liegen (z. B. 192.168.10.1).
 
 </details>
 
 **18.** Der DHCP-Bereich ist .100–.200, der Drucker hat statisch .150. Welches Problem droht?
-- A) Keines
-- B) IP-Adresskonflikt, wenn DHCP .150 vergibt
-- C) Der Drucker ist zu langsam
-- D) DNS funktioniert nicht
 
 <details><summary>Lösung</summary>
 
-**B) IP-Adresskonflikt, wenn DHCP .150 vergibt**<br>Statische Adressen außerhalb des Pools vergeben oder reservieren.
+**Musterlösung (2 P):** IP-Adresskonflikt, wenn DHCP .150 vergibt<br>Statische Adressen außerhalb des Pools vergeben oder reservieren.
 
 </details>
 
 **19.** Welche Dokumentation zeigt, an welchem Switchport die Dose 2.14 angeschlossen ist?
-- A) Logischer Netzplan
-- B) Patchplan
-- C) IP-Adresskonzept
-- D) Lizenzliste
 
 <details><summary>Lösung</summary>
 
-**B) Patchplan**
+**Musterlösung (2 P):** Patchplan
 
 </details>
 
@@ -401,43 +358,31 @@ Ein **Virtual LAN** teilt einen physischen Switch logisch in getrennte Netze (Br
 
 <details><summary>Lösung</summary>
 
-**Musterlösung:** Je 0,5: Netz-/VLAN-Bezeichnung; Netzadresse und Präfix/Maske; Standardgateway; DHCP-Bereich; statische Adressen (Server, Drucker, Netzwerkgeräte); DNS-Server; Broadcastadresse; Verantwortlicher.
+**Musterlösung (2 P):** Je 0,5: Netz-/VLAN-Bezeichnung; Netzadresse und Präfix/Maske; Standardgateway; DHCP-Bereich; statische Adressen (Server, Drucker, Netzwerkgeräte); DNS-Server; Broadcastadresse; Verantwortlicher.
 
 </details>
 
 **21.** Ein Bluetooth-Headset ist mit dem Notebook verbunden. Welche Netzart liegt vor?
-- A) LAN
-- B) PAN
-- C) MAN
-- D) WAN
 
 <details><summary>Lösung</summary>
 
-**B) PAN**
+**Musterlösung (2 P):** PAN
 
 </details>
 
 **22.** Welche Anschlussart bietet in der Regel die höchsten und zukunftssichersten Datenraten?
-- A) VDSL
-- B) Glasfaser FTTH
-- C) Kabel
-- D) Satellit
 
 <details><summary>Lösung</summary>
 
-**B) Glasfaser FTTH**
+**Musterlösung (2 P):** Glasfaser FTTH
 
 </details>
 
 **23.** Eine Firma sichert jede Nacht 500 GB in die Cloud. Worauf ist beim Internetanschluss besonders zu achten?
-- A) Hoher Download
-- B) Hoher Upload – möglichst symmetrischer Anschluss
-- C) Niedriger Preis
-- D) WLAN-Standard
 
 <details><summary>Lösung</summary>
 
-**B) Hoher Upload – möglichst symmetrischer Anschluss**<br>Backups gehen von der Firma ins Internet = Upstream.
+**Musterlösung (2 P):** Hoher Upload – möglichst symmetrischer Anschluss<br>Backups gehen von der Firma ins Internet = Upstream.
 
 </details>
 
@@ -450,38 +395,26 @@ Ein **Virtual LAN** teilt einen physischen Switch logisch in getrennte Netze (Br
 </details>
 
 **25.** Welche Maßnahme erhöht die Verfügbarkeit der Internetanbindung?
-- A) Schnelleres WLAN
-- B) Zweite Leitung über anderen Provider oder 5G mit automatischem Failover
-- C) Größerer Switch
-- D) Neuer Router desselben Anschlusses
 
 <details><summary>Lösung</summary>
 
-**B) Zweite Leitung über anderen Provider oder 5G mit automatischem Failover**
+**Musterlösung (2 P):** Zweite Leitung über anderen Provider oder 5G mit automatischem Failover
 
 </details>
 
 **26.** Wofür braucht ein Unternehmen eine feste öffentliche IP-Adresse?
-- A) Für das WLAN der Gäste
-- B) Damit eigene Dienste wie das VPN-Gateway zuverlässig von außen erreichbar sind
-- C) Für DHCP im LAN
-- D) Für Bluetooth
 
 <details><summary>Lösung</summary>
 
-**B) Damit eigene Dienste wie das VPN-Gateway zuverlässig von außen erreichbar sind**
+**Musterlösung (2 P):** Damit eigene Dienste wie das VPN-Gateway zuverlässig von außen erreichbar sind
 
 </details>
 
 **27.** Wie werden Zentrale und Filiale kostengünstig und sicher über das Internet verbunden?
-- A) Offene Portfreigaben
-- B) Site-to-Site-VPN zwischen den Firewalls
-- C) Telnet
-- D) Gemeinsames WLAN-Passwort
 
 <details><summary>Lösung</summary>
 
-**B) Site-to-Site-VPN zwischen den Firewalls**
+**Musterlösung (2 P):** Site-to-Site-VPN zwischen den Firewalls
 
 </details>
 
@@ -489,43 +422,55 @@ Ein **Virtual LAN** teilt einen physischen Switch logisch in getrennte Netze (Br
 
 <details><summary>Lösung</summary>
 
-**Musterlösung:** Empfehlung (2): Business-Glasfaser- (oder VDSL-)Anschluss mit SLA plus LTE/5G-Backup-Router mit Failover, Anbindung an die Zentrale per Site-to-Site-VPN. Begründungen (je 1): Kasse/Warenwirtschaft laufen in der Cloud – ohne Internet kein Verkauf, daher Ausfallsicherheit durch Zweitleitung; SLA sichert schnelle Entstörung; VPN verschlüsselt den Datenverkehr zur Zentrale; ausreichende Bandbreite/geringe Latenz für Cloud-Anwendungen.
+**Musterlösung (4 P):** Empfehlung (2): Business-Glasfaser- (oder VDSL-)Anschluss mit SLA plus LTE/5G-Backup-Router mit Failover, Anbindung an die Zentrale per Site-to-Site-VPN. Begründungen (je 1): Kasse/Warenwirtschaft laufen in der Cloud – ohne Internet kein Verkauf, daher Ausfallsicherheit durch Zweitleitung; SLA sichert schnelle Entstörung; VPN verschlüsselt den Datenverkehr zur Zentrale; ausreichende Bandbreite/geringe Latenz für Cloud-Anwendungen.
 
 </details>
 
 **29.** Wo enden in einem strukturiert verkabelten Gebäude die fest verlegten Kabel aus den Büros?
-- A) Direkt im Router
-- B) Auf dem Patchpanel im Netzwerkschrank
-- C) Im Access Point
-- D) In der Steckdose
 
 <details><summary>Lösung</summary>
 
-**B) Auf dem Patchpanel im Netzwerkschrank**
+**Musterlösung (2 P):** Auf dem Patchpanel im Netzwerkschrank
 
 </details>
 
 **30.** Mit welchem Protokoll überwacht ein Monitoring-System die Portauslastung eines Switches?
-- A) SMTP
-- B) SNMP
-- C) SSH
-- D) FTP
 
 <details><summary>Lösung</summary>
 
-**B) SNMP**
+**Musterlösung (2 P):** SNMP
 
 </details>
 
 **31.** Ein Lager wird mit WLAN ausgeleuchtet. Mitarbeitende laufen mit Scannern durch die Halle. Was muss das WLAN unterstützen?
-- A) Nur ein AP mit maximaler Sendeleistung
-- B) Mehrere APs mit überlappenden Zellen und Roaming
-- C) Bluetooth
-- D) Ad-hoc-Modus
 
 <details><summary>Lösung</summary>
 
-**B) Mehrere APs mit überlappenden Zellen und Roaming**
+**Musterlösung (2 P):** Mehrere APs mit überlappenden Zellen und Roaming
+
+</details>
+
+**32.** Wie viele Schichten hat das TCP/IP-Modell?
+
+<details><summary>Lösung</summary>
+
+**Musterlösung (2 P):** 4
+
+</details>
+
+**33.** Ordnen Sie Ethernet, IP, TCP und HTTPS jeweils der passenden Schicht des TCP/IP-Modells zu.
+
+<details><summary>Lösung</summary>
+
+**Musterlösung (4 P):** Ethernet – Netzzugangsschicht (1). IP – Internetschicht (1). TCP – Transportschicht (1). HTTPS – Anwendungsschicht (1).
+
+</details>
+
+**34.** Welche Adresse wird auf der Netzzugangs-, der Internet- und der Transportschicht jeweils verwendet?
+
+<details><summary>Lösung</summary>
+
+**Musterlösung (3 P):** Netzzugang: MAC-Adresse (1). Internet: IP-Adresse (1). Transport: Portnummer (1).
 
 </details>
 

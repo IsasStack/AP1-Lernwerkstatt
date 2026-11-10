@@ -88,99 +88,66 @@ Testfall-ID, Beschreibung, Vorbedingungen, Testdaten/Eingabe, **erwartetes Ergeb
 ## ✍️ Übungsfragen (11)
 
 **1.** Welche Norm ist für Qualitätsmanagementsysteme zertifizierbar?
-- A) ISO 9000
-- B) ISO 9001
-- C) ISO 9241
-- D) ISO 25010
 
 <details><summary>Lösung</summary>
 
-**B) ISO 9001**
+**Musterlösung (2 P):** ISO 9001
 
 </details>
 
 **2.** In welcher PDCA-Phase werden die Ergebnisse gemessen und bewertet?
-- A) Plan
-- B) Do
-- C) Check
-- D) Act
 
 <details><summary>Lösung</summary>
 
-**C) Check**
+**Musterlösung (2 P):** Check
 
 </details>
 
 **3.** Ein Tester prüft eine Eingabemaske nur anhand der Spezifikation, ohne den Code zu kennen. Testart?
-- A) White-Box
-- B) Black-Box
-- C) Code-Review
-- D) Unit-Test
 
 <details><summary>Lösung</summary>
 
-**B) Black-Box**
+**Musterlösung (2 P):** Black-Box
 
 </details>
 
 **4.** Nach einem Update wird geprüft, ob bestehende Funktionen weiterhin korrekt laufen. Testart?
-- A) Lasttest
-- B) Regressionstest
-- C) Abnahmetest
-- D) Smoke-Test
 
 <details><summary>Lösung</summary>
 
-**B) Regressionstest**
+**Musterlösung (2 P):** Regressionstest
 
 </details>
 
-**5.** Ein Feld akzeptiert ganze Zahlen von 18 bis 67. Welche Werte gehören zu einer Grenzwertanalyse? (mehrere)
-- A) 17
-- B) 18
-- C) 40
-- D) 67
-- E) 68
+**5.** Ein Feld akzeptiert ganze Zahlen von 18 bis 67. Welche Werte gehören zu einer Grenzwertanalyse? Nennen Sie vier.
 
 <details><summary>Lösung</summary>
 
-**A) 17, B) 18, D) 67, E) 68**<br>An und direkt neben den Grenzen; 40 ist ein Repräsentant der Äquivalenzklasse, kein Grenzwert.
+**Musterlösung (4 P):** Je 1 Punkt (max. 4): 17; 18; 67; 68. An und direkt neben den Grenzen; 40 ist ein Repräsentant der Äquivalenzklasse, kein Grenzwert.
 
 </details>
 
 **6.** Welche Teststufe führt der Kunde gegen seine Anforderungen durch?
-- A) Komponententest
-- B) Integrationstest
-- C) Systemtest
-- D) Abnahmetest
 
 <details><summary>Lösung</summary>
 
-**D) Abnahmetest**
+**Musterlösung (2 P):** Abnahmetest
 
 </details>
 
 **7.** Welches Softwarequalitätsmerkmal beschreibt, wie leicht sich ein Programm ändern lässt?
-- A) Benutzbarkeit
-- B) Wartbarkeit
-- C) Effizienz
-- D) Zuverlässigkeit
 
 <details><summary>Lösung</summary>
 
-**B) Wartbarkeit**
+**Musterlösung (2 P):** Wartbarkeit
 
 </details>
 
 **8.** Was ist ein Code-Review?
-- A) Dynamischer Test
-- B) Statischer Test
-- C) Lasttest
-- D) Abnahmetest
 
 <details><summary>Lösung</summary>
 
-**B) Statischer Test**<br>Kein Ausführen des Programms.
+**Musterlösung (2 P):** Statischer Test<br>Kein Ausführen des Programms.
 
 </details>
 
@@ -188,7 +155,7 @@ Testfall-ID, Beschreibung, Vorbedingungen, Testdaten/Eingabe, **erwartetes Ergeb
 
 <details><summary>Lösung</summary>
 
-**Musterlösung:** Plan: Ist-Zustand analysieren (z. B. lange Lösungszeiten), Ziel und Maßnahme festlegen (Wissensdatenbank) (1). Do: Maßnahme testweise umsetzen (1). Check: Ergebnisse messen, z. B. durchschnittliche Lösungszeit vor/nach (1). Act: Bei Erfolg standardisieren, sonst anpassen; neuer Zyklus beginnt (1).
+**Musterlösung (4 P):** Plan: Ist-Zustand analysieren (z. B. lange Lösungszeiten), Ziel und Maßnahme festlegen (Wissensdatenbank) (1). Do: Maßnahme testweise umsetzen (1). Check: Ergebnisse messen, z. B. durchschnittliche Lösungszeit vor/nach (1). Act: Bei Erfolg standardisieren, sonst anpassen; neuer Zyklus beginnt (1).
 
 </details>
 
@@ -196,7 +163,7 @@ Testfall-ID, Beschreibung, Vorbedingungen, Testdaten/Eingabe, **erwartetes Ergeb
 
 <details><summary>Lösung</summary>
 
-**Musterlösung:** Je 1: Anmeldung mit Domänenkonto; Netzwerk-/Internetzugang; Zugriff auf Netzlaufwerke/Freigaben; Drucken; Fachanwendungen und Office starten; E-Mail senden/empfangen; Monitor/Docking/Peripherie; BitLocker/Virenschutz aktiv; Updates installiert.
+**Musterlösung (4 P):** Je 1: Anmeldung mit Domänenkonto; Netzwerk-/Internetzugang; Zugriff auf Netzlaufwerke/Freigaben; Drucken; Fachanwendungen und Office starten; E-Mail senden/empfangen; Monitor/Docking/Peripherie; BitLocker/Virenschutz aktiv; Updates installiert.
 
 </details>
 
@@ -204,7 +171,7 @@ Testfall-ID, Beschreibung, Vorbedingungen, Testdaten/Eingabe, **erwartetes Ergeb
 
 <details><summary>Lösung</summary>
 
-**Musterlösung:** Je 0,5: Testfall-ID; Beschreibung/Testziel; Vorbedingungen; Testdaten/Eingaben; erwartetes Ergebnis; tatsächliches Ergebnis; Status bestanden/nicht bestanden; Datum; Tester; Bemerkungen/Fehlerbeschreibung.
+**Musterlösung (3 P):** Je 0,5: Testfall-ID; Beschreibung/Testziel; Vorbedingungen; Testdaten/Eingaben; erwartetes Ergebnis; tatsächliches Ergebnis; Status bestanden/nicht bestanden; Datum; Tester; Bemerkungen/Fehlerbeschreibung.
 
 </details>
 

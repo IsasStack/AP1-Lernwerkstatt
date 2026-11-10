@@ -109,39 +109,27 @@ Abnahme (Abnahmeprotokoll), Soll-Ist-Vergleich, Abweichungsanalyse, **Lessons Le
 
 ## ✍️ Übungsfragen (15)
 
-**1.** Welches Merkmal trifft auf ein Projekt NICHT zu?
-- A) Einmaligkeit
-- B) Zeitliche Begrenzung
-- C) Dauerhafte Routinetätigkeit
-- D) Begrenzte Ressourcen
+**1.** Nennen Sie vier Merkmale eines Projekts.
 
 <details><summary>Lösung</summary>
 
-**C) Dauerhafte Routinetätigkeit**<br>Routine ist Linienarbeit, kein Projekt.
+**Musterlösung (4 P):** Je 1 Punkt (max. 4): Einmaligkeit; klare Zielvorgabe; zeitliche Begrenzung (Anfang und Ende); begrenzte Ressourcen (Budget, Personal); eigene Projektorganisation; Neuartigkeit/Komplexität/Risiko. Kein Merkmal: dauerhafte Routinetätigkeit – das ist Linienarbeit.<br>Routine ist Linienarbeit, kein Projekt.
 
 </details>
 
 **2.** Wer erstellt das Pflichtenheft?
-- A) Auftraggeber
-- B) Auftragnehmer
-- C) Betriebsrat
-- D) Endanwender
 
 <details><summary>Lösung</summary>
 
-**B) Auftragnehmer**<br>Der Auftragnehmer beschreibt im Pflichtenheft, WIE er die Anforderungen des Lastenhefts umsetzt.
+**Musterlösung (2 P):** Auftragnehmer<br>Der Auftragnehmer beschreibt im Pflichtenheft, WIE er die Anforderungen des Lastenhefts umsetzt.
 
 </details>
 
 **3.** Vorgang C hat die Vorgänger A (FEZ 5) und B (FEZ 8). Wie groß ist FAZ von C?
-- A) 5
-- B) 8
-- C) 13
-- D) 6,5
 
 <details><summary>Lösung</summary>
 
-**B) 8**<br>Bei Zusammenführung zählt der größte FEZ der Vorgänger.
+**Musterlösung (2 P):** 8<br>Bei Zusammenführung zählt der größte FEZ der Vorgänger.
 
 </details>
 
@@ -153,75 +141,51 @@ Abnahme (Abnahmeprotokoll), Soll-Ist-Vergleich, Abweichungsanalyse, **Lessons Le
 
 </details>
 
-**5.** Welche Aussage zum kritischen Pfad ist richtig?
-- A) Er enthält die Vorgänge mit dem größten Puffer.
-- B) Jede Verzögerung auf ihm verschiebt das Projektende.
-- C) Er ist immer der kürzeste Weg durch den Netzplan.
-- D) Er kann nur einen Vorgang enthalten.
+**5.** Erläutern Sie, was der kritische Pfad eines Netzplans ist und was eine Verzögerung auf ihm bewirkt.
 
 <details><summary>Lösung</summary>
 
-**B) Jede Verzögerung auf ihm verschiebt das Projektende.**<br>Kritischer Pfad: GP = 0 und längster Weg durch den Netzplan.
+**Musterlösung (2 P):** Der kritische Pfad ist die Kette der Vorgänge ohne Puffer (Gesamtpuffer 0) und damit der längste Weg durch den Netzplan (1). Jede Verzögerung eines Vorgangs auf ihm verschiebt das Projektende (1).<br>Kritischer Pfad: GP = 0 und längster Weg durch den Netzplan.
 
 </details>
 
 **6.** Welche Scrum-Rolle priorisiert das Product Backlog?
-- A) Scrum Master
-- B) Product Owner
-- C) Developers
-- D) Stakeholder
 
 <details><summary>Lösung</summary>
 
-**B) Product Owner**<br>Der Product Owner verantwortet Wert und Reihenfolge des Backlogs.
+**Musterlösung (2 P):** Product Owner<br>Der Product Owner verantwortet Wert und Reihenfolge des Backlogs.
 
 </details>
 
 **7.** In welchem Scrum-Event wird die Zusammenarbeit des Teams reflektiert?
-- A) Sprint Review
-- B) Daily Scrum
-- C) Sprint Retrospektive
-- D) Sprint Planning
 
 <details><summary>Lösung</summary>
 
-**C) Sprint Retrospektive**<br>Die Retrospektive verbessert den Prozess, das Review betrachtet das Produkt.
+**Musterlösung (2 P):** Sprint Retrospektive<br>Die Retrospektive verbessert den Prozess, das Review betrachtet das Produkt.
 
 </details>
 
-**8.** Welche Aussagen treffen auf das Wasserfallmodell zu? (mehrere)
-- A) Phasen laufen nacheinander ab
-- B) Anforderungen werden in jedem Sprint neu priorisiert
-- C) Änderungen in späten Phasen sind aufwendig
-- D) Gute Planbarkeit bei stabilen Anforderungen
+**8.** Nennen Sie drei Merkmale des Wasserfallmodells.
 
 <details><summary>Lösung</summary>
 
-**A) Phasen laufen nacheinander ab, C) Änderungen in späten Phasen sind aufwendig, D) Gute Planbarkeit bei stabilen Anforderungen**<br>Sprints und laufende Priorisierung gehören zu Scrum.
+**Musterlösung (3 P):** Je 1: Phasen laufen streng nacheinander ab; Anforderungen werden zu Beginn festgelegt; gute Planbarkeit bei stabilen Anforderungen; umfangreiche Dokumentation je Phase; Änderungen in späten Phasen sind aufwendig und teuer; der Kunde sieht das Ergebnis erst am Ende.<br>Sprints und laufende Priorisierung gehören zu Scrum.
 
 </details>
 
-**9.** Welches Ziel ist SMART formuliert?
-- A) Wir verbessern die IT.
-- B) Bis 30.04. werden alle 12 Vertriebsnotebooks mit BitLocker verschlüsselt.
-- C) Die Mitarbeiter sollen zufriedener sein.
-- D) Möglichst bald neue Drucker anschaffen.
+**9.** Das Ziel „Wir wollen die Vertriebsnotebooks besser absichern“ ist nicht SMART. Formulieren Sie es SMART und nennen Sie zwei Kriterien, die Ihre Formulierung erfüllt.
 
 <details><summary>Lösung</summary>
 
-**B) Bis 30.04. werden alle 12 Vertriebsnotebooks mit BitLocker verschlüsselt.**<br>Spezifisch (Vertriebsnotebooks), messbar (12, BitLocker), terminiert (30.04.).
+**Musterlösung (3 P):** Z. B.: „Bis zum 30.04. sind alle 12 Vertriebsnotebooks mit BitLocker verschlüsselt.“ (1) Kriterien (je 1): spezifisch (Vertriebsnotebooks, BitLocker); messbar (12 Geräte); terminiert (30.04.); realistisch/akzeptiert.<br>Spezifisch (Vertriebsnotebooks), messbar (12, BitLocker), terminiert (30.04.).
 
 </details>
 
 **10.** Wofür steht das „T“ in SMART?
-- A) Transparent
-- B) Technisch
-- C) Terminiert
-- D) Teamorientiert
 
 <details><summary>Lösung</summary>
 
-**C) Terminiert**<br>T = terminiert (time-bound).
+**Musterlösung (2 P):** Terminiert<br>T = terminiert (time-bound).
 
 </details>
 
@@ -234,14 +198,10 @@ Abnahme (Abnahmeprotokoll), Soll-Ist-Vergleich, Abweichungsanalyse, **Lessons Le
 </details>
 
 **12.** Was zeigt ein Projektstrukturplan?
-- A) Zeitliche Abfolge mit Puffern
-- B) Hierarchische Zerlegung in Arbeitspakete
-- C) Kosten pro Monat
-- D) Kommunikationswege
 
 <details><summary>Lösung</summary>
 
-**B) Hierarchische Zerlegung in Arbeitspakete**<br>Der PSP beantwortet WAS zu tun ist, nicht WANN.
+**Musterlösung (2 P):** Hierarchische Zerlegung in Arbeitspakete<br>Der PSP beantwortet WAS zu tun ist, nicht WANN.
 
 </details>
 
@@ -249,7 +209,7 @@ Abnahme (Abnahmeprotokoll), Soll-Ist-Vergleich, Abweichungsanalyse, **Lessons Le
 
 <details><summary>Lösung</summary>
 
-**Musterlösung:** Je 1 Punkt, z. B.: zusätzliche Ressourcen/Personal auf dem kritischen Vorgang einsetzen; Vorgänge parallelisieren statt nacheinander; Leistungsumfang reduzieren (z. B. Teilrollout); Überstunden/externe Dienstleister; Puffer anderer Vorgänge nutzen und Ressourcen umschichten.
+**Musterlösung (3 P):** Je 1 Punkt, z. B.: zusätzliche Ressourcen/Personal auf dem kritischen Vorgang einsetzen; Vorgänge parallelisieren statt nacheinander; Leistungsumfang reduzieren (z. B. Teilrollout); Überstunden/externe Dienstleister; Puffer anderer Vorgänge nutzen und Ressourcen umschichten.
 
 </details>
 
@@ -257,7 +217,7 @@ Abnahme (Abnahmeprotokoll), Soll-Ist-Vergleich, Abweichungsanalyse, **Lessons Le
 
 <details><summary>Lösung</summary>
 
-**Musterlösung:** Änderungen: Im Wasserfall werden Anforderungen zu Beginn fixiert; spätere Änderungen sind aufwendig/teuer (1). In Scrum werden Anforderungen im Product Backlog laufend angepasst und je Sprint neu priorisiert (1). Kunde: Im Wasserfall v. a. am Anfang (Anforderungen) und am Ende (Abnahme) eingebunden (1). In Scrum regelmäßig über Product Owner und Sprint Reviews mit Feedback nach jedem Inkrement (1).
+**Musterlösung (4 P):** Änderungen: Im Wasserfall werden Anforderungen zu Beginn fixiert; spätere Änderungen sind aufwendig/teuer (1). In Scrum werden Anforderungen im Product Backlog laufend angepasst und je Sprint neu priorisiert (1). Kunde: Im Wasserfall v. a. am Anfang (Anforderungen) und am Ende (Abnahme) eingebunden (1). In Scrum regelmäßig über Product Owner und Sprint Reviews mit Feedback nach jedem Inkrement (1).
 
 </details>
 
@@ -265,7 +225,7 @@ Abnahme (Abnahmeprotokoll), Soll-Ist-Vergleich, Abweichungsanalyse, **Lessons Le
 
 <details><summary>Lösung</summary>
 
-**Musterlösung:** Der Gesamtpuffer gibt an, um wie viele Zeiteinheiten ein Vorgang verschoben/verlängert werden kann, ohne dass sich das Projektende verzögert (1). Berechnung: GP = SAZ − FAZ bzw. SEZ − FEZ (1).
+**Musterlösung (2 P):** Der Gesamtpuffer gibt an, um wie viele Zeiteinheiten ein Vorgang verschoben/verlängert werden kann, ohne dass sich das Projektende verzögert (1). Berechnung: GP = SAZ − FAZ bzw. SEZ − FEZ (1).
 
 </details>
 

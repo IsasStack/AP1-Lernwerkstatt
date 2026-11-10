@@ -1,0 +1,1024 @@
+# ⏱️ Prüfungssätze im AP1-Format
+
+Je eine Firma als Ausgangssituation, vier Aufgaben zu je 25 Punkten, offene Teilaufgaben mit Anlagen. Inoffizielle Übungsaufgaben – am besten in der App mit Timer bearbeiten.
+
+[⬅ Inhaltsverzeichnis](README.md)
+
+## 🩺 Prüfungssatz 1 – Hanse Physio GmbH
+
+**Ausgangssituation:** Sie sind Mitarbeiter/-in der IT-Service Nord GmbH in Hamburg. Ihr Kunde, die Hanse Physio GmbH, betreibt drei Physiotherapie-Praxen und eröffnet in Altona eine vierte Praxis mit acht Arbeitsplätzen: sechs am Empfang und in den Behandlungsräumen, zwei in der Verwaltung. Die Praxissoftware läuft auf einem Server in der Zentrale, dort gibt es auch eine Active-Directory-Domäne (physio.local). Sie planen die IT-Ausstattung der neuen Praxis und richten sie ein.
+
+*90 Minuten · 100 Punkte · Lösungen zum Aufklappen*
+
+### Aufgabe 1 (25 Punkte) – Projektplanung
+
+**a)** Die Ausstattung der neuen Praxis wird als Projekt durchgeführt. Nennen Sie drei Merkmale eines Projekts. *(3 Punkte)*
+
+<details><summary>Lösung</summary>
+
+**Musterlösung (3 P):** Je 1: Einmaligkeit; klare Zielvorgabe; zeitliche Begrenzung mit Anfang und Ende; begrenzte Ressourcen (Budget, Personal); eigene Projektorganisation; Neuartigkeit/Komplexität.
+
+</details>
+
+
+**b)** Die Geschäftsführerin sagt: „Die neue Praxis soll möglichst bald mit IT ausgestattet sein.“ Formulieren Sie daraus ein SMART-Ziel und nennen Sie zwei Kriterien, die Ihr Ziel erfüllt. *(4 Punkte)*
+
+<details><summary>Lösung</summary>
+
+**Musterlösung (4 P):** Z. B.: „Bis zum 30.09. sind alle acht Arbeitsplätze der Praxis Altona eingerichtet, in die Domäne eingebunden und mit der Praxissoftware getestet.“ (2) Kriterien (je 1): spezifisch (acht Arbeitsplätze, Domäne, Praxissoftware); messbar (acht Plätze, Test bestanden); terminiert (30.09.); realistisch/akzeptiert.
+
+</details>
+
+
+**Anlage:**
+
+<table><tr><th>Vorgang</th><th>Beschreibung</th><th>Dauer (Tage)</th><th>Vorgänger</th></tr><tr><td>A</td><td>Bedarf aufnehmen</td><td>2</td><td>–</td></tr><tr><td>B</td><td>Hardware bestellen (Lieferzeit)</td><td>6</td><td>A</td></tr><tr><td>C</td><td>Netzwerk verkabeln</td><td>4</td><td>A</td></tr><tr><td>D</td><td>Benutzerkonten und Software vorbereiten</td><td>3</td><td>A</td></tr><tr><td>E</td><td>Geräte aufbauen und einrichten</td><td>3</td><td>B, C</td></tr><tr><td>F</td><td>Praxissoftware installieren und testen</td><td>2</td><td>D, E</td></tr><tr><td>G</td><td>Schulung und Übergabe</td><td>1</td><td>F</td></tr></table>
+
+**c) Netzplan – Projektdauer** Berechnen Sie die Gesamtdauer des Projekts in Tagen. *(3 Punkte)*
+
+<details><summary>Lösung</summary>
+
+**14 Tage**<br>Vorwärts: A 0–2, B 2–8, C 2–6, D 2–5, E 8–11, F 11–13, G 13–14.
+
+</details>
+
+
+**d) Netzplan – kritischer Pfad** Geben Sie den kritischen Pfad an. *(2 Punkte)*
+
+<details><summary>Lösung</summary>
+
+**Musterlösung (2 P):** A – B – E – F – G (alle mit Gesamtpuffer 0).
+
+</details>
+
+
+**e) Netzplan – Puffer von C** Wie groß ist der Gesamtpuffer von Vorgang C in Tagen? *(2 Punkte)*
+
+<details><summary>Lösung</summary>
+
+**2 Tage**<br>C: FEZ 6, SEZ 8 (E muss spätestens an Tag 8 beginnen) → GP = 2.
+
+</details>
+
+
+**f) Netzplan – Puffer von D** Wie groß ist der Gesamtpuffer von Vorgang D in Tagen? *(2 Punkte)*
+
+<details><summary>Lösung</summary>
+
+**6 Tage**<br>D: FEZ 5, SEZ 11 (F beginnt an Tag 11) → GP = 6.
+
+</details>
+
+
+**g)** Der Lieferant teilt mit, dass sich die Hardware (Vorgang B) um zwei Tage verspätet. Erläutern Sie die Auswirkung auf das Projektende und nennen Sie eine Gegenmaßnahme. *(3 Punkte)*
+
+<details><summary>Lösung</summary>
+
+**Musterlösung (3 P):** B liegt auf dem kritischen Pfad und hat keinen Puffer, das Projektende verschiebt sich daher um zwei Tage auf Tag 16 (2). Gegenmaßnahme (1): Expresslieferung oder anderer Lieferant; Vorgang E mit mehr Personal verkürzen; Teile von F vorziehen bzw. parallel erledigen; Teilinbetriebnahme mit vorhandenen Geräten.
+
+</details>
+
+
+**h)** Erläutern Sie den Unterschied zwischen Lastenheft und Pflichtenheft. *(3 Punkte)*
+
+<details><summary>Lösung</summary>
+
+**Musterlösung (3 P):** Das Lastenheft erstellt der Auftraggeber; es beschreibt, WAS er benötigt (Anforderungen) (1,5). Das Pflichtenheft erstellt der Auftragnehmer; es beschreibt, WIE und WOMIT er die Anforderungen umsetzt, und ist Grundlage für die Abnahme (1,5).
+
+</details>
+
+
+**i)** Begründen Sie, warum sich für dieses Projekt ein Vorgehen nach dem Wasserfallmodell eignet. *(3 Punkte)*
+
+<details><summary>Lösung</summary>
+
+**Musterlösung (3 P):** Die Anforderungen stehen von Anfang an fest und ändern sich kaum (acht Arbeitsplätze, bekannte Software) (1). Die Schritte bauen klar aufeinander auf – erst beschaffen, dann aufbauen, dann testen, dann übergeben (1). Das Projekt ist kurz und gut planbar; ein fester Eröffnungstermin verlangt einen verbindlichen Zeitplan (1).
+
+</details>
+
+
+### Aufgabe 2 (25 Punkte) – Beschaffung und Wirtschaftlichkeit
+
+> Für die sechs Arbeitsplätze am Empfang und in den Behandlungsräumen liegen zwei Angebote vor. Auf den Geräten werden Patientendaten verarbeitet; sie sollen in die Domäne eingebunden werden.
+
+**Anlage:**
+
+<table><tr><th></th><th>Angebot 1: All-in-One 24″</th><th>Angebot 2: Mini-PC + 24″-Monitor</th></tr><tr><td>Listenpreis je Platz (netto)</td><td>899,00 €</td><td>760,00 €</td></tr><tr><td>Rabatt</td><td>8 %</td><td>5 %</td></tr><tr><td>Skonto</td><td>2 % bei Zahlung innerhalb von 10 Tagen</td><td>–</td></tr><tr><td>Lieferung</td><td>60,00 € pauschal</td><td>frei Haus</td></tr><tr><td>Ausstattung</td><td>16 GB RAM, 512 GB SSD, TPM 2.0</td><td>16 GB RAM, 512 GB SSD, TPM 2.0</td></tr><tr><td>Betriebssystem</td><td>Windows 11 Pro</td><td>Windows 11 Home</td></tr><tr><td>Leistungsaufnahme</td><td>45 W</td><td>60 W</td></tr><tr><td>Garantie</td><td>36 Monate Vor-Ort-Service</td><td>24 Monate Bring-in</td></tr></table>
+
+**a)** Berechnen Sie den Bezugspreis für alle sechs Plätze bei Angebot 1 (Skonto wird genutzt). *(4 Punkte)*
+
+<details><summary>Lösung</summary>
+
+**4923.23 €**<br>6 × 899 = 5.394,00 €; − 8 % Rabatt = 4.962,48 €; − 2 % Skonto = 4.863,23 €; + 60,00 € Lieferung = 4.923,23 €.
+
+</details>
+
+
+**b)** Berechnen Sie den Bezugspreis für alle sechs Plätze bei Angebot 2. *(3 Punkte)*
+
+<details><summary>Lösung</summary>
+
+**4332 €**<br>6 × 760 = 4.560,00 €; − 5 % Rabatt = 4.332,00 €; Lieferung frei Haus.
+
+</details>
+
+
+**c)** Angebot 2 ist günstiger. Nennen und begründen Sie zwei Gründe, die trotzdem für Angebot 1 sprechen. *(4 Punkte)*
+
+<details><summary>Lösung</summary>
+
+**Musterlösung (4 P):** Je Grund mit Begründung 2 Punkte, z. B.: Windows 11 Pro – nur Pro kann der Domäne physio.local beitreten und bietet BitLocker; das ist wegen der Patientendaten nötig. Bei Angebot 2 kämen Kosten für das Upgrade hinzu. / 36 Monate Vor-Ort-Service – bei einem Defekt fällt der Arbeitsplatz nur kurz aus, die Praxis muss kein Gerät einschicken. / Geringere Leistungsaufnahme (45 statt 60 W) – niedrigere Stromkosten. / All-in-One – platzsparend und aufgeräumt am Empfang.
+
+</details>
+
+
+**d)** Die sechs All-in-One-PCs (je 45 W) laufen 10 Stunden pro Tag an 250 Tagen im Jahr. Der Strompreis beträgt 0,32 €/kWh. Berechnen Sie die jährlichen Stromkosten. *(4 Punkte)*
+
+<details><summary>Lösung</summary>
+
+**216 €**<br>6 × 45 W = 270 W = 0,27 kW; × 10 h × 250 Tage = 675 kWh; × 0,32 € = 216,00 €.
+
+</details>
+
+
+**Anlage:**
+
+<table><tr><th>Kriterium</th><th>Gewichtung</th><th>Punkte Angebot 1</th><th>Punkte Angebot 2</th></tr><tr><td>Preis</td><td>30 %</td><td>6</td><td>9</td></tr><tr><td>Garantie und Service</td><td>25 %</td><td>9</td><td>5</td></tr><tr><td>Sicherheit / Betriebssystem</td><td>25 %</td><td>10</td><td>3</td></tr><tr><td>Energie und Platzbedarf</td><td>20 %</td><td>8</td><td>6</td></tr></table>
+
+**e) Nutzwertanalyse – Angebot 1** Berechnen Sie den Nutzwert von Angebot 1. *(3 Punkte)*
+
+<details><summary>Lösung</summary>
+
+**8.15**<br>0,30 × 6 + 0,25 × 9 + 0,25 × 10 + 0,20 × 8 = 1,80 + 2,25 + 2,50 + 1,60 = 8,15.
+
+</details>
+
+
+**f) Nutzwertanalyse – Angebot 2** Berechnen Sie den Nutzwert von Angebot 2. *(2 Punkte)*
+
+<details><summary>Lösung</summary>
+
+**5.9**<br>0,30 × 9 + 0,25 × 5 + 0,25 × 3 + 0,20 × 6 = 2,70 + 1,25 + 0,75 + 1,20 = 5,90.
+
+</details>
+
+
+**g)** Die Praxis überlegt, die Geräte zu leasen statt zu kaufen. Nennen Sie zwei Vorteile und einen Nachteil des Leasings. *(3 Punkte)*
+
+<details><summary>Lösung</summary>
+
+**Musterlösung (3 P):** Vorteile (je 1): keine hohe Anfangsinvestition, die Liquidität bleibt erhalten; gleichbleibende, planbare Raten; regelmäßiger Austausch gegen aktuelle Geräte; oft Service enthalten. Nachteil (1): über die Laufzeit teurer als Kauf; kein Eigentum; feste Vertragsbindung.
+
+</details>
+
+
+**h)** Nennen Sie zwei ergonomische Anforderungen an die Bildschirme am Empfang. *(2 Punkte)*
+
+<details><summary>Lösung</summary>
+
+**Musterlösung (2 P):** Je 1: höhen- und neigungsverstellbar; entspiegelt/blendfrei; Oberkante höchstens auf Augenhöhe; Sehabstand 50–70 cm; ausreichende Größe und Auflösung; Aufstellung parallel zum Fenster.
+
+</details>
+
+
+### Aufgabe 3 (25 Punkte) – Netzwerk einrichten
+
+> Die Praxis Altona erhält das Netz **192.168.80.0/24**. Es soll in vier gleich große Subnetze geteilt werden: 1 Verwaltung, 2 Behandlung/Empfang, 3 Gäste-WLAN, 4 Reserve.
+
+**a)** Welches Präfix (Zahl hinter dem Schrägstrich) haben die neuen Subnetze? *(2 Punkte)*
+
+<details><summary>Lösung</summary>
+
+**26**<br>4 Subnetze = 2² → 2 Bit zusätzlich → /26.
+
+</details>
+
+
+**b)** Geben Sie die Subnetzmaske der neuen Subnetze in Dezimalschreibweise an. *(2 Punkte)*
+
+<details><summary>Lösung</summary>
+
+**Musterlösung (2 P):** 255.255.255.192
+
+</details>
+
+
+**c)** Wie viele Hosts können in jedem Subnetz adressiert werden? *(2 Punkte)*
+
+<details><summary>Lösung</summary>
+
+**62**<br>6 Hostbits → 2⁶ − 2 = 62.
+
+</details>
+
+
+**d)** Geben Sie für das dritte Subnetz (Gäste-WLAN) Netzadresse, erste Hostadresse, letzte Hostadresse und Broadcastadresse an. *(4 Punkte)*
+
+<details><summary>Lösung</summary>
+
+**Musterlösung (4 P):** Netzadresse 192.168.80.128 (1), erster Host 192.168.80.129 (1), letzter Host 192.168.80.190 (1), Broadcast 192.168.80.191 (1). Die Subnetze beginnen bei .0, .64, .128 und .192.
+
+</details>
+
+
+**e)** Begründen Sie, warum das Gäste-WLAN vom Praxisnetz getrennt wird, und beschreiben Sie, wie die Trennung technisch umgesetzt wird. *(3 Punkte)*
+
+<details><summary>Lösung</summary>
+
+**Musterlösung (3 P):** Begründung: Geräte von Patienten sind nicht vertrauenswürdig und dürfen nicht auf Praxis-PCs, Server oder Patientendaten zugreifen können (1). Umsetzung: eigenes VLAN bzw. Subnetz mit eigener SSID (1) und Firewallregeln, die aus dem Gästenetz nur den Weg ins Internet erlauben (1).
+
+</details>
+
+
+**Anlage:**
+
+```text
+PC-EMPFANG-02
+   IPv4-Adresse  . . . . . : 192.168.80.75
+   Subnetzmaske  . . . . . : 255.255.255.192
+   Standardgateway . . . . : 192.168.80.1
+   DNS-Server  . . . . . . : 8.8.8.8
+```
+
+**f)** Der PC am Empfang kommt nicht ins Internet und kann der Domäne nicht beitreten. Nennen Sie die zwei Konfigurationsfehler und korrigieren Sie sie. *(4 Punkte)*
+
+<details><summary>Lösung</summary>
+
+**Musterlösung (4 P):** Fehler 1: Das Gateway 192.168.80.1 liegt nicht im Subnetz des PCs – .75 gehört zum Netz 192.168.80.64/26 (1). Richtig: 192.168.80.65, die erste Hostadresse dieses Subnetzes (1). Fehler 2: Als DNS-Server ist 8.8.8.8 eingetragen; ein öffentlicher DNS kennt die Domäne physio.local nicht (1). Richtig: der DNS-Server des Domänencontrollers, 10.10.0.5 (1).
+
+</details>
+
+
+**g)** Der Router erhält die IPv6-Adresse 2001:0db8:0000:0050:0000:0000:0000:00a1. Kürzen Sie die Adresse so weit wie möglich und nennen Sie die zwei angewandten Regeln. *(3 Punkte)*
+
+<details><summary>Lösung</summary>
+
+**Musterlösung (3 P):** 2001:db8:0:50::a1 (1). Regel 1: Führende Nullen in jedem Block entfallen (1). Regel 2: Eine zusammenhängende Folge von Null-Blöcken wird einmalig durch :: ersetzt (1).
+
+</details>
+
+
+**h)** Für das WLAN der Mitarbeitenden stehen WPA3-Personal und WPA3-Enterprise zur Wahl. Geben Sie eine begründete Empfehlung. *(3 Punkte)*
+
+<details><summary>Lösung</summary>
+
+**Musterlösung (3 P):** Empfehlung: WPA3-Enterprise (1). Jede Person meldet sich mit ihrem eigenen Domänenkonto bzw. Zertifikat über einen RADIUS-Server an (802.1X) (1). Scheidet jemand aus, wird nur dieses Konto gesperrt – ein gemeinsames Passwort, das alle kennen und das dann geändert werden müsste, gibt es nicht (1).
+
+</details>
+
+
+**i)** Nennen Sie zwei Voraussetzungen, damit ein Windows-Client der Domäne beitreten kann. *(2 Punkte)*
+
+<details><summary>Lösung</summary>
+
+**Musterlösung (2 P):** Je 1: Windows-Edition Pro, Enterprise oder Education; DNS-Server des Domänencontrollers eingetragen; Netzwerkverbindung zum Domänencontroller; synchrone Uhrzeit; Konto mit der Berechtigung, Computer hinzuzufügen.
+
+</details>
+
+
+### Aufgabe 4 (25 Punkte) – Sicherheit, Datenschutz und Auswertung
+
+**a)** Stufen Sie den Schutzbedarf der Patientendaten hinsichtlich der Vertraulichkeit ein und begründen Sie. *(3 Punkte)*
+
+<details><summary>Lösung</summary>
+
+**Musterlösung (3 P):** Hoch bis sehr hoch (1). Es sind Gesundheitsdaten, also besondere Kategorien personenbezogener Daten, die zudem der Schweigepflicht unterliegen (1). Ein Bekanntwerden kann für Betroffene schwere persönliche Folgen haben und für die Praxis Bußgelder und Vertrauensverlust bedeuten (1).
+
+</details>
+
+
+**b)** Nennen Sie vier Maßnahmen zur Härtung der PCs am Empfang. *(4 Punkte)*
+
+<details><summary>Lösung</summary>
+
+**Musterlösung (4 P):** Je 1: Festplattenverschlüsselung (BitLocker); keine lokalen Administratorrechte für Benutzer; automatische Updates für Betriebssystem und Programme; automatische Bildschirmsperre; nicht benötigte Dienste und Programme entfernen; USB-Speicher sperren; Virenschutz und Firewall aktiv; Blickschutzfolie; starkes Passwort bzw. MFA.
+
+</details>
+
+
+**c)** Der Server in der Zentrale wird sonntags voll und montags bis samstags inkrementell gesichert, jeweils abends. Am Donnerstagmorgen fällt er aus. Welche Sicherungen werden zur Wiederherstellung benötigt? Nennen Sie außerdem einen Nachteil der inkrementellen Sicherung. *(3 Punkte)*
+
+<details><summary>Lösung</summary>
+
+**Musterlösung (3 P):** Benötigt werden die Vollsicherung vom Sonntag und die inkrementellen Sicherungen von Montag, Dienstag und Mittwoch, in dieser Reihenfolge (2). Nachteil (1): Die Wiederherstellung dauert länger und scheitert, wenn eine einzige Sicherung der Kette fehlt oder beschädigt ist.
+
+</details>
+
+
+**d)** Ein Patient möchte wissen, welche Daten die Praxis über ihn gespeichert hat. Nennen Sie das Recht und die Rechtsgrundlage und geben Sie an, bis wann die Praxis antworten muss. *(3 Punkte)*
+
+<details><summary>Lösung</summary>
+
+**Musterlösung (3 P):** Recht auf Auskunft (1) nach Art. 15 DSGVO (1). Die Praxis muss unverzüglich antworten, spätestens innerhalb eines Monats (1).
+
+</details>
+
+
+**e)** Die Praxis möchte Terminerinnerungen über einen externen SMS-Dienstleister versenden. Welche Vereinbarung ist dafür nötig? Nennen Sie außerdem zwei Punkte, die darin geregelt werden. *(3 Punkte)*
+
+<details><summary>Lösung</summary>
+
+**Musterlösung (3 P):** Ein Auftragsverarbeitungsvertrag nach Art. 28 DSGVO (1). Inhalte (je 1): Gegenstand, Zweck und Dauer der Verarbeitung; Art der Daten und Kreis der Betroffenen; Verarbeitung nur auf Weisung; technische und organisatorische Maßnahmen; Vertraulichkeit; Unterauftragnehmer; Löschung oder Rückgabe nach Vertragsende; Kontrollrechte.
+
+</details>
+
+
+**Anlage:**
+
+```text
+wartezeiten ← [12, 25, 8, 31, 19]
+anzahl ← 0
+summe ← 0
+FÜR i ← 0 BIS länge(wartezeiten) − 1
+    WENN wartezeiten[i] > 15 DANN
+        anzahl ← anzahl + 1
+    ENDE WENN
+    summe ← summe + wartezeiten[i]
+ENDE FÜR
+schnitt ← summe / länge(wartezeiten)
+```
+
+**f) Pseudocode – anzahl** Die Praxis wertet Wartezeiten in Minuten aus. Führen Sie einen Schreibtischtest durch: Welchen Wert hat anzahl am Ende? *(2 Punkte)*
+
+<details><summary>Lösung</summary>
+
+**3**<br>Größer als 15 sind 25, 31 und 19.
+
+</details>
+
+
+**g) Pseudocode – schnitt** Welchen Wert hat schnitt am Ende? *(2 Punkte)*
+
+<details><summary>Lösung</summary>
+
+**19**<br>12 + 25 + 8 + 31 + 19 = 95; 95 ÷ 5 = 19.
+
+</details>
+
+
+**h)** Beschreiben Sie in eigenen Worten, was der Algorithmus berechnet. *(2 Punkte)*
+
+<details><summary>Lösung</summary>
+
+**Musterlösung (2 P):** Er zählt, wie viele Wartezeiten länger als 15 Minuten waren (1), und berechnet die durchschnittliche Wartezeit aller Einträge (1).
+
+</details>
+
+
+**i)** Der Ablauf einer Terminbuchung soll als UML-Aktivitätsdiagramm dargestellt werden. Nennen Sie die Elemente für den Beginn des Ablaufs, für eine Entscheidung mit ihren Bedingungen und für parallel ablaufende Schritte. *(3 Punkte)*
+
+<details><summary>Lösung</summary>
+
+**Musterlösung (3 P):** Beginn: Startknoten, ein ausgefüllter schwarzer Kreis (1). Entscheidung: Verzweigung als Raute, die Bedingungen stehen als Guards in eckigen Klammern an den Ausgängen (1). Parallele Schritte: Gabelung (Fork) als dicker Balken, zusammengeführt mit einer Vereinigung (Join) (1).
+
+</details>
+
+
+---
+
+## ⚙️ Prüfungssatz 2 – Brinkmann Maschinenbau GmbH
+
+**Ausgangssituation:** Sie arbeiten beim Systemhaus NordIT GmbH. Ihr Kunde, die Brinkmann Maschinenbau GmbH in Stade, hat 60 Mitarbeitende: 40 im Büro (Konstruktion, Vertrieb, Buchhaltung) und 20 in der Fertigung im Zweischichtbetrieb. Die Büroarbeitsplätze sollen erneuert, mobiles Arbeiten soll ermöglicht und die vier alten Server sollen auf einem neuen Host virtualisiert werden.
+
+*90 Minuten · 100 Punkte · Lösungen zum Aufklappen*
+
+### Aufgabe 1 (25 Punkte) – Kundenberatung und Geräteauswahl
+
+**a)** Im Erstgespräch sagt der Geschäftsführer: „Die alten Rechner brauchen ja ewig zum Hochfahren.“ Analysieren Sie die Aussage mit dem Vier-Seiten-Modell. *(4 Punkte)*
+
+<details><summary>Lösung</summary>
+
+**Musterlösung (4 P):** Sachinhalt: Die Rechner starten langsam (1). Selbstoffenbarung: Ich bin genervt und verliere Zeit (1). Beziehung: Ich erwarte von Ihnen als Fachleuten eine Lösung bzw. bisher hat sich niemand darum gekümmert (1). Appell: Sorgen Sie für schnellere Rechner (1).
+
+</details>
+
+
+**b)** Nennen Sie drei Informationen, die Sie vom Kunden benötigen, bevor Sie Hardware empfehlen können. *(3 Punkte)*
+
+<details><summary>Lösung</summary>
+
+**Musterlösung (3 P):** Je 1: eingesetzte Anwendungen und deren Anforderungen; Zahl und Art der Arbeitsplätze (stationär oder mobil); Budget; vorhandene Infrastruktur (Netz, Server, Monitore); Sicherheits- und Datenschutzanforderungen; geplantes Wachstum; gewünschte Nutzungsdauer und Service.
+
+</details>
+
+
+**Anlage:**
+
+<table><tr><th>Arbeitsplatz</th><th>Tätigkeit</th></tr><tr><td>Konstruktion (6 Personen)</td><td>3D-CAD mit großen Baugruppen, fester Arbeitsplatz, zwei Monitore</td></tr><tr><td>Vertrieb (10 Personen)</td><td>drei Tage pro Woche bei Kunden, Präsentationen, CRM in der Cloud, im Büro Desk-Sharing</td></tr></table>
+
+**c)** Empfehlen Sie für die Konstruktion und für den Vertrieb jeweils einen Gerätetyp und nennen Sie je zwei Ausstattungsmerkmale mit Begründung. *(6 Punkte)*
+
+<details><summary>Lösung</summary>
+
+**Musterlösung (6 P):** Konstruktion (3): Workstation (1) mit leistungsstarker Mehrkern-CPU und 32–64 GB RAM, weil große Baugruppen viel Rechenleistung und Speicher brauchen (1); dedizierte, CAD-zertifizierte Grafikkarte für die flüssige 3D-Darstellung, dazu schnelle NVMe-SSD (1). Vertrieb (3): leichtes Business-Notebook (1) mit langer Akkulaufzeit und Mobilfunkmodul für die Arbeit beim Kunden (1); USB-C-Dockingstation im Büro für Desk-Sharing, BitLocker/TPM wegen Diebstahlrisiko (1).
+
+</details>
+
+
+**d)** Der Kunde möchte Notebooks mit Windows 11 Home kaufen, weil sie günstiger sind. Nennen Sie zwei Gründe, die dagegen sprechen, und Ihre Empfehlung. *(3 Punkte)*
+
+<details><summary>Lösung</summary>
+
+**Musterlösung (3 P):** Gründe (je 1): Home kann keiner Domäne und keinem Entra ID beitreten, eine zentrale Verwaltung per Gruppenrichtlinien oder Intune ist nicht möglich; BitLocker fehlt, bei Diebstahl wären die Daten ungeschützt; kein Remotedesktop-Host für die Fernwartung. Empfehlung (1): Windows 11 Pro.
+
+</details>
+
+
+**e)** Die Notebooks sollen zentral verwaltet werden (Richtlinien, Fernlöschen). Welcher Microsoft-365-Business-Plan ist dafür nötig? Begründen Sie und nennen Sie die Nutzergrenze der Business-Pläne. *(3 Punkte)*
+
+<details><summary>Lösung</summary>
+
+**Musterlösung (3 P):** Microsoft 365 Business Premium (1), weil nur dieser Plan Intune für die Geräteverwaltung und Entra ID P1 enthält; Business Standard bietet nur die Office-Apps und Dienste (1). Business-Pläne sind auf 300 Nutzer begrenzt – bei 60 Mitarbeitenden kein Problem (1).
+
+</details>
+
+
+**Anlage:**
+
+```text
+The device ships with a 3-year on-site warranty with next business day response.
+The battery is covered for 12 months. Accidental damage is not included.
+```
+
+**f)** Im englischen Datenblatt des Notebooks steht der abgebildete Text. Geben Sie den Inhalt sinngemäß auf Deutsch wieder. *(3 Punkte)*
+
+<details><summary>Lösung</summary>
+
+**Musterlösung (3 P):** Das Gerät hat drei Jahre Vor-Ort-Garantie; der Techniker kommt am nächsten Werktag (1). Für den Akku gelten nur zwölf Monate (1). Unfallschäden, z. B. durch Herunterfallen oder Flüssigkeit, sind nicht abgedeckt (1).
+
+</details>
+
+
+**g)** Ein Mitarbeiter der Buchhaltung ist stark sehbehindert. Nennen Sie drei Maßnahmen für seinen Arbeitsplatz. *(3 Punkte)*
+
+<details><summary>Lösung</summary>
+
+**Musterlösung (3 P):** Je 1: großer oder zweiter Monitor; Vergrößerungssoftware/Bildschirmlupe; Hochkontrastmodus und größere Schrift; Screenreader mit Sprachausgabe; Tastatur mit großen, kontrastreichen Tasten; blendfreie Beleuchtung; Software, die per Tastatur bedienbar ist.
+
+</details>
+
+
+### Aufgabe 2 (25 Punkte) – Lizenzen und Kosten
+
+> Geplant ist ein Virtualisierungshost mit **2 Prozessoren zu je 12 Kernen**, auf dem **4 virtuelle Windows-Server** laufen. Auf die Server greifen 40 Büromitarbeitende (jeweils PC und Smartphone) und 20 Mitarbeitende der Fertigung zu, die sich 8 Terminals teilen.
+
+**a)** Wie viele Kernlizenzen benötigt der Host für eine vollständige Lizenzierung? *(3 Punkte)*
+
+<details><summary>Lösung</summary>
+
+**24 Kernlizenzen**<br>Alle physischen Kerne: 2 × 12 = 24 (über dem Minimum von 16 pro Server).
+
+</details>
+
+
+**b)** Mit der Standard-Edition dürfen pro vollständiger Lizenzierung zwei virtuelle Server betrieben werden. Wie viele Kernlizenzen sind für die vier virtuellen Server insgesamt nötig? *(3 Punkte)*
+
+<details><summary>Lösung</summary>
+
+**48 Kernlizenzen**<br>4 VMs ÷ 2 = zweimal lizenzieren: 2 × 24 = 48.
+
+</details>
+
+
+**c)** Ermitteln Sie die günstigste Kombination aus User-CALs und Device-CALs und begründen Sie. *(3 Punkte)*
+
+<details><summary>Lösung</summary>
+
+**Musterlösung (3 P):** 40 User-CALs für das Büro und 8 Device-CALs für die Terminals, zusammen 48 (1). Büro: Jede Person nutzt mehrere Geräte – eine User-CAL deckt alle ab (1). Fertigung: 20 Personen teilen sich 8 Geräte – pro Gerät zu lizenzieren ist günstiger als 20 User-CALs (1).
+
+</details>
+
+
+**d)** Die Virtualisierung kostet einmalig 21.600 €. Bisher verursachen die vier alten Server 1.150 € pro Monat für Strom und Wartung, künftig sind es 250 € pro Monat. Nach wie vielen Monaten hat sich die Investition amortisiert? *(4 Punkte)*
+
+<details><summary>Lösung</summary>
+
+**24 Monate**<br>Ersparnis 1.150 − 250 = 900 € pro Monat; 21.600 ÷ 900 = 24 Monate.
+
+</details>
+
+
+**e)** Die vier alten Server nehmen je 350 W auf und laufen rund um die Uhr (365 Tage). Der Strompreis beträgt 0,30 €/kWh. Berechnen Sie die jährlichen Stromkosten. *(4 Punkte)*
+
+<details><summary>Lösung</summary>
+
+**3679.2 €**<br>4 × 350 W = 1,4 kW; × 24 h × 365 = 12.264 kWh; × 0,30 € = 3.679,20 €.
+
+</details>
+
+
+**f)** 40 Notebooks kosten im Kauf je 1.100 €. Alternativ bietet der Händler Leasing für 34 € pro Gerät und Monat über 36 Monate an. Berechnen Sie die Gesamtkosten des Leasings. *(2 Punkte)*
+
+<details><summary>Lösung</summary>
+
+**48960 €**<br>40 × 34 € × 36 = 48.960 € (Kauf: 44.000 €).
+
+</details>
+
+
+**g)** Das Leasing ist insgesamt teurer als der Kauf. Nennen Sie zwei Gründe, warum sich der Kunde trotzdem dafür entscheiden könnte. *(2 Punkte)*
+
+<details><summary>Lösung</summary>
+
+**Musterlösung (2 P):** Je 1: keine hohe Einmalzahlung, die Liquidität bleibt für andere Investitionen; gleichmäßige, planbare Kosten; nach 36 Monaten neue Geräte ohne Entsorgung und Restwertrisiko; Service kann enthalten sein.
+
+</details>
+
+
+**h)** Im Servicevertrag sichert NordIT eine Verfügbarkeit der Server von 99,5 % pro Monat (30 Tage) zu. Wie viele Stunden dürfen die Server im Monat höchstens ausfallen? *(2 Punkte)*
+
+<details><summary>Lösung</summary>
+
+**3.6 h**<br>30 × 24 = 720 h; 0,5 % davon = 3,6 h.
+
+</details>
+
+
+**i)** Nennen Sie zwei weitere Punkte, die in diesem Service Level Agreement geregelt werden sollten. *(2 Punkte)*
+
+<details><summary>Lösung</summary>
+
+**Musterlösung (2 P):** Je 1: Reaktionszeit; Wiederherstellungszeit; Servicezeiten und Erreichbarkeit; Ansprechpartner und Eskalationswege; Prioritätsstufen; Berichte über die Einhaltung; Vertragsstrafen bei Verstößen; Kosten.
+
+</details>
+
+
+### Aufgabe 3 (25 Punkte) – Mobiles Arbeiten und Sicherheit
+
+**a)** Die Vertriebsmitarbeitenden sollen von unterwegs auf Daten im Firmennetz zugreifen. Erläutern Sie, wie das sicher gelöst wird, und begründen Sie, warum der Remotedesktop-Port nicht einfach im Router freigegeben werden darf. *(3 Punkte)*
+
+<details><summary>Lösung</summary>
+
+**Musterlösung (3 P):** Lösung: ein VPN – ein verschlüsselter Tunnel zwischen Notebook und Firmennetz, Anmeldung mit Mehr-Faktor-Authentifizierung (2). Ein offener RDP-Port ist aus dem ganzen Internet erreichbar und wird laufend automatisiert angegriffen (Passwort-Raten, Sicherheitslücken) (1).
+
+</details>
+
+
+**b)** Erläutern Sie die Zwei-Faktor-Authentifizierung an einem Beispiel für die VPN-Anmeldung und nennen Sie die drei Arten von Faktoren. *(3 Punkte)*
+
+<details><summary>Lösung</summary>
+
+**Musterlösung (3 P):** Bei der 2FA werden zwei Faktoren aus unterschiedlichen Kategorien kombiniert, z. B. Passwort und Einmalcode aus einer Authenticator-App (1,5). Faktorarten: Wissen (Passwort, PIN), Besitz (Smartphone, Token, Smartcard), Inhärenz/Biometrie (Fingerabdruck, Gesicht) (1,5).
+
+</details>
+
+
+**c)** Ein Konstrukteur lädt im Homeoffice ein CAD-Projekt mit 12 GB auf den Firmenserver. Sein Anschluss bietet 40 Mbit/s im Upload. Wie viele Minuten dauert die Übertragung (dezimale Präfixe, ohne Overhead)? *(3 Punkte)*
+
+<details><summary>Lösung</summary>
+
+**40 min**<br>12 GB = 96.000 Mbit; ÷ 40 Mbit/s = 2.400 s = 40 Minuten.
+
+</details>
+
+
+**d)** Der Firmenanschluss bietet 250 Mbit/s im Download und 40 Mbit/s im Upload. Erläutern Sie, warum das für mobiles Arbeiten ein Problem sein kann, und geben Sie eine Empfehlung. *(3 Punkte)*
+
+<details><summary>Lösung</summary>
+
+**Musterlösung (3 P):** Wenn Mitarbeitende von außen Daten vom Firmenserver abrufen, verlassen diese die Firma über den Upload – alle teilen sich nur 40 Mbit/s (2). Empfehlung: symmetrischer Anschluss, z. B. Glasfaser mit hoher Uploadrate, am besten als Geschäftskundenanschluss mit fester IP und Entstörzeit (1).
+
+</details>
+
+
+**e)** Die Fernwartung der Büro-PCs per Remotedesktop (TCP-Port 3389) soll nur aus dem Administrationsnetz 10.10.5.0/24 möglich sein. Beschreiben Sie die nötige Regel in der Windows-Firewall mit Richtung, Protokoll/Port, Quelle und Aktion. *(4 Punkte)*
+
+<details><summary>Lösung</summary>
+
+**Musterlösung (4 P):** Richtung: eingehend (1). Protokoll und Port: TCP 3389 (1). Quelle (Remote-IP-Adresse): 10.10.5.0/24 (1). Aktion: Verbindung zulassen – alle anderen eingehenden Verbindungen auf diesem Port bleiben durch die Standardregel blockiert (1).
+
+</details>
+
+
+**Anlage:**
+
+```text
+Von: IT-Support <it-support@brinkmann-maschinenbau.co>
+Betreff: DRINGEND – Ihr Postfach wird gesperrt
+
+Sehr geehrter Nutzer,
+ihr Postfach hat das Speicherlimit erreicht und wird in 24 Stunden gespert.
+Bestätigen Sie jetzt Ihre Zugangsdaten:
+http://brinkmann-login.secure-mailcheck.ru/reset
+```
+
+**f)** Eine Mitarbeiterin erhält die abgebildete E-Mail. Nennen Sie drei Merkmale, an denen Sie die Phishing-Mail erkennen. *(3 Punkte)*
+
+<details><summary>Lösung</summary>
+
+**Musterlösung (3 P):** Je 1: falsche Absenderdomain (.co statt .de); unpersönliche Anrede; Zeitdruck und Drohung („in 24 Stunden gesperrt“); Rechtschreibfehler; Link führt auf eine fremde Domain und nutzt kein HTTPS; Aufforderung, Zugangsdaten einzugeben.
+
+</details>
+
+
+**g)** Der Hersteller der CAD-Software veröffentlicht zum Installationspaket einen SHA-256-Hashwert. Erläutern Sie, wozu er dient, wie Sie ihn verwenden und welches Schutzziel damit geprüft wird. *(3 Punkte)*
+
+<details><summary>Lösung</summary>
+
+**Musterlösung (3 P):** Der Hashwert ist ein digitaler Fingerabdruck der Datei (1). Nach dem Download berechnet man den SHA-256-Wert der Datei selbst und vergleicht ihn mit dem veröffentlichten; stimmen beide überein, ist die Datei unverändert (1). Geprüft wird die Integrität (1).
+
+</details>
+
+
+**h)** Im VPN wird symmetrisch und asymmetrisch verschlüsselt. Nennen Sie je ein Merkmal beider Verfahren und begründen Sie die Kombination. *(3 Punkte)*
+
+<details><summary>Lösung</summary>
+
+**Musterlösung (3 P):** Symmetrisch: ein gemeinsamer Schlüssel, sehr schnell, aber der Schlüssel muss sicher ausgetauscht werden (1). Asymmetrisch: Schlüsselpaar aus öffentlichem und privatem Schlüssel, kein geheimer Austausch nötig, aber langsam (1). Kombination (hybrid): Der Sitzungsschlüssel wird asymmetrisch ausgetauscht, die Daten werden damit schnell symmetrisch verschlüsselt (1).
+
+</details>
+
+
+### Aufgabe 4 (25 Punkte) – Programmierung, Daten und Datenschutz
+
+**Anlage:**
+
+```text
+ 1  // Ein Passwort ist sicher, wenn es mindestens 12 Zeichen hat
+ 2  // UND mindestens eine Ziffer enthält
+ 3  FUNKTION istSicher(pw): Wahrheitswert
+ 4      hatZiffer ← falsch
+ 5      FÜR i ← 0 BIS länge(pw)
+ 6          WENN istZiffer(pw[i]) DANN
+ 7              hatZiffer ← wahr
+ 8          ENDE WENN
+ 9      ENDE FÜR
+10      RÜCKGABE länge(pw) >= 12 ODER hatZiffer
+11  ENDE FUNKTION
+```
+
+**a)** Die Funktion enthält zwei Fehler. Nennen Sie jeweils die Zeile, beschreiben Sie den Fehler und geben Sie die korrigierte Zeile an. *(4 Punkte)*
+
+<details><summary>Lösung</summary>
+
+**Musterlösung (4 P):** Zeile 5: Die Schleife läuft einen Schritt zu weit – der letzte gültige Index ist länge(pw) − 1 (1). Richtig: FÜR i ← 0 BIS länge(pw) − 1 (1). Zeile 10: ODER ist falsch, denn beide Bedingungen müssen erfüllt sein (1). Richtig: RÜCKGABE länge(pw) >= 12 UND hatZiffer (1).
+
+</details>
+
+
+**Anlage:**
+
+```text
+bestand ← 40
+tag ← 0
+SOLANGE bestand > 10
+    bestand ← bestand − 8
+    tag ← tag + 1
+ENDE SOLANGE
+AUSGABE tag
+```
+
+**b) Schreibtischtest – Ausgabe** Ein Programm simuliert den Verbrauch von Ersatzteilen. Welchen Wert gibt es aus? *(2 Punkte)*
+
+<details><summary>Lösung</summary>
+
+**4**<br>bestand: 40 → 32 → 24 → 16 → 8. Nach vier Durchläufen ist die Bedingung falsch.
+
+</details>
+
+
+**c) Schreibtischtest – bestand** Welchen Wert hat bestand am Ende? *(2 Punkte)*
+
+<details><summary>Lösung</summary>
+
+**8**
+
+</details>
+
+
+**d)** Stellen Sie den Ablauf als UML-Aktivitätsdiagramm dar, indem Sie die Elemente in der richtigen Reihenfolge nennen: Ein Mitarbeiter stellt einen Urlaubsantrag, die Teamleitung prüft ihn. Bei Genehmigung wird gleichzeitig der Urlaub im Personalsystem eingetragen und der Mitarbeiter benachrichtigt. Bei Ablehnung wird nur der Mitarbeiter benachrichtigt. *(4 Punkte)*
+
+<details><summary>Lösung</summary>
+
+**Musterlösung (4 P):** Startknoten → Aktion „Urlaubsantrag stellen“ → Aktion „Antrag prüfen“ (1) → Verzweigung (Raute) mit den Guards [genehmigt] und [abgelehnt] (1). [genehmigt]: Gabelung (Balken) → parallel „Urlaub eintragen“ und „Mitarbeiter benachrichtigen“ → Vereinigung (Balken) (1). [abgelehnt]: Aktion „Mitarbeiter benachrichtigen“. Beide Wege über eine Zusammenführung (Raute) zum Endknoten (1).
+
+</details>
+
+
+**e)** In einer Datenbank sollen Maschinen und ihre Wartungen gespeichert werden. Eine Maschine wird mehrfach gewartet, jede Wartung gehört zu genau einer Maschine. Geben Sie beide Tabellen mit sinnvollen Spalten an und kennzeichnen Sie Primär- und Fremdschlüssel. *(4 Punkte)*
+
+<details><summary>Lösung</summary>
+
+**Musterlösung (4 P):** Maschine (MaschinenNr als Primärschlüssel, Bezeichnung, Standort, Baujahr) (1,5). Wartung (WartungsNr als Primärschlüssel, Datum, Beschreibung, Techniker) (1,5), dazu MaschinenNr als Fremdschlüssel in der Tabelle Wartung (1) – bei 1:n steht der Fremdschlüssel auf der n-Seite.
+
+</details>
+
+
+**f)** Im Klassendiagramm steht die Klasse Notebook mit „− seriennummer“ und „+ aufruesten()“. Erläutern Sie die beiden Vorzeichen und den Unterschied zwischen Klasse und Objekt. *(3 Punkte)*
+
+<details><summary>Lösung</summary>
+
+**Musterlösung (3 P):** − bedeutet private: Das Attribut ist nur innerhalb der Klasse zugänglich (1). + bedeutet public: Die Methode kann von außen aufgerufen werden (1). Eine Klasse ist der Bauplan, ein Objekt ein konkretes Exemplar davon, z. B. das Notebook mit der Seriennummer X123 (1).
+
+</details>
+
+
+**g)** Die Geschäftsführung möchte die Arbeitszeit künftig per Fingerabdruck erfassen. Nennen Sie drei Punkte, die aus Sicht des Datenschutzes zu beachten sind. *(3 Punkte)*
+
+<details><summary>Lösung</summary>
+
+**Musterlösung (3 P):** Je 1: Fingerabdrücke sind biometrische Daten und damit besondere Kategorien personenbezogener Daten – die Verarbeitung ist nur ausnahmsweise erlaubt; sie muss erforderlich sein, mildere Mittel wie Chipkarten sind zu prüfen; eine Einwilligung muss freiwillig sein, was im Arbeitsverhältnis fraglich ist; Datenschutz-Folgenabschätzung; Datenschutzbeauftragten und Betriebsrat einbeziehen; sichere, verschlüsselte Speicherung.
+
+</details>
+
+
+**h)** Die 40 alten PCs sollen entsorgt werden. Beschreiben Sie ein datenschutzgerechtes und umweltgerechtes Vorgehen. *(3 Punkte)*
+
+<details><summary>Lösung</summary>
+
+**Musterlösung (3 P):** Datenträger vorher sicher löschen (mehrfach überschreiben bzw. Secure Erase) oder physisch vernichten, z. B. schreddern nach DIN 66399 – bloßes Formatieren reicht nicht (1,5). Die Geräte über einen zertifizierten Entsorger oder Wertstoffhof nach dem ElektroG entsorgen bzw. aufbereiten lassen und die Löschung/Vernichtung protokollieren (1,5).
+
+</details>
+
+
+---
+
+## 📚 Prüfungssatz 3 – Stadtbibliothek Wedel
+
+**Ausgangssituation:** Sie arbeiten in der IT-Abteilung der Stadt Wedel. Die Stadtbibliothek wird modernisiert: 12 öffentliche Recherche-Plätze, 4 Arbeitsplätze für das Personal, 2 Selbstverbuchungsterminals und ein WLAN für Besucher. Außerdem soll das Zeitungsarchiv digitalisiert werden, und das Personal soll einen KI-Assistenten nutzen dürfen.
+
+*90 Minuten · 100 Punkte · Lösungen zum Aufklappen*
+
+### Aufgabe 1 (25 Punkte) – Planung und Geräteauswahl
+
+**a)** Für die 12 öffentlichen Recherche-Plätze sollen Thin Clients eingesetzt werden. Nennen Sie zwei Vorteile und einen Nachteil. *(3 Punkte)*
+
+<details><summary>Lösung</summary>
+
+**Musterlösung (3 P):** Vorteile (je 1): zentrale Verwaltung und Updates; geringer Stromverbrauch und lange Lebensdauer; keine lokalen Daten, wenig Angriffsfläche; günstige Anschaffung; leise. Nachteil (1): ohne Netzwerk und Server nicht nutzbar; der Server ist ein Single Point of Failure.
+
+</details>
+
+
+**b)** Die Selbstverbuchungsterminals sollen im Kioskmodus laufen. Erläutern Sie, was das bedeutet und warum es hier sinnvoll ist. *(3 Punkte)*
+
+<details><summary>Lösung</summary>
+
+**Musterlösung (3 P):** Im Kioskmodus startet nur eine festgelegte Anwendung im Vollbild; Desktop, Einstellungen und andere Programme sind nicht erreichbar (2). Besucher können das Gerät so nicht verändern, nichts installieren und nicht auf andere Daten zugreifen (1).
+
+</details>
+
+
+**c)** Die Bibliothekssoftware arbeitet nach dem Client-Server-Prinzip. Erläutern Sie das Prinzip und nennen Sie zwei Vorteile gegenüber einem Peer-to-Peer-Netz. *(4 Punkte)*
+
+<details><summary>Lösung</summary>
+
+**Musterlösung (4 P):** Ein zentraler Server stellt Dienste und Daten bereit, die Clients fordern sie an und nutzen sie (2). Vorteile (je 1): zentrale Datenhaltung und Datensicherung; zentrale Benutzer- und Rechteverwaltung; leichter zu administrieren und zu erweitern; höhere Sicherheit.
+
+</details>
+
+
+**d)** Die Einführung wird mit Scrum organisiert. Nennen Sie die drei Rollen mit je einer Aufgabe. *(3 Punkte)*
+
+<details><summary>Lösung</summary>
+
+**Musterlösung (3 P):** Product Owner: verantwortet und priorisiert das Product Backlog, vertritt die Anforderungen (1). Scrum Master: sorgt dafür, dass Scrum eingehalten wird, und beseitigt Hindernisse (1). Developers: setzen die Aufgaben des Sprints selbstorganisiert um (1).
+
+</details>
+
+
+**e)** Der Online-Katalog der Bibliothek muss barrierefrei sein. Nennen Sie vier Anforderungen an eine barrierefreie Website. *(4 Punkte)*
+
+<details><summary>Lösung</summary>
+
+**Musterlösung (4 P):** Je 1: Alternativtexte für Bilder; vollständige Bedienbarkeit per Tastatur; ausreichender Farbkontrast; Informationen nicht nur über Farbe vermitteln; skalierbare Schrift; klare Struktur mit Überschriften; verständliche Sprache und Fehlermeldungen; Untertitel für Videos; Kompatibilität mit Screenreadern.
+
+</details>
+
+
+**f)** Ein Recherche-Platz soll für blinde Besucher eingerichtet werden. Nennen Sie zwei Hilfsmittel und eine Anforderung an die Software. *(3 Punkte)*
+
+<details><summary>Lösung</summary>
+
+**Musterlösung (3 P):** Hilfsmittel (je 1): Screenreader mit Sprachausgabe und Kopfhörer; Braillezeile; Tastatur mit Braille-Beschriftung. Software (1): vollständig per Tastatur bedienbar und mit Screenreadern kompatibel.
+
+</details>
+
+
+**g)** Die Verwaltung fragt, ob die Geräte gekauft oder gemietet werden sollen. Stellen Sie Kauf und Miete anhand von zwei Kriterien gegenüber und geben Sie eine begründete Empfehlung. *(5 Punkte)*
+
+<details><summary>Lösung</summary>
+
+**Musterlösung (5 P):** Kriterium Kosten/Liquidität: Kauf – hohe Einmalzahlung, langfristig günstiger; Miete – keine Anfangsinvestition, laufende Raten, insgesamt teurer (2). Kriterium Flexibilität/Aktualität: Kauf – Eigentum, aber Risiko der Veralterung und eigene Entsorgung; Miete – Geräte können getauscht oder zurückgegeben werden, Service oft enthalten (2). Empfehlung mit Begründung (1), z. B. Kauf, weil Thin Clients lange nutzbar sind und kaum veralten – oder Miete, wenn das Budget des Haushaltsjahres nicht reicht.
+
+</details>
+
+
+### Aufgabe 2 (25 Punkte) – Datenmengen, Zahlensysteme und Energie
+
+> Das Zeitungsarchiv umfasst 5.000 Seiten. Jede Seite wird mit 2.480 × 3.508 Pixeln und 24 Bit Farbtiefe gescannt.
+
+**a)** Wie groß ist eine unkomprimierte gescannte Seite in MB (dezimal, eine Nachkommastelle)? *(3 Punkte)*
+
+<details><summary>Lösung</summary>
+
+**26.1 MB**<br>2.480 × 3.508 × 24 Bit ÷ 8 = 26.099.520 Byte ≈ 26,1 MB.
+
+</details>
+
+
+**b)** Als JPEG belegt jede Seite durchschnittlich 1,8 MB. Wie viele GiB belegen alle 5.000 Seiten (zwei Nachkommastellen)? *(3 Punkte)*
+
+<details><summary>Lösung</summary>
+
+**8.38 GiB**<br>5.000 × 1,8 MB = 9.000 MB = 9 × 10⁹ Byte; ÷ 2³⁰ ≈ 8,38 GiB.
+
+</details>
+
+
+**c)** Die 9 GB sollen in ein Cloud-Archiv geladen werden. Der Anschluss bietet 20 Mbit/s im Upload. Wie viele Minuten dauert die Übertragung? *(3 Punkte)*
+
+<details><summary>Lösung</summary>
+
+**60 min**<br>9 GB = 72.000 Mbit; ÷ 20 Mbit/s = 3.600 s = 60 Minuten.
+
+</details>
+
+
+**d)** Für das Archiv wird eine Festplatte mit 1 TB gekauft. Das Betriebssystem zeigt nur etwa 931 GB an. Erläutern Sie die Abweichung. *(3 Punkte)*
+
+<details><summary>Lösung</summary>
+
+**Musterlösung (3 P):** Der Hersteller rechnet dezimal: 1 TB = 10¹² Byte (1). Das Betriebssystem rechnet binär mit 2³⁰ Byte pro Einheit (GiB), zeigt aber „GB“ an (1). 10¹² ÷ 2³⁰ ≈ 931 – es fehlt also kein Speicher, nur die Einheit ist eine andere (1).
+
+</details>
+
+
+**e)** Das letzte Oktett einer Subnetzmaske lautet binär 1110 0000. Welchem Dezimalwert entspricht das? *(3 Punkte)*
+
+<details><summary>Lösung</summary>
+
+**224**<br>128 + 64 + 32 = 224.
+
+</details>
+
+
+**f)** Wandeln Sie die Hexadezimalzahl C0 in eine Dezimalzahl um. *(2 Punkte)*
+
+<details><summary>Lösung</summary>
+
+**192**<br>12 × 16 + 0 = 192.
+
+</details>
+
+
+**g)** Die 12 alten PCs nehmen je 110 W auf, die neuen Thin Clients je 15 W. Die Geräte laufen 9 Stunden an 300 Tagen im Jahr, der Strompreis beträgt 0,30 €/kWh. Wie viel Euro Stromkosten werden pro Jahr eingespart? *(4 Punkte)*
+
+<details><summary>Lösung</summary>
+
+**923.4 €**<br>(110 − 15) W × 12 = 1.140 W = 1,14 kW; × 9 h × 300 = 3.078 kWh; × 0,30 € = 923,40 €.
+
+</details>
+
+
+**h)** Die 12 Thin Clients kosten je 320 €. Nach wie vielen Jahren hat sich die Anschaffung allein durch die Stromersparnis von 923,40 € pro Jahr amortisiert (eine Nachkommastelle)? *(4 Punkte)*
+
+<details><summary>Lösung</summary>
+
+**4.2 Jahre**<br>12 × 320 € = 3.840 €; ÷ 923,40 € ≈ 4,2 Jahre.
+
+</details>
+
+
+### Aufgabe 3 (25 Punkte) – Netzwerk und IT-Sicherheit
+
+**a)** Besucher sollen das WLAN mit eigenen Geräten nutzen. Nennen Sie zwei technische Maßnahmen, mit denen das Besuchernetz abgesichert und vom Verwaltungsnetz getrennt wird, und begründen Sie sie. *(4 Punkte)*
+
+<details><summary>Lösung</summary>
+
+**Musterlösung (4 P):** Je Maßnahme mit Begründung 2: eigenes VLAN/Subnetz mit eigener SSID – Besuchergeräte gelangen nicht ins Verwaltungsnetz; Firewallregeln, die nur den Internetzugang erlauben; Client-Isolation – Besuchergeräte können sich nicht gegenseitig angreifen; WPA3 bzw. verschlüsselte Übertragung; Bandbreitenbegrenzung und Webfilter.
+
+</details>
+
+
+**b)** Die Geräte der Besucher erhalten ihre Adresse per DHCP. Beschreiben Sie die vier Schritte der Adressvergabe. *(4 Punkte)*
+
+<details><summary>Lösung</summary>
+
+**Musterlösung (4 P):** Discover: Der Client sucht per Broadcast einen DHCP-Server (1). Offer: Der Server bietet eine Adresse an (1). Request: Der Client fordert die angebotene Adresse an (1). Acknowledge: Der Server bestätigt und übermittelt Maske, Gateway, DNS und Gültigkeitsdauer (1).
+
+</details>
+
+
+**c)** Ein Recherche-Platz zeigt die Adresse 169.254.20.8 und hat keine Verbindung. Erläutern Sie die Ursache und nennen Sie einen Prüfschritt. *(3 Punkte)*
+
+<details><summary>Lösung</summary>
+
+**Musterlösung (3 P):** Die Adresse stammt aus dem APIPA-Bereich: Der Client hat keinen DHCP-Server erreicht und sich selbst eine Adresse gegeben; Gateway und DNS fehlen (2). Prüfschritt (1): Netzwerkkabel und Switchport prüfen; DHCP-Server und freien Adressbereich prüfen; Adresse neu anfordern (ipconfig /release und /renew).
+
+</details>
+
+
+**d)** Erläutern Sie die Aufgabe des DNS und beschreiben Sie, was Benutzer bemerken, wenn der DNS-Server ausfällt. *(3 Punkte)*
+
+<details><summary>Lösung</summary>
+
+**Musterlösung (3 P):** DNS löst Namen wie katalog.wedel.de in IP-Adressen auf (1). Fällt der Server aus, lassen sich Webseiten und Dienste nicht mehr über ihren Namen aufrufen, es wirkt wie ein Ausfall des Internets (1). Über die IP-Adresse wären die Ziele weiterhin erreichbar (1).
+
+</details>
+
+
+**e)** Nennen Sie die drei Schutzziele der Informationssicherheit und geben Sie je ein Beispiel aus der Bibliothek. *(3 Punkte)*
+
+<details><summary>Lösung</summary>
+
+**Musterlösung (3 P):** Vertraulichkeit – Ausleihdaten der Leser dürfen nur Berechtigte sehen (1). Integrität – Kontostände und Ausleihfristen dürfen nicht unbemerkt verändert werden (1). Verfügbarkeit – Katalog und Verbuchung müssen während der Öffnungszeiten funktionieren (1).
+
+</details>
+
+
+**Anlage:**
+
+<table><tr><th>Passwortrichtlinie für das Bibliothekspersonal (alt)</th></tr><tr><td>Mindestlänge 6 Zeichen</td></tr><tr><td>Wechsel alle 30 Tage</td></tr><tr><td>Dasselbe Passwort für Bibliothekssoftware, E-Mail und WLAN</td></tr><tr><td>Keine Sperre nach Fehlversuchen</td></tr></table>
+
+**f)** Bewerten Sie die Passwortrichtlinie: Nennen Sie zwei Schwächen und je eine Verbesserung. *(4 Punkte)*
+
+<details><summary>Lösung</summary>
+
+**Musterlösung (4 P):** Je Schwäche 1 und je Verbesserung 1, z. B.: 6 Zeichen sind zu kurz → mindestens 12 Zeichen bzw. Passphrasen. / Erzwungener Wechsel alle 30 Tage führt zu schwachen, leicht abgewandelten oder notierten Passwörtern → Wechsel nur bei Verdacht auf Kompromittierung. / Ein Passwort für alle Dienste → eigenes Passwort je Dienst mit Passwortmanager, zusätzlich MFA. / Keine Sperre → Konto nach mehreren Fehlversuchen zeitweise sperren.
+
+</details>
+
+
+**g)** Nennen Sie vier Maßnahmen, mit denen die öffentlichen Recherche-Plätze gehärtet werden. *(4 Punkte)*
+
+<details><summary>Lösung</summary>
+
+**Musterlösung (4 P):** Je 1: Benutzerkonto ohne Administratorrechte; Kioskmodus bzw. nur freigegebene Programme; USB-Speicher und Installation sperren; Zurücksetzen nach jeder Sitzung; automatische Updates; Zugriff aufs UEFI mit Passwort schützen, Booten von fremden Medien verhindern; Webfilter; Gehäuse und Anschlüsse sichern.
+
+</details>
+
+
+### Aufgabe 4 (25 Punkte) – KI, Cloud, Datenschutz und Verträge
+
+**a)** Das Personal soll einen KI-Assistenten für Texte und Recherchen nutzen. Nennen Sie zwei Chancen und zwei Risiken. *(4 Punkte)*
+
+<details><summary>Lösung</summary>
+
+**Musterlösung (4 P):** Chancen (je 1): Zeitersparnis bei Texten, Zusammenfassungen und Übersetzungen; Unterstützung bei der Recherche und Ideenfindung; Entlastung von Routineaufgaben. Risiken (je 1): falsche, aber überzeugend formulierte Antworten (Halluzinationen); Eingabe personenbezogener oder vertraulicher Daten; Urheberrechtsfragen; unkritische Übernahme der Ergebnisse.
+
+</details>
+
+
+**b)** Nennen Sie drei Punkte, die eine KI-Richtlinie für das Personal regeln sollte. *(3 Punkte)*
+
+<details><summary>Lösung</summary>
+
+**Musterlösung (3 P):** Je 1: welche Werkzeuge freigegeben sind; welche Daten nicht eingegeben werden dürfen (personenbezogene, vertrauliche); Pflicht, Ergebnisse zu prüfen; Kennzeichnung KI-erzeugter Inhalte; Schulung der Beschäftigten; Zuständigkeiten und Ansprechpartner.
+
+</details>
+
+
+**c)** Die Bibliothekssoftware wird künftig als Software as a Service bezogen. Erläutern Sie das Modell und nennen Sie einen Vorteil und ein Risiko. *(3 Punkte)*
+
+<details><summary>Lösung</summary>
+
+**Musterlösung (3 P):** Der Anbieter betreibt die fertige Anwendung in seinem Rechenzentrum; sie wird über das Internet genutzt und meist pro Nutzer und Monat bezahlt (1). Vorteil (1): kein eigener Server, Updates und Betrieb übernimmt der Anbieter, überall nutzbar. Risiko (1): Abhängigkeit vom Anbieter und von der Internetverbindung; Datenschutz und Serverstandort.
+
+</details>
+
+
+**d)** In der Software werden Leserdaten gespeichert. Nennen Sie drei Punkte, die die Stadt vor dem Vertragsabschluss mit dem Cloud-Anbieter datenschutzrechtlich klären muss. *(3 Punkte)*
+
+<details><summary>Lösung</summary>
+
+**Musterlösung (3 P):** Je 1: Auftragsverarbeitungsvertrag nach Art. 28 DSGVO; Serverstandort in der EU bzw. zulässige Übermittlung in Drittländer; technische und organisatorische Maßnahmen des Anbieters (Verschlüsselung, Zugriffsschutz); Unterauftragnehmer; Löschung und Rückgabe der Daten bei Vertragsende.
+
+</details>
+
+
+**e)** Die Selbstverbuchungsterminals wurden „fest zum 1. September“ bestellt, weil an diesem Tag die Wiedereröffnung ist. Am 5. September sind sie noch nicht geliefert; der Lieferant hat die Bestellung liegen lassen. Benennen Sie die Vertragsstörung, prüfen Sie die Voraussetzungen und nennen Sie zwei Rechte der Stadt. *(4 Punkte)*
+
+<details><summary>Lösung</summary>
+
+**Musterlösung (4 P):** Lieferungsverzug (1). Voraussetzungen erfüllt: Die Lieferung ist fällig, eine Mahnung ist wegen des kalendermäßig bestimmten Termins nicht nötig, und der Lieferant hat die Verspätung verschuldet (1). Rechte (je 1): Lieferung verlangen und Ersatz des Verzugsschadens; nach erfolgloser Nachfrist Rücktritt vom Vertrag; Schadensersatz statt der Leistung, z. B. Mehrkosten für einen Ersatzkauf.
+
+</details>
+
+
+**f)** Ein Dienstleister soll (1) die Terminals betriebsbereit installieren und (2) das Personal einen Tag lang schulen. Ordnen Sie beiden Leistungen die Vertragsart zu und begründen Sie. *(3 Punkte)*
+
+<details><summary>Lösung</summary>
+
+**Musterlösung (3 P):** (1) Werkvertrag – geschuldet ist ein Erfolg, nämlich funktionierende Terminals, die abgenommen werden (1,5). (2) Dienstvertrag – geschuldet ist die Tätigkeit des Schulens, nicht ein bestimmter Lernerfolg (1,5).
+
+</details>
+
+
+**g)** Leser können sich für einen Newsletter anmelden. Nennen Sie drei Anforderungen an eine wirksame Einwilligung. *(3 Punkte)*
+
+<details><summary>Lösung</summary>
+
+**Musterlösung (3 P):** Je 1: freiwillig; für einen bestimmten Zweck; informiert (wer verarbeitet was wofür); eindeutige aktive Handlung – kein vorangekreuztes Kästchen; nachweisbar; jederzeit so einfach widerrufbar wie erteilt.
+
+</details>
+
+
+**h)** Ein Leser kündigt seinen Bibliotheksausweis und verlangt die Löschung seiner Daten. Erläutern Sie, wie die Bibliothek vorgehen muss. *(2 Punkte)*
+
+<details><summary>Lösung</summary>
+
+**Musterlösung (2 P):** Daten, die für keinen Zweck mehr gebraucht werden, sind zu löschen (1). Daten mit gesetzlicher Aufbewahrungspflicht, z. B. Gebührenbelege, werden bis zum Ablauf der Frist gesperrt und erst danach gelöscht (1).
+
+</details>
+

@@ -92,7 +92,7 @@ qs:[
 {t:"sc",q:"Wie lautet die Broadcastadresse von 10.0.0.37/28?",o:["10.0.0.47","10.0.0.39","10.0.0.63","10.0.0.255"],a:0,e:"Block 16: 32–47 → Broadcast .47."},
 {t:"sc",q:"Welche Adresse ist privat (RFC 1918)?",o:["172.32.1.1","172.20.5.10","192.169.0.1","11.0.0.1"],a:1,e:"172.16.0.0–172.31.255.255."},
 {t:"sc",q:"Ein Client hat die IP 169.254.12.4. Was ist die wahrscheinlichste Ursache?",o:["DNS-Server falsch","DHCP-Server nicht erreichbar","Gateway falsch","IPv6 aktiv"],a:1,e:"APIPA wird vergeben, wenn kein DHCP antwortet."},
-{t:"sc",q:"Welche Schreibweise ist eine korrekt gekürzte Form von 2001:0db8:0000:0000:0001:0000:0000:0001?",o:["2001:db8::1::1","2001:db8::1:0:0:1","2001:db8:0:0:1::1 und 2001:db8::1:0:0:1 sind beide gültig","2001:db8:1:1"],a:2,e:":: darf nur einmal vorkommen; beide Varianten sind gültig (empfohlen nach RFC 5952: die erste längste Folge, hier gleich lang → die erste: 2001:db8::1:0:0:1)."},
+{t:"open",short:true,p:2,q:"Kürzen Sie die IPv6-Adresse 2001:0db8:0000:0000:0001:0000:0000:0001 so weit wie möglich.",keys:["2001:db8::1:0:0:1","2001:db8:0:0:1::1"],a:"2001:db8::1:0:0:1",e:"Führende Nullen je Block weglassen; :: darf nur einmal vorkommen. Hier gibt es zwei gleich lange Nullfolgen – nach RFC 5952 wird die erste ersetzt. 2001:db8:0:0:1::1 ist ebenfalls eine gültige Adresse, 2001:db8::1::1 nicht."},
 {t:"sc",q:"Womit beginnt eine IPv6-Link-Local-Adresse?",o:["2001:","fe80:","ff02:","fd00:"],a:1,e:"fe80::/10."},
 {t:"sc",q:"Was kennt IPv6 im Gegensatz zu IPv4 NICHT?",o:["Multicast","Unicast","Broadcast","Anycast"],a:2,e:"Broadcast wird durch Multicast ersetzt."},
 {t:"num",q:"Ein Netz benötigt 50 Hosts. Welches Präfix (Zahl hinter /) ist das kleinstmögliche Netz?",a:26,unit:"",e:"2⁶ − 2 = 62 ≥ 50 → 6 Hostbits → /26."},

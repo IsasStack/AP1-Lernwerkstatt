@@ -112,9 +112,27 @@ Beide Rollen sollten wegen möglicher Interessenkonflikte nicht von der IT-Leitu
 - **Cookies** (TDDDG): technisch notwendige Cookies erlaubt; Tracking/Marketing nur nach Einwilligung (Cookie-Banner mit gleichwertiger Ablehnen-Option).
 - **Standard-Datenschutzmodell (SDM)**: Methode der Datenschutzbehörden, um DSGVO-Anforderungen in TOM zu übersetzen (Gewährleistungsziele wie Datenminimierung, Verfügbarkeit, Integrität, Vertraulichkeit, Nichtverkettung, Transparenz, Intervenierbarkeit).
 
+## Technische und organisatorische Maßnahmen nach Kontrollarten
+
+<table><tr><th>Kontrolle</th><th>Ziel</th><th>Beispiele</th></tr>
+<tr><td>Zutrittskontrolle</td><td>Unbefugte kommen nicht in die Räume</td><td>Schließanlage, Chipkarte, Besucherregelung</td></tr>
+<tr><td>Zugangskontrolle</td><td>Unbefugte können Systeme nicht nutzen</td><td>Passwort, MFA, Bildschirmsperre</td></tr>
+<tr><td>Zugriffskontrolle</td><td>Jeder sieht nur die Daten, die er braucht</td><td>Berechtigungskonzept, Rollen</td></tr>
+<tr><td>Weitergabekontrolle</td><td>Daten sind bei Transport und Übertragung geschützt</td><td>VPN, TLS, verschlüsselte Datenträger</td></tr>
+<tr><td>Eingabekontrolle</td><td>Nachvollziehbar, wer Daten wann eingegeben oder geändert hat</td><td>Protokollierung, persönliche Konten</td></tr>
+<tr><td>Auftragskontrolle</td><td>Dienstleister verarbeiten nur nach Weisung</td><td>AV-Vertrag, Kontrolle des Dienstleisters</td></tr>
+<tr><td>Verfügbarkeitskontrolle</td><td>Daten gehen nicht verloren</td><td>Backup, USV, Virenschutz</td></tr>
+<tr><td>Trennungsgebot</td><td>Daten für verschiedene Zwecke werden getrennt verarbeitet</td><td>getrennte Datenbanken, Mandantentrennung, Test- und Echtsystem</td></tr></table>
+
+## Dokumentationspflichten
+
+- **Verzeichnis von Verarbeitungstätigkeiten** (Art. 30 DSGVO): Liste aller Verarbeitungen mit Zweck, Datenkategorien, Empfängern, Löschfristen und Schutzmaßnahmen.
+- **Datenschutz-Folgenabschätzung** (Art. 35 DSGVO): vorab nötig, wenn eine Verarbeitung voraussichtlich ein hohes Risiko für Betroffene bringt, z. B. umfangreiche Videoüberwachung oder Verarbeitung vieler Gesundheitsdaten.
+- **Löschkonzept:** legt fest, welche Daten wann und wie gelöscht werden. Grundsatz: löschen, sobald der Zweck entfällt – außer gesetzliche Aufbewahrungsfristen verlangen eine längere Speicherung. Bis dahin werden die Daten gesperrt.
+
 ---
 
-## 🃏 Karteikarten (31)
+## 🃏 Karteikarten (38)
 
 | Frage | Antwort |
 |---|---|
@@ -149,174 +167,125 @@ Beide Rollen sollten wegen möglicher Interessenkonflikte nicht von der IT-Leitu
 | DDG | Digitale-Dienste-Gesetz (seit 2024) – u. a. Impressumspflicht, ersetzt das TMG. |
 | Cookies – Regel | Notwendige Cookies erlaubt, Tracking nur mit Einwilligung (TDDDG). |
 | Kontaktformular datenschutzkonform | Wenige Pflichtfelder, HTTPS, Datenschutzhinweis, Zweckbindung, Löschfrist. |
+| Weitergabekontrolle | Schutz personenbezogener Daten bei Übertragung und Transport, z. B. durch VPN, TLS oder verschlüsselte Datenträger. |
+| Eingabekontrolle | Es muss nachvollziehbar sein, wer wann welche Daten eingegeben oder geändert hat – durch Protokollierung. |
+| Auftragskontrolle | Dienstleister verarbeiten Daten nur nach Weisung des Auftraggebers – geregelt im AV-Vertrag. |
+| Trennungsgebot | Daten, die zu unterschiedlichen Zwecken erhoben wurden, werden getrennt verarbeitet. |
+| Verzeichnis von Verarbeitungstätigkeiten | Art. 30 DSGVO: Übersicht aller Verarbeitungen mit Zweck, Datenkategorien, Empfängern, Löschfristen und Maßnahmen. |
+| Datenschutz-Folgenabschätzung | Art. 35 DSGVO: Risikoprüfung vor einer Verarbeitung, die voraussichtlich ein hohes Risiko für Betroffene bringt. |
+| Löschkonzept | Regelt, welche Daten wann und wie gelöscht werden; Aufbewahrungsfristen gehen vor, bis dahin Sperrung. |
 
-## ✍️ Übungsfragen (22)
+## ✍️ Übungsfragen (26)
 
-**1.** Welche Information ist KEIN personenbezogenes Datum?
-- A) Private E-Mail-Adresse
-- B) IP-Adresse eines Kunden
-- C) Durchschnittsumsatz aller Filialen
-- D) Personalnummer
+**1.** Nennen Sie drei Beispiele für personenbezogene Daten und ein Beispiel für Daten ohne Personenbezug.
 
 <details><summary>Lösung</summary>
 
-**C) Durchschnittsumsatz aller Filialen**<br>Aggregierte Unternehmenszahl ohne Personenbezug.
+**Musterlösung (4 P):** Personenbezogen (je 1): Name; private oder dienstliche E-Mail-Adresse; IP-Adresse eines Kunden; Personalnummer; Geburtsdatum; Foto; Standortdaten. Ohne Personenbezug (1): aggregierte bzw. anonymisierte Werte, z. B. der Durchschnittsumsatz aller Filialen.<br>Aggregierte Unternehmenszahl ohne Personenbezug.
 
 </details>
 
 **2.** Ein Onlineshop fragt bei der Bestellung nach dem Geburtsdatum, obwohl es nicht benötigt wird. Welcher Grundsatz ist verletzt?
-- A) Richtigkeit
-- B) Datenminimierung
-- C) Speicherbegrenzung
-- D) Transparenz
 
 <details><summary>Lösung</summary>
 
-**B) Datenminimierung**
+**Musterlösung (2 P):** Datenminimierung
 
 </details>
 
 **3.** Ein Kunde will wissen, welche Daten über ihn gespeichert sind. Welcher Artikel?
-- A) Art. 15
-- B) Art. 16
-- C) Art. 17
-- D) Art. 32
 
 <details><summary>Lösung</summary>
 
-**A) Art. 15**<br>Auskunftsrecht.
+**Musterlösung (2 P):** Art. 15<br>Auskunftsrecht.
 
 </details>
 
 **4.** Ein ehemaliger Kunde verlangt, dass seine Daten gelöscht werden. Welches Recht?
-- A) Art. 15 Auskunft
-- B) Art. 16 Berichtigung
-- C) Art. 17 Löschung
-- D) Art. 20 Übertragbarkeit
 
 <details><summary>Lösung</summary>
 
-**C) Art. 17 Löschung**
+**Musterlösung (2 P):** Art. 17 Löschung
 
 </details>
 
 **5.** Innerhalb welcher Frist muss eine Datenpanne der Aufsichtsbehörde gemeldet werden?
-- A) 24 Stunden
-- B) 72 Stunden
-- C) 1 Woche
-- D) 1 Monat
 
 <details><summary>Lösung</summary>
 
-**B) 72 Stunden**<br>Art. 33.
+**Musterlösung (2 P):** 72 Stunden<br>Art. 33.
 
 </details>
 
 **6.** Ein Unternehmen nutzt einen externen Cloud-Dienst für Personaldaten. Was ist zwingend abzuschließen?
-- A) Leasingvertrag
-- B) Auftragsverarbeitungsvertrag
-- C) Werkvertrag
-- D) SLA
 
 <details><summary>Lösung</summary>
 
-**B) Auftragsverarbeitungsvertrag**<br>Art. 28 DSGVO.
+**Musterlösung (2 P):** Auftragsverarbeitungsvertrag<br>Art. 28 DSGVO.
 
 </details>
 
 **7.** Eine Chipkarte für die Tür zum Serverraum ist eine Maßnahme der …
-- A) Zugangskontrolle
-- B) Zutrittskontrolle
-- C) Zugriffskontrolle
-- D) Eingabekontrolle
 
 <details><summary>Lösung</summary>
 
-**B) Zutrittskontrolle**<br>Räume = Zutritt.
+**Musterlösung (2 P):** Zutrittskontrolle<br>Räume = Zutritt.
 
 </details>
 
 **8.** Ein Berechtigungskonzept, das nur der Personalabteilung Lesezugriff auf Gehaltsdaten gibt, ist …
-- A) Zutrittskontrolle
-- B) Zugangskontrolle
-- C) Zugriffskontrolle
-- D) Verfügbarkeitskontrolle
 
 <details><summary>Lösung</summary>
 
-**C) Zugriffskontrolle**
+**Musterlösung (2 P):** Zugriffskontrolle
 
 </details>
 
 **9.** Welche Materialklasse nach DIN 66399 gilt für SSDs und USB-Sticks?
-- A) H
-- B) E
-- C) O
-- D) T
 
 <details><summary>Lösung</summary>
 
-**B) E**<br>E = elektronische Datenträger.
+**Musterlösung (2 P):** E<br>E = elektronische Datenträger.
 
 </details>
 
 **10.** Festplatten mit Personaldaten sollen vernichtet werden. Welche Schutzklasse ist angemessen?
-- A) Schutzklasse 1
-- B) Schutzklasse 2
-- C) Keine – Formatieren reicht
-- D) Schutzklasse 0
 
 <details><summary>Lösung</summary>
 
-**B) Schutzklasse 2**<br>Personenbezogene/vertrauliche Daten = hoher Schutzbedarf.
+**Musterlösung (2 P):** Schutzklasse 2<br>Personenbezogene/vertrauliche Daten = hoher Schutzbedarf.
 
 </details>
 
 **11.** Wie müssen alte Monitore entsorgt werden?
-- A) Restmüll
-- B) Über zertifizierte Rücknahme/Wertstoffhof nach ElektroG
-- C) Sperrmüll
-- D) Gelber Sack
 
 <details><summary>Lösung</summary>
 
-**B) Über zertifizierte Rücknahme/Wertstoffhof nach ElektroG**
+**Musterlösung (2 P):** Über zertifizierte Rücknahme/Wertstoffhof nach ElektroG
 
 </details>
 
-**12.** Welche Maßnahmen nennt Art. 32 DSGVO ausdrücklich? (mehrere)
-- A) Pseudonymisierung und Verschlüsselung
-- B) Rasche Wiederherstellbarkeit nach Zwischenfällen
-- C) Regelmäßige Überprüfung der Wirksamkeit
-- D) Jährliche Neuinstallation aller PCs
+**12.** Welche Maßnahmen nennt Art. 32 DSGVO ausdrücklich? Nennen Sie drei.
 
 <details><summary>Lösung</summary>
 
-**A) Pseudonymisierung und Verschlüsselung, B) Rasche Wiederherstellbarkeit nach Zwischenfällen, C) Regelmäßige Überprüfung der Wirksamkeit**
+**Musterlösung (3 P):** Je 1 Punkt (max. 3): Pseudonymisierung und Verschlüsselung; Rasche Wiederherstellbarkeit nach Zwischenfällen; Regelmäßige Überprüfung der Wirksamkeit.
 
 </details>
 
 **13.** Ab wie vielen Personen, die ständig automatisiert personenbezogene Daten verarbeiten, ist in Deutschland i. d. R. ein Datenschutzbeauftragter Pflicht?
-- A) 10
-- B) 20
-- C) 50
-- D) 250
 
 <details><summary>Lösung</summary>
 
-**B) 20**<br>§ 38 BDSG.
+**Musterlösung (2 P):** 20<br>§ 38 BDSG.
 
 </details>
 
 **14.** Was unterscheidet Anonymisierung von Pseudonymisierung?
-- A) Nichts
-- B) Bei Anonymisierung ist der Personenbezug dauerhaft entfernt
-- C) Pseudonymisierte Daten fallen nicht unter die DSGVO
-- D) Anonymisierung ist umkehrbar
 
 <details><summary>Lösung</summary>
 
-**B) Bei Anonymisierung ist der Personenbezug dauerhaft entfernt**
+**Musterlösung (2 P):** Bei Anonymisierung ist der Personenbezug dauerhaft entfernt
 
 </details>
 
@@ -324,7 +293,7 @@ Beide Rollen sollten wegen möglicher Interessenkonflikte nicht von der IT-Leitu
 
 <details><summary>Lösung</summary>
 
-**Musterlösung:** Beim Formatieren werden nur die Verwaltungsstrukturen des Dateisystems neu angelegt, die Daten bleiben physisch erhalten und können mit Wiederherstellungssoftware rekonstruiert werden (2). Verfahren (je 1): mehrfaches Überschreiben mit zertifizierter Löschsoftware (HDD); Secure Erase/Crypto-Erase (SSD); Degaussing (magnetisch); physische Vernichtung nach DIN 66399 (z. B. H-4/E-4) durch zertifizierten Dienstleister mit Protokoll.
+**Musterlösung (4 P):** Beim Formatieren werden nur die Verwaltungsstrukturen des Dateisystems neu angelegt, die Daten bleiben physisch erhalten und können mit Wiederherstellungssoftware rekonstruiert werden (2). Verfahren (je 1): mehrfaches Überschreiben mit zertifizierter Löschsoftware (HDD); Secure Erase/Crypto-Erase (SSD); Degaussing (magnetisch); physische Vernichtung nach DIN 66399 (z. B. H-4/E-4) durch zertifizierten Dienstleister mit Protokoll.
 
 </details>
 
@@ -332,7 +301,7 @@ Beide Rollen sollten wegen möglicher Interessenkonflikte nicht von der IT-Leitu
 
 <details><summary>Lösung</summary>
 
-**Musterlösung:** Je 1: Rechtmäßigkeit, Treu und Glauben, Transparenz; Zweckbindung; Datenminimierung; Richtigkeit; Speicherbegrenzung; Integrität und Vertraulichkeit; Rechenschaftspflicht.
+**Musterlösung (4 P):** Je 1: Rechtmäßigkeit, Treu und Glauben, Transparenz; Zweckbindung; Datenminimierung; Richtigkeit; Speicherbegrenzung; Integrität und Vertraulichkeit; Rechenschaftspflicht.
 
 </details>
 
@@ -340,55 +309,39 @@ Beide Rollen sollten wegen möglicher Interessenkonflikte nicht von der IT-Leitu
 
 <details><summary>Lösung</summary>
 
-**Musterlösung:** Festplattenverschlüsselung – technisch (1); Datenschutzschulung – organisatorisch (1); Berechtigungskonzept – organisatorisch (als Regelwerk; die Umsetzung über Rechte ist technisch) (1); automatische Bildschirmsperre – technisch (1).
+**Musterlösung (4 P):** Festplattenverschlüsselung – technisch (1); Datenschutzschulung – organisatorisch (1); Berechtigungskonzept – organisatorisch (als Regelwerk; die Umsetzung über Rechte ist technisch) (1); automatische Bildschirmsperre – technisch (1).
 
 </details>
 
 **18.** Ein Newsletter-Formular hat ein bereits angekreuztes Kästchen „Ich willige ein“. Ist das zulässig?
-- A) Ja
-- B) Nein – eine Einwilligung erfordert eine aktive, eindeutige Handlung
-- C) Nur bei Firmenkunden
-- D) Nur mit Impressum
 
 <details><summary>Lösung</summary>
 
-**B) Nein – eine Einwilligung erfordert eine aktive, eindeutige Handlung**
+**Musterlösung (2 P):** Nein – eine Einwilligung erfordert eine aktive, eindeutige Handlung
 
 </details>
 
 **19.** Eine Kundin widerruft ihre Einwilligung zum Newsletter. Was gilt?
-- A) Der Widerruf gilt erst nach einem Jahr
-- B) Ab sofort keine Verarbeitung mehr auf dieser Grundlage; bisherige Verarbeitung bleibt rechtmäßig
-- C) Alle Rechnungen müssen gelöscht werden
-- D) Der Widerruf ist nur schriftlich per Post möglich
 
 <details><summary>Lösung</summary>
 
-**B) Ab sofort keine Verarbeitung mehr auf dieser Grundlage; bisherige Verarbeitung bleibt rechtmäßig**
+**Musterlösung (2 P):** Ab sofort keine Verarbeitung mehr auf dieser Grundlage; bisherige Verarbeitung bleibt rechtmäßig
 
 </details>
 
 **20.** Wer berät und überwacht im Unternehmen die Einhaltung der DSGVO?
-- A) IT-Sicherheitsbeauftragte(r)
-- B) Datenschutzbeauftragte(r)
-- C) Betriebsrat
-- D) Systemadministrator
 
 <details><summary>Lösung</summary>
 
-**B) Datenschutzbeauftragte(r)**
+**Musterlösung (2 P):** Datenschutzbeauftragte(r)
 
 </details>
 
 **21.** Welches Gesetz regelt seit 2024 die Impressumspflicht für Webseiten?
-- A) TMG
-- B) DDG
-- C) BGB
-- D) ElektroG
 
 <details><summary>Lösung</summary>
 
-**B) DDG**<br>Das Digitale-Dienste-Gesetz hat das Telemediengesetz abgelöst.
+**Musterlösung (2 P):** DDG<br>Das Digitale-Dienste-Gesetz hat das Telemediengesetz abgelöst.
 
 </details>
 
@@ -396,7 +349,39 @@ Beide Rollen sollten wegen möglicher Interessenkonflikte nicht von der IT-Leitu
 
 <details><summary>Lösung</summary>
 
-**Musterlösung:** Je Unterschied 2: Schutzobjekt – DSB schützt Personen bzw. personenbezogene Daten, ISB alle Informationen und IT-Systeme (Vertraulichkeit, Integrität, Verfügbarkeit). Rechtsgrundlage – DSB ist nach DSGVO/BDSG (ab 20 Personen) gesetzlich vorgeschrieben, ISB meist freiwillig im Rahmen eines ISMS/BSI-Grundschutz. Stellung – DSB weisungsfrei mit Kündigungsschutz, auch extern möglich.
+**Musterlösung (4 P):** Je Unterschied 2: Schutzobjekt – DSB schützt Personen bzw. personenbezogene Daten, ISB alle Informationen und IT-Systeme (Vertraulichkeit, Integrität, Verfügbarkeit). Rechtsgrundlage – DSB ist nach DSGVO/BDSG (ab 20 Personen) gesetzlich vorgeschrieben, ISB meist freiwillig im Rahmen eines ISMS/BSI-Grundschutz. Stellung – DSB weisungsfrei mit Kündigungsschutz, auch extern möglich.
+
+</details>
+
+**23.** Ordnen Sie die Maßnahmen den Kontrollarten zu: (1) VPN für den Außendienst, (2) Protokoll, wer Kundendaten ändert, (3) AV-Vertrag mit dem Cloud-Anbieter, (4) getrennte Datenbanken für Test und Echtbetrieb.
+
+<details><summary>Lösung</summary>
+
+**Musterlösung (4 P):** (1) Weitergabekontrolle (1). (2) Eingabekontrolle (1). (3) Auftragskontrolle (1). (4) Trennungsgebot (1).
+
+</details>
+
+**24.** Wie heißt das Dokument nach Art. 30 DSGVO, das alle Verarbeitungen personenbezogener Daten eines Unternehmens auflistet?
+
+<details><summary>Lösung</summary>
+
+**Musterlösung (2 P):** Verzeichnis von Verarbeitungstätigkeiten
+
+</details>
+
+**25.** Wann muss ein Unternehmen eine Datenschutz-Folgenabschätzung durchführen? Nennen Sie auch ein Beispiel.
+
+<details><summary>Lösung</summary>
+
+**Musterlösung (2 P):** Vor einer Verarbeitung, die voraussichtlich ein hohes Risiko für die Rechte und Freiheiten der Betroffenen mit sich bringt (1). Beispiel (1): umfangreiche Videoüberwachung, Verarbeitung vieler Gesundheitsdaten, systematische Auswertung des Verhaltens von Beschäftigten.
+
+</details>
+
+**26.** Ein ehemaliger Kunde verlangt die Löschung seiner Daten. Im System liegen noch Rechnungen aus dem Vorjahr. Erläutern Sie, wie das Unternehmen vorgehen muss.
+
+<details><summary>Lösung</summary>
+
+**Musterlösung (3 P):** Daten, für die kein Zweck mehr besteht, müssen gelöscht werden, z. B. Newsletter-Anmeldung oder Kundenprofil (1). Rechnungen unterliegen gesetzlichen Aufbewahrungsfristen und dürfen noch nicht gelöscht werden (1). Sie werden bis zum Fristende gesperrt, also nur noch für diesen Zweck aufbewahrt, und danach gelöscht; der Kunde wird darüber informiert (1).
 
 </details>
 

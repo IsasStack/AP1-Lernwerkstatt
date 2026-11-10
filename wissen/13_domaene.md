@@ -99,146 +99,98 @@ Cloudbasierter Identitätsdienst für Microsoft 365, Azure und SaaS-Apps (SSO, M
 ## ✍️ Übungsfragen (15)
 
 **1.** Ein Client kann der Domäne firma.local nicht beitreten. Als DNS ist 8.8.8.8 eingetragen. Was ist zu tun?
-- A) Gateway ändern
-- B) DNS-Server des Domänencontrollers eintragen
-- C) Firewall deaktivieren
-- D) IPv6 abschalten
 
 <details><summary>Lösung</summary>
 
-**B) DNS-Server des Domänencontrollers eintragen**<br>Öffentliche DNS-Server kennen die interne Domäne nicht; der Client findet den DC über DNS.
+**Musterlösung (2 P):** DNS-Server des Domänencontrollers eintragen<br>Öffentliche DNS-Server kennen die interne Domäne nicht; der Client findet den DC über DNS.
 
 </details>
 
 **2.** Warum muss die Uhrzeit zwischen Client und DC synchron sein?
-- A) Wegen DHCP-Leases
-- B) Weil Kerberos zeitbasierte Tickets nutzt
-- C) Für die Druckerwarteschlange
-- D) Weil NTFS es verlangt
 
 <details><summary>Lösung</summary>
 
-**B) Weil Kerberos zeitbasierte Tickets nutzt**<br>Standardtoleranz 5 Minuten.
+**Musterlösung (2 P):** Weil Kerberos zeitbasierte Tickets nutzt<br>Standardtoleranz 5 Minuten.
 
 </details>
 
 **3.** Welches Tool wendet Gruppenrichtlinien sofort an?
-- A) gpresult /r
-- B) gpupdate /force
-- C) ipconfig /renew
-- D) netstat -a
 
 <details><summary>Lösung</summary>
 
-**B) gpupdate /force**
+**Musterlösung (2 P):** gpupdate /force
 
 </details>
 
 **4.** Welche Windows-Edition kann einer AD-Domäne NICHT beitreten?
-- A) Pro
-- B) Enterprise
-- C) Education
-- D) Home
 
 <details><summary>Lösung</summary>
 
-**D) Home**
+**Musterlösung (2 P):** Home
 
 </details>
 
 **5.** Ein privates Smartphone soll auf Firmenmails zugreifen. Welcher Entra-Status passt?
-- A) Entra joined
-- B) Entra registered
-- C) Entra hybrid joined
-- D) Arbeitsgruppe
 
 <details><summary>Lösung</summary>
 
-**B) Entra registered**<br>BYOD → registered.
+**Musterlösung (2 P):** Entra registered<br>BYOD → registered.
 
 </details>
 
 **6.** Ein Unternehmen hat ein lokales AD und möchte Geräte zusätzlich für Cloud-Dienste in Entra ID bekannt machen. Welches Szenario?
-- A) Entra registered
-- B) Entra joined
-- C) Entra hybrid joined
-- D) Workgroup
 
 <details><summary>Lösung</summary>
 
-**C) Entra hybrid joined**
+**Musterlösung (2 P):** Entra hybrid joined
 
 </details>
 
 **7.** Freigaberecht „Lesen“, NTFS-Recht „Ändern“. Welches Recht hat ein Benutzer beim Zugriff übers Netzwerk?
-- A) Ändern
-- B) Lesen
-- C) Vollzugriff
-- D) Kein Zugriff
 
 <details><summary>Lösung</summary>
 
-**B) Lesen**<br>Die restriktivere Kombination gilt.
+**Musterlösung (2 P):** Lesen<br>Die restriktivere Kombination gilt.
 
 </details>
 
 **8.** Ping auf 8.8.8.8 funktioniert, ping www.ihk.de liefert „Host nicht gefunden“. Wo liegt der Fehler?
-- A) Kabel
-- B) DNS
-- C) Gateway
-- D) Switch
 
 <details><summary>Lösung</summary>
 
-**B) DNS**<br>IP-Konnektivität ist da, Namensauflösung fehlt.
+**Musterlösung (2 P):** DNS<br>IP-Konnektivität ist da, Namensauflösung fehlt.
 
 </details>
 
 **9.** Wofür steht das „D“ und „L“ in AGDLP?
-- A) Domänenlokale Gruppe
-- B) Domain Login
-- C) Data Link
-- D) Directory LDAP
 
 <details><summary>Lösung</summary>
 
-**A) Domänenlokale Gruppe**
+**Musterlösung (2 P):** Domänenlokale Gruppe
 
 </details>
 
-**10.** Welche Voraussetzungen braucht ein Windows-Client für den Domänenbeitritt? (mehrere)
-- A) DNS zeigt auf Domänencontroller
-- B) Synchronisierte Uhrzeit
-- C) Windows Home Edition
-- D) Konto mit Berechtigung zum Hinzufügen von Computern
+**10.** Welche Voraussetzungen braucht ein Windows-Client für den Domänenbeitritt? Nennen Sie drei.
 
 <details><summary>Lösung</summary>
 
-**A) DNS zeigt auf Domänencontroller, B) Synchronisierte Uhrzeit, D) Konto mit Berechtigung zum Hinzufügen von Computern**<br>Home kann nicht beitreten.
+**Musterlösung (3 P):** Je 1 Punkt (max. 3): DNS zeigt auf Domänencontroller; Synchronisierte Uhrzeit; Konto mit Berechtigung zum Hinzufügen von Computern. Home kann nicht beitreten.
 
 </details>
 
 **11.** Welches Protokoll nutzt AD zur Authentifizierung per Tickets?
-- A) LDAP
-- B) Kerberos
-- C) RADIUS
-- D) SMB
 
 <details><summary>Lösung</summary>
 
-**B) Kerberos**
+**Musterlösung (2 P):** Kerberos
 
 </details>
 
 **12.** In welcher Reihenfolge testen Sie bei „kein Internet“ sinnvoll?
-- A) DNS → Gateway → Kabel
-- B) Kabel/Link → eigene IP → Gateway → externe IP → DNS
-- C) Neustart → Neuinstallation
-- D) Router tauschen → Switch tauschen
 
 <details><summary>Lösung</summary>
 
-**B) Kabel/Link → eigene IP → Gateway → externe IP → DNS**<br>Bottom-up nach OSI.
+**Musterlösung (2 P):** Kabel/Link → eigene IP → Gateway → externe IP → DNS<br>Bottom-up nach OSI.
 
 </details>
 
@@ -246,7 +198,7 @@ Cloudbasierter Identitätsdienst für Microsoft 365, Azure und SaaS-Apps (SSO, M
 
 <details><summary>Lösung</summary>
 
-**Musterlösung:** Je 1: Windows Pro/Enterprise verwenden; Netzwerkverbindung und IP-Konfiguration im richtigen Netz; DNS-Server des Domänencontrollers eintragen (Namensauflösung firma.local testen); Uhrzeit synchronisieren; mit berechtigtem Domänenkonto beitreten (Systemeinstellungen bzw. Add-Computer) und neu starten; Computerobjekt in passende OU verschieben und Anmeldung mit Domänenkonto testen.
+**Musterlösung (4 P):** Je 1: Windows Pro/Enterprise verwenden; Netzwerkverbindung und IP-Konfiguration im richtigen Netz; DNS-Server des Domänencontrollers eintragen (Namensauflösung firma.local testen); Uhrzeit synchronisieren; mit berechtigtem Domänenkonto beitreten (Systemeinstellungen bzw. Add-Computer) und neu starten; Computerobjekt in passende OU verschieben und Anmeldung mit Domänenkonto testen.
 
 </details>
 
@@ -254,7 +206,7 @@ Cloudbasierter Identitätsdienst für Microsoft 365, Azure und SaaS-Apps (SSO, M
 
 <details><summary>Lösung</summary>
 
-**Musterlösung:** Je 1: zentrale Benutzerverwaltung (ein Konto für alle Geräte/SSO); zentrale Richtlinien per GPO; zentrale Rechtevergabe auf Ressourcen; einfache Sperrung ausgeschiedener Mitarbeiter; Softwareverteilung; bessere Skalierbarkeit und Sicherheit.
+**Musterlösung (3 P):** Je 1: zentrale Benutzerverwaltung (ein Konto für alle Geräte/SSO); zentrale Richtlinien per GPO; zentrale Rechtevergabe auf Ressourcen; einfache Sperrung ausgeschiedener Mitarbeiter; Softwareverteilung; bessere Skalierbarkeit und Sicherheit.
 
 </details>
 
@@ -262,7 +214,7 @@ Cloudbasierter Identitätsdienst für Microsoft 365, Azure und SaaS-Apps (SSO, M
 
 <details><summary>Lösung</summary>
 
-**Musterlösung:** Vorgehen bottom-up nach OSI (1). Befehle mit Zweck (je 1): ipconfig /all – IP, Gateway, DNS prüfen (APIPA?); ping Gateway bzw. ping 8.8.8.8 – Erreichbarkeit lokal/Internet; nslookup www.beispiel.de – DNS-Auflösung prüfen; tracert – Route verfolgen. Abschließend Lösung testen und dokumentieren.
+**Musterlösung (4 P):** Vorgehen bottom-up nach OSI (1). Befehle mit Zweck (je 1): ipconfig /all – IP, Gateway, DNS prüfen (APIPA?); ping Gateway bzw. ping 8.8.8.8 – Erreichbarkeit lokal/Internet; nslookup www.beispiel.de – DNS-Auflösung prüfen; tracert – Route verfolgen. Abschließend Lösung testen und dokumentieren.
 
 </details>
 

@@ -23,41 +23,29 @@ Wie in der echten Prüfung: Datenblätter, Verträge, Logs und Angebote auswerte
 <tr><td>Certifications</td><td>TCO Certified, EPEAT, TÜV Flicker Free, EU energy class F</td></tr>
 <tr><td>Warranty</td><td>3 years advanced exchange</td></tr></table>
 
-**1.** Ist der Monitor für farbverbindliches Arbeiten geeignet?
-- A) Nein, TN-Panel
-- B) Ja: IPS-Panel, 99 % Adobe RGB, werkskalibriert, Hardwarekalibrierung möglich
-- C) Nein, nur Full HD
-- D) Nur mit Zusatzgrafikkarte
+**1.** Ist der Monitor für farbverbindliches Arbeiten geeignet? Begründen Sie Ihre Antwort.
 
 <details><summary>Lösung</summary>
 
-**B) Ja: IPS-Panel, 99 % Adobe RGB, werkskalibriert, Hardwarekalibrierung möglich**
+**Musterlösung (3 P):** Ja: IPS-Panel, 99 % Adobe RGB, werkskalibriert, Hardwarekalibrierung möglich
 
 </details>
 
 
-**2.** Reicht ein einzelnes USB-C-Kabel, um Bild zu übertragen UND das Notebook zu laden?
-- A) Nein, Power Delivery fehlt
-- B) Ja – DP Alt Mode für das Bild und Power Delivery bis 90 W (Notebook braucht 65 W)
-- C) Nur über HDMI
-- D) Nein, 90 W sind zu wenig
+**2.** Reicht ein einzelnes USB-C-Kabel, um Bild zu übertragen UND das Notebook zu laden? Begründen Sie Ihre Antwort.
 
 <details><summary>Lösung</summary>
 
-**B) Ja – DP Alt Mode für das Bild und Power Delivery bis 90 W (Notebook braucht 65 W)**
+**Musterlösung (3 P):** Ja – DP Alt Mode für das Bild und Power Delivery bis 90 W (Notebook braucht 65 W)
 
 </details>
 
 
-**3.** Welche ergonomischen Funktionen bietet der Monitor laut Datenblatt? (mehrere)
-- A) Höhenverstellung
-- B) Neigen
-- C) Hochkant-Drehung (Pivot)
-- D) Integrierte Webcam
+**3.** Welche ergonomischen Funktionen bietet der Monitor laut Datenblatt? Nennen Sie drei.
 
 <details><summary>Lösung</summary>
 
-**A) Höhenverstellung, B) Neigen, C) Hochkant-Drehung (Pivot)**<br>Webcam ist nicht aufgeführt.
+**Musterlösung (3 P):** Je 1 Punkt (max. 3): Höhenverstellung; Neigen; Hochkant-Drehung (Pivot). Webcam ist nicht aufgeführt.
 
 </details>
 
@@ -75,7 +63,7 @@ Wie in der echten Prüfung: Datenblätter, Verträge, Logs und Angebote auswerte
 
 <details><summary>Lösung</summary>
 
-**Musterlösung:** Je 1: Netzwerk (LAN) läuft über dasselbe USB-C-Kabel – keine separate Dockingstation nötig; Tastatur/Maus/Peripherie am Monitor angeschlossen; weniger Kabel (Clean Desk); schneller Wechsel des Notebooks (Desk-Sharing).
+**Musterlösung (2 P):** Je 1: Netzwerk (LAN) läuft über dasselbe USB-C-Kabel – keine separate Dockingstation nötig; Tastatur/Maus/Peripherie am Monitor angeschlossen; weniger Kabel (Clean Desk); schneller Wechsel des Notebooks (Desk-Sharing).
 
 </details>
 
@@ -102,28 +90,20 @@ Wie in der echten Prüfung: Datenblätter, Verträge, Logs und Angebote auswerte
 <tr><td>Listenpreis netto</td><td>1.090 €</td><td>890 €</td><td>1.390 €</td></tr>
 <tr><td>Rabatt / Skonto</td><td>5 % / 2 %</td><td>– / 3 %</td><td>10 % / 2 %</td></tr></table>
 
-**1.** Welches Angebot erfüllt ALLE Anforderungen?
-- A) A
-- B) B
-- C) C
-- D) keines
+**1.** Welches Angebot erfüllt ALLE Anforderungen? Begründen Sie Ihre Antwort.
 
 <details><summary>Lösung</summary>
 
-**C) C**<br>A hat Windows Home (kein Entra Join/BitLocker) und kein LTE; B hat nur 8 GB, ist zu schwer, Akku zu kurz, kein LTE.
+**Musterlösung (3 P):** C – A hat Windows Home (kein Entra Join/BitLocker) und kein LTE; B hat nur 8 GB, ist zu schwer, Akku zu kurz, kein LTE.
 
 </details>
 
 
 **2.** Warum scheidet Angebot A trotz guter Hardware aus?
-- A) Zu teuer
-- B) Windows 11 Home kann nicht in Entra ID eingebunden werden und bietet kein BitLocker; zudem kein Mobilfunk
-- C) Kein TPM
-- D) Zu schwer
 
 <details><summary>Lösung</summary>
 
-**B) Windows 11 Home kann nicht in Entra ID eingebunden werden und bietet kein BitLocker; zudem kein Mobilfunk**
+**Musterlösung (3 P):** Windows 11 Home kann nicht in Entra ID eingebunden werden und bietet kein BitLocker; zudem kein Mobilfunk
 
 </details>
 
@@ -150,7 +130,7 @@ Wie in der echten Prüfung: Datenblätter, Verträge, Logs und Angebote auswerte
 
 <details><summary>Lösung</summary>
 
-**Musterlösung:** Die Mitarbeitenden sind unterwegs (Kunde, Bahn, Auto) und brauchen jederzeit Zugriff auf CRM/Mail (1); ein integriertes Modul ist sicherer und bequemer als Smartphone-Hotspot oder öffentliche WLANs und schont den Smartphone-Akku (1).
+**Musterlösung (2 P):** Die Mitarbeitenden sind unterwegs (Kunde, Bahn, Auto) und brauchen jederzeit Zugriff auf CRM/Mail (1); ein integriertes Modul ist sicherer und bequemer als Smartphone-Hotspot oder öffentliche WLANs und schont den Smartphone-Akku (1).
 
 </details>
 
@@ -183,40 +163,28 @@ Customers are strongly advised to update as soon as possible.
 ```
 
 **1.** Ist Ihre Firewall betroffen?
-- A) Nein, 4.2.7 ist neuer als 4.0.0
-- B) Ja – 4.2.7 liegt im betroffenen Bereich 4.0.0 bis 4.2.8
-- C) Nur wenn sie neu ist
-- D) Nein, nur 4.2.9 ist betroffen
 
 <details><summary>Lösung</summary>
 
-**B) Ja – 4.2.7 liegt im betroffenen Bereich 4.0.0 bis 4.2.8**
+**Musterlösung (2 P):** Ja – 4.2.7 liegt im betroffenen Bereich 4.0.0 bis 4.2.8
 
 </details>
 
 
-**2.** Was bedeutet „unauthenticated remote attacker“?
-- A) Ein Mitarbeiter mit Admin-Konto
-- B) Ein Angreifer ohne Anmeldung, der aus der Ferne (z. B. Internet) angreift
-- C) Ein Virus auf einem USB-Stick
-- D) Ein Hardwaredefekt
+**2.** Was bedeutet „unauthenticated remote attacker“? Begründen Sie Ihre Antwort.
 
 <details><summary>Lösung</summary>
 
-**B) Ein Angreifer ohne Anmeldung, der aus der Ferne (z. B. Internet) angreift**
+**Musterlösung (3 P):** Ein Angreifer ohne Anmeldung, der aus der Ferne (z. B. Internet) angreift
 
 </details>
 
 
-**3.** Welches Schutzziel ist bei „execute arbitrary code with root privileges“ gefährdet?
-- A) Nur Verfügbarkeit
-- B) Alle drei: Vertraulichkeit, Integrität und Verfügbarkeit
-- C) Keines
-- D) Nur Authentizität
+**3.** Welches Schutzziel ist bei „execute arbitrary code with root privileges“ gefährdet? Begründen Sie Ihre Antwort.
 
 <details><summary>Lösung</summary>
 
-**B) Alle drei: Vertraulichkeit, Integrität und Verfügbarkeit**<br>Volle Kontrolle über das Gerät.
+**Musterlösung (3 P):** Alle drei: Vertraulichkeit, Integrität und Verfügbarkeit – Volle Kontrolle über das Gerät.
 
 </details>
 
@@ -225,7 +193,7 @@ Customers are strongly advised to update as soon as possible.
 
 <details><summary>Lösung</summary>
 
-**Musterlösung:** Sofort: Fernverwaltung auf der WAN-Schnittstelle deaktivieren bzw. nur von vertrauenswürdigen IP-Adressen zulassen (1). Dauerhaft: Firmware auf 4.2.9 oder neuer aktualisieren (1). Zusätzlich: wegen aktiver Ausnutzung Logs auf Kompromittierung prüfen, Zugangsdaten ändern, Vorfall dokumentieren (1).
+**Musterlösung (3 P):** Sofort: Fernverwaltung auf der WAN-Schnittstelle deaktivieren bzw. nur von vertrauenswürdigen IP-Adressen zulassen (1). Dauerhaft: Firmware auf 4.2.9 oder neuer aktualisieren (1). Zusätzlich: wegen aktiver Ausnutzung Logs auf Kompromittierung prüfen, Zugangsdaten ändern, Vorfall dokumentieren (1).
 
 </details>
 
@@ -256,54 +224,38 @@ DiagramPro 8 – End User License Agreement (excerpt)
     from the date of purchase.
 ```
 
-**1.** Darf der Kollege die Software auf Büro-PC UND Firmen-Notebook installieren?
-- A) Nein, nur ein Gerät
-- B) Ja – ein Hauptgerät plus ein tragbares Gerät, wenn nur er sie nutzt und nicht gleichzeitig
-- C) Ja, auf beliebig vielen Geräten
-- D) Nur mit Zusatzlizenz
+**1.** Darf der Kollege die Software auf Büro-PC UND Firmen-Notebook installieren? Begründen Sie Ihre Antwort.
 
 <details><summary>Lösung</summary>
 
-**B) Ja – ein Hauptgerät plus ein tragbares Gerät, wenn nur er sie nutzt und nicht gleichzeitig**<br>Ziffer 2.1.
+**Musterlösung (3 P):** Ja – ein Hauptgerät plus ein tragbares Gerät, wenn nur er sie nutzt und nicht gleichzeitig – Ziffer 2.1.
 
 </details>
 
 
-**2.** Darf er sie zusätzlich auf seinem privaten PC für die Arbeit nutzen?
-- A) Ja
-- B) Nein – kommerzielle Nutzung auf privaten Geräten ist ausgeschlossen (2.2)
-- C) Nur am Wochenende
-- D) Ja, wenn er sie selbst bezahlt
+**2.** Darf er sie zusätzlich auf seinem privaten PC für die Arbeit nutzen? Begründen Sie Ihre Antwort.
 
 <details><summary>Lösung</summary>
 
-**B) Nein – kommerzielle Nutzung auf privaten Geräten ist ausgeschlossen (2.2)**
+**Musterlösung (3 P):** Nein – kommerzielle Nutzung auf privaten Geräten ist ausgeschlossen (2.2)
 
 </details>
 
 
-**3.** Kann die Lizenz an die Nachfolgerin übertragen werden?
-- A) Nein, niemals
-- B) Ja, einmalig innerhalb der Organisation, wenn alle Kopien beim Kollegen entfernt werden (2.3)
-- C) Ja, beliebig oft auch an andere Firmen
-- D) Nur gegen Gebühr
+**3.** Kann die Lizenz an die Nachfolgerin übertragen werden? Begründen Sie Ihre Antwort.
 
 <details><summary>Lösung</summary>
 
-**B) Ja, einmalig innerhalb der Organisation, wenn alle Kopien beim Kollegen entfernt werden (2.3)**
+**Musterlösung (3 P):** Ja, einmalig innerhalb der Organisation, wenn alle Kopien beim Kollegen entfernt werden (2.3)
 
 </details>
 
 
-**4.** Welches Lizenzmodell beschreibt Ziffer 2.4?
-- A) Abonnement
-- B) Kauflizenz (unbefristet) mit 12 Monaten Updates
-- C) Pay-per-Use
-- D) Freeware
+**4.** Welches Lizenzmodell beschreibt Ziffer 2.4? Begründen Sie Ihre Antwort.
 
 <details><summary>Lösung</summary>
 
-**B) Kauflizenz (unbefristet) mit 12 Monaten Updates**<br>perpetual = unbefristet.
+**Musterlösung (3 P):** Kauflizenz (unbefristet) mit 12 Monaten Updates – perpetual = unbefristet.
 
 </details>
 
@@ -336,41 +288,29 @@ DiagramPro 8 – End User License Agreement (excerpt)
 </details>
 
 
-**2.** Welches Problem hat PC-2?
-- A) Kein Problem
-- B) 192.168.40.70 liegt außerhalb des Netzes .0–.63 – PC-2 erreicht weder Gateway noch Server
-- C) Falscher DNS
-- D) Doppelte IP
+**2.** Welches Problem hat PC-2? Begründen Sie Ihre Antwort.
 
 <details><summary>Lösung</summary>
 
-**B) 192.168.40.70 liegt außerhalb des Netzes .0–.63 – PC-2 erreicht weder Gateway noch Server**
+**Musterlösung (3 P):** 192.168.40.70 liegt außerhalb des Netzes .0–.63 – PC-2 erreicht weder Gateway noch Server
 
 </details>
 
 
-**3.** Welches Problem verursacht der Drucker?
-- A) Keines
-- B) Seine statische IP .30 liegt im DHCP-Bereich .20–.50 → möglicher IP-Konflikt
-- C) Falsches Gateway
-- D) Falsche Maske
+**3.** Welches Problem verursacht der Drucker? Begründen Sie Ihre Antwort.
 
 <details><summary>Lösung</summary>
 
-**B) Seine statische IP .30 liegt im DHCP-Bereich .20–.50 → möglicher IP-Konflikt**
+**Musterlösung (3 P):** Seine statische IP .30 liegt im DHCP-Bereich .20–.50 → möglicher IP-Konflikt
 
 </details>
 
 
-**4.** Was ist bei PC-3 falsch konfiguriert? (mehrere)
-- A) Subnetzmaske /24 statt /26
-- B) DNS 8.8.8.8 statt Domänencontroller – Domänenanmeldung/Namensauflösung intern scheitert
-- C) IP-Adresse außerhalb des Netzes
-- D) Gateway
+**4.** Was ist bei PC-3 falsch konfiguriert? Nennen Sie zwei.
 
 <details><summary>Lösung</summary>
 
-**A) Subnetzmaske /24 statt /26, B) DNS 8.8.8.8 statt Domänencontroller – Domänenanmeldung/Namensauflösung intern scheitert**<br>.44 liegt im Netz; das Gateway ist korrekt.
+**Musterlösung (2 P):** Je 1 Punkt (max. 2): Subnetzmaske /24 statt /26; DNS 8.8.8.8 statt Domänencontroller – Domänenanmeldung/Namensauflösung intern scheitert. .44 liegt im Netz; das Gateway ist korrekt.
 
 </details>
 
@@ -379,7 +319,7 @@ DiagramPro 8 – End User License Agreement (excerpt)
 
 <details><summary>Lösung</summary>
 
-**Musterlösung:** PC-2: IP per DHCP beziehen oder eine freie Adresse im Bereich .2–.62 außerhalb des DHCP-Pools, z. B. 192.168.40.55/26 (1). Drucker: statische IP außerhalb des DHCP-Bereichs, z. B. 192.168.40.10, oder DHCP-Reservierung über die MAC-Adresse (1).
+**Musterlösung (2 P):** PC-2: IP per DHCP beziehen oder eine freie Adresse im Bereich .2–.62 außerhalb des DHCP-Pools, z. B. 192.168.40.55/26 (1). Drucker: statische IP außerhalb des DHCP-Bereichs, z. B. 192.168.40.10, oder DHCP-Reservierung über die MAC-Adresse (1).
 
 </details>
 
@@ -409,41 +349,29 @@ Ethernet-Adapter Ethernet:
    DNS-Server  . . . . . . . . . . . : fec0:0:0:ffff::1%1
 ```
 
-**1.** Was bedeutet die Adresse 169.254.112.45?
-- A) Gültige Adresse vom DHCP-Server
-- B) APIPA – der Client hat keinen DHCP-Server erreicht und sich selbst eine Adresse gegeben
-- C) Öffentliche IP
-- D) Loopback
+**1.** Was bedeutet die Adresse 169.254.112.45? Begründen Sie Ihre Antwort.
 
 <details><summary>Lösung</summary>
 
-**B) APIPA – der Client hat keinen DHCP-Server erreicht und sich selbst eine Adresse gegeben**
+**Musterlösung (3 P):** APIPA – der Client hat keinen DHCP-Server erreicht und sich selbst eine Adresse gegeben
 
 </details>
 
 
 **2.** Warum fehlt ein Standardgateway?
-- A) Weil IPv6 aktiv ist
-- B) Weil keine DHCP-Antwort kam – das Gateway wird sonst per DHCP mitgeteilt
-- C) Weil der PC zu alt ist
-- D) Das ist normal
 
 <details><summary>Lösung</summary>
 
-**B) Weil keine DHCP-Antwort kam – das Gateway wird sonst per DHCP mitgeteilt**
+**Musterlösung (3 P):** Weil keine DHCP-Antwort kam – das Gateway wird sonst per DHCP mitgeteilt
 
 </details>
 
 
-**3.** Was zeigt „fe80::…“?
-- A) Globale IPv6-Adresse
-- B) Automatisch erzeugte IPv6-Link-Local-Adresse, nur im lokalen Segment gültig
-- C) Fehlerhafte Adresse
-- D) Multicast
+**3.** Was zeigt „fe80::…“? Begründen Sie Ihre Antwort.
 
 <details><summary>Lösung</summary>
 
-**B) Automatisch erzeugte IPv6-Link-Local-Adresse, nur im lokalen Segment gültig**
+**Musterlösung (3 P):** Automatisch erzeugte IPv6-Link-Local-Adresse, nur im lokalen Segment gültig
 
 </details>
 
@@ -452,7 +380,7 @@ Ethernet-Adapter Ethernet:
 
 <details><summary>Lösung</summary>
 
-**Musterlösung:** Z. B. (je 1): 1. Physische Verbindung prüfen – Kabel steckt, Link-LED an Netzwerkkarte/Switchport, Dose/Patchkabel. 2. ipconfig /release und ipconfig /renew ausführen. 3. DHCP-Server prüfen (läuft der Dienst, sind Adressen im Pool frei, richtiges VLAN am Switchport). Danach ping Gateway, nslookup testen und Lösung dokumentieren.
+**Musterlösung (3 P):** Z. B. (je 1): 1. Physische Verbindung prüfen – Kabel steckt, Link-LED an Netzwerkkarte/Switchport, Dose/Patchkabel. 2. ipconfig /release und ipconfig /renew ausführen. 3. DHCP-Server prüfen (läuft der Dienst, sind Adressen im Pool frei, richtiges VLAN am Switchport). Danach ping Gateway, nslookup testen und Lösung dokumentieren.
 
 </details>
 
@@ -478,28 +406,20 @@ Ethernet-Adapter Ethernet:
 </details>
 
 
-**2.** Welche Vorgänge laufen parallel zu B?
-- A) Nur A
-- B) C und F
-- C) D und E
-- D) G
+**2.** Welche Vorgänge laufen parallel zu B? Begründen Sie Ihre Antwort.
 
 <details><summary>Lösung</summary>
 
-**B) C und F**<br>C (Tag 3–6) und F (Tag 7–8) überlappen mit B (Tag 3–7).
+**Musterlösung (3 P):** C und F – C (Tag 3–6) und F (Tag 7–8) überlappen mit B (Tag 3–7).
 
 </details>
 
 
-**3.** Welche Vorgänge liegen auf dem kritischen Pfad?
-- A) A – C – E – G
-- B) A – B – D – E – G
-- C) A – F – G
-- D) C – F – G
+**3.** Welche Vorgänge liegen auf dem kritischen Pfad? Begründen Sie Ihre Antwort.
 
 <details><summary>Lösung</summary>
 
-**B) A – B – D – E – G**<br>A(1–2) → B(3–7) → D(8–10) → E(11–13) → G(14) ohne Lücken.
+**Musterlösung (3 P):** A – B – D – E – G – A(1–2) → B(3–7) → D(8–10) → E(11–13) → G(14) ohne Lücken.
 
 </details>
 
@@ -517,7 +437,7 @@ Ethernet-Adapter Ethernet:
 
 <details><summary>Lösung</summary>
 
-**Musterlösung:** Vorteil (1): anschaulich, Zeitbezug und Dauer sofort sichtbar, leicht verständlich für Kunden/Management. Nachteil (1): Abhängigkeiten, Puffer und kritischer Pfad sind nicht oder nur schwer erkennbar.
+**Musterlösung (2 P):** Vorteil (1): anschaulich, Zeitbezug und Dauer sofort sichtbar, leicht verständlich für Kunden/Management. Nachteil (1): Abhängigkeiten, Puffer und kritischer Pfad sind nicht oder nur schwer erkennbar.
 
 </details>
 
@@ -570,7 +490,7 @@ Ethernet-Adapter Ethernet:
 
 <details><summary>Lösung</summary>
 
-**Musterlösung:** Empfehlung: Angebot 2 (Laser-MFP) (1). Argumente (je 1): über 3 Jahre ca. 1.188 € günstiger trotz höherer Anschaffung; empfohlenes Druckvolumen (6.000 Seiten/Monat) passt zum Bedarf von 3.000, das Tintengerät ist mit 1.500 Seiten überfordert; doppelte Geschwindigkeit und Duplex; LAN und PIN-Druck für Vertraulichkeit.
+**Musterlösung (3 P):** Empfehlung: Angebot 2 (Laser-MFP) (1). Argumente (je 1): über 3 Jahre ca. 1.188 € günstiger trotz höherer Anschaffung; empfohlenes Druckvolumen (6.000 Seiten/Monat) passt zum Bedarf von 3.000, das Tintengerät ist mit 1.500 Seiten überfordert; doppelte Geschwindigkeit und Duplex; LAN und PIN-Druck für Vertraulichkeit.
 
 </details>
 
@@ -594,41 +514,29 @@ Ethernet-Adapter Ethernet:
 2027-01-18 07:45:10 ALLOW TCP 192.0.2.15:40112    -> 203.0.113.20:25   (SMTP)
 ```
 
-**1.** Was deuten die Einträge von 198.51.100.77 um 03:12 Uhr an?
-- A) Normale Kundennutzung
-- B) Einen Portscan – ein Angreifer prüft nacheinander typische Dienste-Ports
-- C) Einen Stromausfall
-- D) Ein Update
+**1.** Was deuten die Einträge von 198.51.100.77 um 03:12 Uhr an? Begründen Sie Ihre Antwort.
 
 <details><summary>Lösung</summary>
 
-**B) Einen Portscan – ein Angreifer prüft nacheinander typische Dienste-Ports**<br>Viele Ports in wenigen Sekunden von derselben Quelle.
+**Musterlösung (3 P):** Einen Portscan – ein Angreifer prüft nacheinander typische Dienste-Ports – Viele Ports in wenigen Sekunden von derselben Quelle.
 
 </details>
 
 
 **2.** Warum wurde Port 443 erlaubt?
-- A) Fehler der Firewall
-- B) Der Webserver stellt HTTPS öffentlich bereit – die Regel ist gewollt
-- C) 443 ist SMB
-- D) 443 ist immer offen
 
 <details><summary>Lösung</summary>
 
-**B) Der Webserver stellt HTTPS öffentlich bereit – die Regel ist gewollt**
+**Musterlösung (3 P):** Der Webserver stellt HTTPS öffentlich bereit – die Regel ist gewollt
 
 </details>
 
 
 **3.** Welches Firewall-Prinzip zeigen die DENY-Einträge?
-- A) Default Allow
-- B) Default Deny – nur freigegebene Dienste sind erreichbar
-- C) Fail Open
-- D) NAT
 
 <details><summary>Lösung</summary>
 
-**B) Default Deny – nur freigegebene Dienste sind erreichbar**
+**Musterlösung (2 P):** Default Deny – nur freigegebene Dienste sind erreichbar
 
 </details>
 
@@ -637,7 +545,7 @@ Ethernet-Adapter Ethernet:
 
 <details><summary>Lösung</summary>
 
-**Musterlösung:** Je 1: Quell-IP beobachten/temporär sperren (IPS/Fail2ban/Geo-Blocking); Webserver härten und patchen, da Port 443 erreichbar ist; Alarmierung bei Portscans einrichten (IDS/SIEM); sicherstellen, dass RDP/SMB/Telnet nie aus dem Internet erreichbar sind; Logs regelmäßig auswerten.
+**Musterlösung (2 P):** Je 1: Quell-IP beobachten/temporär sperren (IPS/Fail2ban/Geo-Blocking); Webserver härten und patchen, da Port 443 erreichbar ist; Alarmierung bei Portscans einrichten (IDS/SIEM); sicherstellen, dass RDP/SMB/Telnet nie aus dem Internet erreichbar sind; Logs regelmäßig auswerten.
 
 </details>
 

@@ -1,6 +1,6 @@
 # 📖 Glossar & Abkürzungen
 
-174 Begriffe, alphabetisch.
+190 Begriffe, alphabetisch.
 
 [⬅ Inhaltsverzeichnis](README.md)
 
@@ -26,6 +26,7 @@
 | **APIPA** | Automatic Private IP Addressing | Selbstvergebene Adresse 169.254.x.x, wenn kein DHCP antwortet. |
 | **ARP** | Address Resolution Protocol | Ermittelt zur IPv4-Adresse die MAC-Adresse. |
 | **ASCII** | American Standard Code for Information Interchange | 7-Bit-Zeichensatz mit 128 Zeichen. |
+| **ATX** | Advanced Technology Extended | Standard-Formfaktor für Mainboards und Netzteile (kleiner: Micro-ATX, Mini-ITX). |
 | **AVV** | Auftragsverarbeitungsvertrag | Vertrag nach Art. 28 DSGVO mit Dienstleistern, die personenbezogene Daten verarbeiten. |
 
 ## B
@@ -37,6 +38,7 @@
 | **BGB** | Bürgerliches Gesetzbuch | Regelt u. a. Kauf-, Werk-, Dienst- und Mietvertrag. |
 | **BIOS** | Basic Input/Output System | Alte PC-Firmware, abgelöst durch UEFI. |
 | **BITV** | Barrierefreie-Informationstechnik-Verordnung | Barrierefreiheit für öffentliche Stellen. |
+| **BPMN** | Business Process Model and Notation | Grafische Sprache zur Darstellung von Geschäftsprozessen. |
 | **BSI** | Bundesamt für Sicherheit in der Informationstechnik | Gibt u. a. den IT-Grundschutz heraus. |
 | **BYOD** | Bring Your Own Device | Private Geräte werden dienstlich genutzt. |
 
@@ -64,7 +66,9 @@
 |---|---|---|
 | **DC** | Domain Controller | Server, der die Domäne (AD) bereitstellt und authentifiziert. |
 | **DDoS** | Distributed Denial of Service | Überlastungsangriff aus vielen Quellen. |
+| **DDR** | Double Data Rate | Arbeitsspeicher-Standard; DDR4 und DDR5 sind nicht miteinander kompatibel. |
 | **DHCP** | Dynamic Host Configuration Protocol | Vergibt IP-Konfiguration automatisch (DORA, UDP 67/68). |
+| **DIMM** | Dual Inline Memory Module | Bauform von Arbeitsspeicher für Desktop-PCs; im Notebook SO-DIMM. |
 | **DIN** | Deutsches Institut für Normung | Normungsorganisation, z. B. DIN 66399 Datenträgervernichtung. |
 | **DMS** | Dokumentenmanagementsystem | Verwaltung und Archivierung digitaler Dokumente. |
 | **DMZ** | Demilitarisierte Zone | Netzsegment für öffentlich erreichbare Server. |
@@ -95,6 +99,7 @@
 |---|---|---|
 | **FAZ / FEZ** | Frühester Anfangs-/Endzeitpunkt | Netzplantechnik, Vorwärtsrechnung. |
 | **FIDO2** | Fast Identity Online 2 | Standard für passwortlose, phishingresistente Anmeldung (Passkeys). |
+| **FK** | Foreign Key | Fremdschlüssel: verweist auf den Primärschlüssel einer anderen Tabelle. |
 | **FP / GP** | Freier Puffer / Gesamtpuffer | Netzplantechnik. |
 | **FTP** | File Transfer Protocol | Dateiübertragung (Port 20/21, unverschlüsselt). |
 | **FTTH / FTTB / FTTC** | Fiber to the Home / Building / Curb | Glasfaser bis in die Wohnung / ins Gebäude / zum Verteilerkasten. |
@@ -116,6 +121,7 @@
 | **HDD** | Hard Disk Drive | Magnetische Festplatte. |
 | **HDMI** | High-Definition Multimedia Interface | Digitale Bild- und Tonschnittstelle. |
 | **HE** | Höheneinheit | Maß für Geräte im 19-Zoll-Rack (1 HE = 44,45 mm). |
+| **HGB** | Handelsgesetzbuch | Regelt u. a. die Prüf- und Rügepflicht unter Kaufleuten. |
 | **HTTP(S)** | Hypertext Transfer Protocol (Secure) | Webprotokoll, Port 80 / 443 (mit TLS). |
 
 ## I
@@ -132,6 +138,7 @@
 | **IMAP** | Internet Message Access Protocol | E-Mails auf dem Server verwalten (143/993). |
 | **IoT** | Internet of Things | Vernetzte Geräte, Sensoren. |
 | **IP** | Internet Protocol | Adressierung und Weiterleitung auf Schicht 3. |
+| **IPS** | In-Plane Switching | Paneltyp mit hoher Farbtreue und stabilen Blickwinkeln. |
 | **IPsec** | Internet Protocol Security | Verschlüsselung/Authentifizierung auf IP-Ebene (VPN). |
 | **ISMS** | Informationssicherheits-Managementsystem | Systematisches Management der Informationssicherheit. |
 | **ISO** | International Organization for Standardization | Internationale Normen, z. B. ISO 9001, 9241. |
@@ -186,6 +193,7 @@
 |---|---|---|
 | **OCR** | Optical Character Recognition | Texterkennung in Scans. |
 | **OEM** | Original Equipment Manufacturer | Lizenz/Produkt, das an Hardware gebunden ist. |
+| **OLED** | Organic Light Emitting Diode | Selbstleuchtende Pixel: perfektes Schwarz, hoher Kontrast. |
 | **OS** | Operating System | Betriebssystem. |
 | **OSI** | Open Systems Interconnection | 7-Schichten-Referenzmodell für Netzwerke. |
 | **OU** | Organizational Unit | Organisationseinheit im Active Directory. |
@@ -198,10 +206,12 @@
 | **PAN** | Personal Area Network | Netz im Nahbereich einer Person (Bluetooth). |
 | **PCIe** | Peripheral Component Interconnect Express | Schnittstelle für Grafikkarten, NVMe-SSDs. |
 | **PDCA** | Plan – Do – Check – Act | Deming-Kreis für kontinuierliche Verbesserung. |
+| **PK** | Primary Key | Primärschlüssel: identifiziert jeden Datensatz eindeutig. |
 | **PKI** | Public Key Infrastructure | System aus CAs, Zertifikaten, Sperrdiensten. |
 | **PO** | Product Owner | Scrum-Rolle: verantwortet das Product Backlog. |
 | **PoE** | Power over Ethernet | Stromversorgung über das Netzwerkkabel. |
 | **POP3** | Post Office Protocol 3 | E-Mails herunterladen (110/995). |
+| **PPI** | Pixels per Inch | Pixeldichte eines Bildschirms – je höher, desto schärfer. |
 | **ppm** | pages per minute | Druckgeschwindigkeit. |
 | **PSK** | Pre-Shared Key | Gemeinsamer WLAN-Schlüssel (WPA2-Personal). |
 | **PSP** | Projektstrukturplan | Hierarchische Zerlegung des Projekts in Arbeitspakete. |
@@ -239,6 +249,7 @@
 | **SLAAC** | Stateless Address Autoconfiguration | Automatische IPv6-Adressbildung. |
 | **SMART** | Spezifisch, Messbar, Attraktiv, Realistisch, Terminiert | Methode zur Zielformulierung. |
 | **SMB** | Server Message Block | Windows-Dateifreigaben (Port 445). |
+| **SMT** | Simultaneous Multithreading | Ein CPU-Kern bearbeitet zwei Threads gleichzeitig (bei Intel: Hyper-Threading). |
 | **SMTP** | Simple Mail Transfer Protocol | E-Mail-Versand (25/587/465). |
 | **SNMP** | Simple Network Management Protocol | Überwachung von Netzwerkgeräten (UDP 161/162). |
 | **SPOF** | Single Point of Failure | Komponente, deren Ausfall das Gesamtsystem lahmlegt. |
@@ -252,6 +263,7 @@
 |---|---|---|
 | **TCO** | Total Cost of Ownership | Gesamtkosten über die Nutzungsdauer. |
 | **TCP** | Transmission Control Protocol | Verbindungsorientiertes, zuverlässiges Transportprotokoll. |
+| **TDP** | Thermal Design Power | Wärmeleistung in Watt, auf die die Kühlung einer CPU ausgelegt sein muss. |
 | **TLS** | Transport Layer Security | Verschlüsselung für HTTPS, Mail usw. |
 | **TOM** | Technische und organisatorische Maßnahmen | Schutzmaßnahmen nach Art. 32 DSGVO. |
 | **TOTP** | Time-based One-Time Password | Zeitbasierter Einmalcode (Authenticator-App). |
@@ -263,6 +275,7 @@
 |---|---|---|
 | **UDP** | User Datagram Protocol | Verbindungsloses, schnelles Transportprotokoll. |
 | **UEFI** | Unified Extensible Firmware Interface | Moderne Firmware mit Secure Boot und GPT. |
+| **UHD** | Ultra High Definition | Auflösung 3840 × 2160 Pixel (4K). |
 | **UML** | Unified Modeling Language | Standard für Diagramme (z. B. Aktivitätsdiagramm). |
 | **UNC** | Universal Naming Convention | Netzwerkpfad \\Server\Freigabe. |
 | **UrhG** | Urheberrechtsgesetz | Schützt u. a. Software. |
@@ -282,6 +295,8 @@
 | **VM** | Virtuelle Maschine | Software-emulierter Computer auf einem Hypervisor. |
 | **VoIP** | Voice over IP | Telefonie über IP-Netze. |
 | **VPN** | Virtual Private Network | Verschlüsselter Tunnel über unsichere Netze. |
+| **VRAM** | Video Random Access Memory | Eigener Speicher der Grafikkarte. |
+| **VVT** | Verzeichnis von Verarbeitungstätigkeiten | Pflichtdokument nach Art. 30 DSGVO. |
 
 ## W
 
@@ -293,6 +308,7 @@
 | **WEEE** | Waste of Electrical and Electronic Equipment | EU-Richtlinie für Elektroschrott (→ ElektroG). |
 | **WLAN** | Wireless LAN | Funknetz nach IEEE 802.11. |
 | **WPA2 / WPA3** | Wi-Fi Protected Access 2/3 | WLAN-Verschlüsselung (Personal mit PSK, Enterprise mit 802.1X). |
+| **WQHD** | Wide Quad High Definition | Auflösung 2560 × 1440 Pixel. |
 
 ## X
 

@@ -55,9 +55,16 @@
 > [!WARNING]
 > Abkürzungen (DHCP, PoE, ERP …) nur verwenden, wenn du ihre Funktion in einem Satz erklären kannst – die Prüfer werten die Erklärung, nicht das Kürzel.
 
+## Belegsatz
+
+Seit 2025 gehört zu den Aufgabensätzen ein einheitlicher **Belegsatz**: ein Beiblatt mit Unterlagen und Hilfen, auf die sich die Aufgaben beziehen, zum Beispiel Datenblätter, Angebote, Tabellen oder die Schreibweise von Diagrammen und Pseudocode. Du musst darin nichts ausfüllen, aber du musst die nötigen Informationen schnell finden.
+
+> [!TIP]
+> **To-do:** Lass dir in der Prüfungsvorbereitung den Belegsatz der letzten AP1 zeigen. Wenn dort Schreibweisen vorgegeben sind (UML-Symbole, Pseudocode), übe genau mit diesen. Die Aufgaben mit Anlagen und die Prüfungssätze in dieser App trainieren das Heraussuchen von Informationen aus Unterlagen.
+
 ---
 
-## 🃏 Karteikarten (10)
+## 🃏 Karteikarten (11)
 
 | Frage | Antwort |
 |---|---|
@@ -71,66 +78,47 @@
 | Welche Themen sind seit 2025 aus der AP1 raus? | SQL-Abfragen und NoSQL (relationale DB-Grundlagen bleiben!), RAID/SAN, Struktogramm/PAP, Vererbung, Kanban/XP/SWOT, LTE/5G, ISO 2700x, Eisbergmodell, Fragetechniken, Cross-/Upselling, Suchoperatoren, Audit, Abnahmeprotokoll, Deckungsbeitrag. |
 | Welche Themen sind seit 2025 neu/betont? | Projektmerkmale, SMART, KI, Sensoren, Client-Server, DaaS, Domäne, IPv4/IPv6, HDD/SSD, Datenmengen, Klassen/Sichtbarkeit, Aktivitätsdiagramm, Schreibtischtest, Corporate Identity, Schutzziele, Hash, 2FA, Härtung, Anonymisierung, Betroffenenrechte/Einwilligung, Barrierefreiheit. |
 | Wie heißt der Prüfungsbereich der AP1? | „Einrichten eines IT-gestützten Arbeitsplatzes“. |
+| Was ist der Belegsatz? | Ein Beiblatt zum Aufgabensatz mit Unterlagen und Hilfen (Datenblätter, Angebote, Notationen), auf die sich die Aufgaben beziehen. |
 
 ## ✍️ Übungsfragen (7)
 
 **1.** Mit welchem Anteil fließt die AP1 in die Gesamtnote ein?
-- A) 10 %
-- B) 20 %
-- C) 25 %
-- D) 50 %
 
 <details><summary>Lösung</summary>
 
-**B) 20 %**<br>AP1 = 20 %, AP2 = 80 % (verteilt auf Projekt, zwei schriftliche Bereiche und WiSo).
+**Musterlösung (2 P):** 20 %<br>AP1 = 20 %, AP2 = 80 % (verteilt auf Projekt, zwei schriftliche Bereiche und WiSo).
 
 </details>
 
 **2.** Welches Thema wurde mit dem Prüfungskatalog 2025 aus der AP1 gestrichen?
-- A) IPv6
-- B) SQL-Abfragen
-- C) Zwei-Faktor-Authentifizierung
-- D) Amortisationsrechnung
 
 <details><summary>Lösung</summary>
 
-**B) SQL-Abfragen**<br>SQL/Datenbanken sind in die AP2 gewandert. IPv6, 2FA und Amortisation sind neu bzw. betont.
+**Musterlösung (2 P):** SQL-Abfragen<br>SQL-Abfragen (und RAID) kommen nur noch in der AP2 vor – die Grundlagen relationaler Datenbanken bleiben in der AP1. IPv6, 2FA und Amortisation sind neu bzw. betont.
 
 </details>
 
 **3.** Eine Aufgabe sagt: „Nennen Sie zwei Vorteile einer SSD.“ Was wird erwartet?
-- A) Zwei Stichworte
-- B) Ein ausführlicher Vergleich mit HDD
-- C) Eine Berechnung
-- D) Eine Skizze
 
 <details><summary>Lösung</summary>
 
-**A) Zwei Stichworte**<br>„Nennen“ = Stichworte. Mehr schreiben kostet Zeit und bringt keine Extrapunkte.
+**Musterlösung (2 P):** Zwei Stichworte<br>„Nennen“ = Stichworte. Mehr schreiben kostet Zeit und bringt keine Extrapunkte.
 
 </details>
 
-**4.** Welche Inhalte sind seit 2025 ausdrücklich im AP1-Katalog? (mehrere)
-- A) Nutzung von KI-Software am Arbeitsplatz
-- B) Struktogramme nach Nassi-Shneiderman
-- C) Einbindung von Clients in Domänen
-- D) Barrierefreie Websites
+**4.** Nennen Sie drei Inhalte, die seit dem Prüfungskatalog 2025 neu oder ausdrücklich betont in der AP1 stehen.
 
 <details><summary>Lösung</summary>
 
-**A) Nutzung von KI-Software am Arbeitsplatz, C) Einbindung von Clients in Domänen, D) Barrierefreie Websites**<br>Struktogramme wurden gestrichen; KI, Domäne und Barrierefreiheit sind neu.
+**Musterlösung (3 P):** Je 1: KI-Software am Arbeitsplatz; Einbindung von Clients in Domänen; Barrierefreiheit (Websites und Hardware); UML-Aktivitätsdiagramm und Schreibtischtest; Merkmale eines Projekts/SMART; Sensoren; Desktop as a Service; IPv4 vs. IPv6; Härtung, Hashverfahren, 2FA; Amortisationszeit. Gestrichen wurden dagegen z. B. Struktogramme.<br>Struktogramme wurden gestrichen; KI, Domäne und Barrierefreiheit sind neu.
 
 </details>
 
 **5.** Eine Teilaufgabe ist mit 8 Punkten bewertet. Wie viel Zeit solltest du ungefähr investieren?
-- A) 2 Minuten
-- B) 8 Minuten
-- C) 15 Minuten
-- D) 20 Minuten
 
 <details><summary>Lösung</summary>
 
-**B) 8 Minuten**<br>Faustregel 1 Punkt ≈ 1 Minute.
+**Musterlösung (2 P):** 8 Minuten<br>Faustregel 1 Punkt ≈ 1 Minute.
 
 </details>
 
@@ -138,7 +126,7 @@
 
 <details><summary>Lösung</summary>
 
-**Musterlösung:** Eine SSD hat keine beweglichen Teile und ist daher unempfindlich gegen Stöße/Erschütterungen beim mobilen Einsatz (1). Sie bietet deutlich kürzere Zugriffszeiten und höhere Datenraten, wodurch System und Anwendungen schneller starten (1). Zusätzlich ist sie leiser und verbraucht weniger Strom, was die Akkulaufzeit unterwegs verlängert (1).
+**Musterlösung (3 P):** Eine SSD hat keine beweglichen Teile und ist daher unempfindlich gegen Stöße/Erschütterungen beim mobilen Einsatz (1). Sie bietet deutlich kürzere Zugriffszeiten und höhere Datenraten, wodurch System und Anwendungen schneller starten (1). Zusätzlich ist sie leiser und verbraucht weniger Strom, was die Akkulaufzeit unterwegs verlängert (1).
 
 </details>
 
@@ -146,7 +134,7 @@
 
 <details><summary>Lösung</summary>
 
-**Musterlösung:** Bei „Nennen“ genügt die stichwortartige Aufzählung ohne Erklärung (1). Bei „Begründen“ muss eine Entscheidung mit einem fachlichen Argument und Bezug zur Situation gestützt werden („…, weil …“) (1).
+**Musterlösung (2 P):** Bei „Nennen“ genügt die stichwortartige Aufzählung ohne Erklärung (1). Bei „Begründen“ muss eine Entscheidung mit einem fachlichen Argument und Bezug zur Situation gestützt werden („…, weil …“) (1).
 
 </details>
 

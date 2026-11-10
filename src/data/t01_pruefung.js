@@ -45,7 +45,7 @@ cards:[
 ],
 qs:[
 {t:"sc",q:"Mit welchem Anteil fließt die AP1 in die Gesamtnote ein?",o:["10 %","20 %","25 %","50 %"],a:1,e:"AP1 = 20 %, AP2 = 80 % (verteilt auf Projekt, zwei schriftliche Bereiche und WiSo)."},
-{t:"sc",q:"Welches Thema wurde mit dem Prüfungskatalog 2025 aus der AP1 gestrichen?",o:["IPv6","SQL-Abfragen","Zwei-Faktor-Authentifizierung","Amortisationsrechnung"],a:1,e:"SQL/Datenbanken sind in die AP2 gewandert. IPv6, 2FA und Amortisation sind neu bzw. betont."},
+{t:"sc",q:"Welches Thema wurde mit dem Prüfungskatalog 2025 aus der AP1 gestrichen?",o:["IPv6","SQL-Abfragen","Zwei-Faktor-Authentifizierung","Amortisationsrechnung"],a:1,e:"SQL-Abfragen (und RAID) kommen nur noch in der AP2 vor – die Grundlagen relationaler Datenbanken bleiben in der AP1. IPv6, 2FA und Amortisation sind neu bzw. betont."},
 {t:"sc",q:"Eine Aufgabe sagt: „Nennen Sie zwei Vorteile einer SSD.“ Was wird erwartet?",o:["Zwei Stichworte","Ein ausführlicher Vergleich mit HDD","Eine Berechnung","Eine Skizze"],a:0,e:"„Nennen“ = Stichworte. Mehr schreiben kostet Zeit und bringt keine Extrapunkte."},
 {t:"mc",q:"Welche Inhalte sind seit 2025 ausdrücklich im AP1-Katalog? (mehrere)",o:["Nutzung von KI-Software am Arbeitsplatz","Struktogramme nach Nassi-Shneiderman","Einbindung von Clients in Domänen","Barrierefreie Websites"],a:[0,2,3],e:"Struktogramme wurden gestrichen; KI, Domäne und Barrierefreiheit sind neu."},
 {t:"sc",q:"Eine Teilaufgabe ist mit 8 Punkten bewertet. Wie viel Zeit solltest du ungefähr investieren?",o:["2 Minuten","8 Minuten","15 Minuten","20 Minuten"],a:1,e:"Faustregel 1 Punkt ≈ 1 Minute."},

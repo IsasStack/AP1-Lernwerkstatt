@@ -120,26 +120,18 @@ Unkomprimiertes Video = Bildgröße × Bilder pro Sekunde (fps) × Sekunden. Ful
 </details>
 
 **3.** Wie lautet 0x2C binär?
-- A) 0010 1100
-- B) 0010 1010
-- C) 1100 0010
-- D) 0011 1100
 
 <details><summary>Lösung</summary>
 
-**A) 0010 1100**<br>2 = 0010, C = 1100.
+**Musterlösung (2 P):** 0010 1100<br>2 = 0010, C = 1100.
 
 </details>
 
 **4.** Wie lautet 156 hexadezimal?
-- A) 9C
-- B) 8C
-- C) 9A
-- D) C9
 
 <details><summary>Lösung</summary>
 
-**A) 9C**<br>156 = 9·16 + 12 → 9C.
+**Musterlösung (2 P):** 9C<br>156 = 9·16 + 12 → 9C.
 
 </details>
 
@@ -184,26 +176,18 @@ Unkomprimiertes Video = Bildgröße × Bilder pro Sekunde (fps) × Sekunden. Ful
 </details>
 
 **10.** Wie viele Byte hat 1 MiB?
-- A) 1.000.000
-- B) 1.048.576
-- C) 1.024.000
-- D) 8.388.608
 
 <details><summary>Lösung</summary>
 
-**B) 1.048.576**<br>2²⁰.
+**Musterlösung (2 P):** 1.048.576<br>2²⁰.
 
 </details>
 
-**11.** Welches Format komprimiert verlustfrei?
-- A) JPEG
-- B) MP3
-- C) PNG
-- D) H.264
+**11.** Nennen Sie ein Dateiformat, das verlustfrei komprimiert.
 
 <details><summary>Lösung</summary>
 
-**C) PNG**
+**Musterlösung (2 P):** Z. B. PNG (Bild), ZIP (Archiv) oder FLAC (Audio)
 
 </details>
 
@@ -227,7 +211,7 @@ Unkomprimiertes Video = Bildgröße × Bilder pro Sekunde (fps) × Sekunden. Ful
 
 <details><summary>Lösung</summary>
 
-**Musterlösung:** Hersteller geben Kapazität dezimal an: 4 TB = 4 × 10¹² Byte (1). Windows rechnet binär mit 1 TiB = 2⁴⁰ Byte, zeigt die Einheit aber als „TB“ an (1). 4 × 10¹² ÷ 2⁴⁰ ≈ 3,64 TiB – es fehlt also kein Speicher, nur die Einheit unterscheidet sich (1).
+**Musterlösung (3 P):** Hersteller geben Kapazität dezimal an: 4 TB = 4 × 10¹² Byte (1). Windows rechnet binär mit 1 TiB = 2⁴⁰ Byte, zeigt die Einheit aber als „TB“ an (1). 4 × 10¹² ÷ 2⁴⁰ ≈ 3,64 TiB – es fehlt also kein Speicher, nur die Einheit unterscheidet sich (1).
 
 </details>
 
@@ -235,7 +219,7 @@ Unkomprimiertes Video = Bildgröße × Bilder pro Sekunde (fps) × Sekunden. Ful
 
 <details><summary>Lösung</summary>
 
-**Musterlösung:** 3 GiB = 3 × 2³⁰ Byte = 3.221.225.472 Byte (1). × 8 = 25.769.803.776 Bit (1). ÷ 100.000.000 Bit/s ≈ 257,7 s ≈ 4 min 18 s (1).
+**Musterlösung (3 P):** 3 GiB = 3 × 2³⁰ Byte = 3.221.225.472 Byte (1). × 8 = 25.769.803.776 Bit (1). ÷ 100.000.000 Bit/s ≈ 257,7 s ≈ 4 min 18 s (1).
 
 </details>
 

@@ -82,98 +82,66 @@ Förderung möglich über Integrationsamt/Inklusionsamt bzw. Agentur für Arbeit
 ## ✍️ Übungsfragen (11)
 
 **1.** Wie sollte ein Monitor zum Fenster aufgestellt werden?
-- A) Mit dem Rücken zum Fenster
-- B) Blickrichtung parallel zum Fenster
-- C) Direkt vor dem Fenster
-- D) Egal, Hauptsache entspiegelt
 
 <details><summary>Lösung</summary>
 
-**B) Blickrichtung parallel zum Fenster**<br>Parallel vermeidet Blendung (Blick ins Licht) und Reflexionen (Fenster im Rücken).
+**Musterlösung (2 P):** Blickrichtung parallel zum Fenster<br>Parallel vermeidet Blendung (Blick ins Licht) und Reflexionen (Fenster im Rücken).
 
 </details>
 
 **2.** Ein Programm zeigt beim Überfahren eines Buttons eine Erklärung an. Welches Prinzip der ISO 9241-110?
-- A) Steuerbarkeit
-- B) Selbstbeschreibungsfähigkeit
-- C) Benutzerbindung
-- D) Aufgabenangemessenheit
 
 <details><summary>Lösung</summary>
 
-**B) Selbstbeschreibungsfähigkeit**<br>Der Dialog erklärt sich selbst.
+**Musterlösung (2 P):** Selbstbeschreibungsfähigkeit<br>Der Dialog erklärt sich selbst.
 
 </details>
 
 **3.** Seit wann gilt das Barrierefreiheitsstärkungsgesetz?
-- A) 01.01.2024
-- B) 28.06.2025
-- C) 25.05.2018
-- D) 01.08.2020
 
 <details><summary>Lösung</summary>
 
-**B) 28.06.2025**<br>28.06.2025.
+**Musterlösung (2 P):** 28.06.2025<br>28.06.2025.
 
 </details>
 
 **4.** Welches Hilfsmittel unterstützt einen blinden Mitarbeiter am besten?
-- A) Ergonomische Maus
-- B) Braillezeile mit Screenreader
-- C) Größerer Monitor
-- D) Sitz-Steh-Tisch
 
 <details><summary>Lösung</summary>
 
-**B) Braillezeile mit Screenreader**<br>Braillezeile gibt Bildschirminhalt in Blindenschrift aus, der Screenreader liest vor.
+**Musterlösung (2 P):** Braillezeile mit Screenreader<br>Braillezeile gibt Bildschirminhalt in Blindenschrift aus, der Screenreader liest vor.
 
 </details>
 
-**5.** Welche Maßnahmen machen eine Website barrierefreier? (mehrere)
-- A) Alternativtexte für Bilder
-- B) Informationen nur per Farbe kennzeichnen
-- C) Vollständige Bedienbarkeit per Tastatur
-- D) Ausreichender Farbkontrast
+**5.** Welche Maßnahmen machen eine Website barrierefreier? Nennen Sie drei.
 
 <details><summary>Lösung</summary>
 
-**A) Alternativtexte für Bilder, C) Vollständige Bedienbarkeit per Tastatur, D) Ausreichender Farbkontrast**<br>Farbe allein darf keine Information tragen.
+**Musterlösung (3 P):** Je 1 Punkt (max. 3): Alternativtexte für Bilder; Vollständige Bedienbarkeit per Tastatur; Ausreichender Farbkontrast. Farbe allein darf keine Information tragen.
 
 </details>
 
 **6.** Welche Unternehmen sind vom BFSG ausgenommen?
-- A) Alle Unternehmen unter 50 Mitarbeitern
-- B) Kleinstunternehmen, die Dienstleistungen erbringen
-- C) Alle Onlineshops
-- D) Hersteller von Notebooks
 
 <details><summary>Lösung</summary>
 
-**B) Kleinstunternehmen, die Dienstleistungen erbringen**<br>< 10 Beschäftigte und ≤ 2 Mio. € Umsatz, nur für Dienstleistungen.
+**Musterlösung (2 P):** Kleinstunternehmen, die Dienstleistungen erbringen<br>< 10 Beschäftigte und ≤ 2 Mio. € Umsatz, nur für Dienstleistungen.
 
 </details>
 
 **7.** Strg+C kopiert wie in allen anderen Programmen. Welches Prinzip?
-- A) Erwartungskonformität
-- B) Erlernbarkeit
-- C) Robustheit
-- D) Steuerbarkeit
 
 <details><summary>Lösung</summary>
 
-**A) Erwartungskonformität**<br>Das Verhalten entspricht den Erwartungen/Konventionen.
+**Musterlösung (2 P):** Erwartungskonformität<br>Das Verhalten entspricht den Erwartungen/Konventionen.
 
 </details>
 
 **8.** Für welche Stellen gilt die BITV 2.0?
-- A) Private Onlineshops
-- B) Öffentliche Stellen des Bundes
-- C) Nur Banken
-- D) Nur Kleinstunternehmen
 
 <details><summary>Lösung</summary>
 
-**B) Öffentliche Stellen des Bundes**<br>BITV = Barrierefreiheit für öffentliche Stellen.
+**Musterlösung (2 P):** Öffentliche Stellen des Bundes<br>BITV = Barrierefreiheit für öffentliche Stellen.
 
 </details>
 
@@ -181,7 +149,7 @@ Förderung möglich über Integrationsamt/Inklusionsamt bzw. Agentur für Arbeit
 
 <details><summary>Lösung</summary>
 
-**Musterlösung:** Je 1: großer Monitor bzw. zweiter Monitor; Bildschirmlupe/Vergrößerungssoftware; Hochkontrastmodus/größere Schrift und Skalierung; Screenreader/Sprachausgabe; Tastatur mit großen, kontrastreichen Tasten; blendfreie, gute Beleuchtung.
+**Musterlösung (3 P):** Je 1: großer Monitor bzw. zweiter Monitor; Bildschirmlupe/Vergrößerungssoftware; Hochkontrastmodus/größere Schrift und Skalierung; Screenreader/Sprachausgabe; Tastatur mit großen, kontrastreichen Tasten; blendfreie, gute Beleuchtung.
 
 </details>
 
@@ -189,7 +157,7 @@ Förderung möglich über Integrationsamt/Inklusionsamt bzw. Agentur für Arbeit
 
 <details><summary>Lösung</summary>
 
-**Musterlösung:** Je 1: Monitor-Oberkante auf/unter Augenhöhe; Sehabstand 50–70 cm; Monitor parallel zum Fenster, entspiegelt; höhenverstellbarer Tisch und Stuhl; separate Tastatur/Maus; ausreichende, blendfreie Beleuchtung (~500 lx); Pausen/Mischarbeit.
+**Musterlösung (4 P):** Je 1: Monitor-Oberkante auf/unter Augenhöhe; Sehabstand 50–70 cm; Monitor parallel zum Fenster, entspiegelt; höhenverstellbarer Tisch und Stuhl; separate Tastatur/Maus; ausreichende, blendfreie Beleuchtung (~500 lx); Pausen/Mischarbeit.
 
 </details>
 
@@ -197,7 +165,7 @@ Förderung möglich über Integrationsamt/Inklusionsamt bzw. Agentur für Arbeit
 
 <details><summary>Lösung</summary>
 
-**Musterlösung:** Z. B.: Wahrnehmbar – Inhalte müssen über mehrere Sinne erfassbar sein, z. B. Alternativtext für Bilder (2). Bedienbar – alle Funktionen müssen ohne Maus nutzbar sein, z. B. vollständige Tastaturbedienung (2). Verständlich – klare Sprache und eindeutige Fehlermeldungen (2). Robust – sauberer HTML-Code, damit Screenreader die Seite interpretieren können (2).
+**Musterlösung (4 P):** Z. B.: Wahrnehmbar – Inhalte müssen über mehrere Sinne erfassbar sein, z. B. Alternativtext für Bilder (2). Bedienbar – alle Funktionen müssen ohne Maus nutzbar sein, z. B. vollständige Tastaturbedienung (2). Verständlich – klare Sprache und eindeutige Fehlermeldungen (2). Robust – sauberer HTML-Code, damit Screenreader die Seite interpretieren können (2).
 
 </details>
 

@@ -11,43 +11,82 @@ function maskToPrefix(m) { if (!validIp(m)) return NaN; const n = ip2n(m); const
 /* ---------- Fallstudien ---------- */
 let FS = null;
 function renderCases(app) {
-  if (FS && FS.kind !== "anl") return renderCaseRun(app);
+  if (FS && FS.kind === "fall") return renderCaseRun(app);
   S.cs = S.cs || {};
-  app.innerHTML = `<h1>🏢 Fallstudien</h1><p class="sub">So ist die AP1 aufgebaut: Eine Firma, eine Ausgangssituation, mehrere Teilaufgaben. Du entscheidest, welche Hardware, welches Betriebssystem, welche Lizenzen, welches Netz und welche Sicherheitsmaßnahmen passen – und begründest es. Grundlagen dazu im Thema <a href="#t-auswahl" onclick="topicTab='wissen'">🛒 Produktauswahl & Lizenzierung</a>.</p>
+  app.innerHTML = `<h1>🏢 Fallstudien</h1><p class="sub">So ist die AP1 aufgebaut: Eine Firma, eine Ausgangssituation, mehrere Teilaufgaben. Du entscheidest selbst, welche Hardware, welches Betriebssystem, welche Lizenzen, welches Netz und welche Sicherheitsmaßnahmen passen – und begründest es schriftlich. Es gibt keine Antworten zum Ankreuzen. Grundlagen dazu im Thema <a href="#t-auswahl" onclick="topicTab='wissen'">🛒 Produktauswahl & Lizenzierung</a>.</p>
   <div class="grid g2">${CASES.map(c => { const s = S.cs[c.id]; return `<div class="card click" onclick="startCase('${c.id}')"><div class="row" style="justify-content:space-between"><b>${c.icon} ${esc(c.title)}</b>${s ? `<span class="pill ${s.pct >= 80 ? "gr" : s.pct >= 50 ? "am" : "rd"}">${s.pct}%</span>` : `<span class="pill">neu</span>`}</div><div class="small muted" style="margin:6px 0 8px">${esc(c.sit.slice(0, 150))}…</div><div class="row" style="gap:5px">${c.tags.map(t => `<span class="pill cy">${t}</span>`).join("")}<span class="pill">${c.steps.length} Aufgaben</span></div></div>`; }).join("")}</div>`;
 }
-function startCase(id) { const isA = ANL.some(x => x.id === id); const c = CASES.concat(ANL).find(x => x.id === id); FS = { kind: isA ? "anl" : "fall", c, st: c.steps.map(s => ({ ans: s.t === "mc" ? [] : null, done: false, ok: null, pts: null, ord: s.o ? shuffle(s.o.map((_, i) => i)) : null })) }; const v = isA ? "anlagen" : "fall"; if (view === v) render(); else go(v); }
-function stepPts(s) { return s.t === "open" ? s.p : s.t === "mc" ? 3 : 2; }
+function startCase(id) {
+  const isA = ANL.some(x => x.id === id), isE = EXAMS.some(x => x.id === id);
+  const c = CASES.concat(ANL, EXAMS).find(x => x.id === id);
+  if (FS && FS.th) clearInterval(FS.th);
+  FS = { kind: isE ? "exam" : isA ? "anl" : "fall", c, st: c.steps.map(s => ({ ans: s.t === "mc" ? [] : null, done: false, ok: null, pts: null, ord: s.o ? shuffle(s.o.map((_, i) => i)) : null })) };
+  if (isE) { FS.start = Date.now(); FS.end = FS.start + 90 * 60 * 1000; FS.th = setInterval(examTick, 1000); }
+  const v = isE ? "pruefung" : isA ? "anlagen" : "fall"; if (view === v) render(); else go(v); window.scrollTo(0, 0);
+}
+function stepPts(s) { return s.p || (s.t === "mc" ? 3 : 2); }
+function examTick() {
+  if (!FS || FS.kind !== "exam" || FS.submitted) { if (FS && FS.th) clearInterval(FS.th); return; }
+  const left = FS.end - Date.now(), el = document.getElementById("ftimer");
+  if (left <= 0) { toast("Zeit abgelaufen – Prüfung wird abgegeben"); submitExamSet(); return; }
+  if (el) { const m = Math.floor(left / 60000), sec = Math.floor(left % 60000 / 1000); el.textContent = `⏱ ${String(m).padStart(2, "0")}:${String(sec).padStart(2, "0")}`; el.classList.toggle("low", left < 10 * 60000); }
+}
+function confirmExamSet() {
+  const open = FS.st.filter(st => !String(st.ans || "").trim()).length;
+  modal(`<h3>Prüfung abgeben?</h3><p class="muted">${open ? `Noch ${open} Teilaufgabe(n) ohne Antwort.` : "Alle Teilaufgaben bearbeitet."} Danach siehst du die Musterlösungen und bewertest deine Antworten.</p>`, [["Weiter bearbeiten", "closeModal()"], ["Abgeben", "closeModal();submitExamSet()", "pri"]]);
+}
+function submitExamSet() {
+  if (!FS || FS.kind !== "exam" || FS.submitted) return;
+  if (FS.th) clearInterval(FS.th);
+  FS.c.steps.forEach((s, i) => { const st = FS.st[i]; st.done = true;
+    if (s.t === "num") st.ok = String(st.ans || "").trim() ? numOk(st.ans, s.a, s.tol) : false;
+    else if (!String(st.ans || "").trim()) st.pts = 0; });
+  FS.submitted = true; FS.min = Math.max(1, Math.round((Date.now() - FS.start) / 60000));
+  activity(FS.c.steps.length); save(); render(); window.scrollTo(0, 0);
+}
+async function aiGradeAllCase() {
+  for (let i = 0; i < FS.c.steps.length; i++) { if (!FS || !FS.submitted) return; const s = FS.c.steps[i], st = FS.st[i]; if (s.t === "open" && !st.ai && st.pts == null && String(st.ans || "").trim()) { await runAi("case", i); if (FS.st[i].aiErr) break; } }
+  render();
+}
 function renderCaseRun(app) {
-  const c = FS.c;
+  const c = FS.c, isExam = FS.kind === "exam";
   const html = c.steps.map((s, i) => {
     const st = FS.st[i]; let body = "", fb = "";
     if (s.t === "sc" || s.t === "mc") {
       body = st.ord.map((oi, pos) => { const sel = s.t === "sc" ? st.ans === oi : st.ans.includes(oi); let cls = sel ? "sel" : ""; if (st.done) { const r = s.t === "sc" ? oi === s.a : s.a.includes(oi); cls = r ? "right" : sel ? "wrong" : ""; } return `<button class="opt ${cls}" ${st.done ? "disabled" : ""} onclick="casePick(${i},${oi})"><span class="k">${s.t === "mc" ? (sel ? "✓" : "") : "ABCDE"[pos]}</span><span>${esc(s.o[oi])}</span></button>`; }).join("");
       if (s.t === "mc" && !st.done) body += `<button class="btn sm pri" onclick="caseCheck(${i})">Prüfen</button>`;
     } else if (s.t === "num") {
-      body = `<div class="row" style="flex-wrap:nowrap"><input id="cn${i}" inputmode="decimal" style="max-width:220px;font-family:var(--mono)" value="${esc(st.ans || "")}" ${st.done ? "disabled" : ""} onkeydown="if(event.key==='Enter')caseCheck(${i})"> <span class="muted">${esc(s.unit || "")}</span>${st.done ? "" : `<button class="btn sm pri" onclick="caseCheck(${i})">Prüfen</button>`}</div>`;
+      body = `<div class="row" style="flex-wrap:nowrap"><input id="cn${i}" inputmode="decimal" style="max-width:220px;font-family:var(--mono)" value="${esc(st.ans || "")}" ${st.done ? "disabled" : ""} oninput="FS.st[${i}].ans=this.value" onkeydown="if(event.key==='Enter'&&FS.kind!=='exam')caseCheck(${i})"> <span class="muted">${esc(s.unit || "")}</span>${st.done || isExam ? "" : `<button class="btn sm pri" onclick="caseCheck(${i})">Prüfen</button>`}</div>${isExam && !st.done ? `<div class="small dim" style="margin-top:4px">Rechenweg auf Papier notieren – in der Prüfung gibt er Teilpunkte.</div>` : ""}`;
     } else {
-      body = `<textarea id="co${i}" ${st.done ? "disabled" : ""} placeholder="Antwort mit Begründung formulieren …">${esc(st.ans || "")}</textarea>${st.done ? "" : `<div class="row" style="margin-top:8px">${HAS_AI ? `<button class="btn sm pri" onclick="runAi('case',${i})">🤖 KI bewerten</button>` : ""}<button class="btn sm ${HAS_AI ? "" : "pri"}" onclick="caseCheck(${i})">Musterlösung zeigen</button></div>`}`;
+      body = `<textarea id="co${i}" ${st.done ? "disabled" : ""} oninput="FS.st[${i}].ans=this.value" placeholder="Antwort ${s.p > 1 ? "mit Begründung " : ""}formulieren …" ${s.rows ? `style="min-height:${s.rows * 24}px"` : ""}>${esc(st.ans || "")}</textarea>${st.done || isExam ? "" : `<div class="row" style="margin-top:8px">${HAS_AI ? `<button class="btn sm pri" onclick="runAi('case',${i})">🤖 KI bewerten</button>` : ""}<button class="btn sm ${HAS_AI ? "" : "pri"}" onclick="caseCheck(${i})">Musterlösung zeigen</button></div>`}`;
     }
     if (st.done) {
       if (s.t === "open") fb = `<div class="fb inf"><h4>Musterlösung (${s.p} P)</h4><div class="sol">${esc(s.a)}</div><div class="pts">${Array.from({ length: s.p + 1 }, (_, p) => `<button class="btn sm ${st.pts === p ? "pri" : ""}" onclick="FS.st[${i}].pts=${p};render()">${p}</button>`).join("")}</div><div class="row" style="margin-top:8px">${aiButton("case", i, "🤖 Von KI bewerten lassen")}</div></div>${aiPanel("case", i)}`;
-      else fb = `<div class="fb ${st.ok ? "ok" : "no"}"><h4>${st.ok ? "✓ Richtig" : "✗ Falsch"}${s.t === "num" ? ` – Lösung: <span class="mono">${fmt(s.a, 3)} ${esc(s.unit || "")}</span>` : ""}</h4>${s.e ? `<div class="muted">${esc(s.e)}</div>` : ""}</div>`;
+      else fb = `<div class="fb ${st.ok ? "ok" : "no"}"><h4>${st.ok ? "✓ Richtig" : "✗ Falsch"}${s.t === "num" ? ` – Lösung: <span class="mono">${fmt(s.a, 3)} ${esc(s.unit || "")}</span>` : ""}</h4>${s.e ? `<div class="muted sol">${esc(s.e)}</div>` : ""}</div>`;
     }
-    return `<div class="card" style="margin-bottom:12px"><div class="row" style="justify-content:space-between"><b>Aufgabe ${i + 1}</b><span class="pill vi">${stepPts(s)} Punkte</span></div><div class="qtext" style="font-size:16px">${esc(s.q)}</div>${body}${fb}</div>`;
+    const head = (s.h ? `<h2 style="margin-top:${i ? 30 : 8}px">${esc(s.h)}</h2>` : "") + (s.ctx ? `<div class="card" style="background:linear-gradient(135deg,#132131,#151c25);margin-bottom:12px;line-height:1.6">${s.ctx}</div>` : "") + (s.att ? `<div class="card" style="margin-bottom:12px;border-color:#fbbf2455"><div class="small" style="font-weight:700;letter-spacing:.05em;color:var(--am);margin-bottom:8px">📎 ${esc(s.attTitle || "ANLAGE")}</div>${s.att}</div>` : "");
+    return `${head}<div class="card" style="margin-bottom:12px"><div class="row" style="justify-content:space-between"><b>${esc(s.lbl || "Aufgabe " + (i + 1))}</b><span class="pill vi">${stepPts(s)} Punkte</span></div><div class="qtext" style="font-size:16px">${esc(s.q)}</div>${body}${fb}</div>`;
   }).join("");
   const all = FS.st.every((st, i) => st.done && (c.steps[i].t !== "open" || st.pts != null));
-  let res = "";
+  const max = c.steps.reduce((a, s) => a + stepPts(s), 0), got = c.steps.reduce((a, s, i) => a + (s.t === "open" ? (FS.st[i].pts || 0) : FS.st[i].ok ? stepPts(s) : 0), 0), pct = Math.round(100 * got / max);
+  let res = "", top = "";
   if (all) {
-    const max = c.steps.reduce((a, s) => a + stepPts(s), 0), got = c.steps.reduce((a, s, i) => a + (s.t === "open" ? FS.st[i].pts : FS.st[i].ok ? stepPts(s) : 0), 0), pct = Math.round(100 * got / max);
-    if (!FS.saved) { S.cs = S.cs || {}; S.cs[c.id] = { pct, got, max, d: Date.now() }; FS.saved = true; activity(c.steps.length); save(); }
-    res = `<div class="card" style="text-align:center"><h2 style="margin-top:0">${got} / ${max} Punkte (${pct} %)</h2><div class="row" style="justify-content:center"><button class="btn pri" onclick="startCase('${c.id}')">↻ Nochmal</button><button class="btn" onclick="FS=null;render()">Alle Fallstudien</button></div></div>`;
+    if (!FS.saved) { S.cs = S.cs || {}; S.cs[c.id] = { pct, got, max, d: Date.now() }; if (isExam) S.ex.push({ d: Date.now(), got, max, pct, min: FS.min, name: c.title }); FS.saved = true; if (!isExam) activity(c.steps.length); save(); }
+    const [nn, nt] = ihkNote(pct);
+    res = `<div class="card" style="text-align:center"><h2 style="margin-top:0">${fmt(got, 1)} / ${max} Punkte (${pct} %)${isExam ? ` – Note ${nn} (${nt})` : ""}</h2>${isExam ? `<p class="muted small">Bearbeitungszeit ${FS.min} Minuten. Schau dir bei allen Teilaufgaben mit Punktabzug die Musterlösung genau an – oft fehlt nur die Begründung oder der Bezug zur Situation.</p>` : ""}<div class="row" style="justify-content:center"><button class="btn pri" onclick="startCase('${c.id}')">↻ Nochmal</button><button class="btn" onclick="FS=null;render()">${isExam ? "Zur Übersicht" : FS.kind === "anl" ? "Alle Anlagen-Aufgaben" : "Alle Fallstudien"}</button></div></div>`;
   }
-  app.innerHTML = `<div class="qbox"><div class="qhead"><button class="btn sm" onclick="FS=null;render()">← ${FS.kind === "anl" ? "Anlagen" : "Fallstudien"}</button><span class="row" style="gap:5px">${c.tags.map(t => `<span class="pill cy">${t}</span>`).join("")}</span></div>
+  if (isExam && FS.submitted) {
+    const pend = c.steps.filter((s, i) => s.t === "open" && FS.st[i].pts == null).length;
+    top = `<div class="fb ${pend ? "inf" : "ok"}" style="margin-bottom:14px"><h4>${pend ? `Abgegeben – noch ${pend} Teilaufgabe(n) bewerten` : `Ergebnis: ${fmt(got, 1)} / ${max} Punkte (${pct} %)`}</h4>${pend ? `Vergleiche jede Antwort mit der Musterlösung und vergib ehrlich Punkte. Zwischenstand: ${fmt(got, 1)} / ${max}.` : ""}${pend && HAS_AI ? `<div class="row" style="margin-top:8px"><button class="btn pri" onclick="aiGradeAllCase()">🤖 Alle Antworten von KI bewerten</button></div>` : ""}</div>`;
+  }
+  const back = isExam && !FS.submitted ? `modal('<h3>Prüfung abbrechen?</h3><p class=&quot;muted&quot;>Deine Antworten gehen verloren.</p>',[['Weiter','closeModal()'],['Abbrechen','closeModal();clearInterval(FS.th);FS=null;render()','bad']])` : "FS=null;render()";
+  app.innerHTML = `<div class="qbox"${isExam ? ` style="max-width:860px"` : ""}><div class="qhead"><button class="btn sm" onclick="${back}">← ${isExam ? "Prüfungen" : FS.kind === "anl" ? "Anlagen" : "Fallstudien"}</button>${isExam && !FS.submitted ? `<span class="timer" id="ftimer">⏱ --:--</span>` : `<span class="row" style="gap:5px">${c.tags.map(t => `<span class="pill cy">${t}</span>`).join("")}</span>`}</div>
   <h1>${c.icon} ${esc(c.title)}</h1>
-  <div class="card" style="background:linear-gradient(135deg,#132131,#151c25);margin-bottom:16px"><div class="small dim" style="font-weight:700;letter-spacing:.05em">AUSGANGSSITUATION</div><div style="margin-top:6px;line-height:1.6">${esc(c.sit)}</div></div>
+  ${top}
+  <div class="card" style="background:linear-gradient(135deg,#132131,#151c25);margin-bottom:16px"><div class="small dim" style="font-weight:700;letter-spacing:.05em">AUSGANGSSITUATION</div><div style="margin-top:6px;line-height:1.6">${esc(c.sit)}</div>${isExam && !FS.submitted ? `<div class="small muted" style="margin-top:10px">Bearbeitungszeit 90 Minuten · ${max} Punkte · Faustregel: 1 Punkt ≈ 1 Minute. Die Musterlösungen siehst du erst nach der Abgabe.</div>` : ""}</div>
   ${c.att ? `<div class="card" style="margin-bottom:16px;border-color:#fbbf2455"><div class="small" style="font-weight:700;letter-spacing:.05em;color:var(--am);margin-bottom:8px">📎 ANLAGE</div>${c.att}</div>` : ""}
-  ${html}${res}</div>`;
+  ${html}${isExam && !FS.submitted ? `<div class="card" style="text-align:center"><button class="btn pri" onclick="confirmExamSet()">Prüfung abgeben</button></div>` : ""}${res}</div>`;
+  if (isExam && !FS.submitted) examTick();
 }
 function casePick(i, oi) { const s = FS.c.steps[i], st = FS.st[i]; if (st.done) return; if (s.t === "sc") { st.ans = oi; caseCheck(i); } else { const p = st.ans.indexOf(oi); p >= 0 ? st.ans.splice(p, 1) : st.ans.push(oi); render(); } }
 function caseCheck(i) {
@@ -61,13 +100,13 @@ function caseCheck(i) {
 
 /* ---------- Taschenrechner (sicherer Parser, kein eval) ---------- */
 function calcExpr(src) {
-  const s = src.replace(/,/g, ".").replace(/×/g, "*").replace(/÷/g, "/").replace(/\bmod\b/gi, "%").replace(/\s+/g, "");
+  const s = src.replace(/,/g, ".").replace(/×/g, "*").replace(/÷/g, "/").replace(/\bmod\b/gi, "%").replace(/\bdiv\b/gi, "\\").replace(/\s+/g, "");
   let i = 0;
   const F = { sqrt: Math.sqrt, wurzel: Math.sqrt, ln: Math.log, log: Math.log10, log10: Math.log10, log2: Math.log2, abs: Math.abs, round: Math.round, ceil: Math.ceil, floor: Math.floor, sin: x => Math.sin(x * Math.PI / 180), cos: x => Math.cos(x * Math.PI / 180) };
   const C = { pi: Math.PI, e: Math.E };
   const peek = () => s[i];
   function expr() { let v = term(); while (peek() === "+" || peek() === "-") { const o = s[i++]; const r = term(); v = o === "+" ? v + r : v - r; } return v; }
-  function term() { let v = power(); while ("*/%".includes(peek()) && peek()) { const o = s[i++]; const r = power(); v = o === "*" ? v * r : o === "/" ? v / r : v % r; } return v; }
+  function term() { let v = power(); while ("*/%\\".includes(peek()) && peek()) { const o = s[i++]; const r = power(); v = o === "*" ? v * r : o === "/" ? v / r : o === "\\" ? Math.trunc(v / r) : v % r; } return v; }
   function power() { const b = unary(); if (peek() === "^") { i++; return Math.pow(b, power()); } return b; }
   function unary() { if (peek() === "-") { i++; return -unary(); } if (peek() === "+") { i++; return unary(); } return prim(); }
   function prim() {
@@ -133,7 +172,7 @@ const CALCS = [
     const typ = full === "0000:0000:0000:0000:0000:0000:0000:0001" ? "Loopback (::1)" : /^fe[89ab]/.test(b) ? "Link-Local (fe80::/10)" : /^f[cd]/.test(b) ? "Unique Local (fc00::/7)" : /^ff/.test(b) ? "Multicast (ff00::/8)" : b.startsWith("20010db8") ? "Dokumentation (2001:db8::/32)" : (first >> 13) === 1 ? "Global Unicast (2000::/3)" : "sonstige/reserviert";
     let pre = "";
     const p = parseInt(pr, 10);
-    if (p >= 0 && p <= 128) { const bits = b.split("").map(h => parseInt(h, 16).toString(2).padStart(4, "0")).join(""); const nb = bits.slice(0, p).padEnd(128, "0"); const hex = nb.match(/.{4}/g).map(x => parseInt(x, 2).toString(16)).join("").match(/.{4}/g).join(":"); pre = row("Netzpräfix", compress6(hex) + "/" + p) + row("Subnetz-/Hostanteil", `${p} Bit Netz, ${128 - p} Bit Interface-ID`) + (p <= 64 ? row("Anzahl /64-Subnetze darin", "2^" + (64 - p) + " = " + fmt(Math.pow(2, 64 - p), 0)) : ""); }
+    if (p >= 0 && p <= 128) { const bits = b.split("").map(h => parseInt(h, 16).toString(2).padStart(4, "0")).join(""); const nb = bits.slice(0, p).padEnd(128, "0"); const hex = nb.match(/.{4}/g).map(x => parseInt(x, 2).toString(16)).join("").match(/.{4}/g).join(":"); pre = row("Netzpräfix", compress6(hex) + "/" + p) + row("Aufteilung", p <= 64 ? `${p} Bit Präfix${p < 64 ? ` + ${64 - p} Bit Subnetz-ID` : ""} + 64 Bit Interface-ID` : `${p} Bit Präfix, ${128 - p} Bit Rest`) + (p <= 64 ? row("Anzahl /64-Subnetze darin", "2^" + (64 - p) + " = " + fmt(Math.pow(2, 64 - p), 0)) : ""); }
     return `<table class="info-tbl">${row("Gekürzt", short)}${row("Ausgeschrieben", full)}${row("Typ", typ)}${pre}${row("Interface-ID (letzte 64 Bit)", compress6("0000:0000:0000:0000:" + full.split(":").slice(4).join(":")).replace(/^::/, "::"))}</table>
     <div class="fb inf"><div class="sol">Regeln: führende Nullen je Block weglassen; die längste Folge von ≥ 2 Null-Blöcken einmal durch :: ersetzen (bei Gleichstand die erste).</div></div>`;
   }},
@@ -301,7 +340,7 @@ F; 1; E</textarea><div class="row" style="margin-top:6px"><label class="chk"><in
     <table class="info-tbl">${row("Projektdauer", fmt(end - off + (s1 ? 1 : 0)) + " Zeiteinheiten (Ende " + fmt(end) + ")")}${row("Kritische Vorgänge (GP = 0)", crit.map(esc).join(" → "))}</table>
     <div class="fb inf"><div class="sol">Vorwärts: FAZ = größter FEZ der Vorgänger${s1 ? " + 1" : ""}, FEZ = FAZ + D${s1 ? " − 1" : ""}.\nRückwärts: SEZ = kleinster SAZ der Nachfolger${s1 ? " − 1" : ""}, SAZ = SEZ − D${s1 ? " + 1" : ""}.\nGP = SAZ − FAZ · FP = kleinster FAZ der Nachfolger − FEZ${s1 ? " − 1" : ""}.</div></div>`;
   }},
-{ id: "rechner", cat: "Allgemein", icon: "🧮", t: "Taschenrechner", d: "Formeln mit Klammern, Potenzen, Wurzel, log2, MOD",
+{ id: "rechner", cat: "Allgemein", icon: "🧮", t: "Taschenrechner", d: "Formeln mit Klammern, Potenzen, Wurzel, log2, MOD, DIV",
   ui: () => `<div class="tr-fields"><div style="grid-column:1/-1"><label>Ausdruck</label><input id="c_x" style="font-family:var(--mono);font-size:18px" value="2^(32-26)-2" oninput="runCalc()" onkeydown="if(event.key==='Enter'){calcHist()}"></div></div>
   <div class="row" style="gap:6px">${["(", ")", "^", "sqrt(", "log2(", " mod ", "pi", "%", "!"].map(k => `<button class="btn sm mono" onclick="const i=document.getElementById('c_x');i.value+=${JSON.stringify(k).replace(/"/g, "'")};i.focus();runCalc()">${k.trim()}</button>`).join("")}<button class="btn sm" onclick="document.getElementById('c_x').value='';runCalc()">C</button></div>
   <div class="small dim" style="margin-top:8px">Komma oder Punkt · <span class="mono">^</span> Potenz · <span class="mono">mod</span> bzw. <span class="mono">%</span> Rest · Funktionen: sqrt, log2, log (10), ln, abs, round, ceil, floor · Enter speichert in den Verlauf</div>`,
@@ -332,17 +371,43 @@ function runCalc() { const c = CALCS.find(x => x.id === CALC); const o = documen
 
 /* ---------- UML-Trainer ---------- */
 const UML_SHAPES = ["Startknoten", "Endknoten", "Ablaufende", "Aktion", "Verzweigung", "Zusammenführung (Merge)", "Gabelung (Fork)", "Vereinigung (Join)"];
+const UML_SYN = {
+  "Startknoten": ["Startknoten", "Start", "Anfangsknoten", "Initialknoten", "Startpunkt"],
+  "Endknoten": ["Endknoten", "Aktivitätsende", "Ende", "Endpunkt", "Aktivitätsendknoten", "Endzustand"],
+  "Ablaufende": ["Ablaufende", "Flussende", "Flow Final", "Ablaufendknoten", "Kontrollflussende", "Flow-Final-Knoten"],
+  "Aktion": ["Aktion", "Aktivität", "Action", "Aktionsknoten"],
+  "Verzweigung": ["Verzweigung", "Entscheidung", "Decision", "Entscheidungsknoten", "Verzweigungsknoten"],
+  "Zusammenführung (Merge)": ["Zusammenführung", "Merge", "Verbindungsknoten", "Zusammenführungsknoten", "Zusammenführung (Merge)"],
+  "Gabelung (Fork)": ["Gabelung", "Fork", "Parallelisierung", "Parallelisierungsknoten", "Splitting", "Teilung", "Aufspaltung", "Gabelung (Fork)"],
+  "Vereinigung (Join)": ["Vereinigung", "Join", "Synchronisation", "Synchronisierung", "Synchronisationsknoten", "Vereinigung (Join)"]
+};
+/* desc: Ablaufbeschreibung wie in der Prüfung. acc: je Lücke akzeptierte Eingaben
+   – alt: weitere gültige Guards, kw: Stichwortgruppen, die in einer Aktionsbezeichnung vorkommen müssen */
 const UML_SCEN = [
- { t: "Login mit Wiederholung", nodes: [{ k: "start" }, { k: "act", x: "Zugangsdaten eingeben" }, { k: "dec", yes: "[Daten korrekt]", no: "[Daten falsch]", side: ["Fehlermeldung anzeigen"], sideEnd: "loop", loopTo: 1, gap: { shape: 1, no: 2 } }, { k: "act", x: "Startseite anzeigen" }, { k: "end", gap: { shape: 3 } }],
-   q: { 2: ["[Daten falsch]", "[Daten korrekt]", "[Benutzer gesperrt]", "[immer]"] } },
- { t: "Onboarding neuer Mitarbeitender", nodes: [{ k: "start" }, { k: "act", x: "Arbeitsvertrag erfassen" }, { k: "fork", a: "Benutzerkonto anlegen", b: "Notebook vorbereiten", gap: { shape: 1, b: 2, join: 3 } }, { k: "act", x: "Einweisung durchführen" }, { k: "end" }],
-   q: { 2: ["Notebook vorbereiten", "Mitarbeitenden kündigen", "Ende", "[ja]"] } },
- { t: "Nächtliches Backup", nodes: [{ k: "start", gap: { shape: 1 } }, { k: "act", x: "Backup starten" }, { k: "dec", yes: "[erfolgreich]", no: "[fehlgeschlagen]", side: ["Admin benachrichtigen"], sideEnd: "flowend", gap: { yes: 2, sideEnd: 3 } }, { k: "act", x: "Protokoll speichern" }, { k: "end" }],
-   q: { 2: ["[erfolgreich]", "[fehlgeschlagen]", "[Backup starten]", "Protokoll"] } },
- { t: "Störungsmeldung im Service Desk", nodes: [{ k: "start" }, { k: "act", x: "Störung erfassen", gap: {} }, { k: "dec", yes: "[Standardproblem]", no: "[sonst]", main: ["1st Level löst Problem"], side: ["An 2nd Level eskalieren", "Spezialist löst Problem"], sideEnd: "merge", gap: { side0: 1, merge: 2 } }, { k: "act", x: "Ticket schließen" }, { k: "end", gap: { shape: 3 } }],
-   q: { 1: ["An 2nd Level eskalieren", "Ticket schließen", "[sonst]", "Kunde informieren und Ticket löschen"] } },
- { t: "Bestellfreigabe", nodes: [{ k: "start" }, { k: "act", x: "Bestellanforderung erfassen" }, { k: "dec", yes: "[Betrag ≤ 1.000 €]", no: "[Betrag > 1.000 €]", main: ["Teamleitung genehmigt"], side: ["Geschäftsführung genehmigt"], sideEnd: "merge", gap: { shape: 1, no: 2 } }, { k: "act", x: "Bestellung auslösen", gap: { text: 3 } }, { k: "end" }],
-   q: { 2: ["[Betrag > 1.000 €]", "[Betrag ≤ 1.000 €]", "[Betrag ≥ 1.000 €]", "[Bestellung]"], 3: ["Bestellung auslösen", "[genehmigt]", "Startknoten", "Fork"] } }
+ { t: "Login mit Wiederholung", desc: "Der Benutzer gibt seine Zugangsdaten ein. Sind die Daten korrekt, wird die Startseite angezeigt und der Ablauf endet. Sind sie falsch, erscheint eine Fehlermeldung und die Eingabe wird wiederholt.",
+   nodes: [{ k: "start" }, { k: "act", x: "Zugangsdaten eingeben" }, { k: "dec", yes: "[Daten korrekt]", no: "[Daten falsch]", side: ["Fehlermeldung anzeigen"], sideEnd: "loop", loopTo: 1, gap: { shape: 1, no: 2 } }, { k: "act", x: "Startseite anzeigen" }, { k: "end", gap: { shape: 3 } }],
+   acc: { 2: { alt: ["Daten falsch", "falsch", "Daten nicht korrekt", "nicht korrekt", "sonst", "else", "Daten inkorrekt", "Daten ungültig", "ungültig", "Daten fehlerhaft"] } } },
+ { t: "Onboarding neuer Mitarbeitender", desc: "Nach dem Erfassen des Arbeitsvertrags werden gleichzeitig das Benutzerkonto angelegt und das Notebook vorbereitet. Erst wenn beides erledigt ist, folgt die Einweisung.",
+   nodes: [{ k: "start" }, { k: "act", x: "Arbeitsvertrag erfassen" }, { k: "fork", a: "Benutzerkonto anlegen", b: "Notebook vorbereiten", gap: { shape: 1, b: 2, join: 3 } }, { k: "act", x: "Einweisung durchführen" }, { k: "end" }],
+   acc: { 2: { kw: [["notebook", "laptop", "gerät", "rechner", "hardware"], ["vorbereit", "einricht", "bereitstell", "install", "konfigur"]] } } },
+ { t: "Nächtliches Backup", desc: "Das Backup wird gestartet. War es erfolgreich, wird das Protokoll gespeichert und die Aktivität endet. Ist es fehlgeschlagen, wird der Admin benachrichtigt – dieser Zweig endet dort, ohne die gesamte Aktivität zu beenden.",
+   nodes: [{ k: "start", gap: { shape: 1 } }, { k: "act", x: "Backup starten" }, { k: "dec", yes: "[erfolgreich]", no: "[fehlgeschlagen]", side: ["Admin benachrichtigen"], sideEnd: "flowend", gap: { yes: 2, sideEnd: 3 } }, { k: "act", x: "Protokoll speichern" }, { k: "end" }],
+   acc: { 2: { alt: ["erfolgreich", "Backup erfolgreich", "ok", "Erfolg", "sonst", "else", "nicht fehlgeschlagen", "Backup ok"] } } },
+ { t: "Störungsmeldung im Service Desk", desc: "Eine Störung wird erfasst. Standardprobleme löst der 1st Level selbst. Alle anderen Fälle werden an den 2nd Level eskaliert, wo ein Spezialist das Problem löst. In beiden Fällen wird danach das Ticket geschlossen.",
+   nodes: [{ k: "start" }, { k: "act", x: "Störung erfassen", gap: {} }, { k: "dec", yes: "[Standardproblem]", no: "[sonst]", main: ["1st Level löst Problem"], side: ["An 2nd Level eskalieren", "Spezialist löst Problem"], sideEnd: "merge", gap: { side0: 1, merge: 2 } }, { k: "act", x: "Ticket schließen" }, { k: "end", gap: { shape: 3 } }],
+   acc: { 1: { kw: [["2nd", "second", "2.", "zweit"], ["eskal", "weiterleit", "übergeb", "weitergeb", "abgeb", "weiterreich"]] } } },
+ { t: "Bestellfreigabe", desc: "Eine Bestellanforderung wird erfasst. Bis einschließlich 1.000 € genehmigt die Teamleitung, bei höheren Beträgen die Geschäftsführung. Anschließend wird die Bestellung ausgelöst.",
+   nodes: [{ k: "start" }, { k: "act", x: "Bestellanforderung erfassen" }, { k: "dec", yes: "[Betrag ≤ 1.000 €]", no: "[Betrag > 1.000 €]", main: ["Teamleitung genehmigt"], side: ["Geschäftsführung genehmigt"], sideEnd: "merge", gap: { shape: 1, no: 2 } }, { k: "act", x: "Bestellung auslösen", gap: { text: 3 } }, { k: "end" }],
+   acc: { 2: { alt: ["Betrag > 1000", "> 1000", "sonst", "else", "Betrag über 1000", "Betrag größer 1000", "Betrag größer als 1000", "über 1000"] }, 3: { kw: [["bestell"], ["auslös", "aufgeb", "absend", "durchführ", "tätig", "ausführ", "versend", "abschick"]] } } },
+ { t: "Urlaubsantrag", desc: "Ein Mitarbeiter stellt einen Urlaubsantrag. Wird er genehmigt, wird der Urlaub im Kalender eingetragen. Wird er abgelehnt, wird der Mitarbeiter informiert. In beiden Fällen wird der Antrag anschließend archiviert.",
+   nodes: [{ k: "start" }, { k: "act", x: "Urlaubsantrag stellen" }, { k: "dec", yes: "[genehmigt]", no: "[abgelehnt]", main: ["Urlaub im Kalender eintragen"], side: ["Mitarbeiter informieren"], sideEnd: "merge", gap: { shape: 1, yes: 2, merge: 3 } }, { k: "act", x: "Antrag archivieren" }, { k: "end" }],
+   acc: { 2: { alt: ["genehmigt", "Antrag genehmigt", "sonst", "else", "nicht abgelehnt", "bewilligt", "Genehmigung"] } } },
+ { t: "Software-Rollout", desc: "Nach der Freigabe des Softwarepakets wird das Paket auf die Clients verteilt. Parallel dazu werden die Benutzer per E-Mail informiert. Wenn beides abgeschlossen ist, wird die Installation geprüft.",
+   nodes: [{ k: "start" }, { k: "act", x: "Softwarepaket freigeben" }, { k: "fork", a: "Paket auf Clients verteilen", b: "Benutzer informieren", gap: { shape: 1, a: 2, join: 3 } }, { k: "act", x: "Installation prüfen" }, { k: "end" }],
+   acc: { 2: { kw: [["verteil", "ausroll", "install", "deploy", "bereitstell"], ["paket", "software", "client"]] } } },
+ { t: "Passwort ändern", desc: "Der Benutzer gibt ein neues Passwort ein. Erfüllt es die Passwortrichtlinie, wird es gespeichert und der Ablauf endet. Andernfalls wird ein Hinweis auf die Passwortregeln angezeigt und die Eingabe wiederholt.",
+   nodes: [{ k: "start" }, { k: "act", x: "Neues Passwort eingeben" }, { k: "dec", yes: "[Richtlinie erfüllt]", no: "[Richtlinie nicht erfüllt]", side: ["Hinweis anzeigen"], sideEnd: "loop", loopTo: 1, gap: { yes: 1, side0: 2 } }, { k: "act", x: "Passwort speichern" }, { k: "end", gap: { shape: 3 } }],
+   acc: { 1: { alt: ["Richtlinie erfüllt", "erfüllt", "Passwort gültig", "gültig", "ok", "Passwort entspricht Richtlinie", "sonst", "else", "Passwort ok", "Passwort erfüllt Richtlinie"] }, 2: { kw: [["hinweis", "meldung", "fehler", "regel", "richtlinie"], ["anzeig", "ausgeb", "zeig", "inform", "einblend"]] } } }
 ];
 function umlSvg(sc) {
   const W = 640, cx = 210, sx = 450, out = [], gapsInfo = {};
@@ -394,27 +459,28 @@ function umlSymbolSvg(kind) {
   const s = { "Startknoten": `<circle cx="50" cy="30" r="12" fill="#d7dee8"/>`, "Endknoten": `<circle cx="50" cy="30" r="13" fill="none" stroke="#d7dee8" stroke-width="2"/><circle cx="50" cy="30" r="7.5" fill="#d7dee8"/>`, "Ablaufende": `<circle cx="50" cy="30" r="12" fill="none" stroke="#d7dee8" stroke-width="2"/><line x1="42" y1="22" x2="58" y2="38" stroke="#d7dee8" stroke-width="2"/><line x1="58" y1="22" x2="42" y2="38" stroke="#d7dee8" stroke-width="2"/>`, "Aktion": `<rect x="10" y="14" width="80" height="32" rx="14" fill="#1b2430" stroke="#38bdf8"/>`, "Verzweigung": `<line x1="50" y1="0" x2="50" y2="10" stroke="#93a1b3"/><polygon points="50,10 70,30 50,50 30,30" fill="#1b2430" stroke="#fbbf24"/><line x1="50" y1="50" x2="50" y2="60" stroke="#93a1b3"/><line x1="70" y1="30" x2="95" y2="30" stroke="#93a1b3"/>`, "Zusammenführung (Merge)": `<line x1="50" y1="0" x2="50" y2="10" stroke="#93a1b3"/><line x1="5" y1="30" x2="30" y2="30" stroke="#93a1b3"/><polygon points="50,10 70,30 50,50 30,30" fill="#1b2430" stroke="#fbbf24"/><line x1="50" y1="50" x2="50" y2="60" stroke="#93a1b3"/>`, "Gabelung (Fork)": `<line x1="50" y1="0" x2="50" y2="26" stroke="#93a1b3"/><rect x="10" y="26" width="80" height="7" fill="#d7dee8"/><line x1="25" y1="33" x2="25" y2="60" stroke="#93a1b3"/><line x1="75" y1="33" x2="75" y2="60" stroke="#93a1b3"/>`, "Vereinigung (Join)": `<line x1="25" y1="0" x2="25" y2="26" stroke="#93a1b3"/><line x1="75" y1="0" x2="75" y2="26" stroke="#93a1b3"/><rect x="10" y="26" width="80" height="7" fill="#d7dee8"/><line x1="50" y1="33" x2="50" y2="60" stroke="#93a1b3"/>` }[kind];
   return `<svg viewBox="0 0 100 60" width="110" height="66" style="background:#0f141b;border:1px solid var(--line);border-radius:10px">${s}</svg>`;
 }
-TRAINERS.push({ id: "uml", cat: "Planung", icon: "🔀", t: "UML-Aktivitätsdiagramm", d: "Symbole erkennen, Lücken in Diagrammen füllen", gen() {
-  if (Math.random() < .35) {
+TRAINERS.push({ id: "uml", cat: "Planung", icon: "🔀", t: "UML-Aktivitätsdiagramm", d: "Symbole benennen und Diagramme nach Ablaufbeschreibung ergänzen", gen() {
+  const symField = (l, name) => ({ l, ans: name, syn: UML_SYN[name], type: "syn" });
+  const hint = "Symbolnamen ausschreiben (z. B. Verzweigung, Gabelung …). Bedingungen in eckigen Klammern, Aktionen kurz mit Substantiv + Verb.";
+  if (Math.random() < .3) {
     const ks = shuffle(UML_SHAPES).slice(0, 3);
-    return { q: `Benenne die drei Symbole aus dem UML-Aktivitätsdiagramm:\n<div class="row" style="gap:14px;margin-top:8px">${ks.map((k, i) => `<div style="text-align:center">${umlSymbolSvg(k)}<div class="small" style="color:var(--am)">(${i + 1})</div></div>`).join("")}</div>`,
-      fields: ks.map((k, i) => ({ l: `Symbol (${i + 1})`, ans: k, opts: UML_SHAPES })),
+    return { q: `Benenne die drei Symbole aus dem UML-Aktivitätsdiagramm:\n<div class="row" style="gap:14px;margin-top:8px">${ks.map((k, i) => `<div style="text-align:center">${umlSymbolSvg(k)}<div class="small" style="color:var(--am)">(${i + 1})</div></div>`).join("")}</div>`, hint,
+      fields: ks.map((k, i) => symField(`Symbol (${i + 1})`, k)),
       sol: ks.map((k, i) => `(${i + 1}) ${k}: ${{ "Startknoten": "Beginn des Ablaufs", "Endknoten": "Ende der gesamten Aktivität", "Ablaufende": "Ende nur dieses Zweigs", "Aktion": "eine Tätigkeit (abgerundetes Rechteck)", "Verzweigung": "ein Eingang, mehrere Ausgänge mit Guards [ ]", "Zusammenführung (Merge)": "mehrere Eingänge, ein Ausgang", "Gabelung (Fork)": "startet parallele Abläufe", "Vereinigung (Join)": "wartet, bis alle parallelen Zweige fertig sind" }[k]}`).join("\n") };
   }
   const sc = pick(UML_SCEN), fields = [], sol = [];
   sc.nodes.forEach(n => { const g = n.gap || {}; Object.entries(g).forEach(([kind, nr]) => {
-    let ans, opts;
+    let ans, sym = true;
     if (kind === "shape") ans = { start: "Startknoten", end: "Endknoten", dec: "Verzweigung", fork: "Gabelung (Fork)", act: "Aktion" }[n.k];
     else if (kind === "join") ans = "Vereinigung (Join)";
     else if (kind === "merge") ans = "Zusammenführung (Merge)";
     else if (kind === "sideEnd") ans = n.sideEnd === "flowend" ? "Ablaufende" : "Endknoten";
-    else if (kind === "yes") ans = n.yes; else if (kind === "no") ans = n.no;
-    else if (kind === "text") ans = n.x; else if (kind === "a") ans = n.a; else if (kind === "b") ans = n.b; else if (kind.startsWith("side")) ans = n.side[+kind.slice(4)];
-    opts = sc.q[nr] ? shuffle(sc.q[nr]) : UML_SHAPES;
-    fields[nr - 1] = { l: `Lücke (${nr})`, ans, opts };
+    else { sym = false; if (kind === "yes") ans = n.yes; else if (kind === "no") ans = n.no; else if (kind === "text") ans = n.x; else if (kind === "a") ans = n.a; else if (kind === "b") ans = n.b; else if (kind.startsWith("side")) ans = n.side[+kind.slice(4)]; }
+    const acc = (sc.acc || {})[nr] || {};
+    fields[nr - 1] = sym ? symField(`Lücke (${nr}) – Symbolname`, ans) : acc.kw ? { l: `Lücke (${nr}) – Aktion`, ans, kw: acc.kw, type: "kw" } : { l: `Lücke (${nr}) – Bedingung`, ans, alt: acc.alt || [], type: "guard" };
     sol[nr - 1] = `(${nr}) ${ans}`;
   }); });
-  return { q: `<b>${esc(sc.t)}</b> – fülle die markierten Lücken:${umlSvg(sc)}`, fields: fields.filter(Boolean), sol: sol.filter(Boolean).join("\n") + "\n\nMerke: Guards stehen in [eckigen Klammern] an den Ausgängen einer Verzweigung und schließen sich gegenseitig aus. Fork/Join = dicke Balken für Parallelität, Merge = Raute zum Zusammenführen alternativer Zweige." };
+  return { q: `<b>${esc(sc.t)}</b>\n<span class="muted">${esc(sc.desc)}</span>\nErgänze die markierten Lücken im Aktivitätsdiagramm:${umlSvg(sc)}`, hint, fields: fields.filter(Boolean), sol: sol.filter(Boolean).join("\n") + "\n\nMerke: Guards stehen in [eckigen Klammern] an den Ausgängen einer Verzweigung und schließen sich gegenseitig aus. Fork/Join = dicke Balken für Parallelität, Merge = Raute zum Zusammenführen alternativer Zweige." };
 }});
 TRBY.uml = TRAINERS[TRAINERS.length - 1];
 

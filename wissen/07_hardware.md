@@ -111,9 +111,45 @@ Bootreihenfolge (USB/Netzwerk-PXE für Installation), Secure Boot an/aus, TPM ak
 
 **Fehlerstrom-Schutzschalter (RCD/FI)** schaltet ab, wenn Strom über einen falschen Weg (z. B. den Menschen) fließt. Elektrische Geräte im Betrieb werden regelmäßig nach **DGUV Vorschrift 3** geprüft (Prüfsiegel). Arbeiten an elektrischen Anlagen nur durch Elektrofachkräfte.
 
+## Kenngrößen im Datenblatt lesen
+
+In der Prüfung bekommst du oft Datenblätter oder Angebote und sollst begründen, welches Gerät zur Anforderung passt. Dafür musst du die wichtigsten Angaben einordnen können.
+
+<table><tr><th>Bauteil</th><th>Angabe</th><th>Bedeutung</th></tr>
+<tr><td rowspan="5"><b>Prozessor (CPU)</b></td><td>Kerne / Threads (z. B. 8C/16T)</td><td>Kerne = eigenständige Recheneinheiten. Threads = gleichzeitig bearbeitbare Aufgaben (mit SMT/Hyper-Threading zwei pro Kern). Wichtig für Rendering, Virtualisierung, viele Programme parallel.</td></tr>
+<tr><td>Taktfrequenz (GHz)</td><td>Arbeitsschritte pro Sekunde je Kern. Wichtig für Programme, die nur einen Kern nutzen. Nur innerhalb einer CPU-Generation direkt vergleichbar.</td></tr>
+<tr><td>Cache (L1–L3, MB)</td><td>sehr schneller Zwischenspeicher in der CPU</td></tr>
+<tr><td>TDP (Watt)</td><td>Thermal Design Power: Wärme, die die Kühlung abführen muss – Anhaltspunkt für Stromverbrauch und Lautstärke</td></tr>
+<tr><td>integrierte Grafik</td><td>Grafikeinheit in der CPU – reicht für Büroarbeit</td></tr>
+<tr><td rowspan="3"><b>Arbeitsspeicher (RAM)</b></td><td>Kapazität (GB)</td><td>Büro 16 GB, Entwicklung/VMs/Video 32 GB und mehr</td></tr>
+<tr><td>Typ (DDR4 / DDR5)</td><td>nicht untereinander kompatibel – das Mainboard gibt den Typ vor</td></tr>
+<tr><td>Bauform</td><td>DIMM im Desktop, SO-DIMM im Notebook; im Notebook oft verlötet (nicht aufrüstbar)</td></tr>
+<tr><td rowspan="3"><b>Mainboard</b></td><td>Sockel und Chipsatz</td><td>bestimmen, welche CPUs passen und welche Funktionen es gibt</td></tr>
+<tr><td>Formfaktor</td><td>ATX, Micro-ATX, Mini-ITX – muss ins Gehäuse passen</td></tr>
+<tr><td>Steckplätze</td><td>RAM-Bänke, M.2, PCIe – entscheiden über die Aufrüstbarkeit</td></tr>
+<tr><td rowspan="2"><b>Grafik (GPU)</b></td><td>integriert / dediziert</td><td>dedizierte Karte für CAD, Videoschnitt, KI, 3D</td></tr>
+<tr><td>Grafikspeicher (VRAM)</td><td>wichtig bei hohen Auflösungen und großen Projekten</td></tr>
+<tr><td><b>Netzteil</b></td><td>Leistung (W), 80 PLUS</td><td>muss den Bedarf aller Komponenten mit Reserve decken; 80 PLUS bescheinigt den Wirkungsgrad</td></tr></table>
+
+> [!IMPORTANT]
+> **Merke:** „Besser“ gibt es nicht ohne Einsatzzweck. Viele Kerne helfen beim Rendern, bringen im Büro aber nichts und kosten Strom. Begründe immer mit der Anforderung aus der Ausgangssituation.
+
+Ein **Benchmark** ist ein standardisierter Leistungstest. Er macht Geräte vergleichbar, sagt aber nur etwas für die getestete Art von Aufgabe aus.
+
+## Monitor-Kenngrößen
+
+<table><tr><th>Angabe</th><th>Bedeutung</th><th>worauf achten?</th></tr>
+<tr><td>Diagonale (Zoll)</td><td>Bildgröße, 1 Zoll = 2,54 cm</td><td>Büro 24–27″</td></tr>
+<tr><td>Auflösung</td><td>Pixel in Breite × Höhe</td><td>Full HD 1920 × 1080, WQHD 2560 × 1440, 4K UHD 3840 × 2160</td></tr>
+<tr><td>Pixeldichte (ppi)</td><td>Pixel pro Zoll – je höher, desto schärfer</td><td>ergibt sich aus Auflösung und Diagonale</td></tr>
+<tr><td>Bildwiederholrate (Hz)</td><td>Bilder pro Sekunde</td><td>60 Hz reichen fürs Büro</td></tr>
+<tr><td>Reaktionszeit (ms)</td><td>Zeit für einen Farbwechsel</td><td>wichtig bei schnellen Bewegungen</td></tr>
+<tr><td>Helligkeit (cd/m²) und Kontrast</td><td>Leuchtstärke und Verhältnis von Hell zu Dunkel</td><td>helle Räume brauchen mehr Helligkeit</td></tr>
+<tr><td>Paneltyp</td><td>IPS: farbtreu, blickwinkelstabil · VA: hoher Kontrast · TN: schnell und günstig, schwache Farben · OLED: perfektes Schwarz, teuer</td><td>Grafik → IPS</td></tr></table>
+
 ---
 
-## 🃏 Karteikarten (39)
+## 🃏 Karteikarten (57)
 
 | Frage | Antwort |
 |---|---|
@@ -156,8 +192,26 @@ Bootreihenfolge (USB/Netzwerk-PXE für Installation), Secure Boot an/aus, TPM ak
 | Schutzklasse I / II / III | I: Schutzleiter. II: Schutzisolierung. III: Schutzkleinspannung. |
 | RCD / FI-Schalter | Fehlerstrom-Schutzschalter – schaltet bei Fehlerstrom (z. B. durch den Körper) ab. |
 | DGUV Vorschrift 3 | Regelmäßige Prüfung elektrischer Betriebsmittel. |
+| Kerne vs. Threads | Kern: eigenständige Recheneinheit. Thread: gleichzeitig bearbeitbare Aufgabe; mit SMT/Hyper-Threading zwei Threads pro Kern. |
+| Wofür sind viele CPU-Kerne wichtig? | Für parallele Lasten: Rendering, Videoschnitt, Virtualisierung, Kompilieren, viele Programme gleichzeitig. |
+| Taktfrequenz | Arbeitsschritte pro Sekunde je Kern in GHz – wichtig für Programme, die nur einen Kern nutzen. |
+| TDP | Thermal Design Power in Watt: Wärme, die die Kühlung abführen muss; Anhaltspunkt für Leistungsaufnahme. |
+| CPU-Cache | Sehr schneller Zwischenspeicher in der CPU (L1, L2, L3) für häufig benötigte Daten. |
+| DDR4 und DDR5 | Arbeitsspeicher-Generationen; nicht kompatibel – das Mainboard legt den Typ fest. |
+| DIMM vs. SO-DIMM | DIMM: Speichermodul für Desktop-PCs. SO-DIMM: kleinere Bauform für Notebooks und Mini-PCs. |
+| Was legt das Mainboard fest? | Passende CPUs (Sockel/Chipsatz), RAM-Typ, Anzahl der Steckplätze und Anschlüsse, Formfaktor. |
+| Formfaktoren Mainboard | ATX, Micro-ATX, Mini-ITX (von groß nach klein). |
+| Integrierte vs. dedizierte Grafik | Integriert: in der CPU, sparsam, reicht fürs Büro. Dediziert: eigene Karte mit eigenem Speicher für CAD, Video, 3D, KI. |
+| Benchmark | Standardisierter Leistungstest, der Geräte vergleichbar macht – aussagekräftig nur für die getestete Aufgabenart. |
+| Nachteil von verlötetem RAM | Nicht aufrüstbar und nicht austauschbar – die Kapazität muss beim Kauf für die ganze Nutzungsdauer reichen. |
+| Pixeldichte (ppi) | Pixel pro Zoll – je höher, desto schärfer das Bild. Ergibt sich aus Auflösung und Diagonale. |
+| Bildwiederholrate | Anzahl der Bilder pro Sekunde in Hertz (Hz); 60 Hz reichen für Büroarbeit. |
+| WQHD-Auflösung | 2560 × 1440 Pixel. |
+| Full-HD-Auflösung | 1920 × 1080 Pixel. |
+| Paneltypen im Vergleich | IPS: farbtreu, blickwinkelstabil. VA: hoher Kontrast. TN: schnell, günstig, schwache Farben. OLED: perfektes Schwarz, teuer. |
+| Einheit der Monitorhelligkeit | Candela pro Quadratmeter (cd/m²). |
 
-## ✍️ Übungsfragen (26)
+## ✍️ Übungsfragen (37)
 
 **1.** Ein PC nimmt 150 W auf und läuft 8 h an 250 Tagen. Strompreis 0,30 €/kWh. Stromkosten pro Jahr?
 
@@ -184,98 +238,66 @@ Bootreihenfolge (USB/Netzwerk-PXE für Installation), Secure Boot an/aus, TPM ak
 </details>
 
 **4.** Welcher Massenspeicher eignet sich am besten für das Notebook eines Außendienstmitarbeiters?
-- A) 3,5″ HDD
-- B) M.2-NVMe-SSD
-- C) Bandlaufwerk
-- D) Externe HDD
 
 <details><summary>Lösung</summary>
 
-**B) M.2-NVMe-SSD**<br>Stoßfest, schnell, sparsam, kompakt.
+**Musterlösung (2 P):** M.2-NVMe-SSD<br>Stoßfest, schnell, sparsam, kompakt.
 
 </details>
 
-**5.** Welche Aussage zu USB-C ist richtig?
-- A) USB-C garantiert immer 40 Gbit/s.
-- B) USB-C ist ein Steckerformat; die Funktionen hängen von Port und Kabel ab.
-- C) USB-C kann keine Videosignale übertragen.
-- D) USB-C ist identisch mit Thunderbolt.
+**5.** Ein Kollege sagt: „Das Notebook hat USB-C, also kann ich daran auf jeden Fall einen Monitor anschließen und es darüber laden.“ Beurteilen Sie diese Aussage.
 
 <details><summary>Lösung</summary>
 
-**B) USB-C ist ein Steckerformat; die Funktionen hängen von Port und Kabel ab.**<br>USB-C ist nur der Stecker; Protokolle wie USB 2.0 bis USB4/TB werden darüber geführt.
+**Musterlösung (3 P):** Die Aussage stimmt so nicht (1). USB-C beschreibt nur die Steckerform; welche Funktionen der Anschluss bietet, hängt vom Port und vom Kabel ab (1). Für das Bild braucht der Port DisplayPort Alt Mode (bzw. Thunderbolt/USB4), zum Laden USB Power Delivery – das steht im Datenblatt (1).<br>USB-C ist nur der Stecker; Protokolle wie USB 2.0 bis USB4/TB werden darüber geführt.
 
 </details>
 
 **6.** Ein Monitor soll über das USB-C-Kabel des Notebooks ein Bild erhalten und gleichzeitig das Notebook laden. Welche Funktionen braucht der Anschluss?
-- A) DP Alt Mode und Power Delivery
-- B) HDMI-CEC und PoE
-- C) MST und ECC
-- D) SATA und NVMe
 
 <details><summary>Lösung</summary>
 
-**A) DP Alt Mode und Power Delivery**<br>DisplayPort Alternate Mode für Video, USB PD zum Laden.
+**Musterlösung (2 P):** DP Alt Mode und Power Delivery<br>DisplayPort Alternate Mode für Video, USB PD zum Laden.
 
 </details>
 
 **7.** Welche Datenrate hat USB 3.2 Gen 1?
-- A) 480 Mbit/s
-- B) 5 Gbit/s
-- C) 10 Gbit/s
-- D) 20 Gbit/s
 
 <details><summary>Lösung</summary>
 
-**B) 5 Gbit/s**<br>Gen 1 = 5 Gbit/s (ehemals USB 3.0).
+**Musterlösung (2 P):** 5 Gbit/s<br>Gen 1 = 5 Gbit/s (ehemals USB 3.0).
 
 </details>
 
 **8.** Welche Komponente ist flüchtig, d. h. verliert ihren Inhalt ohne Strom?
-- A) SSD
-- B) RAM
-- C) HDD
-- D) UEFI-Flash
 
 <details><summary>Lösung</summary>
 
-**B) RAM**<br>Arbeitsspeicher ist flüchtig.
+**Musterlösung (2 P):** RAM<br>Arbeitsspeicher ist flüchtig.
 
 </details>
 
 **9.** Welche USV-Bauart trennt den Verbraucher dauerhaft vom Netz und bietet den besten Schutz?
-- A) Offline (VFD)
-- B) Line-Interactive (VI)
-- C) Online/Doppelwandler (VFI)
-- D) Standby-USV
 
 <details><summary>Lösung</summary>
 
-**C) Online/Doppelwandler (VFI)**<br>VFI = Voltage and Frequency Independent.
+**Musterlösung (2 P):** Online/Doppelwandler (VFI)<br>VFI = Voltage and Frequency Independent.
 
 </details>
 
-**10.** Welche Vorteile bietet ein Thin Client gegenüber einem Desktop-PC? (mehrere)
-- A) Geringer Stromverbrauch
-- B) Zentrale Administration
-- C) Volle Funktion ohne Netzwerk
-- D) Geringeres Risiko lokaler Datenverluste
+**10.** Welche Vorteile bietet ein Thin Client gegenüber einem Desktop-PC? Nennen Sie drei.
 
 <details><summary>Lösung</summary>
 
-**A) Geringer Stromverbrauch, B) Zentrale Administration, D) Geringeres Risiko lokaler Datenverluste**<br>Ohne Netzwerk ist ein Thin Client praktisch nicht nutzbar.
+**Musterlösung (3 P):** Je 1 Punkt (max. 3): Geringer Stromverbrauch; Zentrale Administration; Geringeres Risiko lokaler Datenverluste. Ohne Netzwerk ist ein Thin Client praktisch nicht nutzbar.
 
 </details>
 
 **11.** Wofür steht die Angabe „80 PLUS Gold“?
-- A) Lautstärke des Lüfters
-- B) Wirkungsgrad eines Netzteils
-- C) Helligkeit eines Monitors
-- D) Lebensdauer einer SSD
 
 <details><summary>Lösung</summary>
 
-**B) Wirkungsgrad eines Netzteils**<br>80 PLUS zertifiziert die Effizienz von Netzteilen.
+**Musterlösung (2 P):** Wirkungsgrad eines Netzteils<br>80 PLUS zertifiziert die Effizienz von Netzteilen.
 
 </details>
 
@@ -291,7 +313,7 @@ Bootreihenfolge (USB/Netzwerk-PXE für Installation), Secure Boot an/aus, TPM ak
 
 <details><summary>Lösung</summary>
 
-**Musterlösung:** Je Anforderung 1 + Begründung 1, z. B.: IPS-Panel/hohe Farbraumabdeckung (sRGB/Adobe RGB), weil Farben verbindlich dargestellt werden müssen; hohe Auflösung (WQHD/4K), damit Details und Werkzeugleisten Platz haben; Kalibrierbarkeit/Hardwarekalibrierung für farbverbindliches Arbeiten; ergonomisch höhenverstellbar/entspiegelt für langes Arbeiten.
+**Musterlösung (4 P):** Je Anforderung 1 + Begründung 1, z. B.: IPS-Panel/hohe Farbraumabdeckung (sRGB/Adobe RGB), weil Farben verbindlich dargestellt werden müssen; hohe Auflösung (WQHD/4K), damit Details und Werkzeugleisten Platz haben; Kalibrierbarkeit/Hardwarekalibrierung für farbverbindliches Arbeiten; ergonomisch höhenverstellbar/entspiegelt für langes Arbeiten.
 
 </details>
 
@@ -299,7 +321,7 @@ Bootreihenfolge (USB/Netzwerk-PXE für Installation), Secure Boot an/aus, TPM ak
 
 <details><summary>Lösung</summary>
 
-**Musterlösung:** Z. B.: Mitarbeitende schließen ihr Notebook mit einem einzigen Kabel an und haben sofort Monitor, Tastatur, Maus, LAN (2); das Notebook wird gleichzeitig per Power Delivery geladen, kein separates Netzteil nötig (2); der Arbeitsplatz bleibt aufgeräumt (Clean Desk) und standardisiert, Wechsel ohne Umbauen (2).
+**Musterlösung (4 P):** Z. B.: Mitarbeitende schließen ihr Notebook mit einem einzigen Kabel an und haben sofort Monitor, Tastatur, Maus, LAN (2); das Notebook wird gleichzeitig per Power Delivery geladen, kein separates Netzteil nötig (2); der Arbeitsplatz bleibt aufgeräumt (Clean Desk) und standardisiert, Wechsel ohne Umbauen (2).
 
 </details>
 
@@ -320,38 +342,26 @@ Bootreihenfolge (USB/Netzwerk-PXE für Installation), Secure Boot an/aus, TPM ak
 </details>
 
 **17.** Eine Abteilung druckt 4.000 Textseiten pro Monat. Welcher Druckertyp ist am wirtschaftlichsten?
-- A) Tintenstrahldrucker
-- B) Monochrom-Laserdrucker
-- C) Thermodrucker
-- D) Fotodrucker
 
 <details><summary>Lösung</summary>
 
-**B) Monochrom-Laserdrucker**<br>Hohes Volumen + Text → niedrige Seitenkosten und hohe Geschwindigkeit des Lasers.
+**Musterlösung (2 P):** Monochrom-Laserdrucker<br>Hohes Volumen + Text → niedrige Seitenkosten und hohe Geschwindigkeit des Lasers.
 
 </details>
 
 **18.** Wofür steht OCR beim Scannen?
-- A) Optische Texterkennung
-- B) Offline Color Rendering
-- C) Open Copy Routine
-- D) Output Compression Rate
 
 <details><summary>Lösung</summary>
 
-**A) Optische Texterkennung**
+**Musterlösung (2 P):** Optische Texterkennung
 
 </details>
 
 **19.** In der Personalabteilung liegen vertrauliche Ausdrucke im Ausgabefach des Etagendruckers. Welche Funktion hilft?
-- A) Duplexdruck
-- B) Follow-Me-/PIN-Druck
-- C) Tonersparmodus
-- D) AirPrint
 
 <details><summary>Lösung</summary>
 
-**B) Follow-Me-/PIN-Druck**
+**Musterlösung (2 P):** Follow-Me-/PIN-Druck
 
 </details>
 
@@ -359,67 +369,47 @@ Bootreihenfolge (USB/Netzwerk-PXE für Installation), Secure Boot an/aus, TPM ak
 
 <details><summary>Lösung</summary>
 
-**Musterlösung:** Vorteile (je 1): weniger Geräte, geringere Anschaffungs-/Wartungs- und Energiekosten; zentrale Verwaltung und Abrechnung; zusätzliche Scan-/Kopierfunktion (Digitalisierung); geringere Seitenkosten; Follow-Me-Druck möglich. Nachteil (1): Ausfall betrifft alle Nutzer und Funktionen; Wege zum Drucker; Wartezeiten; Datenschutz bei offen liegenden Ausdrucken (ohne PIN-Druck).
+**Musterlösung (3 P):** Vorteile (je 1): weniger Geräte, geringere Anschaffungs-/Wartungs- und Energiekosten; zentrale Verwaltung und Abrechnung; zusätzliche Scan-/Kopierfunktion (Digitalisierung); geringere Seitenkosten; Follow-Me-Druck möglich. Nachteil (1): Ausfall betrifft alle Nutzer und Funktionen; Wege zum Drucker; Wartezeiten; Datenschutz bei offen liegenden Ausdrucken (ohne PIN-Druck).
 
 </details>
 
 **21.** Welcher Sensor sorgt dafür, dass sich die Bildschirmhelligkeit eines Notebooks automatisch anpasst?
-- A) Beschleunigungssensor
-- B) Umgebungslichtsensor
-- C) Temperatursensor
-- D) GPS
 
 <details><summary>Lösung</summary>
 
-**B) Umgebungslichtsensor**
+**Musterlösung (2 P):** Umgebungslichtsensor
 
 </details>
 
 **22.** Ein Serverraum soll bei Überhitzung automatisch Alarm schlagen. Was wird benötigt?
-- A) Helligkeitssensor
-- B) Temperatursensor mit Monitoring/Alarmierung
-- C) Fingerabdrucksensor
-- D) Mikrofon
 
 <details><summary>Lösung</summary>
 
-**B) Temperatursensor mit Monitoring/Alarmierung**
+**Musterlösung (2 P):** Temperatursensor mit Monitoring/Alarmierung
 
 </details>
 
 **23.** Ein Notebook-Netzteil trägt das Symbol „Quadrat im Quadrat“. Welche Schutzklasse?
-- A) I
-- B) II
-- C) III
-- D) 0
 
 <details><summary>Lösung</summary>
 
-**B) II**<br>Schutzisolierung.
+**Musterlösung (2 P):** II<br>Schutzisolierung.
 
 </details>
 
 **24.** Welche UEFI-Einstellung muss für WSL2/Docker/Hyper-V aktiviert sein?
-- A) Wake-on-LAN
-- B) Hardware-Virtualisierung (VT-x/AMD-V)
-- C) Legacy-Boot
-- D) Num-Lock
 
 <details><summary>Lösung</summary>
 
-**B) Hardware-Virtualisierung (VT-x/AMD-V)**
+**Musterlösung (2 P):** Hardware-Virtualisierung (VT-x/AMD-V)
 
 </details>
 
 **25.** Wofür eignet sich ein All-in-One-PC besonders?
-- A) CAD-Workstation mit Aufrüstbedarf
-- B) Empfang oder Kundenbereich mit wenig Platz
-- C) Serverraum
-- D) Lager
 
 <details><summary>Lösung</summary>
 
-**B) Empfang oder Kundenbereich mit wenig Platz**
+**Musterlösung (2 P):** Empfang oder Kundenbereich mit wenig Platz
 
 </details>
 
@@ -427,7 +417,95 @@ Bootreihenfolge (USB/Netzwerk-PXE für Installation), Secure Boot an/aus, TPM ak
 
 <details><summary>Lösung</summary>
 
-**Musterlösung:** Je 1: Standardpasswörter ändern; eigenes VLAN/Netzsegment für IoT; Firmware regelmäßig aktualisieren; nicht benötigte Dienste/Fernzugriff deaktivieren; verschlüsselte Kommunikation; nur Geräte mit Herstellersupport.
+**Musterlösung (2 P):** Je 1: Standardpasswörter ändern; eigenes VLAN/Netzsegment für IoT; Firmware regelmäßig aktualisieren; nicht benötigte Dienste/Fernzugriff deaktivieren; verschlüsselte Kommunikation; nur Geräte mit Herstellersupport.
+
+</details>
+
+**27.** CPU A: 6 Kerne/12 Threads, 4,6 GHz, 65 W TDP. CPU B: 16 Kerne/32 Threads, 4,2 GHz, 125 W TDP. Empfehlen Sie je eine CPU für einen Büro-PC und für eine Workstation zum Videorendering und begründen Sie.
+
+<details><summary>Lösung</summary>
+
+**Musterlösung (4 P):** Büro-PC: CPU A (1) – Office-Anwendungen nutzen wenige Kerne, der hohe Takt reicht aus, die niedrige TDP bedeutet weniger Strom, Abwärme und Lärm sowie geringere Kosten (1). Videorendering: CPU B (1) – Rendering verteilt sich auf alle Kerne, 16 Kerne/32 Threads verkürzen die Rechenzeit deutlich; die höhere Leistungsaufnahme ist dafür gerechtfertigt (1).
+
+</details>
+
+**28.** In einem Datenblatt steht: „8C/16T, 3,4 GHz, 65 W TDP“. Erläutern Sie die drei Angaben.
+
+<details><summary>Lösung</summary>
+
+**Musterlösung (3 P):** 8C/16T: 8 Kerne, die 16 Threads gleichzeitig bearbeiten (1). 3,4 GHz: Taktfrequenz, also Arbeitsschritte pro Sekunde je Kern (1). 65 W TDP: Wärmeleistung, auf die die Kühlung ausgelegt sein muss – Anhaltspunkt für die Leistungsaufnahme (1).
+
+</details>
+
+**29.** Welche Bauform hat Arbeitsspeicher für Notebooks?
+
+<details><summary>Lösung</summary>
+
+**Musterlösung (2 P):** SO-DIMM
+
+</details>
+
+**30.** Ein Kollege möchte einen älteren PC mit DDR4-Mainboard durch neue DDR5-Riegel beschleunigen. Beurteilen Sie das Vorhaben.
+
+<details><summary>Lösung</summary>
+
+**Musterlösung (3 P):** Das funktioniert nicht (1): DDR4 und DDR5 sind mechanisch und elektrisch nicht kompatibel, der Speichertyp wird vom Mainboard vorgegeben (1). Möglich ist nur mehr DDR4-RAM – oder ein Tausch von Mainboard (und meist CPU) (1).
+
+</details>
+
+**31.** Erläutern Sie den Unterschied zwischen integrierter und dedizierter Grafik und nennen Sie je einen passenden Einsatz.
+
+<details><summary>Lösung</summary>
+
+**Musterlösung (2 P):** Integrierte Grafik sitzt in der CPU und nutzt den Arbeitsspeicher mit – sparsam und günstig, passend für Büroarbeit (1). Eine dedizierte Grafikkarte hat einen eigenen Grafikprozessor und eigenen Speicher – nötig für CAD, Videoschnitt, 3D oder KI (1).
+
+</details>
+
+**32.** Die Komponenten eines PCs benötigen zusammen 425 W. Das Netzteil soll höchstens zu 70 % ausgelastet werden. Wie viel Watt muss es mindestens liefern? (auf ganze Watt gerundet)
+
+<details><summary>Lösung</summary>
+
+**607 W**<br>425 ÷ 0,7 ≈ 607 W – in der Praxis wählt man die nächste Größe, z. B. 650 W.
+
+</details>
+
+**33.** Welche CPU-Angabe sagt aus, wie viele Aufgaben gleichzeitig bearbeitet werden können?
+
+<details><summary>Lösung</summary>
+
+**Musterlösung (2 P):** Die Anzahl der Threads (bzw. Kerne)
+
+</details>
+
+**34.** Für zehn Außendienst-Notebooks stehen zwei Modelle zur Wahl: Modell A mit 8 GB verlötetem RAM, Modell B mit 16 GB in einem Steckplatz und einem freien Steckplatz. Begründen Sie Ihre Empfehlung.
+
+<details><summary>Lösung</summary>
+
+**Musterlösung (3 P):** Empfehlung: Modell B (1). 16 GB reichen für Office, Browser, Videokonferenz und CRM gleichzeitig, 8 GB sind heute knapp (1). Durch den freien Steckplatz lässt sich das Gerät später aufrüsten und länger nutzen – wirtschaftlicher und nachhaltiger als verlöteter Speicher (1).
+
+</details>
+
+**35.** In welcher Einheit wird die Bildwiederholrate eines Monitors angegeben?
+
+<details><summary>Lösung</summary>
+
+**Musterlösung (2 P):** Hertz (Hz)
+
+</details>
+
+**36.** Zwei 27-Zoll-Monitore stehen zur Wahl: Modell A mit Full HD und TN-Panel, Modell B mit WQHD und IPS-Panel. Begründen Sie Ihre Empfehlung für einen Arbeitsplatz in der Bildbearbeitung.
+
+<details><summary>Lösung</summary>
+
+**Musterlösung (3 P):** Empfehlung: Modell B (1). Das IPS-Panel stellt Farben genauer und blickwinkelstabil dar – entscheidend für farbverbindliches Arbeiten (1). WQHD bietet auf 27 Zoll eine höhere Pixeldichte, also ein schärferes Bild und mehr Arbeitsfläche als Full HD (1).
+
+</details>
+
+**37.** Ein 4K-UHD-Monitor hat 3840 × 2160 Pixel. Wie viele Megapixel sind das? (1 Nachkommastelle)
+
+<details><summary>Lösung</summary>
+
+**8.3**<br>3840 × 2160 = 8.294.400 Pixel ≈ 8,3 Megapixel – viermal so viele wie Full HD.
 
 </details>
 

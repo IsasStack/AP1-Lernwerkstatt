@@ -199,27 +199,19 @@ Viele Unternehmen formulieren im **Leitbild** Ziele in drei Dimensionen (Nachhal
 
 </details>
 
-**5.** Welche Kosten sind fix?
-- A) Stromkosten nach Verbrauch
-- B) Monatliche Leasingrate
-- C) Tonerkosten pro Seite
-- D) Cloud-Kosten pro Rechenstunde
+**5.** Nennen Sie je zwei Beispiele für fixe und variable Kosten eines IT-Arbeitsplatzes.
 
 <details><summary>Lösung</summary>
 
-**B) Monatliche Leasingrate**<br>Die Leasingrate fällt unabhängig von der Nutzung an.
+**Musterlösung (4 P):** Fix (je 1): monatliche Leasingrate; Miete; Lizenz-Abo pro Monat; Wartungsvertrag; Abschreibung. Variabel (je 1): Strom nach Verbrauch; Toner/Papier pro Seite; Cloud-Kosten pro Rechenstunde bzw. nach Nutzung.<br>Die Leasingrate fällt unabhängig von der Nutzung an.
 
 </details>
 
 **6.** Wofür steht TCO?
-- A) Total Cost of Ownership
-- B) Technical Cost Overview
-- C) Total Calculation Of Operations
-- D) Time Cost Optimization
 
 <details><summary>Lösung</summary>
 
-**A) Total Cost of Ownership**<br>Gesamtkosten über den Lebenszyklus.
+**Musterlösung (2 P):** Total Cost of Ownership<br>Gesamtkosten über den Lebenszyklus.
 
 </details>
 
@@ -232,14 +224,10 @@ Viele Unternehmen formulieren im **Leitbild** Ziele in drei Dimensionen (Nachhal
 </details>
 
 **8.** Welcher Vorteil spricht für Leasing statt Kauf?
-- A) Geringere Gesamtkosten
-- B) Eigentum am Gerät
-- C) Schonung der Liquidität
-- D) Keine Vertragsbindung
 
 <details><summary>Lösung</summary>
 
-**C) Schonung der Liquidität**<br>Leasing bindet kein Kapital; insgesamt ist es meist teurer.
+**Musterlösung (2 P):** Schonung der Liquidität<br>Leasing bindet kein Kapital; insgesamt ist es meist teurer.
 
 </details>
 
@@ -259,15 +247,11 @@ Viele Unternehmen formulieren im **Leitbild** Ziele in drei Dimensionen (Nachhal
 
 </details>
 
-**11.** Welche sind qualitative Kriterien eines Angebotsvergleichs? (mehrere)
-- A) Lieferzeit
-- B) Bezugspreis
-- C) Kundenservice
-- D) Garantiebedingungen
+**11.** Welche sind qualitative Kriterien eines Angebotsvergleichs? Nennen Sie drei.
 
 <details><summary>Lösung</summary>
 
-**A) Lieferzeit, C) Kundenservice, D) Garantiebedingungen**<br>Der Bezugspreis ist quantitativ.
+**Musterlösung (3 P):** Je 1 Punkt (max. 3): Lieferzeit; Kundenservice; Garantiebedingungen. Der Bezugspreis ist quantitativ.
 
 </details>
 
@@ -275,7 +259,7 @@ Viele Unternehmen formulieren im **Leitbild** Ziele in drei Dimensionen (Nachhal
 
 <details><summary>Lösung</summary>
 
-**Musterlösung:** Vorteile (je 1): keine hohe Kapitalbindung/Liquidität bleibt; planbare monatliche Raten; regelmäßiger Austausch → aktuelle Technik; Leasingraten als Betriebsausgabe; ggf. Service inklusive. Nachteile (je 1): insgesamt höhere Kosten als Kauf; kein Eigentum; Vertragsbindung/Laufzeit; Auflagen zum Zustand bei Rückgabe.
+**Musterlösung (4 P):** Vorteile (je 1): keine hohe Kapitalbindung/Liquidität bleibt; planbare monatliche Raten; regelmäßiger Austausch → aktuelle Technik; Leasingraten als Betriebsausgabe; ggf. Service inklusive. Nachteile (je 1): insgesamt höhere Kosten als Kauf; kein Eigentum; Vertragsbindung/Laufzeit; Auflagen zum Zustand bei Rückgabe.
 
 </details>
 
@@ -283,7 +267,7 @@ Viele Unternehmen formulieren im **Leitbild** Ziele in drei Dimensionen (Nachhal
 
 <details><summary>Lösung</summary>
 
-**Musterlösung:** 1. Bewertungskriterien festlegen (1). 2. Kriterien gewichten, Summe 100 % (1). 3. Alternativen je Kriterium mit Punkten bewerten und Teilnutzen = Gewicht × Punkte berechnen (1). 4. Teilnutzen addieren und die Alternative mit dem höchsten Gesamtnutzwert wählen (1).
+**Musterlösung (4 P):** 1. Bewertungskriterien festlegen (1). 2. Kriterien gewichten, Summe 100 % (1). 3. Alternativen je Kriterium mit Punkten bewerten und Teilnutzen = Gewicht × Punkte berechnen (1). 4. Teilnutzen addieren und die Alternative mit dem höchsten Gesamtnutzwert wählen (1).
 
 </details>
 
@@ -320,14 +304,10 @@ Viele Unternehmen formulieren im **Leitbild** Ziele in drei Dimensionen (Nachhal
 </details>
 
 **18.** Warum wird bei der Verkaufskalkulation der Kundenskonto „im Hundert“ aufgeschlagen?
-- A) Weil das Finanzamt es verlangt
-- B) Weil der Kunde den Skonto vom höheren Zielverkaufspreis abzieht und danach genau der Barverkaufspreis übrig bleiben soll
-- C) Weil es einfacher ist
-- D) Weil Skonto immer 3 % beträgt
 
 <details><summary>Lösung</summary>
 
-**B) Weil der Kunde den Skonto vom höheren Zielverkaufspreis abzieht und danach genau der Barverkaufspreis übrig bleiben soll**
+**Musterlösung (2 P):** Weil der Kunde den Skonto vom höheren Zielverkaufspreis abzieht und danach genau der Barverkaufspreis übrig bleiben soll
 
 </details>
 
@@ -347,27 +327,19 @@ Viele Unternehmen formulieren im **Leitbild** Ziele in drei Dimensionen (Nachhal
 
 </details>
 
-**21.** Welches Kriterium gehört zur ökologischen Dimension?
-- A) Anschaffungspreis
-- B) Energieverbrauch und Recyclingfähigkeit
-- C) Faire Löhne in der Fertigung
-- D) Liquidität
+**21.** Nennen Sie zwei ökologische Kriterien für die Beschaffung von IT-Geräten.
 
 <details><summary>Lösung</summary>
 
-**B) Energieverbrauch und Recyclingfähigkeit**<br>Preis/Liquidität = ökonomisch, faire Löhne = sozial.
+**Musterlösung (2 P):** Je 1: geringer Energieverbrauch/gute Energieeffizienz; Recyclingfähigkeit; Langlebigkeit und Reparierbarkeit; Umweltsiegel (Blauer Engel, EPEAT, TCO Certified); generalüberholte Geräte; wenig Verpackung.<br>Preis/Liquidität = ökonomisch, faire Löhne = sozial.
 
 </details>
 
 **22.** Eine Firma kauft das günstigste Notebook, obwohl ein teureres Modell 40 % weniger Strom braucht und doppelt so lange Support erhält. Das ist ein Beispiel für …
-- A) Zielharmonie
-- B) Zielkonflikt zwischen ökonomischen und ökologischen Zielen
-- C) Benchmarking
-- D) Upselling
 
 <details><summary>Lösung</summary>
 
-**B) Zielkonflikt zwischen ökonomischen und ökologischen Zielen**
+**Musterlösung (2 P):** Zielkonflikt zwischen ökonomischen und ökologischen Zielen
 
 </details>
 
@@ -375,7 +347,7 @@ Viele Unternehmen formulieren im **Leitbild** Ziele in drei Dimensionen (Nachhal
 
 <details><summary>Lösung</summary>
 
-**Musterlösung:** Ökologisch (1): geringe Leistungsaufnahme/gute Energieeffizienzklasse, Umweltsiegel (Blauer Engel, TCO Certified, EPEAT), langlebig/reparierbar, Rücknahme durch Hersteller, wenig Verpackung. Sozial (1): faire Arbeitsbedingungen in der Lieferkette (z. B. TCO Certified), ergonomische Eigenschaften (höhenverstellbar, flimmerfrei), Barrierefreiheit.
+**Musterlösung (2 P):** Ökologisch (1): geringe Leistungsaufnahme/gute Energieeffizienzklasse, Umweltsiegel (Blauer Engel, TCO Certified, EPEAT), langlebig/reparierbar, Rücknahme durch Hersteller, wenig Verpackung. Sozial (1): faire Arbeitsbedingungen in der Lieferkette (z. B. TCO Certified), ergonomische Eigenschaften (höhenverstellbar, flimmerfrei), Barrierefreiheit.
 
 </details>
 

@@ -105,9 +105,29 @@ Weitere Begriffe: **Generationenprinzip** (Großvater-Vater-Sohn), Backup ≠ Ar
 **NAS** (Network Attached Storage): Netzwerkspeicher für Freigaben und Backups – mit mehreren Platten gespiegelt für Verfügbarkeit, mit Snapshots gegen versehentliches Löschen; ersetzt aber kein externes/offline Backup.  
 **Gesetzlicher Rahmen**: IT-Sicherheitsgesetz/BSI-Gesetz und die EU-**NIS-2**-Richtlinie verpflichten Betreiber kritischer Infrastrukturen (KRITIS) und viele mittlere/große Unternehmen zu Risikomanagement, Meldung erheblicher Sicherheitsvorfälle und Mindestmaßnahmen.
 
+## Identifizieren, authentifizieren, autorisieren
+
+<table><tr><th>Schritt</th><th>Frage</th><th>Beispiel</th></tr>
+<tr><td><b>Identifikation</b></td><td>Wer behauptest du zu sein?</td><td>Benutzername eingeben</td></tr>
+<tr><td><b>Authentifizierung</b></td><td>Bist du es wirklich?</td><td>Passwort, Smartcard, Fingerabdruck prüfen</td></tr>
+<tr><td><b>Autorisierung</b></td><td>Was darfst du?</td><td>Rechte auf Ordner, Programme, Funktionen zuweisen</td></tr></table>
+
+Erst wird die Identität bewiesen, danach werden Rechte vergeben. Ein angemeldeter Benutzer ist also authentifiziert – ob er die Gehaltsliste öffnen darf, entscheidet die Autorisierung (Berechtigungskonzept, Least Privilege).
+
+**Biometrie** (Fingerabdruck, Gesicht, Iris) gehört zum Faktor *Inhärenz*. Vorteil: bequem, nicht vergessbar. Nachteil: nicht änderbar, wenn das Merkmal einmal kompromittiert ist, und datenschutzrechtlich besonders schützenswert.
+
+## Backup-Generationen und Archivierung
+
+Beim **Generationenprinzip** (Großvater-Vater-Sohn) werden mehrere Sicherungsstände aufbewahrt: tägliche Sicherungen (Sohn), wöchentliche (Vater) und monatliche (Großvater). So kann man auch auf einen Stand von vor mehreren Wochen zurückgehen – wichtig, wenn ein Fehler oder Schadsoftware erst spät bemerkt wird.
+
+<table><tr><th></th><th>Backup</th><th>Archivierung</th></tr>
+<tr><td>Zweck</td><td>Wiederherstellung nach Verlust oder Defekt</td><td>langfristige, unveränderbare Aufbewahrung</td></tr>
+<tr><td>Daten</td><td>Kopie der aktuellen Arbeitsdaten</td><td>abgeschlossene Vorgänge, die nicht mehr geändert werden</td></tr>
+<tr><td>Dauer</td><td>Tage bis Monate, wird überschrieben</td><td>Jahre, nach gesetzlichen Aufbewahrungsfristen</td></tr></table>
+
 ---
 
-## 🃏 Karteikarten (32)
+## 🃏 Karteikarten (38)
 
 | Frage | Antwort |
 |---|---|
@@ -143,186 +163,132 @@ Weitere Begriffe: **Generationenprinzip** (Großvater-Vater-Sohn), Backup ≠ Ar
 | ISMS | Managementsystem, um Informationssicherheit dauerhaft zu planen, umzusetzen, zu prüfen und zu verbessern. |
 | NAS – Einsatz | Netzwerkspeicher für Freigaben/Backups, mit Spiegelung und Snapshots – ersetzt kein Offline-Backup. |
 | NIS-2 | EU-Richtlinie: Pflichten zu Risikomanagement und Meldung von Sicherheitsvorfällen für viele Unternehmen. |
+| Authentifizierung vs. Autorisierung | Authentifizierung: Identität wird geprüft (Wer bist du?). Autorisierung: Rechte werden zugewiesen (Was darfst du?). |
+| Reihenfolge beim Zugriff | Identifikation → Authentifizierung → Autorisierung. |
+| Biometrie – Vor- und Nachteil | + bequem, nicht vergessbar oder weitergebbar. − nicht änderbar, wenn kompromittiert; besonders schützenswerte Daten. |
+| Generationenprinzip | Großvater-Vater-Sohn: tägliche, wöchentliche und monatliche Sicherungen werden parallel aufbewahrt. |
+| Wozu mehrere Backup-Generationen? | Um auf ältere Stände zurückgehen zu können, wenn ein Fehler oder Schadsoftware erst spät bemerkt wird. |
+| Backup vs. Archivierung | Backup: Kopie zur Wiederherstellung, wird überschrieben. Archivierung: langfristige, unveränderbare Aufbewahrung abgeschlossener Daten. |
 
-## ✍️ Übungsfragen (23)
+## ✍️ Übungsfragen (27)
 
 **1.** Ein Angreifer verändert unbemerkt Überweisungsdaten. Welches Schutzziel ist verletzt?
-- A) Vertraulichkeit
-- B) Integrität
-- C) Verfügbarkeit
-- D) Anonymität
 
 <details><summary>Lösung</summary>
 
-**B) Integrität**<br>Unerlaubte Veränderung = Integrität.
+**Musterlösung (2 P):** Integrität<br>Unerlaubte Veränderung = Integrität.
 
 </details>
 
 **2.** Ein Server fällt durch einen Stromausfall aus. Welches Schutzziel ist betroffen?
-- A) Vertraulichkeit
-- B) Integrität
-- C) Verfügbarkeit
-- D) Authentizität
 
 <details><summary>Lösung</summary>
 
-**C) Verfügbarkeit**
+**Musterlösung (2 P):** Verfügbarkeit
 
 </details>
 
 **3.** Welche Schutzbedarfskategorie nach BSI gilt bei „existenzbedrohenden“ Schäden?
-- A) normal
-- B) hoch
-- C) sehr hoch
-- D) kritisch
 
 <details><summary>Lösung</summary>
 
-**C) sehr hoch**
+**Musterlösung (2 P):** sehr hoch
 
 </details>
 
 **4.** Auf einem Server laufen drei Anwendungen mit Schutzbedarf normal, hoch, normal. Welcher Schutzbedarf gilt für den Server (ohne Sondereffekte)?
-- A) normal
-- B) hoch
-- C) sehr hoch
-- D) Durchschnitt
 
 <details><summary>Lösung</summary>
 
-**B) hoch**<br>Maximumprinzip.
+**Musterlösung (2 P):** hoch<br>Maximumprinzip.
 
 </details>
 
 **5.** Welche Schadsoftware verbreitet sich selbstständig über das Netzwerk?
-- A) Virus
-- B) Wurm
-- C) Trojaner
-- D) Adware
 
 <details><summary>Lösung</summary>
 
-**B) Wurm**
+**Musterlösung (2 P):** Wurm
 
 </details>
 
-**6.** Welche Kombination ist eine echte Zwei-Faktor-Authentifizierung?
-- A) Passwort + Sicherheitsfrage
-- B) Passwort + TOTP-Code aus Authenticator-App
-- C) PIN + Passwort
-- D) Benutzername + Passwort
+**6.** Ein Dienst verlangt ein Passwort und zusätzlich eine PIN. Beurteilen Sie, ob das eine echte Zwei-Faktor-Authentifizierung ist, und nennen Sie eine echte Kombination.
 
 <details><summary>Lösung</summary>
 
-**B) Passwort + TOTP-Code aus Authenticator-App**<br>Wissen + Besitz.
+**Musterlösung (3 P):** Nein – Passwort und PIN gehören beide zum Faktor Wissen (1). Eine echte 2FA kombiniert zwei verschiedene Faktorkategorien: Wissen, Besitz, Inhärenz/Biometrie (1). Beispiel: Passwort + TOTP-Code aus einer Authenticator-App, Passwort + FIDO2-Stick oder Smartcard + PIN (1).<br>Wissen + Besitz.
 
 </details>
 
 **7.** Montag Vollsicherung, Di–Fr inkrementell. Am Freitag nach der Sicherung fällt die Platte aus. Welche Sicherungen braucht man?
-- A) Nur Freitag
-- B) Montag + Freitag
-- C) Montag + Di + Mi + Do + Fr
-- D) Nur Montag
 
 <details><summary>Lösung</summary>
 
-**C) Montag + Di + Mi + Do + Fr**<br>Vollsicherung + alle Inkremente.
+**Musterlösung (2 P):** Montag + Di + Mi + Do + Fr<br>Vollsicherung + alle Inkremente.
 
 </details>
 
 **8.** Montag Vollsicherung, Di–Fr differenziell. Wiederherstellung am Freitagabend?
-- A) Montag + Freitag
-- B) Alle Sicherungen
-- C) Nur Freitag
-- D) Montag + Donnerstag + Freitag
 
 <details><summary>Lösung</summary>
 
-**A) Montag + Freitag**<br>Vollsicherung + letzte differenzielle.
+**Musterlösung (2 P):** Montag + Freitag<br>Vollsicherung + letzte differenzielle.
 
 </details>
 
 **9.** Was besagt die 3-2-1-Regel?
-- A) 3 Admins, 2 Server, 1 Firewall
-- B) 3 Kopien, 2 Medien, 1 außer Haus
-- C) 3 Backups pro Tag
-- D) 3 Monate Aufbewahrung
 
 <details><summary>Lösung</summary>
 
-**B) 3 Kopien, 2 Medien, 1 außer Haus**
+**Musterlösung (2 P):** 3 Kopien, 2 Medien, 1 außer Haus
 
 </details>
 
-**10.** Welche ist eine organisatorische Maßnahme?
-- A) Firewall
-- B) Passwortrichtlinie
-- C) BitLocker
-- D) Virenscanner
+**10.** Nennen Sie je zwei technische und zwei organisatorische Maßnahmen der IT-Sicherheit.
 
 <details><summary>Lösung</summary>
 
-**B) Passwortrichtlinie**
+**Musterlösung (4 P):** Technisch (je 1): Firewall; Festplattenverschlüsselung (BitLocker); Virenschutz; automatische Updates; Backup; MFA. Organisatorisch (je 1): Passwortrichtlinie; Berechtigungskonzept; Schulungen/Awareness; Notfallplan; Vier-Augen-Prinzip; Besucherregelung.
 
 </details>
 
-**11.** Welche Maßnahmen gehören zur Härtung eines Windows-Clients? (mehrere)
-- A) Lokale Adminrechte entziehen
-- B) Unnötige Dienste deaktivieren
-- C) Automatische Updates abschalten
-- D) BitLocker aktivieren
+**11.** Welche Maßnahmen gehören zur Härtung eines Windows-Clients? Nennen Sie drei.
 
 <details><summary>Lösung</summary>
 
-**A) Lokale Adminrechte entziehen, B) Unnötige Dienste deaktivieren, D) BitLocker aktivieren**<br>Updates gehören zur Härtung dazu.
+**Musterlösung (3 P):** Je 1 Punkt (max. 3): Lokale Adminrechte entziehen; Unnötige Dienste deaktivieren; BitLocker aktivieren. Updates gehören zur Härtung dazu.
 
 </details>
 
 **12.** Eine Firewall erlaubt nur ausdrücklich freigegebene Verbindungen. Wie heißt das Prinzip?
-- A) Default Allow
-- B) Default Deny
-- C) Least Effort
-- D) Fail Open
 
 <details><summary>Lösung</summary>
 
-**B) Default Deny**
+**Musterlösung (2 P):** Default Deny
 
 </details>
 
 **13.** Wo werden öffentlich erreichbare Webserver idealerweise platziert?
-- A) Im internen LAN
-- B) In der DMZ
-- C) Im Gast-WLAN
-- D) Am Arbeitsplatz
 
 <details><summary>Lösung</summary>
 
-**B) In der DMZ**
+**Musterlösung (2 P):** In der DMZ
 
 </details>
 
 **14.** Eine E-Mail fordert scheinbar vom Chef eine dringende Überweisung. Wie heißt der Angriff?
-- A) CEO-Fraud
-- B) DDoS
-- C) SQL-Injection
-- D) Tailgating
 
 <details><summary>Lösung</summary>
 
-**A) CEO-Fraud**<br>Form von Social Engineering/Spear-Phishing.
+**Musterlösung (2 P):** CEO-Fraud<br>Form von Social Engineering/Spear-Phishing.
 
 </details>
 
 **15.** Welche Aussage zu Passwortrichtlinien entspricht der aktuellen BSI-Empfehlung?
-- A) Monatlicher Zwangswechsel
-- B) Lange Passphrasen statt kurzer komplexer Passwörter; Wechsel bei Verdacht
-- C) Max. 8 Zeichen
-- D) Gleiches Passwort für alle Dienste
 
 <details><summary>Lösung</summary>
 
-**B) Lange Passphrasen statt kurzer komplexer Passwörter; Wechsel bei Verdacht**
+**Musterlösung (2 P):** Lange Passphrasen statt kurzer komplexer Passwörter; Wechsel bei Verdacht
 
 </details>
 
@@ -330,7 +296,7 @@ Weitere Begriffe: **Generationenprinzip** (Großvater-Vater-Sohn), Backup ≠ Ar
 
 <details><summary>Lösung</summary>
 
-**Musterlösung:** Technisch (1): Spamfilter/Mail-Gateway, MFA/FIDO2, Linkprüfung, Makros blockieren. Organisatorisch (1): Meldeprozess für verdächtige Mails, Richtlinie (z. B. Rückruf bei Zahlungsanweisungen, Vier-Augen-Prinzip). Personell (1): Awareness-Schulungen, Phishing-Simulationen.
+**Musterlösung (3 P):** Technisch (1): Spamfilter/Mail-Gateway, MFA/FIDO2, Linkprüfung, Makros blockieren. Organisatorisch (1): Meldeprozess für verdächtige Mails, Richtlinie (z. B. Rückruf bei Zahlungsanweisungen, Vier-Augen-Prinzip). Personell (1): Awareness-Schulungen, Phishing-Simulationen.
 
 </details>
 
@@ -338,7 +304,7 @@ Weitere Begriffe: **Generationenprinzip** (Großvater-Vater-Sohn), Backup ≠ Ar
 
 <details><summary>Lösung</summary>
 
-**Musterlösung:** Inkrementell: sichert nur Änderungen seit der letzten Sicherung jeglicher Art → schnell und platzsparend (1); Wiederherstellung braucht die Vollsicherung und alle Inkremente in Reihenfolge → aufwendig/fehleranfällig (1). Differenziell: sichert alle Änderungen seit der letzten Vollsicherung → wächst täglich (1); Wiederherstellung nur mit Vollsicherung + letzter differenzieller → schneller (1).
+**Musterlösung (4 P):** Inkrementell: sichert nur Änderungen seit der letzten Sicherung jeglicher Art → schnell und platzsparend (1); Wiederherstellung braucht die Vollsicherung und alle Inkremente in Reihenfolge → aufwendig/fehleranfällig (1). Differenziell: sichert alle Änderungen seit der letzten Vollsicherung → wächst täglich (1); Wiederherstellung nur mit Vollsicherung + letzter differenzieller → schneller (1).
 
 </details>
 
@@ -346,7 +312,7 @@ Weitere Begriffe: **Generationenprinzip** (Großvater-Vater-Sohn), Backup ≠ Ar
 
 <details><summary>Lösung</summary>
 
-**Musterlösung:** Je 1: BitLocker-Festplattenverschlüsselung mit TPM (Diebstahlschutz); keine lokalen Adminrechte; aktuelle Updates und Virenschutz; Host-Firewall aktiv; VPN-Pflicht für Firmenzugriff; MFA/Windows Hello; USB-Massenspeicher sperren; Bildschirmsperre und UEFI-Passwort; unnötige Dienste/Software entfernen.
+**Musterlösung (4 P):** Je 1: BitLocker-Festplattenverschlüsselung mit TPM (Diebstahlschutz); keine lokalen Adminrechte; aktuelle Updates und Virenschutz; Host-Firewall aktiv; VPN-Pflicht für Firmenzugriff; MFA/Windows Hello; USB-Massenspeicher sperren; Bildschirmsperre und UEFI-Passwort; unnötige Dienste/Software entfernen.
 
 </details>
 
@@ -354,55 +320,71 @@ Weitere Begriffe: **Generationenprinzip** (Großvater-Vater-Sohn), Backup ≠ Ar
 
 <details><summary>Lösung</summary>
 
-**Musterlösung:** Vertraulichkeit: Nur Berechtigte dürfen Informationen einsehen (1) – z. B. Verschlüsselung, Zugriffsrechte (1). Integrität: Daten müssen vollständig und unverfälscht sein bzw. Änderungen erkennbar (1) – z. B. Hashwerte, digitale Signatur (1). Verfügbarkeit: Systeme und Daten müssen bei Bedarf nutzbar sein (1) – z. B. Backup, USV, Redundanz (1).
+**Musterlösung (6 P):** Vertraulichkeit: Nur Berechtigte dürfen Informationen einsehen (1) – z. B. Verschlüsselung, Zugriffsrechte (1). Integrität: Daten müssen vollständig und unverfälscht sein bzw. Änderungen erkennbar (1) – z. B. Hashwerte, digitale Signatur (1). Verfügbarkeit: Systeme und Daten müssen bei Bedarf nutzbar sein (1) – z. B. Backup, USV, Redundanz (1).
 
 </details>
 
 **20.** Ein Dienstleister soll Dateien sicher auf einen Linux-Server übertragen. Welches Protokoll?
-- A) FTP
-- B) Telnet
-- C) SFTP
-- D) TFTP
 
 <details><summary>Lösung</summary>
 
-**C) SFTP**<br>SFTP nutzt SSH-Verschlüsselung.
+**Musterlösung (2 P):** SFTP<br>SFTP nutzt SSH-Verschlüsselung.
 
 </details>
 
 **21.** Ein Notebook verbindet sich mit dem WLAN eines Hotels. Welches Firewall-Profil sollte aktiv sein?
-- A) Domäne
-- B) Privat
-- C) Öffentlich
-- D) Keines
 
 <details><summary>Lösung</summary>
 
-**C) Öffentlich**<br>Das restriktivste Profil für fremde Netze.
+**Musterlösung (2 P):** Öffentlich<br>Das restriktivste Profil für fremde Netze.
 
 </details>
 
 **22.** Remotedesktop soll nur aus dem Firmennetz 10.0.0.0/16 möglich sein. Wie wird die Personal Firewall angepasst?
-- A) Port 3389 eingehend für alle freigeben
-- B) Eingehende Regel für TCP 3389 nur mit Remote-IP-Bereich 10.0.0.0/16
-- C) Firewall abschalten
-- D) Ausgehend 3389 blockieren
 
 <details><summary>Lösung</summary>
 
-**B) Eingehende Regel für TCP 3389 nur mit Remote-IP-Bereich 10.0.0.0/16**
+**Musterlösung (2 P):** Eingehende Regel für TCP 3389 nur mit Remote-IP-Bereich 10.0.0.0/16
 
 </details>
 
 **23.** Was ist ein ISMS?
-- A) Ein Virenscanner
-- B) Ein Managementsystem, das Informationssicherheit dauerhaft steuert und verbessert
-- C) Ein E-Mail-Programm
-- D) Eine Firewall
 
 <details><summary>Lösung</summary>
 
-**B) Ein Managementsystem, das Informationssicherheit dauerhaft steuert und verbessert**
+**Musterlösung (2 P):** Ein Managementsystem, das Informationssicherheit dauerhaft steuert und verbessert
+
+</details>
+
+**24.** Eine Mitarbeiterin meldet sich mit Benutzername und Passwort an und darf danach den Ordner „Personal“ nur lesen. Ordnen Sie die Begriffe Authentifizierung und Autorisierung zu und erläutern Sie den Unterschied.
+
+<details><summary>Lösung</summary>
+
+**Musterlösung (3 P):** Authentifizierung: die Prüfung von Benutzername und Passwort – die Identität wird nachgewiesen (1). Autorisierung: die Zuweisung des Leserechts auf den Ordner – es wird festgelegt, was die Person darf (1). Die Authentifizierung kommt immer zuerst; ohne geprüfte Identität können keine Rechte vergeben werden (1).
+
+</details>
+
+**25.** Wie heißt der Vorgang, bei dem einem angemeldeten Benutzer Rechte auf Ressourcen zugewiesen werden?
+
+<details><summary>Lösung</summary>
+
+**Musterlösung (2 P):** Autorisierung
+
+</details>
+
+**26.** Ein Unternehmen sichert täglich und überschreibt dabei immer die Sicherung vom Vortag. Nach zehn Tagen wird bemerkt, dass eine Datei seit einer Woche beschädigt ist. Erläutern Sie das Problem und schlagen Sie eine Lösung vor.
+
+<details><summary>Lösung</summary>
+
+**Musterlösung (3 P):** Es gibt nur einen einzigen Sicherungsstand – und der enthält die beschädigte Datei bereits (1). Ein unversehrter älterer Stand existiert nicht mehr (1). Lösung: Generationenprinzip (Großvater-Vater-Sohn) mit täglichen, wöchentlichen und monatlichen Sicherungen, die getrennt aufbewahrt werden (1).
+
+</details>
+
+**27.** Erläutern Sie den Unterschied zwischen Backup und Archivierung.
+
+<details><summary>Lösung</summary>
+
+**Musterlösung (2 P):** Ein Backup ist eine Kopie der aktuellen Daten für die Wiederherstellung nach Verlust; es wird regelmäßig überschrieben (1). Die Archivierung bewahrt abgeschlossene Daten langfristig und unveränderbar auf, z. B. Rechnungen für die gesetzliche Aufbewahrungsfrist (1).
 
 </details>
 

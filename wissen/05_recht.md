@@ -64,9 +64,57 @@ Software ist durch das **Urheberrechtsgesetz (UrhG)** geschützt; der Nutzer erw
 - **Dokumentation**: Benutzerhandbuch, Administrations-/Netzwerkdokumentation, Programmdokumentation/Quellcode, Schnittstellen, Testprotokolle, Konfigurationen.
 - Stilllegung von Altsystemen: Daten migrieren, gesetzliche **Aufbewahrungsfristen** beachten (Handelsbriefe 6 Jahre, Buchungsbelege/Rechnungen 8 Jahre seit 2025, Bücher/Jahresabschlüsse 10 Jahre), Datenträger sicher löschen.
 
+## Vom Angebot zum Vertrag
+
+Ein Vertrag entsteht durch zwei übereinstimmende Willenserklärungen: **Antrag** und **Annahme**. Wer welche Erklärung abgibt, hängt vom Ablauf ab:
+
+<table><tr><th>Schritt</th><th>Rechtliche Bedeutung</th></tr>
+<tr><td>Anfrage des Kunden</td><td>unverbindlich – nur Bitte um ein Angebot</td></tr>
+<tr><td>Angebot des Lieferanten</td><td><b>verbindlicher Antrag</b> – außer es enthält eine Freizeichnungsklausel („freibleibend“, „unverbindlich“, „solange der Vorrat reicht“)</td></tr>
+<tr><td>Bestellung des Kunden</td><td>Annahme, wenn sie rechtzeitig und ohne Änderungen erfolgt → Vertrag</td></tr>
+<tr><td>Auftragsbestätigung</td><td>nur nötig, wenn noch kein Vertrag besteht: bei freibleibendem Angebot, bei verspäteter oder geänderter Bestellung, bei Bestellung ohne vorheriges Angebot</td></tr></table>
+
+> [!IMPORTANT]
+> **Merke:** Eine Bestellung, die vom Angebot abweicht (anderer Preis, andere Menge, zu spät), ist ein **neuer Antrag**. Der Vertrag kommt dann erst durch die Auftragsbestätigung oder die Lieferung zustande.
+
+## Pflichten und Bestandteile beim Kaufvertrag
+
+- **Verkäufer:** Ware mangelfrei und rechtzeitig übergeben, Eigentum verschaffen.
+- **Käufer:** Ware annehmen und den Kaufpreis rechtzeitig zahlen.
+
+**Typische Vertragsbestandteile:** Art, Güte und Menge der Ware · Preis und Rabatte · Lieferzeit · Liefer- und Zahlungsbedingungen (z. B. „frei Haus“, „30 Tage netto, 2 % Skonto bei 10 Tagen“) · Gewährleistung/Garantie · Erfüllungsort und Gerichtsstand · Vertragsstrafen.
+
+**AGB** (Allgemeine Geschäftsbedingungen) sind vorformulierte Bedingungen für viele Verträge. Sie gelten nur, wenn vor Vertragsschluss auf sie hingewiesen wurde und der Kunde sie zur Kenntnis nehmen konnte. Individuelle Absprachen gehen vor, überraschende Klauseln sind unwirksam.
+
+**Eigentumsvorbehalt:** Die Ware bleibt bis zur vollständigen Bezahlung Eigentum des Verkäufers. Zahlt der Kunde nicht, kann der Verkäufer sie zurückverlangen.
+
+## Vertragsstörungen im Überblick
+
+<table><tr><th>Störung</th><th>Wer verletzt die Pflicht?</th><th>Voraussetzungen</th><th>Rechte der Gegenseite</th></tr>
+<tr><td><b>Mangelhafte Lieferung</b> (Schlechtleistung)</td><td>Verkäufer</td><td>Mangel bei Übergabe; unter Kaufleuten unverzüglich prüfen und rügen</td><td>zuerst Nacherfüllung (Nachbesserung oder Ersatzlieferung); nach erfolgloser Frist Minderung, Rücktritt, Schadensersatz</td></tr>
+<tr><td><b>Lieferungsverzug</b> (Nicht-rechtzeitig-Lieferung)</td><td>Verkäufer</td><td>Fälligkeit + Mahnung + Verschulden; Mahnung entfällt bei fest vereinbartem Kalendertermin</td><td>Lieferung verlangen und Verzugsschaden ersetzen lassen; nach erfolgloser Nachfrist Rücktritt und/oder Schadensersatz statt der Leistung</td></tr>
+<tr><td><b>Zahlungsverzug</b> (Nicht-rechtzeitig-Zahlung)</td><td>Käufer</td><td>Fälligkeit + Mahnung; ohne Mahnung spätestens 30 Tage nach Fälligkeit und Zugang der Rechnung</td><td>Verzugszinsen, Mahnkosten, nach Fristsetzung Rücktritt und Schadensersatz; Ware bei Eigentumsvorbehalt zurückholen</td></tr>
+<tr><td><b>Annahmeverzug</b></td><td>Käufer</td><td>Ware wurde ordnungsgemäß angeboten und nicht angenommen</td><td>auf Abnahme bestehen, Ware auf Kosten des Käufers einlagern, Selbsthilfeverkauf, Rücktritt</td></tr></table>
+
+> [!TIP]
+> **Prüfungstipp:** Schreibe bei Vertragsstörungen immer drei Dinge: **welche Störung** vorliegt, **warum** (Voraussetzungen am Fall prüfen) und **welche Rechte** daraus folgen – das Recht mit dem Vorrang zuerst.
+
+## Weitere Lizenzbegriffe (Hintergrund)
+
+<table><tr><th>Begriff</th><th>Bedeutung</th></tr>
+<tr><td>Proprietäre Software</td><td>Quellcode nicht offen, Nutzung nur nach den Bedingungen des Herstellers</td></tr>
+<tr><td>Freeware</td><td>kostenlos nutzbar, Quellcode aber nicht offen</td></tr>
+<tr><td>Shareware</td><td>darf kostenlos getestet werden, danach kostenpflichtig</td></tr>
+<tr><td>Public Domain</td><td>gemeinfrei – ohne urheberrechtliche Einschränkungen</td></tr>
+<tr><td>Open Source</td><td>Quellcode offen, darf genutzt, geändert und weitergegeben werden – nach den Regeln der jeweiligen Lizenz</td></tr></table>
+
+## Pflichtangaben einer Rechnung (Hintergrund)
+
+Name und Anschrift von Lieferant und Kunde · Steuernummer oder USt-IdNr. des Lieferanten · Rechnungsdatum · fortlaufende Rechnungsnummer · Menge und Bezeichnung der Leistung · Liefer- bzw. Leistungsdatum · Nettobetrag, Steuersatz, Steuerbetrag und Bruttobetrag.
+
 ---
 
-## 🃏 Karteikarten (15)
+## 🃏 Karteikarten (36)
 
 | Frage | Antwort |
 |---|---|
@@ -85,30 +133,43 @@ Software ist durch das **Urheberrechtsgesetz (UrhG)** geschützt; der Nutzer erw
 | Inhalt Abnahmeprotokoll | Gegenstand, Beteiligte, Ort, Datum/Uhrzeit, geprüfte Funktionen, Mängel, Unterschriften. |
 | Konventionalstrafe | Vertraglich vereinbarte Strafzahlung bei Pflichtverletzung, z. B. Verzug. |
 | Wie kommt ein Vertrag zustande? | Durch zwei übereinstimmende Willenserklärungen: Antrag und Annahme. |
+| Ist eine Anfrage rechtlich bindend? | Nein – sie ist nur die unverbindliche Bitte um ein Angebot. |
+| Ist ein Angebot bindend? | Ja, es ist ein verbindlicher Antrag – außer mit Freizeichnungsklausel wie „freibleibend“ oder „unverbindlich“. |
+| Freizeichnungsklauseln – Beispiele | „freibleibend“, „unverbindlich“, „solange der Vorrat reicht“, „Preis freibleibend“. |
+| Wann ist eine Auftragsbestätigung nötig? | Wenn noch kein Vertrag besteht: freibleibendes Angebot, verspätete oder geänderte Bestellung, Bestellung ohne Angebot. |
+| Bestellung weicht vom Angebot ab – Folge? | Sie gilt als neuer Antrag; Vertrag erst durch Auftragsbestätigung oder Lieferung. |
+| Pflichten des Verkäufers | Ware mangelfrei und rechtzeitig übergeben, Eigentum verschaffen. |
+| Pflichten des Käufers | Ware annehmen und Kaufpreis rechtzeitig zahlen. |
+| AGB | Vorformulierte Vertragsbedingungen für viele Verträge; gelten nur bei Hinweis und Möglichkeit zur Kenntnisnahme vor Vertragsschluss. |
+| Eigentumsvorbehalt | Ware bleibt bis zur vollständigen Bezahlung Eigentum des Verkäufers. |
+| Vier Vertragsstörungen beim Kaufvertrag | Mangelhafte Lieferung, Lieferungsverzug, Zahlungsverzug, Annahmeverzug. |
+| Voraussetzungen Lieferungsverzug | Fälligkeit, Mahnung (entfällt bei festem Kalendertermin) und Verschulden des Lieferanten. |
+| Rechte bei Lieferungsverzug | Lieferung + Ersatz des Verzugsschadens; nach erfolgloser Nachfrist Rücktritt und/oder Schadensersatz statt der Leistung. |
+| Wann tritt Zahlungsverzug ohne Mahnung ein? | Spätestens 30 Tage nach Fälligkeit und Zugang der Rechnung. |
+| Rechte bei Zahlungsverzug | Verzugszinsen und Mahnkosten verlangen; nach Fristsetzung Rücktritt/Schadensersatz; bei Eigentumsvorbehalt Ware zurückfordern. |
+| Annahmeverzug – Rechte des Verkäufers | Auf Abnahme bestehen, Ware auf Kosten des Käufers einlagern, Selbsthilfeverkauf, Rücktritt. |
+| Rügepflicht unter Kaufleuten | Ware unverzüglich nach Lieferung prüfen und Mängel sofort rügen – sonst gilt sie als genehmigt. |
+| Freeware vs. Open Source | Freeware: kostenlos, Quellcode nicht offen. Open Source: Quellcode offen, darf geändert und weitergegeben werden. |
+| Shareware | Software, die kostenlos getestet werden darf und danach bezahlt werden muss. |
+| Proprietäre Software | Quellcode nicht offen; Nutzung nur nach den Lizenzbedingungen des Herstellers. |
+| Public Domain | Gemeinfreie Software ohne urheberrechtliche Einschränkungen. |
+| Pflichtangaben einer Rechnung | Namen und Anschriften, Steuernummer/USt-IdNr., Datum, Rechnungsnummer, Menge und Art der Leistung, Leistungsdatum, Netto, Steuersatz und -betrag, Brutto. |
 
-## ✍️ Übungsfragen (11)
+## ✍️ Übungsfragen (24)
 
 **1.** Ein Systemhaus verpflichtet sich, ein funktionsfähiges WLAN im Gebäude zu installieren. Welcher Vertrag liegt vor?
-- A) Dienstvertrag
-- B) Werkvertrag
-- C) Mietvertrag
-- D) Kaufvertrag
 
 <details><summary>Lösung</summary>
 
-**B) Werkvertrag**<br>Erfolg (funktionierendes WLAN) ist geschuldet.
+**Musterlösung (2 P):** Werkvertrag<br>Erfolg (funktionierendes WLAN) ist geschuldet.
 
 </details>
 
 **2.** Eine Schulung über 8 Stunden zu Microsoft 365 wird gebucht. Vertragsart?
-- A) Werkvertrag
-- B) Dienstvertrag
-- C) Leasingvertrag
-- D) Lizenzvertrag
 
 <details><summary>Lösung</summary>
 
-**B) Dienstvertrag**<br>Geschuldet ist die Tätigkeit, nicht ein Lernerfolg.
+**Musterlösung (2 P):** Dienstvertrag<br>Geschuldet ist die Tätigkeit, nicht ein Lernerfolg.
 
 </details>
 
@@ -121,74 +182,50 @@ Software ist durch das **Urheberrechtsgesetz (UrhG)** geschützt; der Nutzer erw
 </details>
 
 **4.** Welches Recht muss der Käufer bei einem Mangel in der Regel zuerst geltend machen?
-- A) Rücktritt
-- B) Minderung
-- C) Nacherfüllung
-- D) Schadensersatz
 
 <details><summary>Lösung</summary>
 
-**C) Nacherfüllung**<br>Vorrang der Nacherfüllung.
+**Musterlösung (2 P):** Nacherfüllung<br>Vorrang der Nacherfüllung.
 
 </details>
 
 **5.** Statt 20 Monitoren werden 18 geliefert. Welcher Mangel?
-- A) Falschlieferung
-- B) Minderlieferung
-- C) Rechtsmangel
-- D) Montagemangel
 
 <details><summary>Lösung</summary>
 
-**B) Minderlieferung**<br>Zu geringe Menge = Minderlieferung.
+**Musterlösung (2 P):** Minderlieferung<br>Zu geringe Menge = Minderlieferung.
 
 </details>
 
 **6.** Welche Lizenz verlangt, dass Änderungen am Code wieder unter derselben Lizenz veröffentlicht werden?
-- A) MIT
-- B) GPL
-- C) Freeware
-- D) OEM
 
 <details><summary>Lösung</summary>
 
-**B) GPL**<br>GPL = Copyleft.
+**Musterlösung (2 P):** GPL<br>GPL = Copyleft.
 
 </details>
 
 **7.** Eine Windows-Lizenz wird mit einem neuen PC ausgeliefert und ist an diesen gebunden. Das ist eine …
-- A) Volumenlizenz
-- B) OEM-Lizenz
-- C) Concurrent-User-Lizenz
-- D) Open-Source-Lizenz
 
 <details><summary>Lösung</summary>
 
-**B) OEM-Lizenz**<br>OEM = Original Equipment Manufacturer.
+**Musterlösung (2 P):** OEM-Lizenz<br>OEM = Original Equipment Manufacturer.
 
 </details>
 
-**8.** Welche Angaben gehören in ein Abnahmeprotokoll? (mehrere)
-- A) Gegenstand der Abnahme
-- B) Beteiligte Personen
-- C) Datum und Ort
-- D) Gehalt des Technikers
+**8.** Welche Angaben gehören in ein Abnahmeprotokoll? Nennen Sie drei.
 
 <details><summary>Lösung</summary>
 
-**A) Gegenstand der Abnahme, B) Beteiligte Personen, C) Datum und Ort**<br>Dazu kommen Mängel und Unterschriften.
+**Musterlösung (3 P):** Je 1 Punkt (max. 3): Gegenstand der Abnahme; Beteiligte Personen; Datum und Ort. Dazu kommen Mängel und Unterschriften.
 
 </details>
 
 **9.** Wie lange beträgt die gesetzliche Gewährleistungsfrist bei neuen Waren?
-- A) 6 Monate
-- B) 1 Jahr
-- C) 2 Jahre
-- D) 5 Jahre
 
 <details><summary>Lösung</summary>
 
-**C) 2 Jahre**<br>2 Jahre (§ 438 BGB).
+**Musterlösung (2 P):** 2 Jahre<br>2 Jahre (§ 438 BGB).
 
 </details>
 
@@ -196,7 +233,7 @@ Software ist durch das **Urheberrechtsgesetz (UrhG)** geschützt; der Nutzer erw
 
 <details><summary>Lösung</summary>
 
-**Musterlösung:** Beim Werkvertrag schuldet der Auftragnehmer einen konkreten Erfolg, der abgenommen wird (1), z. B. die Programmierung einer lauffähigen Webanwendung (1). Beim Dienstvertrag schuldet er nur die Tätigkeit, nicht den Erfolg (1), z. B. IT-Beratung oder Support nach Stunden (1).
+**Musterlösung (4 P):** Beim Werkvertrag schuldet der Auftragnehmer einen konkreten Erfolg, der abgenommen wird (1), z. B. die Programmierung einer lauffähigen Webanwendung (1). Beim Dienstvertrag schuldet er nur die Tätigkeit, nicht den Erfolg (1), z. B. IT-Beratung oder Support nach Stunden (1).
 
 </details>
 
@@ -204,7 +241,111 @@ Software ist durch das **Urheberrechtsgesetz (UrhG)** geschützt; der Nutzer erw
 
 <details><summary>Lösung</summary>
 
-**Musterlösung:** Je 1: Verfügbarkeit in %; Reaktionszeit; Lösungs-/Wiederherstellungszeit; Servicezeiten; Ansprechpartner/Eskalationswege; Prioritätsstufen; Reporting/Messung; Vertragsstrafen bei Nichteinhaltung; Kosten.
+**Musterlösung (4 P):** Je 1: Verfügbarkeit in %; Reaktionszeit; Lösungs-/Wiederherstellungszeit; Servicezeiten; Ansprechpartner/Eskalationswege; Prioritätsstufen; Reporting/Messung; Vertragsstrafen bei Nichteinhaltung; Kosten.
+
+</details>
+
+**12.** Ein Systemhaus gibt ein verbindliches Angebot ab. Der Kunde bestellt drei Tage später genau zu diesen Bedingungen. Wodurch kommt der Kaufvertrag zustande?
+
+<details><summary>Lösung</summary>
+
+**Musterlösung (2 P):** Durch die Bestellung (sie ist die Annahme des Angebots)<br>Angebot = Antrag, rechtzeitige und unveränderte Bestellung = Annahme. Eine Auftragsbestätigung ist nicht nötig.
+
+</details>
+
+**13.** Ein Angebot über 15 Notebooks trägt den Vermerk „freibleibend“. Der Kunde bestellt daraufhin. Beurteilen Sie, ob damit ein Kaufvertrag zustande gekommen ist.
+
+<details><summary>Lösung</summary>
+
+**Musterlösung (3 P):** Nein (1). Durch die Freizeichnungsklausel ist das Angebot unverbindlich, die Bestellung ist daher erst der Antrag (1). Der Vertrag kommt erst zustande, wenn der Lieferant annimmt – durch Auftragsbestätigung oder Lieferung (1).
+
+</details>
+
+**14.** Ein Lieferant bietet 20 Monitore zu je 180 € an. Der Kunde bestellt 20 Monitore „zu je 170 €“. Erläutern Sie die rechtliche Lage.
+
+<details><summary>Lösung</summary>
+
+**Musterlösung (3 P):** Die Bestellung weicht vom Angebot ab und ist deshalb keine Annahme, sondern ein neuer Antrag (2). Ein Vertrag entsteht erst, wenn der Lieferant diesen Antrag annimmt, z. B. durch Auftragsbestätigung oder Lieferung zu 170 € (1).
+
+</details>
+
+**15.** Die Lieferung von 20 Notebooks war fest für den 01.03. vereinbart. Am 10.03. ist noch nichts geliefert, der Lieferant hat schlicht zu spät bestellt. Prüfen Sie, ob Lieferungsverzug vorliegt, und nennen Sie zwei Rechte des Käufers.
+
+<details><summary>Lösung</summary>
+
+**Musterlösung (4 P):** Ja, Lieferungsverzug liegt vor (1): Die Lieferung ist fällig, eine Mahnung ist wegen des kalendermäßig festen Termins nicht nötig, und der Lieferant hat die Verspätung verschuldet (1). Rechte (je 1): auf Lieferung bestehen und Ersatz des Verzugsschadens verlangen; nach erfolgloser Nachfrist vom Vertrag zurücktreten; Schadensersatz statt der Leistung verlangen (z. B. Mehrkosten eines Deckungskaufs).
+
+</details>
+
+**16.** Eine Rechnung über 4.800 € geht dem Kunden am 2. Mai zu und ist sofort fällig. Der Kunde zahlt nicht, gemahnt wird nicht. Ab wann befindet sich der Kunde im Zahlungsverzug und was kann der Lieferant dann verlangen?
+
+<details><summary>Lösung</summary>
+
+**Musterlösung (3 P):** Ohne Mahnung tritt der Verzug spätestens 30 Tage nach Fälligkeit und Zugang der Rechnung ein, hier also Anfang Juni (1). Der Lieferant kann Verzugszinsen und Mahnkosten verlangen (1) und nach Fristsetzung zurücktreten bzw. Schadensersatz fordern; bei Eigentumsvorbehalt kann er die Ware zurückholen (1).
+
+</details>
+
+**17.** Ein Kunde verweigert ohne Grund die Annahme von ordnungsgemäß und pünktlich gelieferten Servern. Benennen Sie die Vertragsstörung und nennen Sie zwei Rechte des Lieferanten.
+
+<details><summary>Lösung</summary>
+
+**Musterlösung (3 P):** Annahmeverzug (1). Rechte (je 1): auf Abnahme bestehen bzw. klagen; die Ware auf Kosten und Gefahr des Kunden einlagern; Selbsthilfeverkauf nach Androhung; vom Vertrag zurücktreten.
+
+</details>
+
+**18.** Wie heißt die Vereinbarung, nach der gelieferte Ware bis zur vollständigen Bezahlung dem Verkäufer gehört?
+
+<details><summary>Lösung</summary>
+
+**Musterlösung (2 P):** Eigentumsvorbehalt
+
+</details>
+
+**19.** Ein Kunde zahlt eine fällige Rechnung trotz Mahnung nicht. Welche Vertragsstörung liegt vor?
+
+<details><summary>Lösung</summary>
+
+**Musterlösung (2 P):** Zahlungsverzug (Nicht-rechtzeitig-Zahlung)
+
+</details>
+
+**20.** Erläutern Sie, was AGB sind und unter welcher Voraussetzung sie Vertragsbestandteil werden.
+
+<details><summary>Lösung</summary>
+
+**Musterlösung (2 P):** AGB sind vorformulierte Vertragsbedingungen, die ein Unternehmen für eine Vielzahl von Verträgen verwendet (1). Sie werden nur Vertragsbestandteil, wenn vor Vertragsschluss auf sie hingewiesen wurde und der Kunde sie in zumutbarer Weise zur Kenntnis nehmen konnte und einverstanden ist (1).
+
+</details>
+
+**21.** Ein IT-Händler erhält 50 Monitore von seinem Großhändler und lagert sie drei Wochen ungeprüft ein. Dann stellt er fest, dass zehn Geräte defekt sind. Erläutern Sie das Problem.
+
+<details><summary>Lösung</summary>
+
+**Musterlösung (3 P):** Unter Kaufleuten gilt die unverzügliche Prüf- und Rügepflicht (1). Der Händler hätte die Ware gleich nach der Lieferung prüfen und erkennbare Mängel sofort melden müssen (1). Durch die verspätete Rüge gilt die Ware als genehmigt – er verliert seine Gewährleistungsrechte für diese Mängel (1).
+
+</details>
+
+**22.** Nennen Sie vier Punkte, die in einem Kaufvertrag über 30 Arbeitsplatz-PCs geregelt sein sollten.
+
+<details><summary>Lösung</summary>
+
+**Musterlösung (4 P):** Je 1: Art, Ausstattung und Menge der Geräte; Preis, Rabatt und Skonto; Liefertermin; Lieferbedingungen (z. B. frei Haus, Aufstellung); Zahlungsbedingungen; Gewährleistung/Garantie und Service; Eigentumsvorbehalt; Vertragsstrafe bei Verzug; Erfüllungsort und Gerichtsstand.
+
+</details>
+
+**23.** Ein Kunde ist mit 12.000 € seit 45 Tagen in Verzug. Der Verzugszinssatz beträgt 11 % pro Jahr (360 Zinstage). Wie hoch sind die Verzugszinsen?
+
+<details><summary>Lösung</summary>
+
+**165 €**<br>12.000 × 11 × 45 ÷ (100 × 360) = 165 €.
+
+</details>
+
+**24.** Erläutern Sie den Unterschied zwischen Freeware und Open-Source-Software.
+
+<details><summary>Lösung</summary>
+
+**Musterlösung (2 P):** Freeware darf kostenlos genutzt werden, der Quellcode ist aber nicht einsehbar und darf nicht verändert werden (1). Bei Open-Source-Software ist der Quellcode offen und darf nach den Regeln der Lizenz geändert und weitergegeben werden (1).
 
 </details>
 
