@@ -3642,7 +3642,8 @@ ANL.forEach(c => { c.steps = c.steps.map(toDecide); });
 "use strict";
 /* ====================== Grundlagen ====================== */
 const EXAM = new Date("2027-02-24T08:00:00+01:00");
-const KEY = "ap1-lernwerkstatt-v1";
+/* In der PHP-Version (window.AP1_SERVER) bekommt jedes Konto einen eigenen lokalen Speicher. */
+const KEY = "ap1-lernwerkstatt-v1" + (window.AP1_SERVER && window.AP1_SERVER.user ? "-u" + window.AP1_SERVER.user.id : "");
 const $ = s => document.querySelector(s);
 const esc = s => String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const hash = s => { let x = 5381; for (let i = 0; i < s.length; i++) x = ((x << 5) + x + s.charCodeAt(i)) | 0; return (x >>> 0).toString(36); };
@@ -4293,10 +4294,11 @@ function renderPlan(app) {
     <div class="hit"><a href="https://www.bundesfachstelle-barrierefreiheit.de/" target="_blank" rel="noopener">Bundesfachstelle Barrierefreiheit – BFSG</a></div>
   </div>
   <h2>Daten</h2>
-  <div class="card row">${STANDALONE ? `<button class="btn sm pri" onclick="saveBackupFile()">💾 Backup als Datei speichern</button><label class="btn sm" style="cursor:pointer">📂 Backup-Datei laden<input type="file" accept=".json,application/json" style="display:none" onchange="loadBackupFile(this.files[0])"></label>` : ""}<button class="btn sm" onclick="exportData()">📋 Fortschritt kopieren (Backup)</button><button class="btn sm" onclick="importData()">📥 Backup einfügen</button><button class="btn sm bad" onclick="modal('<h3>Fortschritt zurücksetzen?</h3><p class=muted>Alle Karten, Antworten und Simulationen werden gelöscht.</p>',[['Abbrechen','closeModal()'],['Zurücksetzen','closeModal();S=blank();save();render()','bad']])">Zurücksetzen</button></div>`;
+  <div class="card row">${STANDALONE || SERVER ? `<button class="btn sm pri" onclick="saveBackupFile()">💾 Backup als Datei speichern</button><label class="btn sm" style="cursor:pointer">📂 Backup-Datei laden<input type="file" accept=".json,application/json" style="display:none" onchange="loadBackupFile(this.files[0])"></label>` : ""}<button class="btn sm" onclick="exportData()">📋 Fortschritt kopieren (Backup)</button><button class="btn sm" onclick="importData()">📥 Backup einfügen</button><button class="btn sm bad" onclick="modal('<h3>Fortschritt zurücksetzen?</h3><p class=muted>Alle Karten, Antworten und Simulationen werden gelöscht.</p>',[['Abbrechen','closeModal()'],['Zurücksetzen','closeModal();S=blank();save();render()','bad']])">Zurücksetzen</button></div>`;
 }
-const STANDALONE = !(window.claude && typeof window.claude.use === "function");
-const HAS_AI = !STANDALONE;
+const SERVER = window.AP1_SERVER || null;
+const STANDALONE = !(window.claude && typeof window.claude.use === "function") && !SERVER;
+const HAS_AI = SERVER ? !!SERVER.ai : !STANDALONE;
 function saveBackupFile() {
   const blob = new Blob([JSON.stringify(S)], { type: "application/json" });
   const a = document.createElement("a"); a.href = URL.createObjectURL(blob); a.download = "ap1-lernstand-" + today() + ".json";
