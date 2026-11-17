@@ -22,7 +22,7 @@
 | 14 | [🛡️ IT-Sicherheit](14_sicherheit.md) | Sicherheit | ★★★ | 38 | 27 |
 | 15 | [🔐 Kryptografie & Hashverfahren](15_krypto.md) | Sicherheit | ★★★ | 21 | 16 |
 | 16 | [📜 Datenschutz & Entsorgung](16_datenschutz.md) | Sicherheit | ★★★ | 38 | 26 |
-| 17 | [✅ Qualitätssicherung & Test](17_qualitaet.md) | Planung | ★☆☆ | 15 | 11 |
+| 17 | [✅ Qualitätssicherung & Test](17_qualitaet.md) | Planung | ★☆☆ | 15 | 9 |
 | 18 | [💻 Programmierung & Algorithmen](18_programmierung.md) | Software | ★★★ | 53 | 44 |
 | 19 | [🧮 Zahlensysteme & Datenmengen](19_zahlen.md) | Software | ★★★ | 20 | 15 |
 
@@ -34,4 +34,4 @@
 
 - [📎 Aufgaben mit Anlagen](anlagen.md) – 9 Aufgaben
 
-- [📖 Glossar & Abkürzungen](glossar.md) – 190 Begriffe
+- [📖 Glossar & Abkürzungen](glossar.md) – 198 Begriffe

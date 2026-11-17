@@ -244,7 +244,7 @@ Typische AP1-Situationen: Hardware, Betriebssystem, Software und Lizenzen für e
 
 <details><summary>Lösung</summary>
 
-**Musterlösung (3 P):** Physische Vernichtung nach DIN 66399, Schutzklasse 3, mind. Sicherheitsstufe H-5, mit Vernichtungsprotokoll – Sehr hoher Schutzbedarf → Schutzklasse 3.
+**Musterlösung (3 P):** Physische Vernichtung nach DIN 66399, Schutzklasse 3, mindestens Sicherheitsstufe H-4 (besser H-5), durch einen zertifizierten Dienstleister mit Vernichtungsprotokoll und AV-Vertrag – Gesundheitsdaten haben sehr hohen Schutzbedarf → Schutzklasse 3.
 
 </details>
 

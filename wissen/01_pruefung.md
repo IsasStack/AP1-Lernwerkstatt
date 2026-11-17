@@ -212,7 +212,7 @@ Zuerst die 8-Punkte-Aufgabe bearbeiten, weil sie mehr Punkte pro Minute bringt (
 
 | Frage | Antwort |
 |---|---|
-| Wann ist die AP1 Frühjahr 2027? | Mittwoch, 24.02.2027 – bundeseinheitlich (AkA), Beginn in der Regel 8 Uhr. |
+| Wann ist die AP1 Frühjahr 2027? | Mittwoch, 24.02.2027 – bundeseinheitlich; Uhrzeit und Raum stehen in der Einladung der IHK. |
 | Wie stark zählt die AP1? | 20 % der Gesamtnote, 90 Minuten schriftlich, für alle IT-Berufe identisch. |
 | Kann man in der AP1 „durchfallen“? | Nicht isoliert – es gibt keine Sperrnote. Aber ein schwaches Ergebnis muss in der AP2 (80 %) ausgeglichen werden. |
 | Operator „Nennen“ | Stichworte genügen, keine Erklärung nötig. |

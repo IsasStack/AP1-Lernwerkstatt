@@ -188,7 +188,7 @@ Das ist nicht zulässig bzw. sehr riskant (1): Es werden personenbezogene Daten 
 | ERP | Enterprise Resource Planning: integrierte Software für Finanzen, Einkauf, Lager, Produktion, Vertrieb, Personal. |
 | CRM | Customer Relationship Management: Verwaltung von Kundenkontakten, Vertrieb, Service. |
 | SCM | Supply Chain Management: Planung und Steuerung der Lieferkette. |
-| Stamm- vs. Bewegungsdaten | Stammdaten: langfristig, selten geändert (Kunde). Bewegungsdaten: laufend neu (Auftrag, Rechnung). |
+| Stamm- vs. Bewegungsdaten | [Hintergrund – nicht mehr AP1-Stoff] Stammdaten: langfristig, selten geändert (Kunde). Bewegungsdaten: laufend neu (Auftrag, Rechnung). |
 | KI-Halluzination | Plausibel klingende, aber falsche Ausgabe eines KI-Modells. |
 | KI am Arbeitsplatz – Regeln | Keine personenbezogenen/vertraulichen Daten in öffentliche Tools, Ergebnisse prüfen, freigegebene Tools, Richtlinie & Schulung. |
 | EU AI Act – Art. 4 | Pflicht zur Förderung von KI-Kompetenz bei Beschäftigten, die KI nutzen (seit 02.02.2025). |
@@ -264,15 +264,7 @@ Das ist nicht zulässig bzw. sehr riskant (1): Es werden personenbezogene Daten 
 
 </details>
 
-**9.** Eine Rechnung im ERP-System ist ein Beispiel für …
-
-<details><summary>Lösung</summary>
-
-**Musterlösung (2 P):** Bewegungsdaten<br>Rechnungen entstehen laufend = Bewegungsdaten.
-
-</details>
-
-**10.** Welche Pflicht aus dem EU AI Act gilt seit Februar 2025 für Unternehmen, die KI einsetzen?
+**9.** Welche Pflicht aus dem EU AI Act gilt seit Februar 2025 für Unternehmen, die KI einsetzen?
 
 <details><summary>Lösung</summary>
 
@@ -280,7 +272,7 @@ Das ist nicht zulässig bzw. sehr riskant (1): Es werden personenbezogene Daten 
 
 </details>
 
-**11.** Ihre Geschäftsführung möchte einen generativen KI-Assistenten für alle Mitarbeitenden einführen. Nennen Sie zwei Risiken und je eine Gegenmaßnahme. (4 Punkte)
+**10.** Ihre Geschäftsführung möchte einen generativen KI-Assistenten für alle Mitarbeitenden einführen. Nennen Sie zwei Risiken und je eine Gegenmaßnahme. (4 Punkte)
 
 <details><summary>Lösung</summary>
 
@@ -288,7 +280,7 @@ Das ist nicht zulässig bzw. sehr riskant (1): Es werden personenbezogene Daten 
 
 </details>
 
-**12.** Erläutern Sie zwei Vorteile der Servervirtualisierung. (4 Punkte)
+**11.** Erläutern Sie zwei Vorteile der Servervirtualisierung. (4 Punkte)
 
 <details><summary>Lösung</summary>
 
@@ -296,7 +288,7 @@ Das ist nicht zulässig bzw. sehr riskant (1): Es werden personenbezogene Daten 
 
 </details>
 
-**13.** Nennen Sie je ein Beispiel für IaaS, PaaS und SaaS und erklären Sie, wer jeweils das Betriebssystem verwaltet. (3 Punkte)
+**12.** Nennen Sie je ein Beispiel für IaaS, PaaS und SaaS und erklären Sie, wer jeweils das Betriebssystem verwaltet. (3 Punkte)
 
 <details><summary>Lösung</summary>
 
@@ -304,7 +296,7 @@ Das ist nicht zulässig bzw. sehr riskant (1): Es werden personenbezogene Daten 
 
 </details>
 
-**14.** Ein Unternehmen stellt 10 befristete Projektmitarbeitende ein, die von eigenen Geräten auf einen Firmen-Windows-Desktop zugreifen sollen. Was passt?
+**13.** Ein Unternehmen stellt 10 befristete Projektmitarbeitende ein, die von eigenen Geräten auf einen Firmen-Windows-Desktop zugreifen sollen. Was passt?
 
 <details><summary>Lösung</summary>
 
@@ -312,11 +304,19 @@ Das ist nicht zulässig bzw. sehr riskant (1): Es werden personenbezogene Daten 
 
 </details>
 
-**15.** Warum sollten vor der Einführung eines KI-Assistenten mit Zugriff auf Unternehmensdaten die Berechtigungen geprüft werden?
+**14.** Warum sollten vor der Einführung eines KI-Assistenten mit Zugriff auf Unternehmensdaten die Berechtigungen geprüft werden?
 
 <details><summary>Lösung</summary>
 
 **Musterlösung (2 P):** Weil die KI alles findet, was der Nutzer sehen darf – zu weit gefasste Rechte werden sonst sichtbar
+
+</details>
+
+**15.** Ein Kollege meint: „Wir machen vor jedem Update einen Snapshot der VM, ein Backup brauchen wir nicht.“ Beurteilen Sie die Aussage.
+
+<details><summary>Lösung</summary>
+
+**Musterlösung (2 P):** Die Aussage ist falsch (1). Ein Snapshot liegt auf demselben Speicher wie die VM – fällt dieser aus oder wird er verschlüsselt, sind VM und Snapshot gleichzeitig verloren. Ein Backup muss getrennt, möglichst auch außer Haus bzw. offline, gespeichert werden (1).
 
 </details>
 

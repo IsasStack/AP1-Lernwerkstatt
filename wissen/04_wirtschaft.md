@@ -309,7 +309,7 @@ Der Unterschied ist gering (1). Gewichte und Punkte sind subjektiv; schon eine l
 | Schema Bezugspreis | Listenpreis − Rabatt = Zieleinkaufspreis − Skonto = Bareinkaufspreis + Bezugskosten = Bezugspreis. |
 | Rabatt vs. Skonto | Rabatt: Preisnachlass (Menge, Treue). Skonto: Nachlass für Zahlung innerhalb einer Frist. |
 | Brutto aus Netto | Netto × 1,19 (bei 19 % USt). |
-| Deckungsbeitrag | Umsatz − variable Kosten; trägt zur Deckung der Fixkosten bei. |
+| Deckungsbeitrag | [Hintergrund – nicht mehr AP1-Stoff] Umsatz − variable Kosten; trägt zur Deckung der Fixkosten bei. |
 | Lineare Abschreibung | Anschaffungskosten ÷ Nutzungsdauer = jährlicher Abschreibungsbetrag. |
 | Qualitative Kriterien Angebotsvergleich | Lieferzeit, Service, Garantie, Zuverlässigkeit, Erreichbarkeit, Nachhaltigkeit. |
 | Schema Verkaufskalkulation | Bezugspreis + Handlungskosten = Selbstkosten + Gewinn = Barverkaufspreis + Skonto (i. H.) = Zielverkaufspreis + Rabatt (i. H.) = Listenverkaufspreis. |
@@ -324,7 +324,7 @@ Der Unterschied ist gering (1). Gewichte und Punkte sind subjektiv; schon eine l
 | Ökologische Kriterien IT-Beschaffung | Energieeffizienz, Langlebigkeit/Reparierbarkeit, Recycling, Umweltsiegel, Refurbished. |
 | Soziale Kriterien IT-Beschaffung | Faire Arbeitsbedingungen in der Lieferkette, Ergonomie, Barrierefreiheit, Gesundheitsschutz. |
 | Zielkonflikt – Beispiel | Billigstes Gerät (ökonomisch) vs. energieeffizientes, langlebiges Gerät (ökologisch). |
-| Benchmarking | Vergleich mit dem Besten (Best Practice) bzw. Leistungsvergleich per Benchmark-Test. |
+| Benchmarking | [Hintergrund – nicht mehr AP1-Stoff] Vergleich mit dem Besten (Best Practice) bzw. Leistungsvergleich per Benchmark-Test. |
 
 ## ✍️ Übungsfragen (23)
 
@@ -336,11 +336,11 @@ Der Unterschied ist gering (1). Gewichte und Punkte sind subjektiv; schon eine l
 
 </details>
 
-**2.** Drucker A: 800 € + 0,04 €/Seite. Drucker B: 200 € + 0,07 €/Seite. Ab wie vielen Seiten ist A günstiger? (Break-even-Menge)
+**2.** Drucker A: 800 € + 0,04 €/Seite. Drucker B: 200 € + 0,07 €/Seite. Bei welcher Seitenzahl sind beide gleich teuer (Break-even-Menge)?
 
 <details><summary>Lösung</summary>
 
-**20000 Seiten**<br>800 + 0,04x = 200 + 0,07x → 600 = 0,03x → x = 20.000. Ab mehr als 20.000 Seiten ist A günstiger.
+**20000 Seiten**<br>800 + 0,04x = 200 + 0,07x → 600 = 0,03x → x = 20.000. Darüber ist A günstiger, darunter B.
 
 </details>
 
@@ -412,7 +412,7 @@ Der Unterschied ist gering (1). Gewichte und Punkte sind subjektiv; schon eine l
 
 <details><summary>Lösung</summary>
 
-**Musterlösung (3 P):** Je 1 Punkt (max. 3): Lieferzeit; Kundenservice; Garantiebedingungen. Der Bezugspreis ist quantitativ.
+**Musterlösung (3 P):** Je 1 Punkt (max. 3): Lieferzeit; Service/Support; Garantie; Zuverlässigkeit des Lieferanten; Erreichbarkeit; Nachhaltigkeit. Preis, Rabatt und Bezugspreis sind quantitative Kriterien.
 
 </details>
 

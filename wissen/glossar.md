@@ -1,6 +1,6 @@
 # 📖 Glossar & Abkürzungen
 
-190 Begriffe, alphabetisch.
+198 Begriffe, alphabetisch.
 
 [⬅ Inhaltsverzeichnis](README.md)
 
@@ -64,7 +64,9 @@
 
 | Abkürzung | Ausgeschrieben | Bedeutung |
 |---|---|---|
+| **DaaS** | Desktop as a Service | Virtueller Desktop aus der Cloud, pro Benutzer und Monat bezahlt (z. B. Windows 365). |
 | **DC** | Domain Controller | Server, der die Domäne (AD) bereitstellt und authentifiziert. |
+| **DDG** | Digitale-Dienste-Gesetz | Seit 2024, ersetzt das TMG – regelt u. a. die Impressumspflicht. |
 | **DDoS** | Distributed Denial of Service | Überlastungsangriff aus vielen Quellen. |
 | **DDR** | Double Data Rate | Arbeitsspeicher-Standard; DDR4 und DDR5 sind nicht miteinander kompatibel. |
 | **DHCP** | Dynamic Host Configuration Protocol | Vergibt IP-Konfiguration automatisch (DORA, UDP 67/68). |
@@ -87,6 +89,7 @@
 |---|---|---|
 | **ECC** | Error-Correcting Code (RAM) / Elliptic Curve Cryptography | Fehlerkorrigierender Arbeitsspeicher bzw. asymmetrisches Kryptoverfahren. |
 | **EDR** | Endpoint Detection and Response | Erkennung und Reaktion auf Angriffe an Endgeräten. |
+| **eIDAS** | electronic IDentification, Authentication and trust Services | EU-Verordnung zu elektronischen Signaturen; die qualifizierte Signatur ersetzt die Schriftform. |
 | **ElektroG** | Elektro- und Elektronikgerätegesetz | Rücknahme und Entsorgung von Elektroaltgeräten. |
 | **EOL** | End of Life | Ende des Supports/Produktlebens. |
 | **ERP** | Enterprise Resource Planning | Integrierte Unternehmenssoftware (Finanzen, Lager, Einkauf, Personal …). |
@@ -143,14 +146,14 @@
 | **ISMS** | Informationssicherheits-Managementsystem | Systematisches Management der Informationssicherheit. |
 | **ISO** | International Organization for Standardization | Internationale Normen, z. B. ISO 9001, 9241. |
 | **ISP** | Internet Service Provider | Internetanbieter. |
-| **IT** | Informationstechnik |  |
+| **IT** | Informationstechnik | Sammelbegriff für Hard- und Software zur Verarbeitung, Speicherung und Übertragung von Informationen. |
 
 ## K
 
 | Abkürzung | Ausgeschrieben | Bedeutung |
 |---|---|---|
 | **KI** | Künstliche Intelligenz | Systeme, die Aufgaben wie Text-/Bilderkennung oder -erzeugung lösen. |
-| **KMU** | Kleine und mittlere Unternehmen |  |
+| **KMU** | Kleine und mittlere Unternehmen | Unternehmen mit weniger als 250 Beschäftigten und höchstens 50 Mio. € Umsatz (EU-Definition). |
 | **KVM** | Keyboard, Video, Mouse | KVM-Switch: ein Satz Peripherie für mehrere Rechner. |
 | **KVP** | Kontinuierlicher Verbesserungsprozess | Qualitätsmanagement (vgl. PDCA). |
 
@@ -173,7 +176,7 @@
 | **MAN** | Metropolitan Area Network | Stadt-/Regionalnetz. |
 | **MBR** | Master Boot Record | Altes Partitionsschema (max. 2 TiB). |
 | **MDM** | Mobile Device Management | Zentrale Verwaltung mobiler Geräte (z. B. Intune). |
-| **MFP** | Multifunktionsprinter | Drucker, Scanner, Kopierer in einem. |
+| **MFP** | Multifunction Printer | Multifunktionsgerät: Drucker, Scanner und Kopierer in einem. |
 
 ## N
 
@@ -181,8 +184,11 @@
 |---|---|---|
 | **NAS** | Network Attached Storage | Netzwerkspeicher. |
 | **NAT** | Network Address Translation | Übersetzt private in öffentliche IP-Adressen. |
+| **NDP** | Neighbor Discovery Protocol | Ersetzt bei IPv6 unter anderem ARP. |
 | **NFC** | Near Field Communication | Funk über wenige Zentimeter (kontaktloses Bezahlen, Zutritt). |
 | **NFS** | Network File System | Dateifreigabe unter Unix/Linux. |
+| **NIS-2** | Network and Information Security Directive 2 | EU-Richtlinie: Risikomanagement und Meldepflichten für viele Unternehmen. |
+| **NPU** | Neural Processing Unit | Recheneinheit im Prozessor für KI-Aufgaben, stromsparend und lokal. |
 | **NTFS** | New Technology File System | Windows-Dateisystem mit Rechten und Journaling. |
 | **NTP** | Network Time Protocol | Zeitsynchronisation (Port 123). |
 | **NVMe** | Non-Volatile Memory Express | Schnelles SSD-Protokoll über PCIe. |
@@ -239,6 +245,7 @@
 | Abkürzung | Ausgeschrieben | Bedeutung |
 |---|---|---|
 | **SaaS** | Software as a Service | Cloud: fertige Anwendung, z. B. Microsoft 365. |
+| **SAE** | Simultaneous Authentication of Equals | Anmeldeverfahren von WPA3, schützt vor Offline-Rateangriffen. |
 | **SAZ / SEZ** | Spätester Anfangs-/Endzeitpunkt | Netzplantechnik, Rückwärtsrechnung. |
 | **SCM** | Supply Chain Management | Steuerung der Lieferkette. |
 | **SD-WAN** | Software-Defined WAN | Zentral gesteuerte Nutzung mehrerer WAN-Leitungen. |
@@ -263,6 +270,7 @@
 |---|---|---|
 | **TCO** | Total Cost of Ownership | Gesamtkosten über die Nutzungsdauer. |
 | **TCP** | Transmission Control Protocol | Verbindungsorientiertes, zuverlässiges Transportprotokoll. |
+| **TDDDG** | Telekommunikation-Digitale-Dienste-Datenschutz-Gesetz | Regelt u. a. Cookies: Tracking nur mit Einwilligung. |
 | **TDP** | Thermal Design Power | Wärmeleistung in Watt, auf die die Kühlung einer CPU ausgelegt sein muss. |
 | **TLS** | Transport Layer Security | Verschlüsselung für HTTPS, Mail usw. |
 | **TOM** | Technische und organisatorische Maßnahmen | Schutzmaßnahmen nach Art. 32 DSGVO. |

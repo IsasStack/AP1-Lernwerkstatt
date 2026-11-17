@@ -298,12 +298,12 @@ Ursachen (je 1): Angst, mit dem neuen System nicht zurechtzukommen; Gewohnheit a
 | Frage | Antwort |
 |---|---|
 | Vier Seiten einer Nachricht (Schulz von Thun) | Sachinhalt, Selbstoffenbarung, Beziehung, Appell. |
-| Eisbergmodell | Kleiner sichtbarer Teil = Sachebene; großer unsichtbarer Teil = Beziehungsebene (Gefühle, Werte). |
+| Eisbergmodell | [Hintergrund – nicht mehr AP1-Stoff] Kleiner sichtbarer Teil = Sachebene; großer unsichtbarer Teil = Beziehungsebene (Gefühle, Werte). |
 | Sender-Empfänger-Modell – Hauptproblem | Nachricht wird codiert/decodiert; unterschiedliche Codes (z. B. Fachsprache) und Störungen führen zu Missverständnissen. |
-| Offene Frage – wofür? | Informationen sammeln, Kunde erzählt frei (W-Fragen). |
-| Geschlossene Frage – wofür? | Ja/Nein-Antwort, Bestätigung konkreter Punkte. |
-| Aktives Zuhören | Aufmerksam zuhören, nicht unterbrechen, paraphrasieren, nachfragen, Gefühle spiegeln. |
-| Upselling vs. Cross-Selling | Upselling: höherwertiges Produkt. Cross-Selling: ergänzendes Zusatzprodukt. |
+| Offene Frage – wofür? | [Hintergrund – nicht mehr AP1-Stoff] Informationen sammeln, Kunde erzählt frei (W-Fragen). |
+| Geschlossene Frage – wofür? | [Hintergrund – nicht mehr AP1-Stoff] Ja/Nein-Antwort, Bestätigung konkreter Punkte. |
+| Aktives Zuhören | [Hintergrund – nicht mehr AP1-Stoff] Aufmerksam zuhören, nicht unterbrechen, paraphrasieren, nachfragen, Gefühle spiegeln. |
+| Upselling vs. Cross-Selling | [Hintergrund – nicht mehr AP1-Stoff] Upselling: höherwertiges Produkt. Cross-Selling: ergänzendes Zusatzprodukt. |
 | 1st/2nd/3rd Level Support | 1st: Service Desk, Annahme & Standardlösung. 2nd: Spezialisten. 3rd: Hersteller/Entwicklung. |
 | Incident vs. Problem | Incident: einzelne Störung, schnell beheben. Problem: zugrundeliegende Ursache, dauerhaft lösen. |
 | Funktionen eines Ticketsystems | Erfassen, priorisieren, zuweisen, Status verfolgen, dokumentieren, auswerten, Wissensdatenbank. |
@@ -313,10 +313,10 @@ Ursachen (je 1): Angst, mit dem neuen System nicht zurechtzukommen; Gewohnheit a
 | Matrixorganisation | Überlagerung von Funktions- und Projekt-/Produktlinie; flexibel, aber Kompetenzkonflikte. |
 | Promotor im Change-Prozess | Unterstützer, der die Veränderung aktiv vorantreibt und andere motiviert. |
 | Direkter vs. indirekter Vertrieb | Direkt: Hersteller verkauft selbst an Kunden. Indirekt: über Händler/Systemhaus. |
-| Suchoperator für exakte Wortfolge | Anführungszeichen "…". |
-| site: | Begrenzt die Suche auf eine Website/Domain, z. B. site:bsi.bund.de. |
-| filetype: | Findet nur einen Dateityp, z. B. filetype:pdf. |
-| Minus-Operator | Schließt einen Begriff aus: Drucker -Tinte. |
+| Suchoperator für exakte Wortfolge | [Hintergrund – nicht mehr AP1-Stoff] Anführungszeichen "…". |
+| site: | [Hintergrund – nicht mehr AP1-Stoff] Begrenzt die Suche auf eine Website/Domain, z. B. site:bsi.bund.de. |
+| filetype: | [Hintergrund – nicht mehr AP1-Stoff] Findet nur einen Dateityp, z. B. filetype:pdf. |
+| Minus-Operator | [Hintergrund – nicht mehr AP1-Stoff] Schließt einen Begriff aus: Drucker -Tinte. |
 | Kriterien für vertrauenswürdige Quellen | Autor/Herausgeber, Aktualität, Objektivität, Belege, Primärquelle. |
 | vulnerability / mitigation | Schwachstelle / Maßnahme zur Abschwächung. |
 | end of life (EOL) | Produkt wird nicht mehr unterstützt – keine Updates mehr. |
@@ -355,15 +355,7 @@ Ursachen (je 1): Angst, mit dem neuen System nicht zurechtzukommen; Gewohnheit a
 
 </details>
 
-**3.** Eine Kundin kauft ein Notebook. Der Verkäufer empfiehlt zusätzlich eine Dockingstation. Das ist …
-
-<details><summary>Lösung</summary>
-
-**Musterlösung (2 P):** Cross-Selling<br>Ergänzendes Produkt = Cross-Selling.
-
-</details>
-
-**4.** Welche Support-Ebene nimmt Störungsmeldungen an und löst Standardprobleme?
+**3.** Welche Support-Ebene nimmt Störungsmeldungen an und löst Standardprobleme?
 
 <details><summary>Lösung</summary>
 
@@ -371,7 +363,7 @@ Ursachen (je 1): Angst, mit dem neuen System nicht zurechtzukommen; Gewohnheit a
 
 </details>
 
-**5.** Wenige Anbieter stehen vielen Nachfragern gegenüber. Welche Marktform?
+**4.** Wenige Anbieter stehen vielen Nachfragern gegenüber. Welche Marktform?
 
 <details><summary>Lösung</summary>
 
@@ -379,23 +371,7 @@ Ursachen (je 1): Angst, mit dem neuen System nicht zurechtzukommen; Gewohnheit a
 
 </details>
 
-**6.** Welche Merkmale gehören zum aktiven Zuhören? Nennen Sie drei.
-
-<details><summary>Lösung</summary>
-
-**Musterlösung (3 P):** Je 1 Punkt (max. 3): Paraphrasieren; Nachfragen; Blickkontakt halten. Unterbrechen widerspricht aktivem Zuhören.
-
-</details>
-
-**7.** Was liegt laut Eisbergmodell „unter Wasser“?
-
-<details><summary>Lösung</summary>
-
-**Musterlösung (2 P):** Gefühle, Werte, Erfahrungen<br>Beziehungsebene = großer unsichtbarer Teil.
-
-</details>
-
-**8.** Bei welcher Organisationsform hat ein Mitarbeiter mehrere fachliche Vorgesetzte?
+**5.** Bei welcher Organisationsform hat ein Mitarbeiter mehrere fachliche Vorgesetzte?
 
 <details><summary>Lösung</summary>
 
@@ -403,7 +379,7 @@ Ursachen (je 1): Angst, mit dem neuen System nicht zurechtzukommen; Gewohnheit a
 
 </details>
 
-**9.** Was unterscheidet ein Problem von einem Incident?
+**6.** Was unterscheidet ein Problem von einem Incident?
 
 <details><summary>Lösung</summary>
 
@@ -411,7 +387,7 @@ Ursachen (je 1): Angst, mit dem neuen System nicht zurechtzukommen; Gewohnheit a
 
 </details>
 
-**10.** Ein Mitarbeiter lehnt die Einführung eines neuen Ticketsystems ab. Nennen Sie zwei mögliche Ursachen für Widerstand und zwei Gegenmaßnahmen. (4 Punkte)
+**7.** Ein Mitarbeiter lehnt die Einführung eines neuen Ticketsystems ab. Nennen Sie zwei mögliche Ursachen für Widerstand und zwei Gegenmaßnahmen. (4 Punkte)
 
 <details><summary>Lösung</summary>
 
@@ -419,7 +395,7 @@ Ursachen (je 1): Angst, mit dem neuen System nicht zurechtzukommen; Gewohnheit a
 
 </details>
 
-**11.** Nennen Sie vier Funktionen eines Ticketsystems. (4 Punkte)
+**8.** Nennen Sie vier Funktionen eines Ticketsystems. (4 Punkte)
 
 <details><summary>Lösung</summary>
 
@@ -427,7 +403,7 @@ Ursachen (je 1): Angst, mit dem neuen System nicht zurechtzukommen; Gewohnheit a
 
 </details>
 
-**12.** Erklären Sie anhand des Vier-Seiten-Modells die Aussage eines Kunden: „Das neue Programm ist ja total kompliziert.“ (4 Punkte)
+**9.** Erklären Sie anhand des Vier-Seiten-Modells die Aussage eines Kunden: „Das neue Programm ist ja total kompliziert.“ (4 Punkte)
 
 <details><summary>Lösung</summary>
 
@@ -435,15 +411,7 @@ Ursachen (je 1): Angst, mit dem neuen System nicht zurechtzukommen; Gewohnheit a
 
 </details>
 
-**13.** Sie suchen nur PDF-Datenblätter eines Monitors auf der Herstellerseite example.com. Welche Suchanfrage passt?
-
-<details><summary>Lösung</summary>
-
-**Musterlösung (2 P):** site:example.com Datenblatt filetype:pdf
-
-</details>
-
-**14.** Welche Quelle ist für die Frage „Unterstützt Gerät X DisplayPort Alt Mode?“ am verlässlichsten?
+**10.** Welche Quelle ist für die Frage „Unterstützt Gerät X DisplayPort Alt Mode?“ am verlässlichsten?
 
 <details><summary>Lösung</summary>
 
@@ -451,7 +419,7 @@ Ursachen (je 1): Angst, mit dem neuen System nicht zurechtzukommen; Gewohnheit a
 
 </details>
 
-**15.** In einer Sicherheitsmeldung steht „Affected versions: 2.1.0 – 2.3.4. Fixed in 2.3.5“. Ihre Firmware ist 2.3.4. Was tun?
+**11.** In einer Sicherheitsmeldung steht „Affected versions: 2.1.0 – 2.3.4. Fixed in 2.3.5“. Ihre Firmware ist 2.3.4. Was tun?
 
 <details><summary>Lösung</summary>
 
@@ -459,7 +427,7 @@ Ursachen (je 1): Angst, mit dem neuen System nicht zurechtzukommen; Gewohnheit a
 
 </details>
 
-**16.** Was bedeutet „The licensee may not transfer the software without prior written consent“?
+**12.** Was bedeutet „The licensee may not transfer the software without prior written consent“?
 
 <details><summary>Lösung</summary>
 
@@ -467,7 +435,7 @@ Ursachen (je 1): Angst, mit dem neuen System nicht zurechtzukommen; Gewohnheit a
 
 </details>
 
-**17.** Ein Kollege kam diese Woche zweimal zu spät zum Daily. Formulieren Sie ein Feedback nach den Feedbackregeln und nennen Sie zwei Regeln, die Sie dabei beachtet haben.
+**13.** Ein Kollege kam diese Woche zweimal zu spät zum Daily. Formulieren Sie ein Feedback nach den Feedbackregeln und nennen Sie zwei Regeln, die Sie dabei beachtet haben.
 
 <details><summary>Lösung</summary>
 
@@ -475,7 +443,7 @@ Ursachen (je 1): Angst, mit dem neuen System nicht zurechtzukommen; Gewohnheit a
 
 </details>
 
-**18.** Ein Unternehmen stellt auf IP-Telefonie um. Was ist im Netzwerk besonders wichtig?
+**14.** Ein Unternehmen stellt auf IP-Telefonie um. Was ist im Netzwerk besonders wichtig?
 
 <details><summary>Lösung</summary>
 
@@ -483,7 +451,7 @@ Ursachen (je 1): Angst, mit dem neuen System nicht zurechtzukommen; Gewohnheit a
 
 </details>
 
-**19.** Ein Admin will 200 Benutzerkonten automatisiert anlegen. Welche Oberfläche ist am besten geeignet?
+**15.** Ein Admin will 200 Benutzerkonten automatisiert anlegen. Welche Oberfläche ist am besten geeignet?
 
 <details><summary>Lösung</summary>
 
@@ -491,7 +459,7 @@ Ursachen (je 1): Angst, mit dem neuen System nicht zurechtzukommen; Gewohnheit a
 
 </details>
 
-**20.** Sie sollen der Geschäftsführung in zehn Minuten Ihr Konzept für neue Arbeitsplätze vorstellen. Nennen Sie vier Punkte, die Sie bei Vorbereitung und Gestaltung beachten.
+**16.** Sie sollen der Geschäftsführung in zehn Minuten Ihr Konzept für neue Arbeitsplätze vorstellen. Nennen Sie vier Punkte, die Sie bei Vorbereitung und Gestaltung beachten.
 
 <details><summary>Lösung</summary>
 
@@ -499,7 +467,7 @@ Ursachen (je 1): Angst, mit dem neuen System nicht zurechtzukommen; Gewohnheit a
 
 </details>
 
-**21.** Nennen Sie zwei Regeln für ein Brainstorming.
+**17.** Nennen Sie zwei Regeln für ein Brainstorming.
 
 <details><summary>Lösung</summary>
 
@@ -507,11 +475,43 @@ Ursachen (je 1): Angst, mit dem neuen System nicht zurechtzukommen; Gewohnheit a
 
 </details>
 
-**22.** Wie heißt die Marktsituation, in der das Angebot größer ist als die Nachfrage?
+**18.** Wie heißt die Marktsituation, in der das Angebot größer ist als die Nachfrage?
 
 <details><summary>Lösung</summary>
 
 **Musterlösung (2 P):** Käufermarkt
+
+</details>
+
+**19.** Ordnen Sie zu, ob es sich um funktionale oder nicht-funktionale Anforderungen handelt: a) Mitarbeitende können Urlaubsanträge online stellen. b) Die Anwendung antwortet in höchstens 2 Sekunden. c) Die Oberfläche ist mit Screenreadern bedienbar.
+
+<details><summary>Lösung</summary>
+
+**Musterlösung (3 P):** a) funktional – beschreibt, WAS das System tun soll (1). b) nicht-funktional – Leistung/Antwortzeit (1). c) nicht-funktional – Bedienbarkeit/Barrierefreiheit (1).
+
+</details>
+
+**20.** Wovon hängt die Priorität eines Tickets ab? Nennen Sie die beiden Kriterien.
+
+<details><summary>Lösung</summary>
+
+**Musterlösung (2 P):** Auswirkung – wie viele bzw. wie wichtige Bereiche betroffen sind (1) – und Dringlichkeit – wie schnell es gelöst sein muss (1).<br>Priorität = Auswirkung × Dringlichkeit – z. B. ausgefallener Kassenserver: hoch × hoch = Priorität 1.
+
+</details>
+
+**21.** Ein SLA sichert 99,5 % Verfügbarkeit pro Monat (30 Tage, rund um die Uhr) zu. Wie viele Stunden darf der Dienst im Monat höchstens ausfallen?
+
+<details><summary>Lösung</summary>
+
+**3.6 h**<br>30 × 24 h = 720 h; 720 h × 0,005 = 3,6 h.
+
+</details>
+
+**22.** Ein Kunde sagt: „Ich bin völlig im Stress, mein Drucker geht schon wieder nicht.“ Welche Seite der Nachricht ist „Ich bin völlig im Stress“ – Selbstoffenbarung oder Beziehung? Begründen Sie.
+
+<details><summary>Lösung</summary>
+
+**Musterlösung (2 P):** Selbstoffenbarung (1), weil der Kunde etwas über sich selbst mitteilt – über seine Gefühle und seine Lage. Die Beziehungsseite würde ausdrücken, was er vom Gegenüber hält (1).
 
 </details>
 

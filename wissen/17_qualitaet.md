@@ -116,33 +116,25 @@ So lässt sich vor der breiten Einführung messen, ob die Maßnahme wirkt (1), u
 
 | Frage | Antwort |
 |---|---|
-| Qualität nach ISO 9000 | Grad, in dem Merkmale eines Produkts/einer Leistung die Anforderungen erfüllen. |
-| ISO 9001 | Norm mit Anforderungen an ein Qualitätsmanagementsystem – zertifizierbar. |
-| Audit | Systematische, unabhängige Prüfung, ob Anforderungen/Prozesse eingehalten werden. |
+| Qualität nach ISO 9000 | [Hintergrund – nicht mehr AP1-Stoff] Grad, in dem Merkmale eines Produkts/einer Leistung die Anforderungen erfüllen. |
+| ISO 9001 | [Hintergrund – nicht mehr AP1-Stoff] Norm mit Anforderungen an ein Qualitätsmanagementsystem – zertifizierbar. |
+| Audit | [Hintergrund – nicht mehr AP1-Stoff] Systematische, unabhängige Prüfung, ob Anforderungen/Prozesse eingehalten werden. |
 | PDCA | Plan – Do – Check – Act: Zyklus der kontinuierlichen Verbesserung. |
 | Check-Phase im PDCA | Ergebnisse messen und mit den Zielen vergleichen (Soll-Ist). |
-| Merkmale Softwarequalität (ISO 25010) | Funktionale Eignung, Zuverlässigkeit, Benutzbarkeit, Effizienz, Wartbarkeit, Übertragbarkeit, Kompatibilität, Sicherheit. |
-| Black-Box-Test | Test ohne Codekenntnis, nur Ein-/Ausgabe gegen Spezifikation. |
-| White-Box-Test | Test mit Codekenntnis, z. B. Zweigabdeckung. |
-| Regressionstest | Erneuter Test nach Änderungen, um unbeabsichtigte Fehler in bestehenden Funktionen zu finden. |
-| Grenzwertanalyse | Testfälle an und direkt neben den Grenzen gültiger Bereiche. |
-| Teststufen | Komponententest, Integrationstest, Systemtest, Abnahmetest. |
-| Abnahmetest | Test durch den Kunden gegen dessen Anforderungen (Lastenheft). |
-| Statischer vs. dynamischer Test | Statisch: ohne Ausführung (Review). Dynamisch: Programm wird ausgeführt. |
-| Inhalte eines Testprotokolls | ID, Beschreibung, Vorbedingung, Eingabe, erwartetes & tatsächliches Ergebnis, Status, Datum, Tester. |
-| TQM | Total Quality Management: ganzheitliches QM unter Einbeziehung aller Mitarbeitenden. |
+| Merkmale Softwarequalität (ISO 25010) | [Hintergrund – nicht mehr AP1-Stoff] Funktionale Eignung, Zuverlässigkeit, Benutzbarkeit, Effizienz, Wartbarkeit, Übertragbarkeit, Kompatibilität, Sicherheit. |
+| Black-Box-Test | [Hintergrund – nicht mehr AP1-Stoff] Test ohne Codekenntnis, nur Ein-/Ausgabe gegen Spezifikation. |
+| White-Box-Test | [Hintergrund – nicht mehr AP1-Stoff] Test mit Codekenntnis, z. B. Zweigabdeckung. |
+| Regressionstest | [Hintergrund – nicht mehr AP1-Stoff] Erneuter Test nach Änderungen, um unbeabsichtigte Fehler in bestehenden Funktionen zu finden. |
+| Grenzwertanalyse | [Hintergrund – nicht mehr AP1-Stoff] Testfälle an und direkt neben den Grenzen gültiger Bereiche. |
+| Teststufen | [Hintergrund – nicht mehr AP1-Stoff] Komponententest, Integrationstest, Systemtest, Abnahmetest. |
+| Abnahmetest | [Hintergrund – nicht mehr AP1-Stoff] Test durch den Kunden gegen dessen Anforderungen (Lastenheft). |
+| Statischer vs. dynamischer Test | [Hintergrund – nicht mehr AP1-Stoff] Statisch: ohne Ausführung (Review). Dynamisch: Programm wird ausgeführt. |
+| Inhalte eines Testprotokolls | [Hintergrund – nicht mehr AP1-Stoff] ID, Beschreibung, Vorbedingung, Eingabe, erwartetes & tatsächliches Ergebnis, Status, Datum, Tester. |
+| TQM | [Hintergrund – nicht mehr AP1-Stoff] Total Quality Management: ganzheitliches QM unter Einbeziehung aller Mitarbeitenden. |
 
-## ✍️ Übungsfragen (11)
+## ✍️ Übungsfragen (9)
 
-**1.** Welche Norm ist für Qualitätsmanagementsysteme zertifizierbar?
-
-<details><summary>Lösung</summary>
-
-**Musterlösung (2 P):** ISO 9001
-
-</details>
-
-**2.** In welcher PDCA-Phase werden die Ergebnisse gemessen und bewertet?
+**1.** In welcher PDCA-Phase werden die Ergebnisse gemessen und bewertet?
 
 <details><summary>Lösung</summary>
 
@@ -150,7 +142,7 @@ So lässt sich vor der breiten Einführung messen, ob die Maßnahme wirkt (1), u
 
 </details>
 
-**3.** Ein Tester prüft eine Eingabemaske nur anhand der Spezifikation, ohne den Code zu kennen. Testart?
+**2.** Hintergrund (AP2): Ein Tester prüft eine Eingabemaske nur anhand der Spezifikation, ohne den Code zu kennen. Testart?
 
 <details><summary>Lösung</summary>
 
@@ -158,7 +150,7 @@ So lässt sich vor der breiten Einführung messen, ob die Maßnahme wirkt (1), u
 
 </details>
 
-**4.** Nach einem Update wird geprüft, ob bestehende Funktionen weiterhin korrekt laufen. Testart?
+**3.** Hintergrund (AP2): Nach einem Update wird geprüft, ob bestehende Funktionen weiterhin korrekt laufen. Testart?
 
 <details><summary>Lösung</summary>
 
@@ -166,7 +158,7 @@ So lässt sich vor der breiten Einführung messen, ob die Maßnahme wirkt (1), u
 
 </details>
 
-**5.** Ein Feld akzeptiert ganze Zahlen von 18 bis 67. Welche Werte gehören zu einer Grenzwertanalyse? Nennen Sie vier.
+**4.** Hintergrund (AP2): Ein Feld akzeptiert ganze Zahlen von 18 bis 67. Welche Werte gehören zu einer Grenzwertanalyse? Nennen Sie vier.
 
 <details><summary>Lösung</summary>
 
@@ -174,7 +166,7 @@ So lässt sich vor der breiten Einführung messen, ob die Maßnahme wirkt (1), u
 
 </details>
 
-**6.** Welche Teststufe führt der Kunde gegen seine Anforderungen durch?
+**5.** Hintergrund (AP2): Welche Teststufe führt der Kunde gegen seine Anforderungen durch?
 
 <details><summary>Lösung</summary>
 
@@ -182,23 +174,7 @@ So lässt sich vor der breiten Einführung messen, ob die Maßnahme wirkt (1), u
 
 </details>
 
-**7.** Welches Softwarequalitätsmerkmal beschreibt, wie leicht sich ein Programm ändern lässt?
-
-<details><summary>Lösung</summary>
-
-**Musterlösung (2 P):** Wartbarkeit
-
-</details>
-
-**8.** Was ist ein Code-Review?
-
-<details><summary>Lösung</summary>
-
-**Musterlösung (2 P):** Statischer Test<br>Kein Ausführen des Programms.
-
-</details>
-
-**9.** Erläutern Sie den PDCA-Zyklus am Beispiel der Verbesserung des IT-Supports. (4 Punkte)
+**6.** Erläutern Sie den PDCA-Zyklus am Beispiel der Verbesserung des IT-Supports. (4 Punkte)
 
 <details><summary>Lösung</summary>
 
@@ -206,7 +182,7 @@ So lässt sich vor der breiten Einführung messen, ob die Maßnahme wirkt (1), u
 
 </details>
 
-**10.** Nennen Sie vier Funktionstests, die Sie nach der Einrichtung eines neuen Arbeitsplatzes durchführen. (4 Punkte)
+**7.** Nennen Sie vier Funktionstests, die Sie nach der Einrichtung eines neuen Arbeitsplatzes durchführen. (4 Punkte)
 
 <details><summary>Lösung</summary>
 
@@ -214,11 +190,19 @@ So lässt sich vor der breiten Einführung messen, ob die Maßnahme wirkt (1), u
 
 </details>
 
-**11.** Nennen Sie sechs Angaben, die ein Testprotokoll enthalten sollte. (3 Punkte)
+**8.** Wofür stehen die vier Buchstaben des PDCA-Zyklus?
 
 <details><summary>Lösung</summary>
 
-**Musterlösung (3 P):** Je 0,5: Testfall-ID; Beschreibung/Testziel; Vorbedingungen; Testdaten/Eingaben; erwartetes Ergebnis; tatsächliches Ergebnis; Status bestanden/nicht bestanden; Datum; Tester; Bemerkungen/Fehlerbeschreibung.
+**Musterlösung (2 P):** Plan, Do, Check, Act (je 0,5) – planen, umsetzen, prüfen, handeln.<br>Planen – Umsetzen – Prüfen – Handeln (standardisieren oder anpassen).
+
+</details>
+
+**9.** Erläutern Sie, warum eine Maßnahme im PDCA-Zyklus zunächst im Kleinen erprobt wird.
+
+<details><summary>Lösung</summary>
+
+**Musterlösung (2 P):** So lässt sich messen, ob die Maßnahme wirkt, bevor sie überall eingeführt wird (1). Fehler oder Nebenwirkungen betreffen dann nur einen kleinen Bereich statt das ganze Unternehmen (1).
 
 </details>
 

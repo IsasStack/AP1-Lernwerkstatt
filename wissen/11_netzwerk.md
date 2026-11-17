@@ -394,11 +394,11 @@ Gäste können nicht auf interne Server, Drucker und PCs zugreifen, weil das VLA
 
 </details>
 
-**12.** Welche Kanäle sind im 2,4-GHz-Band in Europa üblicherweise überlappungsfrei?
+**12.** Welche drei Kanäle im 2,4-GHz-Band werden klassisch überlappungsfrei genutzt?
 
 <details><summary>Lösung</summary>
 
-**Musterlösung (2 P):** 1, 6, 11<br>Klassisch 1/6/11 (in EU auch 1/5/9/13 möglich).
+**Musterlösung (2 P):** 1, 6, 11<br>Klassisch 1, 6 und 11; in Europa sind bei 20 MHz Kanalbreite auch 1, 5, 9 und 13 möglich.
 
 </details>
 
