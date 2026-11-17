@@ -1,0 +1,11 @@
+const fs=require('fs'),vm=require('vm'),path=require('path');
+const ctx={T:[],console};vm.createContext(ctx);
+const dir=path.join(__dirname,'..','data');
+let src='';for(const f of fs.readdirSync(dir).filter(f=>f.endsWith('.js')&&!(process.env.OLD&&/^zzl_(0[1-9]|[1-9][0-9])_/.test(f))).sort())src+=fs.readFileSync(path.join(dir,f),'utf8')+'\n';
+src=src.replace(/\bconst (CASES|ABK|ANL|EXAMS|KEEP_CHOICE|KEY_OVR|REWORD|KEY_HIT)\s*=/g,'$1 =');
+vm.runInContext(src,ctx);
+const t=ctx.T.find(x=>x.id===process.argv[2]);
+const mode=process.argv[3]||'lesson';
+if(mode==='lesson')console.log(t.lesson);
+else if(mode==='cards')t.cards.forEach(c=>console.log('- '+c[0]+' :: '+c[1]));
+else t.qs.forEach(q=>console.log('- ['+q.t+'] '+q.q.replace(/<[^>]+>/g,'')));

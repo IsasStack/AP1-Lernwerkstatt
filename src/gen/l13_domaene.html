@@ -1,0 +1,97 @@
+<p class="lead">Ein Arbeitsplatz im Unternehmen steht nicht allein: Er wird in eine zentrale Verwaltung eingebunden, damit sich Mitarbeitende überall mit demselben Konto anmelden, Richtlinien automatisch greifen und Rechte zentral vergeben werden. „Clients in Domänen einbinden“ ist im Prüfungskatalog 2025 neu betont. Dazu gehören auch Fernzugriff und eine strukturierte Fehlersuche.</p>
+
+<h3>Arbeitsgruppe oder Domäne?</h3>
+<table><tr><th></th><th>Arbeitsgruppe</th><th>Domäne</th></tr>
+<tr><td>Verwaltung</td><td>dezentral – jeder PC hat eigene lokale Benutzerkonten</td><td>zentral über einen <b>Domänencontroller</b> (DC)</td></tr>
+<tr><td>Anmeldung</td><td>an jedem Gerät mit einem eigenen lokalen Konto</td><td>ein Konto für alle Geräte und Dienste (Single Sign-On)</td></tr>
+<tr><td>Einstellungen</td><td>an jedem Gerät von Hand</td><td>zentral per Gruppenrichtlinie</td></tr>
+<tr><td>geeignet für</td><td>sehr kleine Umgebungen mit wenigen PCs</td><td>Unternehmen</td></tr></table>
+<p><b>Warum lohnt sich eine Domäne?</b> Stell dir 40 PCs in einer Arbeitsgruppe vor: Eine neue Mitarbeiterin braucht auf jedem Rechner, den sie benutzen soll, ein eigenes Konto. Verlässt jemand die Firma, muss man an allen Geräten sein Konto löschen – vergisst man eines, bleibt ein Zugang offen. Soll überall die Bildschirmsperre nach 10 Minuten aktiv sein, muss man jeden PC einzeln einstellen. In der Domäne erledigt man all das einmal zentral.</p>
+
+<h3>Active Directory</h3>
+<p><b>Active Directory Domain Services</b> (AD DS) ist der Verzeichnisdienst von Microsoft. Er speichert alle <b>Objekte</b> des Unternehmens – Benutzer, Gruppen, Computer, Drucker, Freigaben – mit ihren Eigenschaften und Rechten.</p>
+{{AD}}
+<ul><li>Die <b>Domäne</b> ist die Verwaltungseinheit (z. B. firma.local). Mehrere Domänen können zu Strukturen (Trees) und einer Gesamtstruktur (Forest) gehören.</li>
+<li><b>Organisationseinheiten</b> (OUs) sind Ordner innerhalb der Domäne, meist nach Abteilungen oder Standorten. An sie werden Gruppenrichtlinien geknüpft.</li>
+<li>Der <b>Domänencontroller</b> ist der Server, auf dem AD DS läuft. Er prüft Anmeldungen und gleicht das Verzeichnis mit weiteren DCs ab. <b>Warum mindestens zwei DCs?</b> Fällt der einzige DC aus, kann sich niemand mehr anmelden.</li>
+<li>Wichtige Protokolle: <b>DNS</b> (Clients finden den DC), <b>Kerberos</b> (Anmeldung mit Tickets, Port 88), <b>LDAP</b> (Zugriff aufs Verzeichnis, Port 389).</li></ul>
+<h4>Gruppenrichtlinien (GPO)</h4>
+<p>Mit Gruppenrichtlinien werden Einstellungen zentral erzwungen: Passwortregeln, Bildschirmsperre, Netzlaufwerke, Drucker, Softwareverteilung, Sperre von USB-Speichern, Firewallregeln, Desktop-Hintergrund. Sie wirken in der Reihenfolge <b>lokal → Standort → Domäne → OU</b> (Merkwort LSDOU); bei Widersprüchen gewinnt die zuletzt angewendete, also meist die der OU. Mit <code>gpupdate /force</code> werden Richtlinien sofort angewendet, mit <code>gpresult /r</code> sieht man, welche wirken.</p>
+<div class="bsp"><b>GPO im Einsatz</b><br>
+Die Geschäftsleitung möchte, dass in der Buchhaltung keine USB-Sticks benutzt werden können. Statt an 12 PCs einzeln Einstellungen zu ändern, legt die Administratorin eine Gruppenrichtlinie „USB-Speicher sperren“ an und verknüpft sie mit der OU Buchhaltung. Beim nächsten Neustart oder Richtlinienabgleich gilt die Sperre auf allen Rechnern dieser OU – auch auf jedem neuen PC, der später in diese OU kommt.</div>
+
+<h3>Einen Client in die Domäne aufnehmen</h3>
+<ol><li><b>Netzwerk:</b> Der Client hat eine gültige IP-Adresse im richtigen Netz und erreicht den Domänencontroller.</li>
+<li><b>DNS:</b> Als DNS-Server muss der <b>DNS-Server der Domäne</b> (meist der DC) eingetragen sein – nicht der Router und kein öffentlicher DNS wie 8.8.8.8. <b>Warum?</b> Der Client findet den Domänencontroller über spezielle DNS-Einträge (SRV-Einträge), die nur der interne DNS-Server kennt. Falscher DNS ist der häufigste Grund, warum ein Domänenbeitritt scheitert.</li>
+<li><b>Uhrzeit:</b> Client und DC müssen nahezu die gleiche Zeit haben – Kerberos lässt standardmäßig höchstens 5 Minuten Abweichung zu, damit abgefangene Anmeldetickets nicht später wiederverwendet werden können.</li>
+<li><b>Edition:</b> Windows Pro, Enterprise oder Education – Home kann keiner Domäne beitreten.</li>
+<li><b>Berechtigung:</b> lokale Administratorrechte am Client und ein Domänenkonto, das Computer hinzufügen darf.</li>
+<li><b>Beitreten:</b> in den Systemeinstellungen „Domäne oder Arbeitsgruppe“ bzw. per PowerShell <code>Add-Computer -DomainName firma.local</code>, danach Neustart.</li>
+<li><b>Nacharbeiten:</b> Computerobjekt in die richtige OU verschieben, Gruppenrichtlinien prüfen, Anmeldung mit einem Domänenkonto testen.</li></ol>
+<div class="bsp"><b>Fehlerfall</b><br>
+Beim Beitritt erscheint: „Ein Active Directory-Domänencontroller für die Domäne firma.local konnte nicht kontaktiert werden.“ ipconfig zeigt als DNS-Server 192.168.10.1 (den Router).<br>
+<b>Ursache:</b> Der Router kennt die internen SRV-Einträge der Domäne nicht.<br>
+<b>Lösung:</b> Als DNS-Server die Adresse des Domänencontrollers eintragen – am besten zentral im DHCP-Server, damit alle Clients sie automatisch bekommen.</div>
+
+<h3>Microsoft Entra ID und Intune</h3>
+<p><b>Microsoft Entra ID</b> (früher Azure AD) ist ein Identitätsdienst in der Cloud. Er verwaltet die Konten für Microsoft 365, Azure und viele weitere Cloud-Anwendungen und bietet Single Sign-On, Mehr-Faktor-Authentifizierung und <b>bedingten Zugriff</b> (z. B. „Anmeldung nur von verwalteten Geräten aus der EU“).</p>
+<table><tr><th>Gerätestatus</th><th>für</th><th>Anmeldung</th></tr>
+<tr><td>Entra registered</td><td>private Geräte (BYOD), Smartphones</td><td>privates Konto, zusätzlich Arbeitskonto hinzugefügt</td></tr>
+<tr><td>Entra joined</td><td>firmeneigene Geräte ohne lokales AD, auch im Homeoffice</td><td>mit dem Entra-Konto; Einrichtung oft per Autopilot, Verwaltung mit Intune</td></tr>
+<tr><td>Entra hybrid joined</td><td>Unternehmen mit bestehendem lokalem AD</td><td>Gerät ist im lokalen AD und in Entra ID bekannt (Abgleich per Entra Connect)</td></tr></table>
+<p><b>Intune</b> ist Microsofts Geräteverwaltung aus der Cloud (MDM): Richtlinien verteilen, Apps installieren, prüfen, ob Geräte die Sicherheitsvorgaben erfüllen, und verlorene Geräte aus der Ferne sperren oder löschen. <b>Warum Cloud statt Domäne?</b> Notebooks im Homeoffice haben oft keine Verbindung zum Domänencontroller im Firmennetz. Entra ID und Intune erreichen sie über das Internet überall.</p>
+
+<h3>Benutzer, Gruppen und Rechte</h3>
+<p><b>Prinzip der minimalen Rechte</b> (Least Privilege): Jede Person bekommt nur die Rechte, die sie für ihre Aufgabe braucht. Normale Benutzer arbeiten ohne Administratorrechte; Administratoren haben für die Verwaltung ein <b>getrenntes Admin-Konto</b>. <b>Warum?</b> Klickt jemand mit Administratorrechten auf einen schädlichen Anhang, kann die Schadsoftware das ganze System übernehmen. Ohne Adminrechte bleibt der Schaden begrenzt.</p>
+<p><b>Rechte über Gruppen vergeben</b>, nicht an einzelne Personen: Wechselt jemand die Abteilung, nimmt man ihn aus der einen Gruppe und fügt ihn der anderen hinzu – fertig. Bei Microsoft heißt die bewährte Struktur <b>AGDLP</b>: <b>A</b>ccounts kommen in <b>G</b>lobale Gruppen (nach Rolle, z. B. „Buchhaltung“), diese in <b>D</b>omänen-<b>l</b>okale Gruppen (nach Ressource, z. B. „Rechnungen-Ändern“), und nur diese bekommen die <b>P</b>ermissions (Rechte) auf den Ordner.</p>
+<h4>NTFS- und Freigaberechte</h4>
+<p>Auf einen Ordner auf einem Server wirken zwei Arten von Rechten:</p>
+<ul><li><b>Freigaberechte</b> gelten nur beim Zugriff über das Netzwerk: Lesen, Ändern, Vollzugriff.</li>
+<li><b>NTFS-Rechte</b> gelten immer, auch lokal: Vollzugriff, Ändern, Lesen und Ausführen, Lesen, Schreiben. Sie werden standardmäßig an Unterordner vererbt.</li></ul>
+<div class="merke">Beim Zugriff über das Netzwerk gilt die <b>restriktivere</b> Kombination aus Freigabe- und NTFS-Rechten. Ein ausdrückliches <b>Verweigern</b> schlägt ein Zulassen.</div>
+<div class="bsp"><b>Effektive Rechte bestimmen</b><br>
+Freigabe „Projekte“: Gruppe Mitarbeiter = <b>Ändern</b><br>
+NTFS-Rechte auf dem Ordner: Gruppe Mitarbeiter = <b>Lesen</b><br>
+→ Über das Netzwerk darf ein Mitarbeiter nur <b>lesen</b> (das Restriktivere von Ändern und Lesen).<br><br>
+Freigabe: Jeder = Vollzugriff · NTFS: Vertrieb = Ändern<br>
+→ Vertriebsmitarbeitende dürfen über das Netz <b>ändern</b>. Viele Administratoren geben die Freigabe deshalb großzügig frei und steuern die Rechte nur über NTFS – dann gibt es nur eine Stelle, an der man nachsehen muss.</div>
+<p>Netzlaufwerke werden über einen <b>UNC-Pfad</b> angesprochen (<code>\\Server\Freigabe</code>) und per Gruppenrichtlinie oder <code>net use H: \\server\freigabe</code> verbunden. Damit Benutzer an jedem PC ihre Dateien vorfinden, werden Ordner wie „Dokumente“ auf den Server umgeleitet (Ordnerumleitung) oder mit OneDrive synchronisiert.</p>
+
+<h3>Fernzugriff</h3>
+<table><tr><th>Werkzeug</th><th>Einsatz</th><th>Sicherheit</th></tr>
+<tr><td>RDP (Remotedesktop, Port 3389)</td><td>an einem entfernten Windows-Rechner oder Server arbeiten</td><td>nie direkt aus dem Internet erreichbar machen – nur über VPN oder ein Gateway</td></tr>
+<tr><td>Remoteunterstützung (z. B. Quick Assist)</td><td>Support schaut auf den Bildschirm eines Nutzers</td><td>nur mit Zustimmung des Nutzers</td></tr>
+<tr><td>Fernwartungsprogramme</td><td>Support bei Kunden</td><td>Zustimmung, Protokollierung, MFA für Supportkonten</td></tr>
+<tr><td>SSH (Port 22)</td><td>Linux-Server, Netzwerkgeräte</td><td>Anmeldung mit Schlüsseln statt Passwort</td></tr>
+<tr><td>VPN</td><td>Homeoffice: sicherer Tunnel ins Firmennetz</td><td>mit MFA absichern</td></tr></table>
+<p><b>Warum kein RDP direkt ins Internet?</b> Angreifer durchsuchen das Internet automatisch nach offenen RDP-Ports und probieren Passwörter durch. Ein erfolgreicher Zugriff ist ein häufiger Einstieg für Ransomware.</p>
+
+<h3>Strukturierte Fehlersuche</h3>
+<p>„Das Internet geht nicht“ kann hundert Ursachen haben. Wer planlos an Einstellungen dreht, verschlimmert es oft. Professionell geht man in festen Schritten vor:</p>
+<ol><li><b>Problem aufnehmen:</b> Was genau geht nicht? Seit wann? Wer ist betroffen – eine Person oder alle? Was wurde zuletzt geändert?</li>
+<li><b>Ursache eingrenzen:</b> systematisch, z. B. entlang des Schichtenmodells von unten nach oben.</li>
+<li><b>Hypothese testen</b>, Lösung umsetzen und erneut testen.</li>
+<li><b>Dokumentieren:</b> im Ticket und in der Wissensdatenbank, damit es beim nächsten Mal schneller geht.</li></ol>
+{{TROUBLE}}
+<div class="tip">Die zwei wichtigsten Rückschlüsse: <b>ping 8.8.8.8 klappt, aber ping auf einen Namen nicht → DNS-Problem.</b> <b>Geräte im LAN sind erreichbar, das Internet nicht → Gateway, Router oder Firewall prüfen.</b> Sind alle Mitarbeitenden betroffen, liegt die Ursache zentral (Server, Router, Provider) – ist es nur einer, eher an seinem Gerät oder Anschluss.</div>
+
+<div class="fehler"><ul>
+<li>Beim Domänenbeitritt den Router oder einen öffentlichen DNS-Server eintragen.</li>
+<li>Die Zeitabweichung als Ursache für Anmeldefehler übersehen.</li>
+<li>Windows Home in eine Domäne aufnehmen wollen.</li>
+<li>Rechte an einzelne Benutzer statt an Gruppen vergeben.</li>
+<li>Bei Freigabe- und NTFS-Rechten das großzügigere Recht als wirksam annehmen.</li>
+<li>Normale Benutzer mit Administratorrechten arbeiten lassen.</li>
+<li>Bei der Fehlersuche mit der Anwendung anfangen, bevor Adresse, Gateway und DNS geprüft sind.</li></ul></div>
+
+<div class="aufgabe"><b>Ein neuer PC soll der Domäne firma.local beitreten. Nennen Sie vier Voraussetzungen. (4 Punkte)</b>
+<details><summary>Lösung anzeigen</summary>Je 1 Punkt: gültige IP-Adresse und Netzwerkverbindung zum Domänencontroller; DNS-Server des Clients zeigt auf den DNS der Domäne; Uhrzeit synchron (max. 5 Minuten Abweichung); Windows-Edition Pro, Enterprise oder Education; Konto mit Berechtigung zum Hinzufügen von Computern und lokale Adminrechte.</details></div>
+
+<div class="aufgabe"><b>Die Freigabe „Buchhaltung“ erlaubt der Gruppe Buchhaltung Vollzugriff, die NTFS-Rechte erlauben ihr „Lesen und Ausführen“. Welche Rechte hat ein Mitglied über das Netzwerk? Begründen Sie. (2 Punkte)</b>
+<details><summary>Lösung anzeigen</summary>Nur <b>Lesen und Ausführen</b> (1), weil beim Netzwerkzugriff die restriktivere Kombination aus Freigabe- und NTFS-Rechten gilt (1).</details></div>
+
+<div class="aufgabe"><b>Ein Benutzer meldet, dass keine Webseiten laden. ping 8.8.8.8 ist erfolgreich, ping www.ihk.de nicht. Ermitteln Sie die wahrscheinliche Ursache und einen Prüfschritt. (3 Punkte)</b>
+<details><summary>Lösung anzeigen</summary>Die Verbindung ins Internet funktioniert, weil die IP-Adresse erreichbar ist (1). Die Namensauflösung schlägt fehl – es liegt ein DNS-Problem vor (1). Prüfschritt: mit ipconfig /all den eingetragenen DNS-Server prüfen und mit nslookup www.ihk.de testen, ob er antwortet (1).</details></div>
+
+<div class="aufgabe"><b>Begründen Sie, warum Administratoren für Verwaltungsaufgaben ein separates Admin-Konto verwenden sollten. (2 Punkte)</b>
+<details><summary>Lösung anzeigen</summary>Bei alltäglicher Arbeit wie E-Mail und Internet besteht die Gefahr, Schadsoftware auszuführen (1). Arbeitet der Administrator dabei mit einem normalen Konto ohne Adminrechte, kann die Schadsoftware das System nicht übernehmen; das Admin-Konto wird nur gezielt für Verwaltungsaufgaben genutzt (1).</details></div>

@@ -1,0 +1,155 @@
+<p class="lead">Hardware allein macht noch keinen Arbeitsplatz. Damit jemand arbeiten kann, braucht der Rechner eine Firmware, ein Betriebssystem mit passendem Dateisystem, Anwendungen und eine Anbindung an zentrale Server und Datenbanken. Dieses Thema erklärt, wie das zusammenspielt, wie man einen Rechner einrichtet und was du über relationale Datenbanken für die AP1 wissen musst.</p>
+
+<h3>Softwarearten und Aufgaben des Betriebssystems</h3>
+<table><tr><th>Art</th><th>Aufgabe</th><th>Beispiele</th></tr>
+<tr><td><b>Firmware</b></td><td>fest im Gerät gespeicherte Software, die die Hardware startet</td><td>UEFI, Firmware von Router, Drucker, SSD</td></tr>
+<tr><td><b>Systemsoftware</b></td><td>verwaltet die Hardware und stellt sie den Programmen zur Verfügung</td><td>Betriebssystem, Treiber, Dienstprogramme</td></tr>
+<tr><td><b>Anwendungssoftware</b></td><td>erledigt die eigentlichen Aufgaben der Nutzer</td><td>Office, ERP, Browser, CAD, Branchensoftware</td></tr></table>
+<p>Das <b>Betriebssystem</b> ist der Vermittler zwischen Hardware und Anwendungen. <b>Warum braucht man es?</b> Ohne Betriebssystem müsste jedes Programm selbst wissen, wie es mit jeder einzelnen Festplatte, Grafikkarte und Netzwerkkarte spricht. Das Betriebssystem übernimmt das und sorgt dafür, dass sich mehrere Programme und Benutzer die Hardware teilen können, ohne sich zu stören. Seine Aufgaben:</p>
+<ul><li><b>Prozessverwaltung:</b> verteilt die Rechenzeit der CPU auf die laufenden Programme.</li>
+<li><b>Speicherverwaltung:</b> teilt jedem Programm Arbeitsspeicher zu und schützt die Bereiche voreinander.</li>
+<li><b>Dateiverwaltung:</b> organisiert Dateien und Ordner über das Dateisystem.</li>
+<li><b>Geräteverwaltung:</b> spricht die Hardware über <b>Treiber</b> an.</li>
+<li><b>Benutzer- und Rechteverwaltung:</b> Anmeldung, Zugriffsrechte.</li>
+<li><b>Benutzeroberfläche:</b> grafisch (GUI) oder Kommandozeile (CLI).</li></ul>
+
+<h3>Vom Einschalten zum Desktop: BIOS und UEFI</h3>
+<p>Beim Einschalten startet zuerst die Firmware. Sie prüft die Hardware (<b>POST</b>, Power-On Self-Test), sucht nach der Bootreihenfolge einen Datenträger mit Betriebssystem und startet dessen Bootloader. Dieser lädt das Betriebssystem.</p>
+<table><tr><th></th><th>BIOS (Legacy)</th><th>UEFI</th></tr>
+<tr><td>Partitionsschema</td><td>MBR (Master Boot Record)</td><td>GPT (GUID-Partitionstabelle)</td></tr>
+<tr><td>max. Größe des Bootlaufwerks</td><td>2 TiB</td><td>praktisch unbegrenzt</td></tr>
+<tr><td>Partitionen</td><td>4 primäre (oder 3 primäre + 1 erweiterte)</td><td>128 unter Windows</td></tr>
+<tr><td>Sicherheit</td><td>–</td><td><b>Secure Boot</b> (nur signierte Bootloader), TPM-Unterstützung</td></tr>
+<tr><td>Bedienung</td><td>textbasiert</td><td>grafisch, mit Maus, Netzwerkfunktionen</td></tr></table>
+<p><b>Warum Secure Boot?</b> Schadsoftware, die sich vor dem Betriebssystem in den Startvorgang einnistet (Bootkit), kann vom Virenschutz kaum entdeckt werden, weil sie schon läuft, bevor dieser startet. Secure Boot verhindert das, indem nur digital signierte Bootloader gestartet werden. <b>Windows 11</b> verlangt deshalb UEFI mit Secure Boot und ein <b>TPM 2.0</b> – einen Sicherheitschip, der Schlüssel z. B. für BitLocker und Windows Hello geschützt speichert.</p>
+
+<h3>Partitionieren und Dateisysteme</h3>
+<p><b>Partitionieren</b> heißt, einen Datenträger in logische Bereiche aufzuteilen, z. B. Systempartition und Datenpartition. <b>Formatieren</b> legt auf einer Partition ein Dateisystem an. Achtung: Eine <b>Schnellformatierung</b> löscht nur die Verwaltungsstrukturen – die Daten selbst lassen sich mit einfachen Werkzeugen wiederherstellen.</p>
+<table><tr><th>Dateisystem</th><th>Einsatz</th><th>Merkmale</th></tr>
+<tr><td>FAT32</td><td>USB-Sticks, maximale Kompatibilität</td><td>Dateien höchstens <b>4 GB</b>, keine Zugriffsrechte</td></tr>
+<tr><td>exFAT</td><td>große USB-Sticks, SD-Karten</td><td>große Dateien, auf Windows, macOS und Linux lesbar; keine Rechte, kein Journal</td></tr>
+<tr><td>NTFS</td><td>Windows-Systempartition</td><td>Zugriffsrechte (ACL), Journaling, Verschlüsselung, Komprimierung, Kontingente</td></tr>
+<tr><td>ReFS</td><td>Windows Server</td><td>Integritätsprüfung, sehr große Volumes</td></tr>
+<tr><td>ext4, Btrfs, XFS</td><td>Linux</td><td>Journaling, Unix-Rechte</td></tr>
+<tr><td>APFS</td><td>macOS</td><td>Snapshots, Verschlüsselung, für SSDs optimiert</td></tr></table>
+<p><b>Journaling</b> bedeutet: Das Dateisystem protokolliert Änderungen, bevor es sie ausführt. Stürzt der Rechner mitten im Schreiben ab, kann es anhand des Protokolls schnell einen konsistenten Zustand herstellen, statt den ganzen Datenträger prüfen zu müssen.</p>
+<div class="bsp"><b>Welches Dateisystem?</b><br>
+Ein Mitarbeiter will eine 6 GB große Videodatei auf einen USB-Stick kopieren und erhält die Meldung „Die Datei ist zu groß für das Zieldateisystem“, obwohl 28 GB frei sind.<br>
+<b>Ursache:</b> Der Stick ist mit FAT32 formatiert, das keine Dateien über 4 GB speichern kann.<br>
+<b>Lösung:</b> Daten sichern und den Stick mit <b>exFAT</b> formatieren. Damit sind große Dateien möglich und der Stick bleibt an Windows- und Mac-Rechnern lesbar. NTFS ginge auch, ist an Macs aber nur lesbar.</div>
+
+<h3>Einen Arbeitsplatzrechner einrichten</h3>
+<ol><li><b>Vorbereiten:</b> Hardwareanforderungen prüfen, Firmware aktualisieren, im UEFI Secure Boot, TPM und die Bootreihenfolge einstellen.</li>
+<li><b>Installieren:</b> manuell vom USB-Stick, per Image, über das Netzwerk (PXE) oder mit Windows Autopilot.</li>
+<li><b>Ergänzen:</b> Treiber, Updates, Anwendungen, Sprachpakete.</li>
+<li><b>Netzwerk und Anmeldung:</b> IP-Adresse per DHCP oder statisch, Beitritt zur Domäne bzw. zu Entra ID.</li>
+<li><b>Absichern (Härten):</b> Benutzer ohne Administratorrechte, Firewall und Virenschutz aktiv, BitLocker einschalten, unnötige Dienste und Programme entfernen.</li>
+<li><b>Testen und dokumentieren:</b> Funktionen prüfen, Inventar- und Seriennummer, Konfiguration und installierte Software festhalten.</li>
+<li><b>Übergeben:</b> Nutzer einweisen, Übergabe quittieren lassen.</li></ol>
+<table><tr><th>Installationsart</th><th>Prinzip</th><th>sinnvoll bei</th></tr>
+<tr><td>Neuinstallation (clean)</td><td>leeres System, alles neu</td><td>Einzelgeräten, nach Schadsoftwarebefall</td></tr>
+<tr><td>Upgrade</td><td>neue Version über die alte, Daten und Programme bleiben</td><td>Umstieg Windows 10 → 11 auf demselben Gerät</td></tr>
+<tr><td>unbeaufsichtigte Installation</td><td>Antwortdatei beantwortet alle Fragen der Installation automatisch</td><td>mehreren Geräten ohne Image</td></tr>
+<tr><td>Imaging</td><td>ein fertig eingerichtetes Musterabbild wird auf viele Geräte kopiert</td><td>vielen gleichen Geräten</td></tr>
+<tr><td>Autopilot (Cloud)</td><td>Gerät wird beim ersten Start mit dem Firmenkonto automatisch über Intune eingerichtet</td><td>Geräten, die direkt vom Händler zum Mitarbeitenden gehen, Homeoffice</td></tr>
+<tr><td>Softwareverteilung</td><td>Programme werden zentral auf viele Rechner verteilt (z. B. Intune, Configuration Manager, winget)</td><td>laufendem Betrieb, Updates</td></tr></table>
+<div class="bsp"><b>Begründete Wahl</b><br>
+„Für die 30 baugleichen Schulungsrechner empfehle ich Imaging, weil ein einmal eingerichtetes und getestetes Musterabbild in kurzer Zeit auf alle Geräte verteilt werden kann. Alle Rechner sind danach identisch konfiguriert, was Fehler vermeidet und den Support vereinfacht.“</div>
+
+<h3>Standard- oder Individualsoftware?</h3>
+<table><tr><th></th><th>Standardsoftware</th><th>Individualsoftware</th></tr>
+<tr><td>Was?</td><td>für viele Kunden entwickelt</td><td>für einen Kunden maßgeschneidert</td></tr>
+<tr><td>Vorteile</td><td>günstig, sofort verfügbar, erprobt, viele Nutzer finden Fehler, Schulungen und Support am Markt</td><td>passt genau zu den Abläufen, kann Wettbewerbsvorteil sein, eigene Anpassungen jederzeit möglich</td></tr>
+<tr><td>Nachteile</td><td>passt evtl. nicht genau, Abläufe müssen angepasst werden, Abhängigkeit vom Hersteller</td><td>teuer, lange Entwicklungszeit, Fehler in der Anfangsphase, Abhängigkeit vom Entwickler</td></tr></table>
+<p><b>Branchensoftware</b> liegt dazwischen: Standardsoftware für eine Branche, z. B. für Arztpraxen, Kanzleien oder Handwerksbetriebe. Kriterien für die Auswahl sind Funktionsumfang, Kompatibilität und Schnittstellen (API) zu vorhandenen Systemen, Anpassbarkeit, Bedienbarkeit, Kosten und Lizenzmodell, Support und Datenschutz (Serverstandort).</p>
+
+<h3>Kommandozeile</h3>
+<p>Viele Aufgaben in der Administration gehen auf der Kommandozeile schneller als in der grafischen Oberfläche und lassen sich in Skripten automatisieren. In der AP1 sollst du typische Befehle kennen und ihre Ausgabe deuten können.</p>
+<table><tr><th>Zweck</th><th>Windows (CMD / PowerShell)</th><th>Linux</th></tr>
+<tr><td>Verzeichnisinhalt anzeigen</td><td>dir / Get-ChildItem</td><td>ls -l</td></tr>
+<tr><td>Verzeichnis wechseln / anlegen</td><td>cd / mkdir</td><td>cd / mkdir</td></tr>
+<tr><td>Datei kopieren / verschieben / löschen</td><td>copy / move / del</td><td>cp / mv / rm</td></tr>
+<tr><td>IP-Konfiguration anzeigen</td><td>ipconfig /all</td><td>ip a</td></tr>
+<tr><td>Erreichbarkeit prüfen</td><td>ping</td><td>ping</td></tr>
+<tr><td>Weg der Pakete verfolgen</td><td>tracert</td><td>traceroute</td></tr>
+<tr><td>DNS abfragen</td><td>nslookup</td><td>nslookup, dig</td></tr>
+<tr><td>ARP-Tabelle anzeigen</td><td>arp -a</td><td>ip neigh</td></tr>
+<tr><td>offene Verbindungen und Ports</td><td>netstat -an</td><td>ss -tulpn</td></tr>
+<tr><td>IP-Adresse per DHCP neu anfordern</td><td>ipconfig /release, ipconfig /renew</td><td>dhclient</td></tr>
+<tr><td>DNS-Zwischenspeicher leeren</td><td>ipconfig /flushdns</td><td>resolvectl flush-caches</td></tr>
+<tr><td>Zugriffsrechte ändern</td><td>icacls</td><td>chmod, chown</td></tr>
+<tr><td>Gruppenrichtlinien sofort anwenden</td><td>gpupdate /force</td><td>–</td></tr></table>
+<h4>Linux-Rechte mit chmod</h4>
+<p>Jede Datei hat Rechte für drei Gruppen: <b>u</b>ser (Besitzer), <b>g</b>roup (Gruppe) und <b>o</b>thers (alle anderen). Es gibt drei Rechte: <b>r</b> (lesen) = 4, <b>w</b> (schreiben) = 2, <b>x</b> (ausführen) = 1. Die Zahl je Gruppe ist die Summe ihrer Rechte.</p>
+<div class="bsp"><b>chmod 754 skript.sh</b><br>
+7 = 4 + 2 + 1 = rwx → Besitzer darf lesen, schreiben, ausführen<br>
+5 = 4 + 0 + 1 = r-x → Gruppe darf lesen und ausführen<br>
+4 = 4 + 0 + 0 = r-- → alle anderen dürfen nur lesen<br><br>
+<b>Umgekehrt:</b> ls -l zeigt <code>-rw-r-----</code>. Ohne das erste Zeichen (Dateityp): rw- = 6, r-- = 4, --- = 0 → <b>640</b>.</div>
+
+<h3>Client-Server-Systeme</h3>
+<p>Im <b>Client-Server-Modell</b> fordern Clients Dienste an und ein zentraler Server stellt sie bereit: Datei-, Druck-, Mail-, Web-, Datenbank- oder Anwendungsserver. <b>Warum zentral?</b> Daten liegen an einem Ort und können dort gesichert, geschützt und mit Rechten versehen werden. Software und Benutzer werden zentral verwaltet. <b>Nachteil:</b> Fällt der Server aus, sind alle betroffen (Single Point of Failure), und ohne Netzwerk geht nichts.</p>
+<p>Im <b>Peer-to-Peer-Netz</b> (Arbeitsgruppe) sind alle Rechner gleichberechtigt und geben sich gegenseitig Ordner oder Drucker frei. Das ist günstig und für zwei, drei Rechner ausreichend, wird bei mehr Geräten aber unübersichtlich und unsicher, weil jeder Rechner eigene Benutzerkonten und Rechte hat.</p>
+<p><b>Fat Client</b>: Programme laufen lokal auf dem Rechner. <b>Thin Client</b>: Programme laufen auf dem Server, der Client zeigt nur an.</p>
+<p>Größere Anwendungen werden in <b>Schichten</b> aufgebaut:</p>
+{{CS}}
+
+<h3>Relationale Datenbanken</h3>
+<div class="warn"><b>Prüfungskatalog 2025:</b> Die <b>Grundlagen relationaler Datenbanken</b> sind AP1-Stoff und kamen in bisherigen Prüfungen häufig vor. SQL-Abfragen und NoSQL gehören dagegen in die AP2.</div>
+<p>Ein <b>Datenbanksystem</b> besteht aus der <b>Datenbank</b> (den gespeicherten Daten) und dem <b>Datenbankmanagementsystem</b> (DBMS, z. B. MariaDB/MySQL, PostgreSQL, Microsoft SQL Server), das den Zugriff steuert.</p>
+<p><b>Warum nicht einfach eine Excel-Liste?</b> Sobald mehrere Personen gleichzeitig mit vielen Daten arbeiten, stößt eine Tabellenkalkulation an Grenzen: Gleichzeitiges Bearbeiten führt zu Konflikten, Daten werden mehrfach und widersprüchlich gespeichert, Rechte lassen sich nur grob vergeben. Ein DBMS bietet Mehrbenutzerbetrieb, prüft die Daten auf Korrektheit (Integrität), vermeidet Mehrfachspeicherung, vergibt feine Zugriffsrechte und führt zusammengehörende Änderungen ganz oder gar nicht aus (Transaktionen).</p>
+<h4>Grundbegriffe</h4>
+<table><tr><th>Begriff</th><th>Bedeutung</th><th>Beispiel</th></tr>
+<tr><td>Tabelle (Relation)</td><td>Sammlung gleichartiger Datensätze</td><td>Mitarbeiter</td></tr>
+<tr><td>Datensatz (Tupel, Zeile)</td><td>ein Eintrag</td><td>1003, Isa Muster, Vertrieb</td></tr>
+<tr><td>Attribut (Feld, Spalte)</td><td>eine Eigenschaft mit festem Datentyp</td><td>Nachname (Text), Eintrittsdatum (Datum)</td></tr>
+<tr><td><b>Primärschlüssel</b> (PK)</td><td>identifiziert jeden Datensatz eindeutig, darf nie leer sein und sich nicht ändern</td><td>MitarbeiterNr</td></tr>
+<tr><td><b>Fremdschlüssel</b> (FK)</td><td>Spalte, die auf den Primärschlüssel einer anderen Tabelle verweist und so eine Beziehung herstellt</td><td>Mitarbeiter.AbteilungsNr → Abteilung.AbteilungsNr</td></tr></table>
+<p><b>Warum eine Nummer als Primärschlüssel und nicht der Name?</b> Namen sind nicht eindeutig (zwei Personen heißen „Anna Schmidt“) und können sich ändern (Heirat). Eine künstliche Nummer ist immer eindeutig und bleibt gleich.</p>
+<h4>Redundanz und Anomalien</h4>
+<p>Wird dieselbe Information mehrfach gespeichert (<b>Redundanz</b>), entstehen Fehler:</p>
+<div class="bsp"><table><tr><th>BestellNr</th><th>Kunde</th><th>Kundenort</th><th>Artikel</th></tr>
+<tr><td>501</td><td>Becker GmbH</td><td>Hamburg</td><td>Monitor</td></tr>
+<tr><td>502</td><td>Becker GmbH</td><td>Hamburg</td><td>Dockingstation</td></tr>
+<tr><td>503</td><td>Becker GmbH</td><td><b>Lübeck</b></td><td>Headset</td></tr></table>
+Die Becker GmbH ist umgezogen, die Adresse wurde aber nur in Zeile 503 geändert – jetzt widersprechen sich die Daten (<b>Änderungsanomalie</b>). Löscht man alle Bestellungen eines Kunden, sind auch seine Daten weg (<b>Löschanomalie</b>). Einen neuen Kunden ohne Bestellung kann man gar nicht anlegen (<b>Einfügeanomalie</b>).<br>
+<b>Lösung:</b> Kunden in eine eigene Tabelle auslagern; die Bestellung enthält nur noch die KundenNr als Fremdschlüssel. Die Adresse steht dann nur einmal in der Datenbank. Dieses Aufteilen heißt <b>Normalisierung</b> (Details in der AP2).</div>
+<h4>Beziehungen und ER-Modell</h4>
+<p>Bevor man Tabellen anlegt, plant man mit dem <b>Entity-Relationship-Modell</b>, welche Dinge gespeichert werden und wie sie zusammenhängen. <b>Entitätstypen</b> (Rechtecke) sind die Objekte, z. B. Kunde und Gerät. <b>Attribute</b> (Ellipsen) sind ihre Eigenschaften, das <b>Schlüsselattribut</b> ist unterstrichen. <b>Beziehungen</b> (Rauten) verbinden sie, die <b>Kardinalität</b> gibt an, wie viele auf jeder Seite beteiligt sind.</p>
+{{ER}}
+<table><tr><th>Kardinalität</th><th>Bedeutung</th><th>Beispiel</th><th>Umsetzung in Tabellen</th></tr>
+<tr><td>1:1</td><td>einem Datensatz steht genau einer gegenüber</td><td>Mitarbeiter – Firmenausweis</td><td>Fremdschlüssel in einer der beiden Tabellen (oder zusammenfassen)</td></tr>
+<tr><td>1:n</td><td>einem Datensatz stehen viele gegenüber</td><td>Kunde – Gerät, Abteilung – Mitarbeiter</td><td>Fremdschlüssel in die Tabelle auf der <b>n-Seite</b></td></tr>
+<tr><td>n:m</td><td>viele auf beiden Seiten</td><td>Mitarbeiter – Projekt</td><td><b>Zwischentabelle</b> mit den Primärschlüsseln beider Seiten als Fremdschlüssel</td></tr></table>
+<div class="bsp"><b>Vom ER-Modell zur Tabelle (1:n)</b><br>
+Kunde (<u>KundenNr</u>, Name, Ort)<br>
+Gerät (<u>SerienNr</u>, Typ, Kaufdatum, ↑KundenNr)<br>
+Die KundenNr kommt in die Tabelle Gerät, weil jedes Gerät genau einem Kunden gehört. Umgekehrt ginge es nicht: In der Tabelle Kunde müsste man sonst für jedes Gerät eine eigene Spalte anlegen.</div>
+<p>Bei <b>n:m</b> funktioniert das auf keiner Seite: Ein Mitarbeiter arbeitet in mehreren Projekten, ein Projekt hat mehrere Mitarbeiter. Deshalb entsteht eine Zwischentabelle. Ihr Primärschlüssel besteht aus beiden Fremdschlüsseln zusammen. Sie kann zusätzliche Attribute der Beziehung aufnehmen, z. B. die Stunden, die jemand in einem Projekt arbeitet.</p>
+{{NM}}
+<p><b>Datentypen</b> der Spalten: Ganzzahl für Nummern und Mengen, Text für Namen, Datum für Termine, Dezimalzahl für Geldbeträge, Wahrheitswert für Ja/Nein. <b>Warum?</b> Das DBMS kann dann prüfen, ob die Eingabe sinnvoll ist (kein „morgen“ im Datumsfeld), und Werte korrekt sortieren und berechnen. Postleitzahlen und Telefonnummern sind übrigens <b>Text</b>, weil führende Nullen erhalten bleiben müssen und man mit ihnen nicht rechnet.</p>
+
+<div class="fehler"><ul>
+<li>MBR und GPT bzw. BIOS und UEFI verwechseln.</li>
+<li>FAT32 für große Dateien empfehlen oder die 4-GB-Grenze nicht als Ursache erkennen.</li>
+<li>Schnellformatierung für sicheres Löschen halten.</li>
+<li>Bei chmod die Reihenfolge (Besitzer – Gruppe – Andere) oder die Werte (r = 4, w = 2, x = 1) verwechseln.</li>
+<li>Bei 1:n den Fremdschlüssel auf die 1-Seite setzen.</li>
+<li>n:m ohne Zwischentabelle umsetzen.</li>
+<li>Den Namen als Primärschlüssel wählen.</li>
+<li>Postleitzahlen als Zahl speichern.</li></ul></div>
+
+<div class="aufgabe"><b>Erläutern Sie zwei Vorteile von UEFI gegenüber dem klassischen BIOS. (4 Punkte)</b>
+<details><summary>Lösung anzeigen</summary>Je 2 Punkte, z. B.: UEFI unterstützt Secure Boot – es werden nur signierte Bootloader gestartet, sodass sich keine Schadsoftware vor dem Betriebssystem einnisten kann. UEFI nutzt GPT, wodurch Bootlaufwerke größer als 2 TiB und mehr als vier Partitionen möglich sind. UEFI unterstützt TPM, das z. B. für BitLocker und als Voraussetzung für Windows 11 nötig ist.</details></div>
+
+<div class="aufgabe"><b>Ein Skript soll für den Besitzer lesbar, schreibbar und ausführbar sein, für die Gruppe lesbar und ausführbar, für alle anderen gar nicht zugänglich. Geben Sie den chmod-Befehl an. (2 Punkte)</b>
+<details><summary>Lösung anzeigen</summary>Besitzer rwx = 7, Gruppe r-x = 5, Andere --- = 0 (1) → <b>chmod 750 skript.sh</b> (1).</details></div>
+
+<div class="aufgabe"><b>Ein Unternehmen verwaltet Kurse und Teilnehmende. Jede Person kann mehrere Kurse besuchen, jeder Kurs hat mehrere Teilnehmende. Geben Sie die Kardinalität an und beschreiben Sie, wie die Beziehung in Tabellen umgesetzt wird. (4 Punkte)</b>
+<details><summary>Lösung anzeigen</summary>Kardinalität n:m (1). Es werden drei Tabellen angelegt: Teilnehmer (PK TeilnehmerNr), Kurs (PK KursNr) (1) und eine Zwischentabelle, z. B. Teilnahme, mit den Fremdschlüsseln TeilnehmerNr und KursNr (1), die zusammen den Primärschlüssel bilden (1).</details></div>
+
+<div class="aufgabe"><b>Eine Firma speichert Kundenbestellungen in einer einzigen Tabelle, in der zu jeder Bestellung Name und Adresse des Kunden stehen. Erläutern Sie das Problem und einen Lösungsansatz. (4 Punkte)</b>
+<details><summary>Lösung anzeigen</summary>Die Kundendaten werden bei jeder Bestellung erneut gespeichert (Redundanz) (1). Ändert sich eine Adresse und wird nicht in allen Zeilen angepasst, sind die Daten widersprüchlich (Änderungsanomalie) (1). Lösung: eine eigene Tabelle Kunde mit Primärschlüssel KundenNr anlegen (1); die Tabelle Bestellung erhält nur noch die KundenNr als Fremdschlüssel (1).</details></div>
+
+<div class="aufgabe"><b>Begründen Sie, ob für 25 neue, baugleiche Notebooks, die direkt an Mitarbeitende im Homeoffice geliefert werden, Imaging oder Windows Autopilot besser geeignet ist. (2 Punkte)</b>
+<details><summary>Lösung anzeigen</summary>Autopilot (1), weil die Notebooks nicht erst in der IT-Abteilung ausgepackt und mit einem Image bespielt werden müssen: Sie richten sich beim ersten Start mit dem Firmenkonto automatisch über Intune ein, auch im Homeoffice (1).</details></div>

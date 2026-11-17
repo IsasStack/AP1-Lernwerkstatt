@@ -1,0 +1,170 @@
+<p class="lead">Jedes Gerät im Netz braucht eine Adresse, und jedes Netz muss so geplant sein, dass alle Geräte darin Platz haben. Subnetting ist eine der Rechenaufgaben, die in der AP1 regelmäßig drankommen – mit einem festen Rezept bringt sie sichere Punkte. Dazu kommen IPv6, die wichtigsten Dienste wie DHCP und DNS sowie TCP, UDP und Ports.</p>
+
+<h3>IPv4-Adressen und Subnetzmaske</h3>
+<p>Eine IPv4-Adresse ist <b>32 Bit</b> lang und wird als vier Dezimalzahlen von 0 bis 255 geschrieben (je 8 Bit = ein <b>Oktett</b>), z. B. 192.168.10.25. Jede Adresse besteht aus zwei Teilen:</p>
+<ul><li>dem <b>Netzanteil</b> – er sagt, in welchem Netz das Gerät ist (wie die Straße),</li>
+<li>dem <b>Hostanteil</b> – er bezeichnet das Gerät in diesem Netz (wie die Hausnummer).</li></ul>
+<p>Wo die Grenze liegt, legt die <b>Subnetzmaske</b> fest: Wo sie eine 1 hat, gehört das Bit zum Netz, wo sie eine 0 hat, zum Host. Die <b>CIDR-Schreibweise</b> gibt einfach die Anzahl der Einsen an: /24 = 24 Netzbits = 255.255.255.0.</p>
+<p><b>Warum ist das wichtig?</b> Ein Gerät entscheidet anhand von Adresse und Maske, ob ein Ziel im <b>eigenen Netz</b> liegt (dann schickt es die Daten direkt) oder in einem <b>fremden Netz</b> (dann schickt es sie an das <b>Standardgateway</b>, den Router). Ist die Maske falsch, schickt es Daten an den falschen Ort – und nichts funktioniert.</p>
+<table><tr><th>CIDR</th><th>Maske</th><th>Adressen</th><th>nutzbare Hosts</th></tr>
+<tr><td>/16</td><td>255.255.0.0</td><td>65.536</td><td>65.534</td></tr>
+<tr><td>/22</td><td>255.255.252.0</td><td>1.024</td><td>1.022</td></tr>
+<tr><td>/23</td><td>255.255.254.0</td><td>512</td><td>510</td></tr>
+<tr><td>/24</td><td>255.255.255.0</td><td>256</td><td>254</td></tr>
+<tr><td>/25</td><td>255.255.255.128</td><td>128</td><td>126</td></tr>
+<tr><td>/26</td><td>255.255.255.192</td><td>64</td><td>62</td></tr>
+<tr><td>/27</td><td>255.255.255.224</td><td>32</td><td>30</td></tr>
+<tr><td>/28</td><td>255.255.255.240</td><td>16</td><td>14</td></tr>
+<tr><td>/29</td><td>255.255.255.248</td><td>8</td><td>6</td></tr>
+<tr><td>/30</td><td>255.255.255.252</td><td>4</td><td>2</td></tr></table>
+<div class="merke"><b>Hostbits = 32 − Präfix</b> · <b>Adressen = 2<sup>Hostbits</sup></b> · <b>nutzbare Hosts = 2<sup>Hostbits</sup> − 2</b><br>Zwei Adressen fallen weg: die <b>Netzadresse</b> (alle Hostbits 0) bezeichnet das Netz selbst, die <b>Broadcastadresse</b> (alle Hostbits 1) erreicht alle Geräte im Netz.</div>
+<p>Die Maskenwerte im „angebrochenen“ Oktett musst du kennen: 128, 192, 224, 240, 248, 252, 254, 255 – also 1, 2, 3 … 8 Einsen von links.</p>
+
+<h3>Was die Maske technisch macht</h3>
+<p>Das Gerät verknüpft Adresse und Maske Bit für Bit mit <b>UND</b>: Nur wo beide eine 1 haben, bleibt eine 1. Das Ergebnis ist die Netzadresse.</p>
+<div class="bsp"><b>192.168.10.77 / 26</b> – nur das letzte Oktett ist interessant, die ersten drei bleiben (Maske 255).<br>
+<code>77&nbsp;&nbsp;= 0100 1101</code><br>
+<code>192 = 1100 0000</code> (Maske /26: 24 + 2 Einsen)<br>
+<code>UND = 0100 0000</code> = 64<br>
+→ Netzadresse <b>192.168.10.64</b>. Die 6 Hostbits auf 1 gesetzt ergeben die Broadcastadresse: 0111 1111 = 127 → <b>192.168.10.127</b>. Nutzbar: .65 bis .126 = 62 Hosts.</div>
+<p>In der Prüfung musst du nicht binär rechnen – das folgende Rezept liefert dasselbe Ergebnis schneller.</p>
+
+<h3>Subnetting: das Rezept</h3>
+<ol><li><b>Interessantes Oktett finden:</b> das Oktett, in dem die Maske weder 255 noch 0 ist.</li>
+<li><b>Blockgröße</b> = 256 − Maskenwert in diesem Oktett.</li>
+<li><b>Netzadresse</b> = größtes Vielfaches der Blockgröße, das ≤ dem Wert der IP-Adresse im interessanten Oktett ist. Alle Oktette dahinter werden 0.</li>
+<li><b>Broadcast</b> = nächste Netzadresse − 1 (Oktette dahinter 255).</li>
+<li><b>Hosts</b>: erster = Netzadresse + 1, letzter = Broadcast − 1.</li></ol>
+<div class="bsp"><b>172.16.5.77 / 27</b><br>
+1. /27 → Maske 255.255.255.224, interessant ist das 4. Oktett.<br>
+2. Blockgröße 256 − 224 = 32.<br>
+3. Netze beginnen bei 0, 32, 64, 96 … → 77 liegt zwischen 64 und 95 → Netzadresse <b>172.16.5.64</b>.<br>
+4. Nächstes Netz 96 → Broadcast <b>172.16.5.95</b>.<br>
+5. Hosts <b>172.16.5.65 – 172.16.5.94</b> = 30 Hosts.</div>
+<div class="bsp"><b>10.0.13.200 / 23</b> – hier liegt das interessante Oktett im 3. Oktett!<br>
+1. /23 → Maske 255.255.<b>254</b>.0, interessant ist das 3. Oktett.<br>
+2. Blockgröße 256 − 254 = 2.<br>
+3. Vielfache von 2: … 10, 12, 14 … → 13 liegt im Block, der bei 12 beginnt → Netzadresse <b>10.0.12.0</b>.<br>
+4. Nächstes Netz 10.0.14.0 → Broadcast <b>10.0.13.255</b>.<br>
+5. Hosts <b>10.0.12.1 – 10.0.13.254</b> = 2<sup>9</sup> − 2 = 510 Hosts.<br>
+Achtung: 10.0.12.255 und 10.0.13.0 sind hier ganz normale Hostadressen.</div>
+
+<h3>Netze aufteilen</h3>
+<h4>In gleich große Subnetze</h4>
+<p>Leiht man sich Bits vom Hostanteil, entstehen 2<sup>geliehene Bits</sup> Subnetze.</p>
+<div class="bsp"><b>192.168.50.0/24 in 4 gleich große Subnetze</b><br>
+4 = 2² → 2 Bits leihen → /24 + 2 = <b>/26</b> (Blockgröße 64, je 62 Hosts)<br>
+<table><tr><th>Subnetz</th><th>Netzadresse</th><th>Hostbereich</th><th>Broadcast</th></tr>
+<tr><td>1</td><td>192.168.50.0/26</td><td>.1 – .62</td><td>.63</td></tr>
+<tr><td>2</td><td>192.168.50.64/26</td><td>.65 – .126</td><td>.127</td></tr>
+<tr><td>3</td><td>192.168.50.128/26</td><td>.129 – .190</td><td>.191</td></tr>
+<tr><td>4</td><td>192.168.50.192/26</td><td>.193 – .254</td><td>.255</td></tr></table></div>
+<h4>Nach benötigter Hostanzahl</h4>
+<p>Suche die kleinste Zahl n, für die 2<sup>n</sup> − 2 ≥ benötigte Hosts ist. Dann ist das Präfix 32 − n. Denk an Reserve für Wachstum und daran, dass auch Gateway, Drucker und Access Points Adressen brauchen.</p>
+<div class="bsp"><b>Abteilungen unterschiedlicher Größe aus 192.168.50.0/24</b><br>
+Verwaltung 100 Hosts: 2⁷ − 2 = 126 ≥ 100 → /25<br>
+Lager 50 Hosts: 2⁶ − 2 = 62 ≥ 50 → /26<br>
+Technik 20 Hosts: 2⁵ − 2 = 30 ≥ 20 → /27<br>
+Verbindung zwischen zwei Routern, 2 Hosts: 2² − 2 = 2 → /30<br>
+Vergabe von groß nach klein, damit keine Lücken entstehen:<br>
+<table><tr><th>Netz</th><th>Netzadresse</th><th>Hostbereich</th><th>Broadcast</th></tr>
+<tr><td>Verwaltung</td><td>192.168.50.0/25</td><td>.1 – .126</td><td>.127</td></tr>
+<tr><td>Lager</td><td>192.168.50.128/26</td><td>.129 – .190</td><td>.191</td></tr>
+<tr><td>Technik</td><td>192.168.50.192/27</td><td>.193 – .222</td><td>.223</td></tr>
+<tr><td>Router-Verbindung</td><td>192.168.50.224/30</td><td>.225 – .226</td><td>.227</td></tr></table></div>
+<h4>Liegen zwei Geräte im selben Netz?</h4>
+<div class="bsp">PC: 192.168.1.130/25 · Netzwerkdrucker: 192.168.1.100/25<br>
+Blockgröße 256 − 128 = 128 → Netze .0 und .128.<br>
+PC: 130 liegt im Netz <b>.128</b>. Drucker: 100 liegt im Netz <b>.0</b>.<br>
+→ <b>Verschiedene Netze.</b> Der PC kann den Drucker nicht direkt erreichen, sondern nur über einen Router. Fehlt dieser, druckt er nicht. Lösung: Drucker eine Adresse aus .129 – .254 geben oder die Maske auf /24 ändern.</div>
+
+<h3>Besondere Adressen und NAT</h3>
+<table><tr><th>Bereich</th><th>Bedeutung</th></tr>
+<tr><td>10.0.0.0/8 · 172.16.0.0/12 (172.16.0.0 – 172.31.255.255) · 192.168.0.0/16</td><td><b>private Adressen</b> – frei in jedem Firmennetz verwendbar, werden im Internet nicht weitergeleitet</td></tr>
+<tr><td>127.0.0.0/8 (127.0.0.1)</td><td><b>Loopback</b> – der eigene Rechner („localhost“)</td></tr>
+<tr><td>169.254.0.0/16</td><td><b>APIPA</b> – vergibt sich ein Windows-Rechner selbst, wenn kein DHCP-Server antwortet</td></tr></table>
+<div class="tip">Zeigt ipconfig eine Adresse 169.254.x.x, hat der Rechner <b>keine Antwort vom DHCP-Server</b> bekommen. Typische Ursachen: Kabel nicht gesteckt, falsches VLAN am Switchport, DHCP-Server ausgefallen oder sein Adressbereich erschöpft.</div>
+<p><b>NAT</b> (Network Address Translation): Der Router übersetzt die privaten Adressen aller Geräte im Firmennetz in seine eine öffentliche Adresse und merkt sich anhand von Portnummern, welche Antwort zu welchem Gerät gehört. <b>Warum?</b> Es gibt nur etwa 4,3 Milliarden IPv4-Adressen – viel zu wenige für alle Geräte der Welt. NAT spart öffentliche Adressen und verbirgt nebenbei die interne Struktur.</p>
+
+<h3>IPv6</h3>
+<p>IPv6-Adressen sind <b>128 Bit</b> lang – das ergibt etwa 3,4 × 10<sup>38</sup> Adressen, genug für jedes Gerät, ohne NAT. Geschrieben werden sie als 8 Blöcke zu je 16 Bit in Hexadezimal, getrennt durch Doppelpunkte.</p>
+<h4>Kürzen</h4>
+<ol><li><b>Führende Nullen</b> in jedem Block dürfen wegfallen: 0db8 → db8, 0042 → 42, 0000 → 0.</li>
+<li><b>Eine</b> zusammenhängende Folge von Null-Blöcken darf durch <b>::</b> ersetzt werden – aber nur <b>einmal</b> pro Adresse, sonst wüsste man nicht, wie viele Blöcke wo fehlen. Gibt es mehrere Folgen, kürzt man die längste.</li></ol>
+<div class="bsp"><code>2001:0db8:0000:0000:0000:ff00:0042:8329</code><br>
+Schritt 1: <code>2001:db8:0:0:0:ff00:42:8329</code><br>
+Schritt 2: <code>2001:db8::ff00:42:8329</code><br><br>
+<code>fe80:0000:0000:0000:0204:61ff:fe9d:f156</code> → <code>fe80::204:61ff:fe9d:f156</code><br><br>
+<b>Rückwärts</b> (ausschreiben): <code>2001:db8:0:1::1</code> hat 5 Blöcke, es fehlen 3 → <code>2001:0db8:0000:0001:0000:0000:0000:0001</code><br><br>
+<b>Falsch:</b> <code>2001:db8::1::2</code> – zweimal :: ist nicht erlaubt.</div>
+<table><tr><th>Präfix</th><th>Typ</th><th>Bedeutung</th></tr>
+<tr><td>2000::/3</td><td>Global Unicast</td><td>öffentliche, weltweit erreichbare Adressen</td></tr>
+<tr><td>fe80::/10</td><td>Link-Local</td><td>jede Schnittstelle hat automatisch eine; gilt nur im lokalen Netzsegment</td></tr>
+<tr><td>fc00::/7 (praktisch fd00::/8)</td><td>Unique Local</td><td>ähnlich wie private IPv4-Adressen</td></tr>
+<tr><td>ff00::/8</td><td>Multicast</td><td>an eine Gruppe – IPv6 kennt <b>keinen Broadcast</b></td></tr>
+<tr><td>::1</td><td>Loopback</td><td>der eigene Rechner</td></tr></table>
+<p>Eine Global-Unicast-Adresse besteht meist aus <b>64 Bit Präfix</b> (Netz) und <b>64 Bit Interface Identifier</b> (Gerät). Ein Subnetz ist praktisch immer ein <b>/64</b>. Unternehmen bekommen vom Provider meist ein /48 oder /56.</p>
+<div class="bsp"><b>Wie viele /64-Subnetze?</b><br>
+Zuteilung /48 → bis /64 sind 64 − 48 = 16 Bits frei → 2<sup>16</sup> = <b>65.536 Subnetze</b>.<br>
+Zuteilung /56 → 8 Bits → 2<sup>8</sup> = <b>256 Subnetze</b>.</div>
+<p><b>Adressvergabe:</b> automatisch über die Router-Ankündigungen (<b>SLAAC</b>), über DHCPv6 oder statisch. <b>Dual Stack</b> heißt: IPv4 und IPv6 laufen parallel – heute der Normalfall.</p>
+
+<h3>Wichtige Dienste: DHCP, DNS, ARP, ICMP</h3>
+<h4>DHCP – automatische Adressvergabe</h4>
+<p>Ohne DHCP müsste man jedem Gerät Adresse, Maske, Gateway und DNS-Server von Hand eintragen – fehleranfällig und bei Hunderten Geräten nicht machbar. Der DHCP-Server vergibt diese Daten automatisch für eine bestimmte Zeit (<b>Lease</b>).</p>
+{{DORA}}
+<p>Server, Drucker und Netzwerkgeräte brauchen eine gleichbleibende Adresse. Dafür gibt es zwei Wege: <b>statisch</b> am Gerät eintragen (außerhalb des DHCP-Bereichs!) oder eine <b>DHCP-Reservierung</b> anhand der MAC-Adresse – dann bekommt das Gerät per DHCP immer dieselbe Adresse und alles bleibt zentral verwaltet.</p>
+<h4>DNS – Namen in Adressen übersetzen</h4>
+<p>Menschen merken sich Namen, Computer brauchen Adressen. DNS übersetzt z. B. www.beispiel.de in eine IP-Adresse. Ein Rechner sucht zuerst in seinem Zwischenspeicher, dann in der hosts-Datei, dann fragt er den DNS-Server. Kennt dieser die Antwort nicht, fragt er sich von den Root-Servern über die Top-Level-Domain (.de) bis zum zuständigen (autoritativen) Server durch.</p>
+<table><tr><th>Eintrag</th><th>Bedeutung</th></tr>
+<tr><td>A / AAAA</td><td>Name → IPv4- / IPv6-Adresse</td></tr>
+<tr><td>CNAME</td><td>Alias – ein Name verweist auf einen anderen</td></tr>
+<tr><td>MX</td><td>zuständiger Mailserver einer Domain</td></tr>
+<tr><td>PTR</td><td>umgekehrt: IP-Adresse → Name</td></tr>
+<tr><td>NS</td><td>zuständiger Nameserver</td></tr>
+<tr><td>SRV</td><td>Dienst, z. B. wo der Domänencontroller zu finden ist</td></tr>
+<tr><td>TXT</td><td>Textinformationen, z. B. für E-Mail-Sicherheit (SPF)</td></tr></table>
+<p><b>ARP</b> findet zu einer bekannten IPv4-Adresse im lokalen Netz die MAC-Adresse („Wer hat 192.168.10.1?“ als Broadcast). Ohne MAC-Adresse kann der Switch den Frame nicht zustellen. IPv6 nutzt dafür NDP. <b>ICMP</b> transportiert Steuer- und Fehlermeldungen; ping und traceroute nutzen es.</p>
+
+<h3>TCP, UDP und Ports</h3>
+<table><tr><th></th><th>TCP</th><th>UDP</th></tr>
+<tr><td>Verbindung</td><td>verbindungsorientiert: vor dem Senden Verbindungsaufbau</td><td>verbindungslos: einfach losschicken</td></tr>
+<tr><td>Zuverlässigkeit</td><td>Empfang wird bestätigt, Reihenfolge stimmt, Verlorenes wird neu gesendet</td><td>keine Garantie</td></tr>
+<tr><td>Geschwindigkeit</td><td>mehr Aufwand</td><td>schnell, wenig Overhead</td></tr>
+<tr><td>Einsatz</td><td>Webseiten, E-Mail, Dateiübertragung, SSH – alles, wo kein Byte fehlen darf</td><td>DNS-Abfragen, DHCP, Telefonie, Videostreams, Spiele – wo Schnelligkeit wichtiger ist als einzelne verlorene Pakete</td></tr></table>
+{{HANDSHAKE}}
+<p><b>Warum UDP für Telefonie?</b> Ein verlorenes Sprachpaket neu zu senden, wäre sinnlos – bis es ankommt, ist das Gespräch schon weiter. Lieber eine winzige Lücke als eine Verzögerung.</p>
+<p><b>Ports</b> geben an, für welches Programm auf einem Rechner die Daten bestimmt sind. Die IP-Adresse ist das Haus, der Port die Wohnungstür. Server lauschen auf festen, bekannten Ports:</p>
+<table><tr><th>Port</th><th>Dienst</th><th>Port</th><th>Dienst</th></tr>
+<tr><td>20/21</td><td>FTP</td><td>110 / 995</td><td>POP3 / POP3S</td></tr>
+<tr><td>22</td><td>SSH, SFTP</td><td>123</td><td>NTP (Zeit)</td></tr>
+<tr><td>23</td><td>Telnet (unverschlüsselt!)</td><td>143 / 993</td><td>IMAP / IMAPS</td></tr>
+<tr><td>25 / 587 / 465</td><td>SMTP / Einlieferung / SMTPS</td><td>389 / 636</td><td>LDAP / LDAPS</td></tr>
+<tr><td>53</td><td>DNS</td><td>445</td><td>SMB (Windows-Dateifreigaben)</td></tr>
+<tr><td>67/68</td><td>DHCP</td><td>3389</td><td>RDP (Remotedesktop)</td></tr>
+<tr><td>80 / 443</td><td>HTTP / HTTPS</td><td>88</td><td>Kerberos</td></tr></table>
+<p><b>E-Mail-Protokolle:</b> SMTP sendet Mails. IMAP verwaltet sie auf dem Server – alle Geräte sehen denselben Stand. POP3 lädt sie herunter und löscht sie meist auf dem Server – für mehrere Geräte ungeeignet.</p>
+
+<div class="fehler"><ul>
+<li>Netz- und Broadcastadresse als nutzbare Hosts mitzählen (immer − 2).</li>
+<li>Die Blockgröße im falschen Oktett anwenden, besonders bei /23 oder /22.</li>
+<li>Beim Aufteilen nach Hosts das Gateway und die Reserve vergessen.</li>
+<li>Bei IPv6 :: zweimal verwenden oder Nullen am Ende eines Blocks weglassen (0db8 → db8 ist richtig, 2001 → 21 ist falsch).</li>
+<li>Annehmen, IPv6 habe Broadcast.</li>
+<li>Eine feste IP-Adresse in den DHCP-Bereich legen.</li>
+<li>TCP und UDP vertauschen oder Ports raten – die Tabelle oben auswendig lernen.</li></ul></div>
+
+<div class="aufgabe"><b>Ermitteln Sie für 192.168.40.150/28 Netzadresse, Broadcastadresse, ersten und letzten Host sowie die Anzahl nutzbarer Hosts. (5 Punkte)</b>
+<details><summary>Lösung anzeigen</summary>/28 → Maske 255.255.255.240, Blockgröße 16. Vielfache: … 144, 160 → 150 liegt im Block ab 144. Netzadresse <b>192.168.40.144</b> (1), Broadcast <b>192.168.40.159</b> (1), erster Host <b>.145</b> (1), letzter Host <b>.158</b> (1), <b>14</b> nutzbare Hosts (1).</details></div>
+
+<div class="aufgabe"><b>Eine Abteilung braucht 40 IP-Adressen für Endgeräte, dazu Gateway und zwei Drucker. Welches Präfix ist mindestens nötig? (2 Punkte)</b>
+<details><summary>Lösung anzeigen</summary>40 + 1 + 2 = 43 Adressen (1). 2⁶ − 2 = 62 ≥ 43, 2⁵ − 2 = 30 reicht nicht → <b>/26</b> (1).</details></div>
+
+<div class="aufgabe"><b>Kürzen Sie die IPv6-Adresse 2001:0db8:0000:00a0:0000:0000:0000:0001 so weit wie möglich. (2 Punkte)</b>
+<details><summary>Lösung anzeigen</summary>Führende Nullen weglassen: 2001:db8:0:a0:0:0:0:1 (1). Die längste Null-Folge (drei Blöcke) durch :: ersetzen: <b>2001:db8:0:a0::1</b> (1).</details></div>
+
+<div class="aufgabe"><b>Ein Mitarbeiter kann nicht ins Internet. ipconfig zeigt die Adresse 169.254.23.17. Erläutern Sie die Ursache und nennen Sie zwei mögliche Gründe. (3 Punkte)</b>
+<details><summary>Lösung anzeigen</summary>Es ist eine APIPA-Adresse: Der Rechner hat keine Antwort von einem DHCP-Server erhalten und sich selbst eine Adresse gegeben (1). Gründe (je 1): Netzwerkkabel nicht verbunden oder defekt; Switchport im falschen VLAN; DHCP-Server ausgefallen; DHCP-Adressbereich erschöpft.</details></div>
+
+<div class="aufgabe"><b>Begründen Sie, warum für Videotelefonie UDP und für den Download einer Datei TCP verwendet wird. (2 Punkte)</b>
+<details><summary>Lösung anzeigen</summary>Bei Videotelefonie ist eine geringe Verzögerung wichtiger als jedes einzelne Paket; verlorene Pakete neu zu senden, käme zu spät – deshalb das schnelle, verbindungslose UDP (1). Bei einem Download darf kein Byte fehlen, sonst ist die Datei beschädigt – TCP bestätigt den Empfang und sendet Verlorenes erneut (1).</details></div>
