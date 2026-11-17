@@ -8,127 +8,218 @@
 
 ---
 
+Fast jedes IT-System verarbeitet Daten über Menschen: Kunden, Mitarbeitende, Patienten. Die Datenschutz-Grundverordnung (DSGVO) legt fest, wann das erlaubt ist, welche Rechte die Betroffenen haben und welche Pflichten das Unternehmen trifft. In der AP1 sollst du erkennen, ob personenbezogene Daten vorliegen, eine Rechtsgrundlage zuordnen, Betroffenenrechte erklären und passende technische und organisatorische Maßnahmen vorschlagen. Betroffenenrechte, Pseudonymisierung und Anonymisierung sowie die Folgen der Einwilligung sind im Katalog 2025 betont.
+
 ## Grundbegriffe
 
-- **Personenbezogene Daten** (Art. 4 DSGVO): alle Informationen über eine identifizierte oder identifizierbare natürliche Person – Name, Adresse, E-Mail, IP-Adresse, Personalnummer, Standortdaten, Fotos.
-- **Besondere Kategorien** (Art. 9): Gesundheit, ethnische Herkunft, politische Meinung, Religion, Gewerkschaftszugehörigkeit, genetische/biometrische Daten, Sexualleben – besonders geschützt.
-- **Verarbeitung**: jeder Vorgang – Erheben, Speichern, Ändern, Abfragen, Übermitteln, Löschen.
-- **Verantwortlicher** (entscheidet über Zweck und Mittel) vs. **Auftragsverarbeiter** (verarbeitet im Auftrag, z. B. Cloud-Anbieter).
-- **Datenschutz ≠ Datensicherheit**: Datenschutz schützt die *Person* (informationelle Selbstbestimmung); Datensicherheit schützt *alle Daten* vor Verlust/Manipulation (Mittel zum Zweck).
-- **Pseudonymisierung**: Personenbezug nur mit Zusatzwissen herstellbar (bleibt personenbezogen). **Anonymisierung**: Personenbezug dauerhaft entfernt → DSGVO gilt nicht mehr.
+**Personenbezogene Daten** (Art. 4 DSGVO) sind alle Informationen über eine **identifizierte oder identifizierbare** natürliche Person: Name, Anschrift, E-Mail-Adresse, Telefonnummer, Personalnummer, Kfz-Kennzeichen, Standortdaten, Fotos – und auch die **IP-Adresse**, weil sich darüber mit Zusatzwissen eine Person ermitteln lässt.
 
-## Grundsätze (Art. 5 DSGVO)
+**Besondere Kategorien** (Art. 9) sind besonders geschützt: Gesundheitsdaten, ethnische Herkunft, politische Meinung, religiöse Überzeugung, Gewerkschaftszugehörigkeit, genetische und biometrische Daten, Sexualleben. Ihre Verarbeitung ist grundsätzlich verboten, außer es gibt eine ausdrückliche Ausnahme.
 
-1. **Rechtmäßigkeit, Verarbeitung nach Treu und Glauben, Transparenz**
-2. **Zweckbindung** – nur für festgelegte, eindeutige Zwecke
-3. **Datenminimierung** – nur so viel wie nötig
-4. **Richtigkeit** – sachlich richtig und aktuell
-5. **Speicherbegrenzung** – nur so lange wie nötig
-6. **Integrität und Vertraulichkeit** – angemessene Sicherheit
-7. **Rechenschaftspflicht** – Verantwortlicher muss Einhaltung nachweisen
+**Verarbeitung** ist jeder Umgang mit Daten: erheben, speichern, ändern, abfragen, übermitteln, löschen. Der **Verantwortliche** entscheidet über Zweck und Mittel. Ein **Auftragsverarbeiter** verarbeitet die Daten nur in seinem Auftrag, z. B. ein Cloud-Anbieter oder ein Fernwartungsdienstleister.
 
-## Rechtsgrundlagen (Art. 6) – Verbot mit Erlaubnisvorbehalt
+> [!IMPORTANT]
+> **Datenschutz ≠ Datensicherheit.** Datenschutz schützt die **Person** und ihr Recht, selbst über ihre Daten zu bestimmen. Datensicherheit schützt **alle** Daten vor Verlust, Manipulation und unbefugtem Zugriff – sie ist ein Mittel, um Datenschutz umzusetzen.
 
-Verarbeitung ist nur erlaubt mit: a) **Einwilligung** (freiwillig, informiert, widerrufbar), b) **Vertragserfüllung**, c) **rechtlicher Verpflichtung** (z. B. Steuerrecht), d) lebenswichtigen Interessen, e) öffentlicher Aufgabe, f) **berechtigtem Interesse** (mit Interessenabwägung). Im Beschäftigtenkontext zusätzlich § 26 BDSG.
+#### Pseudonymisierung und Anonymisierung
+
+<table><tr><th></th><th>Pseudonymisierung</th><th>Anonymisierung</th></tr>
+<tr><td>Prinzip</td><td>Namen werden durch Kennzeichen ersetzt; mit einer getrennt aufbewahrten Zuordnungstabelle kann man den Bezug wiederherstellen</td><td>Der Personenbezug wird dauerhaft entfernt; niemand kann ihn wiederherstellen</td></tr>
+<tr><td>Beispiel</td><td>„Patient P-4711, 54 Jahre, Diagnose …“ – die Liste P-4711 = Max Meier liegt verschlossen beim Arzt</td><td>„In Hamburg wurden 2026 1.234 Fälle behandelt, Durchschnittsalter 54“</td></tr>
+<tr><td>DSGVO gilt?</td><td><b>ja</b> – die Daten bleiben personenbezogen, das Risiko ist aber geringer</td><td><b>nein</b> – es sind keine personenbezogenen Daten mehr</td></tr></table>
+
+**Warum pseudonymisiert man?** Entwickler, Tester oder Statistiker können mit den Daten arbeiten, ohne zu wissen, um wen es geht. Gelangen die Daten in falsche Hände, ist der Schaden geringer.
+
+## Darf ich diese Daten verarbeiten?
+
+![Prüfschema: Darf ich diese Daten verarbeiten?](img/datenschutz-1.svg)
+
+#### Grundsätze (Art. 5)
+
+<table><tr><th>Grundsatz</th><th>Bedeutung</th><th>Beispiel</th></tr>
+<tr><td>Rechtmäßigkeit, Treu und Glauben, Transparenz</td><td>nur mit Rechtsgrundlage, fair und für Betroffene nachvollziehbar</td><td>Datenschutzhinweis am Formular</td></tr>
+<tr><td><b>Zweckbindung</b></td><td>nur für vorher festgelegte, eindeutige Zwecke</td><td>Adressen für den Versand dürfen nicht einfach für Werbung genutzt werden</td></tr>
+<tr><td><b>Datenminimierung</b></td><td>nur so viele Daten wie nötig</td><td>Kontaktformular fragt nicht nach Geburtsdatum</td></tr>
+<tr><td>Richtigkeit</td><td>sachlich richtig und aktuell</td><td>Adressänderungen einpflegen</td></tr>
+<tr><td><b>Speicherbegrenzung</b></td><td>nur so lange wie nötig</td><td>Bewerbungsunterlagen nach Absage nach einigen Monaten löschen</td></tr>
+<tr><td>Integrität und Vertraulichkeit</td><td>angemessene Sicherheit</td><td>Verschlüsselung, Zugriffsrechte</td></tr>
+<tr><td>Rechenschaftspflicht</td><td>der Verantwortliche muss die Einhaltung nachweisen können</td><td>Dokumentation im Verarbeitungsverzeichnis</td></tr></table>
+
+#### Rechtsgrundlagen (Art. 6) – Verbot mit Erlaubnisvorbehalt
+
+Grundsätzlich ist jede Verarbeitung personenbezogener Daten **verboten** – außer, eine der folgenden Rechtsgrundlagen erlaubt sie:
+
+<table><tr><th>Rechtsgrundlage</th><th>Beispiel</th></tr>
+<tr><td>a) <b>Einwilligung</b></td><td>Newsletter-Anmeldung</td></tr>
+<tr><td>b) <b>Vertragserfüllung</b></td><td>Lieferadresse für eine Bestellung, Bankverbindung für das Gehalt</td></tr>
+<tr><td>c) <b>rechtliche Verpflichtung</b></td><td>Rechnungen aufbewahren (Steuerrecht), Meldung an die Sozialversicherung</td></tr>
+<tr><td>d) lebenswichtige Interessen</td><td>Notarzt erhält Vorerkrankungen eines bewusstlosen Patienten</td></tr>
+<tr><td>e) öffentliche Aufgabe</td><td>Behörden</td></tr>
+<tr><td>f) <b>berechtigtes Interesse</b> (mit Abwägung gegen die Interessen der Betroffenen)</td><td>Protokollierung von Zugriffen zur IT-Sicherheit, Videoüberwachung eines Lagers</td></tr></table>
+
+> [!TIP]
+> Für Daten, die für einen Vertrag nötig sind, braucht man **keine** Einwilligung – die Rechtsgrundlage ist die Vertragserfüllung. Eine unnötige Einwilligung ist sogar riskant: Wird sie widerrufen, entsteht Unsicherheit, ob man die Daten noch verwenden darf.
+
+## Einwilligung
+
+Eine wirksame Einwilligung muss **freiwillig**, **informiert**, für einen **bestimmten Zweck** und **eindeutig** erteilt werden – durch eine aktive Handlung, z. B. ein selbst gesetztes Häkchen. Ein vorangekreuztes Kästchen oder Schweigen genügt nicht. Der Verantwortliche muss sie **nachweisen** können.
+
+**Konsequenzen der Einwilligung:**
+
+- Sie kann **jederzeit widerrufen** werden, und zwar so einfach, wie sie erteilt wurde. Ab dem Widerruf dürfen die Daten auf dieser Grundlage nicht mehr verarbeitet werden; die bisherige Verarbeitung bleibt rechtmäßig. In der Regel sind die Daten dann zu löschen.
+- **Kopplungsverbot:** Ein Vertrag darf nicht von einer Einwilligung abhängig gemacht werden, die für ihn nicht nötig ist („Den Handyvertrag gibt es nur, wenn Sie Werbe-Anrufen zustimmen“).
+- Im Arbeitsverhältnis ist Freiwilligkeit wegen der Abhängigkeit nur eingeschränkt gegeben.
+- Bei Online-Diensten brauchen Kinder unter 16 Jahren die Zustimmung der Eltern.
 
 ## Betroffenenrechte
 
-<table><tr><th>Artikel</th><th>Recht</th></tr>
-<tr><td>Art. 13/14</td><td>Informationspflicht bei Erhebung</td></tr>
-<tr><td><b>Art. 15</b></td><td><b>Auskunft</b> – welche Daten, Zweck, Empfänger, Dauer, Herkunft; Kopie der Daten</td></tr>
-<tr><td><b>Art. 16</b></td><td><b>Berichtigung</b> unrichtiger Daten</td></tr>
-<tr><td><b>Art. 17</b></td><td><b>Löschung</b> („Recht auf Vergessenwerden“)</td></tr>
-<tr><td>Art. 18</td><td>Einschränkung der Verarbeitung</td></tr>
-<tr><td>Art. 20</td><td>Datenübertragbarkeit (strukturiert, maschinenlesbar)</td></tr>
-<tr><td>Art. 21</td><td>Widerspruch</td></tr>
-<tr><td>Art. 22</td><td>keine ausschließlich automatisierte Entscheidung (inkl. Profiling)</td></tr>
-<tr><td>Art. 7 Abs. 3</td><td>Widerruf der Einwilligung jederzeit</td></tr>
-<tr><td>Art. 77</td><td>Beschwerde bei der Aufsichtsbehörde</td></tr></table>
+<table><tr><th>Artikel</th><th>Recht</th><th>bedeutet</th></tr>
+<tr><td>13/14</td><td>Information</td><td>bei der Erhebung erfahren, wer welche Daten wofür wie lange verarbeitet</td></tr>
+<tr><td>15</td><td><b>Auskunft</b></td><td>welche Daten gespeichert sind, Zweck, Empfänger, Speicherdauer, Herkunft – mit Kopie der Daten</td></tr>
+<tr><td>16</td><td>Berichtigung</td><td>falsche Daten korrigieren lassen</td></tr>
+<tr><td>17</td><td><b>Löschung</b></td><td>„Recht auf Vergessenwerden“, z. B. wenn der Zweck entfallen ist oder die Einwilligung widerrufen wurde</td></tr>
+<tr><td>18</td><td>Einschränkung</td><td>Daten werden gesperrt statt gelöscht, z. B. solange die Richtigkeit geklärt wird</td></tr>
+<tr><td>20</td><td>Datenübertragbarkeit</td><td>Daten in einem gängigen, maschinenlesbaren Format erhalten, um den Anbieter zu wechseln</td></tr>
+<tr><td>21</td><td>Widerspruch</td><td>z. B. gegen Werbung oder eine Verarbeitung aus berechtigtem Interesse</td></tr>
+<tr><td>22</td><td>keine rein automatisierte Entscheidung</td><td>wichtige Entscheidungen nicht allein durch einen Algorithmus</td></tr>
+<tr><td>7 Abs. 3</td><td>Widerruf der Einwilligung</td><td>jederzeit</td></tr>
+<tr><td>77</td><td>Beschwerde</td><td>bei der Datenschutz-Aufsichtsbehörde</td></tr></table>
 
-Frist zur Beantwortung: **unverzüglich, spätestens innerhalb eines Monats** (verlängerbar um 2 Monate). Auskunft i. d. R. kostenlos. Löschung kann durch gesetzliche Aufbewahrungspflichten eingeschränkt sein (dann sperren/einschränken).
+Anfragen sind **unverzüglich, spätestens innerhalb eines Monats** zu beantworten (in komplexen Fällen um zwei Monate verlängerbar); die Auskunft ist in der Regel kostenlos. Das Recht auf Löschung gilt nicht unbegrenzt: Verlangen **gesetzliche Aufbewahrungsfristen** eine längere Speicherung (z. B. Rechnungen 8 Jahre), werden die Daten **gesperrt** und erst nach Fristende gelöscht.
 
-## Technische und organisatorische Maßnahmen (Art. 32)
+> [!NOTE]
+> **Beispiel**
+>
+> **Auskunftsanfrage bearbeiten**  
+> Ein ehemaliger Kunde fordert per E-Mail Auskunft über seine Daten.  
+> 1. **Identität prüfen** – sonst könnte ein Fremder die Daten erschleichen.  
+> 2. Frist notieren: spätestens **ein Monat** nach Eingang.  
+> 3. Alle Systeme durchsuchen (CRM, Warenwirtschaft, E-Mail, Backups beachten).  
+> 4. Auskunft erteilen: welche Daten, Zweck, Empfänger (z. B. Versanddienstleister), Speicherdauer, Herkunft, Hinweis auf weitere Rechte – mit Kopie der Daten.  
+> 5. Bearbeitung dokumentieren.  
+> Verlangt er zusätzlich die Löschung: Kundendaten löschen, die Rechnungen aber wegen der Aufbewahrungspflicht nur sperren.
 
-Der Verantwortliche muss ein dem Risiko angemessenes Schutzniveau sicherstellen – unter Berücksichtigung von Stand der Technik, Kosten, Art/Umfang der Verarbeitung und Risiko. Genannt werden u. a.: **Pseudonymisierung und Verschlüsselung**; Sicherstellung von **Vertraulichkeit, Integrität, Verfügbarkeit und Belastbarkeit**; rasche **Wiederherstellbarkeit** nach Zwischenfällen; Verfahren zur **regelmäßigen Überprüfung** der Wirksamkeit.
+## Technische und organisatorische Maßnahmen (TOM)
 
-<table><tr><th>Kontrollziel (klassisch, BDSG alt – oft noch abgefragt)</th><th>Beispiel</th></tr>
-<tr><td>Zutrittskontrolle (Räume)</td><td>Chipkarte, Schließanlage, Serverraum abschließen</td></tr>
-<tr><td>Zugangskontrolle (Systeme)</td><td>Passwort, MFA, Bildschirmsperre</td></tr>
-<tr><td>Zugriffskontrolle (Daten)</td><td>Berechtigungskonzept, Need-to-know, Rollen</td></tr>
-<tr><td>Weitergabekontrolle</td><td>Verschlüsselung (TLS, VPN), verschlüsselte Datenträger</td></tr>
-<tr><td>Eingabekontrolle</td><td>Protokollierung, wer wann was geändert hat</td></tr>
-<tr><td>Auftragskontrolle</td><td>AV-Vertrag, Kontrolle des Dienstleisters</td></tr>
-<tr><td>Verfügbarkeitskontrolle</td><td>Backup, USV, Virenschutz, Brandschutz</td></tr>
-<tr><td>Trennungsgebot</td><td>getrennte Verarbeitung für verschiedene Zwecke/Mandanten</td></tr></table>
+Nach Art. 32 muss der Verantwortliche ein dem Risiko angemessenes Schutzniveau sicherstellen – unter Berücksichtigung des **Stands der Technik**, der Kosten, der Art der Daten und des Risikos. Ausdrücklich genannt werden: Pseudonymisierung und Verschlüsselung, Vertraulichkeit, Integrität, Verfügbarkeit und Belastbarkeit der Systeme, rasche Wiederherstellung nach Zwischenfällen und regelmäßige Überprüfung der Maßnahmen.
 
-## Weitere Pflichten
-
-- **Datenschutzbeauftragter** (§ 38 BDSG): Pflicht, wenn i. d. R. mindestens **20 Personen** ständig mit der automatisierten Verarbeitung personenbezogener Daten beschäftigt sind (oder bei Kerntätigkeit mit sensiblen Daten). Berät, überwacht, schult; weisungsfrei, Kündigungsschutz.
-- **Verzeichnis von Verarbeitungstätigkeiten** (Art. 30).
-- **Auftragsverarbeitungsvertrag (AVV)** (Art. 28) mit Dienstleistern (Cloud, Fernwartung, Aktenvernichter).
-- **Datenschutz-Folgenabschätzung** (Art. 35) bei hohem Risiko (z. B. Videoüberwachung, umfangreiche Gesundheitsdaten).
-- **Meldepflicht** (Art. 33): Datenpanne an die Aufsichtsbehörde **binnen 72 Stunden**; bei hohem Risiko auch Betroffene informieren (Art. 34).
-- **Privacy by Design / by Default** (Art. 25): Datenschutz durch Technikgestaltung und datenschutzfreundliche Voreinstellungen.
-- **Drittlandübermittlung** (außerhalb EU/EWR) nur mit Angemessenheitsbeschluss (z. B. EU-US Data Privacy Framework), Standardvertragsklauseln o. Ä.
-- **Bußgelder**: bis 20 Mio. € oder 4 % des weltweiten Jahresumsatzes (höherer Wert).
-
-## Sichere Datenträgervernichtung – DIN 66399
-
-Formatieren oder „Zurücksetzen“ reicht nicht – Daten sind wiederherstellbar. Möglichkeiten: zertifiziertes **Überschreiben/Löschsoftware** (HDD), **Secure Erase**/Crypto-Erase (SSD), **Degaussen** (Entmagnetisieren, nur magnetische Medien), **physische Zerstörung** (Schreddern). Externe Dienstleister: AV-Vertrag + Vernichtungsprotokoll/Zertifikat.
-
-<table><tr><th>Schutzklasse</th><th>Schutzbedarf</th><th>Beispiel</th></tr>
-<tr><td>1</td><td>normal (interne Daten)</td><td>Rundschreiben, Werbung</td></tr>
-<tr><td>2</td><td>hoch (vertrauliche Daten)</td><td>personenbezogene Daten, Kundendaten, Personalakten</td></tr>
-<tr><td>3</td><td>sehr hoch (geheime Daten)</td><td>Patientendaten, Forschung, Berufsgeheimnisträger</td></tr></table>
-
-7 **Sicherheitsstufen** (1–7): je höher, desto kleiner die Partikel. Personenbezogene Daten: mind. Stufe 3, besonders schützenswerte: Stufe 4+. Materialklassen: **P** Papier, **F** Film/Mikrofilm, **O** optisch (CD/DVD), **T** magnetisch (Disketten, Magnetkarten, Bänder), **H** Festplatten (magnetisch), **E** elektronische Datenträger (SSD, USB-Stick, Speicherkarten). Bezeichnung z. B. **H-4**, **E-4**, **P-4**.
-
-## Entsorgung: ElektroG & Nachhaltigkeit
-
-Das **Elektro- und Elektronikgerätegesetz (ElektroG)** setzt die EU-WEEE-Richtlinie um: Altgeräte dürfen nicht in den Hausmüll (Symbol: durchgestrichene Mülltonne), Hersteller sind zur Rücknahme verpflichtet, Händler mit ≥ 400 m² Elektro-Verkaufsfläche (Lebensmittelhandel ≥ 800 m² Gesamtfläche, die Elektro anbieten) müssen Kleingeräte zurücknehmen. Ziel: Schadstoffe (Blei, Quecksilber) fachgerecht entsorgen, Rohstoffe (Gold, Kupfer, seltene Erden) zurückgewinnen. Batterien: **BattG**. **Green IT**: energieeffiziente Geräte, lange Nutzung, Refurbished, Virtualisierung, Recycling.
-
-## Einwilligung und ihre Konsequenzen
-
-- Muss **freiwillig**, **informiert**, für einen **bestimmten Zweck** und **eindeutig** (aktive Handlung, kein vorangekreuztes Kästchen) erfolgen (Art. 4 Nr. 11, Art. 7).
-- Der Verantwortliche muss sie **nachweisen** können (Dokumentation).
-- **Jederzeit widerrufbar** – so einfach wie erteilt; ab dem Widerruf dürfen die Daten nicht mehr auf dieser Grundlage verarbeitet werden (bisherige Verarbeitung bleibt rechtmäßig), ggf. Löschung.
-- **Kopplungsverbot**: Ein Vertrag darf nicht von einer Einwilligung abhängig gemacht werden, die dafür nicht nötig ist.
-- Im Arbeitsverhältnis wegen Abhängigkeit nur eingeschränkt freiwillig. Für Minderjährige unter 16 Jahren bei Online-Diensten Zustimmung der Eltern.
-
-## Datenschutzbeauftragter vs. IT-Sicherheitsbeauftragter
-
-<table><tr><th></th><th>Datenschutzbeauftragte(r) (DSB)</th><th>IT-Sicherheitsbeauftragte(r) (ISB)</th></tr>
-<tr><td>Schützt</td><td>Personen und ihre personenbezogenen Daten</td><td>alle Informationen und IT-Systeme (V, I, V)</td></tr>
-<tr><td>Grundlage</td><td>DSGVO/BDSG – gesetzlich vorgeschrieben ab i. d. R. 20 Personen</td><td>BSI-Grundschutz/ISMS – meist freiwillig (Pflicht z. B. bei KRITIS/Behörden)</td></tr>
-<tr><td>Aufgaben</td><td>beraten, überwachen, schulen, Ansprechpartner für Betroffene und Aufsichtsbehörde</td><td>Sicherheitskonzept, Richtlinien, Vorfallbearbeitung, Awareness</td></tr>
-<tr><td>Stellung</td><td>weisungsfrei, Kündigungsschutz, kann extern sein</td><td>berichtet an die Leitung</td></tr></table>
-
-Beide Rollen sollten wegen möglicher Interessenkonflikte nicht von der IT-Leitung selbst übernommen werden.
-
-## Webseiten & Kontaktformulare
-
-- **Kontaktformular**: nur nötige Pflichtfelder (Datenminimierung), Übertragung per HTTPS, Hinweis auf Datenschutzerklärung, Zweckbindung (nur zur Beantwortung), Löschfrist.
-- **Impressumspflicht** nach dem **Digitale-Dienste-Gesetz (DDG)** (seit 2024, ersetzt das TMG): Name, Anschrift, Kontakt, Register, USt-IdNr.
-- **Cookies** (TDDDG): technisch notwendige Cookies erlaubt; Tracking/Marketing nur nach Einwilligung (Cookie-Banner mit gleichwertiger Ablehnen-Option).
-- **Standard-Datenschutzmodell (SDM)**: Methode der Datenschutzbehörden, um DSGVO-Anforderungen in TOM zu übersetzen (Gewährleistungsziele wie Datenminimierung, Verfügbarkeit, Integrität, Vertraulichkeit, Nichtverkettung, Transparenz, Intervenierbarkeit).
-
-## Technische und organisatorische Maßnahmen nach Kontrollarten
+In Prüfungen werden die Maßnahmen oft nach den klassischen **Kontrollarten** geordnet:
 
 <table><tr><th>Kontrolle</th><th>Ziel</th><th>Beispiele</th></tr>
-<tr><td>Zutrittskontrolle</td><td>Unbefugte kommen nicht in die Räume</td><td>Schließanlage, Chipkarte, Besucherregelung</td></tr>
-<tr><td>Zugangskontrolle</td><td>Unbefugte können Systeme nicht nutzen</td><td>Passwort, MFA, Bildschirmsperre</td></tr>
-<tr><td>Zugriffskontrolle</td><td>Jeder sieht nur die Daten, die er braucht</td><td>Berechtigungskonzept, Rollen</td></tr>
-<tr><td>Weitergabekontrolle</td><td>Daten sind bei Transport und Übertragung geschützt</td><td>VPN, TLS, verschlüsselte Datenträger</td></tr>
-<tr><td>Eingabekontrolle</td><td>Nachvollziehbar, wer Daten wann eingegeben oder geändert hat</td><td>Protokollierung, persönliche Konten</td></tr>
-<tr><td>Auftragskontrolle</td><td>Dienstleister verarbeiten nur nach Weisung</td><td>AV-Vertrag, Kontrolle des Dienstleisters</td></tr>
-<tr><td>Verfügbarkeitskontrolle</td><td>Daten gehen nicht verloren</td><td>Backup, USV, Virenschutz</td></tr>
-<tr><td>Trennungsgebot</td><td>Daten für verschiedene Zwecke werden getrennt verarbeitet</td><td>getrennte Datenbanken, Mandantentrennung, Test- und Echtsystem</td></tr></table>
+<tr><td><b>Zutritts</b>kontrolle</td><td>Unbefugte kommen nicht in die <b>Räume</b></td><td>Schließanlage, Chipkarte, abgeschlossener Serverraum, Besucherregelung</td></tr>
+<tr><td><b>Zugangs</b>kontrolle</td><td>Unbefugte können die <b>Systeme</b> nicht benutzen</td><td>Passwort, MFA, Bildschirmsperre</td></tr>
+<tr><td><b>Zugriffs</b>kontrolle</td><td>jeder sieht nur die <b>Daten</b>, die er braucht</td><td>Berechtigungskonzept, Rollen, Need-to-know</td></tr>
+<tr><td>Weitergabekontrolle</td><td>Daten sind bei Übertragung und Transport geschützt</td><td>VPN, TLS, verschlüsselte USB-Sticks</td></tr>
+<tr><td>Eingabekontrolle</td><td>nachvollziehbar, wer wann was geändert hat</td><td>Protokollierung, persönliche Konten statt Sammelkonten</td></tr>
+<tr><td>Auftragskontrolle</td><td>Dienstleister arbeiten nur nach Weisung</td><td>Auftragsverarbeitungsvertrag, Kontrolle des Dienstleisters</td></tr>
+<tr><td>Verfügbarkeitskontrolle</td><td>Daten gehen nicht verloren</td><td>Backup, USV, Virenschutz, Brandschutz</td></tr>
+<tr><td>Trennungsgebot</td><td>Daten für verschiedene Zwecke getrennt verarbeiten</td><td>getrennte Datenbanken, Mandantentrennung, Test- und Echtsystem</td></tr></table>
 
-## Dokumentationspflichten
+> [!IMPORTANT]
+> Eselsbrücke: Zu**tritt** = mit den Füßen in den Raum · Zu**gang** = ans Gerät · Zu**griff** = auf die Daten.
 
-- **Verzeichnis von Verarbeitungstätigkeiten** (Art. 30 DSGVO): Liste aller Verarbeitungen mit Zweck, Datenkategorien, Empfängern, Löschfristen und Schutzmaßnahmen.
-- **Datenschutz-Folgenabschätzung** (Art. 35 DSGVO): vorab nötig, wenn eine Verarbeitung voraussichtlich ein hohes Risiko für Betroffene bringt, z. B. umfangreiche Videoüberwachung oder Verarbeitung vieler Gesundheitsdaten.
-- **Löschkonzept:** legt fest, welche Daten wann und wie gelöscht werden. Grundsatz: löschen, sobald der Zweck entfällt – außer gesetzliche Aufbewahrungsfristen verlangen eine längere Speicherung. Bis dahin werden die Daten gesperrt.
+**Privacy by Design und by Default** (Art. 25): Datenschutz wird schon bei der Entwicklung eingeplant, und die Voreinstellungen sind datenschutzfreundlich – z. B. ist ein Profil standardmäßig nicht öffentlich.
+
+## Pflichten des Unternehmens
+
+- **Verzeichnis von Verarbeitungstätigkeiten** (Art. 30): Liste aller Verarbeitungen mit Zweck, Datenkategorien, Empfängern, Löschfristen und Schutzmaßnahmen.
+- **Auftragsverarbeitungsvertrag** (Art. 28) mit allen Dienstleistern, die personenbezogene Daten im Auftrag verarbeiten: Cloud-Anbieter, Fernwartung, Lohnabrechnung, Aktenvernichtung.
+- **Datenschutz-Folgenabschätzung** (Art. 35): vorab, wenn eine Verarbeitung voraussichtlich ein hohes Risiko bringt, z. B. umfangreiche Videoüberwachung oder viele Gesundheitsdaten.
+- **Löschkonzept:** welche Daten wann und wie gelöscht werden.
+- **Datenschutzbeauftragte(r)** (§ 38 BDSG): Pflicht, wenn in der Regel mindestens **20 Personen** ständig mit der automatisierten Verarbeitung personenbezogener Daten beschäftigt sind – oder unabhängig von der Zahl, wenn sensible Daten den Kern der Tätigkeit bilden. Er berät, überwacht und schult, ist weisungsfrei und hat Kündigungsschutz; er kann auch extern sein.
+- **Drittlandübermittlung** (außerhalb EU/EWR) nur mit Angemessenheitsbeschluss (z. B. EU-US Data Privacy Framework für zertifizierte US-Anbieter), Standardvertragsklauseln oder ähnlichen Garantien.
+
+#### Datenpanne
+
+Gehen personenbezogene Daten verloren oder gelangen an Unbefugte, muss der Verantwortliche die **Aufsichtsbehörde innerhalb von 72 Stunden** nach Bekanntwerden informieren (Art. 33) – außer, es besteht voraussichtlich kein Risiko für die Betroffenen. Bei **hohem Risiko** müssen auch die **Betroffenen** selbst benachrichtigt werden (Art. 34).
+
+> [!NOTE]
+> **Beispiel**
+>
+> **Notebook im Zug vergessen**  
+> Auf dem Notebook eines Vertriebsmitarbeiters liegen Kundendaten. **Fall A:** Die Festplatte ist mit BitLocker verschlüsselt, die Anmeldung mit PIN und TPM gesichert. → Ein Zugriff ist praktisch ausgeschlossen; voraussichtlich kein Risiko, der Vorfall wird intern dokumentiert. **Fall B:** Keine Verschlüsselung. → Meldung an die Aufsichtsbehörde binnen 72 Stunden; bei sensiblen Daten zusätzlich Information der Betroffenen.  
+> Das zeigt, warum Verschlüsselung eine so wichtige TOM ist.
+
+**Bußgelder** können bis zu 20 Mio. € oder 4 % des weltweiten Jahresumsatzes betragen – je nachdem, was höher ist.
+
+<table><tr><th></th><th>Datenschutzbeauftragte(r)</th><th>IT-Sicherheitsbeauftragte(r)</th></tr>
+<tr><td>schützt</td><td>Personen und ihre Daten</td><td>alle Informationen und IT-Systeme</td></tr>
+<tr><td>Grundlage</td><td>DSGVO, BDSG – gesetzlich vorgeschrieben ab i. d. R. 20 Personen</td><td>BSI-Grundschutz, ISMS – meist freiwillig, Pflicht z. B. bei kritischen Infrastrukturen</td></tr>
+<tr><td>Aufgaben</td><td>beraten, überwachen, schulen, Ansprechpartner für Betroffene und Behörde</td><td>Sicherheitskonzept, Richtlinien, Vorfallbearbeitung, Sensibilisierung</td></tr></table>
+
+Beide Rollen sollten nicht von der IT-Leitung selbst übernommen werden – sie müsste sich sonst selbst kontrollieren.
+
+## Webseiten und Formulare
+
+- **Kontaktformular:** nur die nötigen Pflichtfelder (Datenminimierung), Übertragung per HTTPS, Hinweis auf die Datenschutzerklärung, Daten nur zur Beantwortung verwenden, Löschfrist festlegen.
+- **Impressum** nach dem Digitale-Dienste-Gesetz (DDG, seit 2024): Name, Anschrift, Kontakt, Registereintrag, USt-IdNr.
+- **Cookies** (TDDDG): technisch notwendige Cookies sind erlaubt; Tracking- und Marketing-Cookies nur nach Einwilligung – mit einer gleichwertigen Möglichkeit zum Ablehnen im Cookie-Banner.
+
+## Datenträger sicher entsorgen
+
+Formatieren oder „auf Werkseinstellungen zurücksetzen“ reicht nicht – die Daten lassen sich oft wiederherstellen. Sichere Verfahren: geprüfte Löschsoftware zum Überschreiben (HDD), Secure Erase bzw. Löschen des Schlüssels einer verschlüsselten SSD, Entmagnetisieren (nur magnetische Medien) oder physische Zerstörung. Beauftragt man einen Dienstleister, braucht man einen **Auftragsverarbeitungsvertrag** und ein **Vernichtungsprotokoll**.
+
+Die Norm **DIN 66399** legt fest, wie klein die Teile nach der Vernichtung sein müssen:
+
+<table><tr><th>Schutzklasse</th><th>Schutzbedarf</th><th>Beispiel</th></tr>
+<tr><td>1</td><td>normal (interne Daten)</td><td>Rundschreiben</td></tr>
+<tr><td>2</td><td>hoch (vertrauliche Daten)</td><td>personenbezogene Daten, Kundendaten, Personalakten</td></tr>
+<tr><td>3</td><td>sehr hoch (geheime Daten)</td><td>Patientendaten, Berufsgeheimnisse, Forschung</td></tr></table>
+
+Dazu gibt es **7 Sicherheitsstufen** (je höher, desto kleiner die Partikel) und Materialklassen: P (Papier), F (Film), O (optisch, CD/DVD), T (magnetische Datenträger wie Bänder), H (Festplatten), E (elektronische Datenträger wie SSD, USB-Stick, Speicherkarte). Für personenbezogene Daten ist mindestens Stufe 3 üblich, für besonders schützenswerte Stufe 4 oder höher – z. B. **H-4** für eine Festplatte mit Personaldaten oder **E-4** für eine SSD.
+
+**Elektroschrott:** Nach dem Elektro- und Elektronikgerätegesetz (ElektroG) gehören Altgeräte nicht in den Hausmüll (durchgestrichene Mülltonne). Hersteller und größere Händler müssen sie zurücknehmen. So werden Schadstoffe fachgerecht entsorgt und Rohstoffe wie Kupfer, Gold und seltene Erden zurückgewonnen. Für Akkus und Batterien gilt das Batteriegesetz.
+
+> [!CAUTION]
+> **Typische Fehler**
+>
+> - Datenschutz und Datensicherheit gleichsetzen.
+> - Pseudonymisierte Daten als nicht mehr personenbezogen bezeichnen.
+> - Für jede Verarbeitung eine Einwilligung verlangen, obwohl Vertrag oder Gesetz die Rechtsgrundlage ist.
+> - Zutritt, Zugang und Zugriff verwechseln.
+> - Die 72-Stunden-Frist auf die Betroffenen statt auf die Aufsichtsbehörde beziehen.
+> - Das Recht auf Löschung über gesetzliche Aufbewahrungspflichten stellen.
+> - Formatieren als sichere Löschung ansehen.
+
+**📝 Prüfungsaufgabe:** **Ordnen Sie zu: a) Ein Webshop speichert die Lieferadresse. b) Ein Unternehmen bewahrt Rechnungen 8 Jahre auf. c) Ein Kunde meldet sich für einen Newsletter an. Nennen Sie jeweils die Rechtsgrundlage nach Art. 6 DSGVO. (3 Punkte)**
+
+<details><summary>Lösung anzeigen</summary>
+
+a) Vertragserfüllung (1) b) rechtliche Verpflichtung (1) c) Einwilligung (1)
+
+</details>
+
+**📝 Prüfungsaufgabe:** **Ordnen Sie den Maßnahmen die Kontrollart zu: a) Der Serverraum hat ein Zahlenschloss. b) Nach 5 Minuten sperrt sich der Bildschirm. c) Auszubildende sehen im ERP keine Gehaltsdaten. d) Änderungen an Kundendaten werden mit Benutzer und Uhrzeit protokolliert. (4 Punkte)**
+
+<details><summary>Lösung anzeigen</summary>
+
+a) Zutrittskontrolle (1) b) Zugangskontrolle (1) c) Zugriffskontrolle (1) d) Eingabekontrolle (1)
+
+</details>
+
+**📝 Prüfungsaufgabe:** **Erläutern Sie den Unterschied zwischen Pseudonymisierung und Anonymisierung und welche Folge er für die Anwendung der DSGVO hat. (4 Punkte)**
+
+<details><summary>Lösung anzeigen</summary>
+
+Bei der Pseudonymisierung werden identifizierende Merkmale durch ein Kennzeichen ersetzt; mit einer getrennt aufbewahrten Zuordnung kann der Personenbezug wiederhergestellt werden (1). Die Daten bleiben personenbezogen, die DSGVO gilt weiter (1). Bei der Anonymisierung wird der Personenbezug dauerhaft entfernt, sodass niemand ihn wiederherstellen kann (1). Anonyme Daten fallen nicht mehr unter die DSGVO (1).
+
+</details>
+
+**📝 Prüfungsaufgabe:** **Ein Unternehmen stellt fest, dass durch einen Konfigurationsfehler die Kundendatenbank zwei Tage öffentlich im Internet erreichbar war. Beschreiben Sie die Pflichten nach der DSGVO. (3 Punkte)**
+
+<details><summary>Lösung anzeigen</summary>
+
+Es liegt eine Datenpanne vor; sie ist innerhalb von 72 Stunden nach Bekanntwerden der Aufsichtsbehörde zu melden (1). Besteht ein hohes Risiko für die Betroffenen, müssen auch diese benachrichtigt werden (1). Der Vorfall, seine Auswirkungen und die ergriffenen Maßnahmen (Fehler beheben, Zugriffe prüfen) sind zu dokumentieren (1).
+
+</details>
+
+**📝 Prüfungsaufgabe:** **Eine Kundin widerruft ihre Einwilligung zum Newsletter und verlangt die Löschung ihrer Daten. Sie hat im Shop auch zwei Bestellungen aufgegeben. Wie gehen Sie vor? (3 Punkte)**
+
+<details><summary>Lösung anzeigen</summary>
+
+Ab dem Widerruf darf sie keinen Newsletter mehr erhalten; die Newsletter-Daten werden gelöscht (1). Die Bestell- und Rechnungsdaten unterliegen gesetzlichen Aufbewahrungsfristen und dürfen nicht gelöscht, sondern müssen gesperrt werden; nach Fristablauf werden sie gelöscht (1). Die Kundin wird innerhalb eines Monats über die Umsetzung informiert (1).
+
+</details>
 
 ---
 

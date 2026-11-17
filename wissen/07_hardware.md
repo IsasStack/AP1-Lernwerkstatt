@@ -8,144 +8,285 @@
 
 ---
 
-## Kernkomponenten
+Leistung und Energieeffizienz von IT-Systemen gehören zu den Themen, die in fast jeder AP1 vorkommen. Du sollst Datenblätter lesen, Komponenten passend zur Aufgabe auswählen, Stromkosten berechnen und Geräte sicher betreiben. Dafür musst du nicht jedes Bauteil im Detail kennen, aber verstehen, **wofür** es da ist und welche Kennzahl was bedeutet.
 
-- **CPU**: Kerne (parallele Aufgaben), Threads, Takt (GHz), Cache (L1–L3, schneller Zwischenspeicher), TDP (Wärmeabgabe/Leistung). Integrierte Grafik (iGPU) reicht für Office.
-- **RAM**: flüchtiger Arbeitsspeicher. Kenngrößen: Kapazität (GB), Typ (DDR4/DDR5), Takt (MT/s), Latenz (CL). **Dual Channel** = zwei gleiche Module für doppelte Bandbreite. ECC-RAM erkennt/korrigiert Fehler (Server).
-- **Mainboard**: Sockel, Chipsatz, RAM-Slots, PCIe-Slots, M.2-Slots, Formfaktor (ATX, mATX, ITX), Firmware BIOS/UEFI.
-- **Grafikkarte (GPU)**: dediziert für CAD, Videoschnitt, KI; VRAM; Anschluss über PCIe x16.
-- **Netzteil**: Leistung (W), Wirkungsgrad (80 PLUS Bronze … Titanium), Wirkungsgrad η = Pab / Pzu.
+## Wie ein PC aufgebaut ist
 
-## Massenspeicher: SSD vs. HDD
+![Aufbau eines PCs als Blockschaltbild](img/hardware-1.svg)
 
-<table><tr><th></th><th>SSD (Flash)</th><th>HDD (magnetisch)</th></tr>
-<tr><td>Technik</td><td>NAND-Flash, keine beweglichen Teile</td><td>rotierende Magnetscheiben, Schreib-/Lesekopf</td></tr>
-<tr><td>Zugriffszeit</td><td>&lt; 0,1 ms</td><td>5–10 ms</td></tr>
-<tr><td>Datenrate</td><td>SATA ~550 MB/s, NVMe PCIe 4.0 ~7.000 MB/s</td><td>~150–250 MB/s</td></tr>
-<tr><td>Robustheit</td><td>stoßfest, leise, sparsam</td><td>stoßempfindlich, laut, mehr Strom</td></tr>
-<tr><td>Preis/GB</td><td>höher</td><td>günstig – Archiv, große Datenmengen</td></tr>
-<tr><td>Lebensdauer</td><td>begrenzte Schreibzyklen (TBW)</td><td>mechanischer Verschleiß</td></tr></table>
+Das **Mainboard** verbindet alle Bauteile. Der **Prozessor (CPU)** führt die Befehle der Programme aus. Er holt Daten und Befehle aus dem **Arbeitsspeicher (RAM)**, der direkt an ihm angebunden ist. Die **Grafikkarte** und schnelle **NVMe-SSDs** hängen über **PCIe**-Leitungen am Prozessor oder am **Chipsatz**, der weitere Anschlüsse wie USB, Netzwerk, Audio und SATA bereitstellt. Die **UEFI-Firmware** startet den Rechner und übergibt dann an das Betriebssystem.
 
-**Bauformen/Schnittstellen**: 2,5″ SATA, M.2 SATA, **M.2 NVMe** (über PCIe – am schnellsten). NVMe ist ein Protokoll, M.2 ein Formfaktor! **Sicheres Löschen**: SSD nicht per Überschreiben, sondern Secure Erase/Hersteller-Tool bzw. verschlüsselt + Schlüssel löschen.
+**Warum ist das wichtig?** Ein Rechner ist nur so schnell wie sein langsamstes beteiligtes Teil. Ein schneller Prozessor nützt wenig, wenn der RAM zu klein ist und ständig auf die Festplatte ausgelagert wird, oder wenn Programme von einer langsamen HDD geladen werden.
+
+## Prozessor (CPU)
+
+<table><tr><th>Kenngröße</th><th>Bedeutung</th><th>wichtig für</th></tr>
+<tr><td>Kerne / Threads (z. B. 8C/16T)</td><td>Kerne sind eigenständige Recheneinheiten. Mit Simultaneous Multithreading (SMT, Hyper-Threading) bearbeitet ein Kern zwei Aufgabenstränge (Threads).</td><td>Rendering, Virtualisierung, viele Programme gleichzeitig</td></tr>
+<tr><td>Taktfrequenz (GHz)</td><td>Arbeitsschritte pro Sekunde je Kern; „Boost“ ist der kurzzeitige Höchsttakt</td><td>Programme, die nur einen Kern nutzen; nur innerhalb einer Generation direkt vergleichbar</td></tr>
+<tr><td>Cache (L1–L3, MB)</td><td>sehr schneller Zwischenspeicher im Prozessor</td><td>weniger Wartezeit auf den RAM</td></tr>
+<tr><td>TDP (Watt)</td><td>Wärme, die die Kühlung abführen muss</td><td>Anhaltspunkt für Stromverbrauch, Lautstärke, Bauform</td></tr>
+<tr><td>integrierte Grafik (iGPU)</td><td>Grafikeinheit im Prozessor</td><td>reicht für Büroarbeit und Videokonferenzen</td></tr>
+<tr><td>NPU</td><td>Recheneinheit für KI-Aufgaben</td><td>KI-Funktionen am Arbeitsplatz (z. B. Hintergrundunschärfe, Spracherkennung) stromsparend lokal ausführen</td></tr></table>
+
+> [!IMPORTANT]
+> „Mehr“ ist nicht automatisch „besser“. Viele Kerne helfen beim Videoschnitt, bringen bei Textverarbeitung aber nichts und kosten Strom und Geld. Begründe immer mit der Anforderung.
+
+## Arbeitsspeicher (RAM)
+
+Im RAM liegen die gerade laufenden Programme und ihre Daten. Er ist sehr schnell, verliert seinen Inhalt aber beim Ausschalten (**flüchtig**). Ist er voll, lagert das Betriebssystem Daten auf die SSD aus – das ist um ein Vielfaches langsamer, der Rechner „hängt“.
+
+- **Kapazität:** Büro 16 GB, Softwareentwicklung, virtuelle Maschinen und Videobearbeitung 32 GB und mehr.
+- **Typ:** DDR4 und DDR5 sind **nicht** untereinander kompatibel (andere Kerbe, andere Spannung). Das Mainboard bestimmt den Typ.
+- **Bauform:** DIMM im Desktop, das kürzere SO-DIMM im Notebook. In vielen dünnen Notebooks ist der RAM fest verlötet und kann nicht aufgerüstet werden – deshalb gleich ausreichend kaufen.
+- **Dual Channel:** Zwei gleiche Module in den richtigen Steckplätzen verdoppeln die Bandbreite. 2 × 8 GB ist daher schneller als 1 × 16 GB.
+- **ECC-RAM** erkennt und korrigiert einzelne Bitfehler. Er wird in Servern eingesetzt, weil dort ein Speicherfehler viele Nutzer oder Datenbestände betrifft.
+
+## Mainboard, Grafikkarte, Netzteil
+
+**Mainboard:** Sockel und Chipsatz legen fest, welche Prozessoren passen und welche Funktionen es gibt. Der **Formfaktor** (ATX, Micro-ATX, Mini-ITX) muss zum Gehäuse passen. Die Zahl der RAM-, M.2- und PCIe-Steckplätze entscheidet, wie gut sich der Rechner später aufrüsten lässt.
+
+**Grafikkarte:** Für Büroarbeit reicht die integrierte Grafik. Eine **dedizierte** Karte mit eigenem Grafikspeicher (VRAM) braucht man für CAD, Videoschnitt, 3D und KI-Anwendungen. Für CAD-Software gibt es Profikarten, die vom Softwarehersteller zertifiziert sind.
+
+**Netzteil:** Es muss den Bedarf aller Komponenten mit Reserve decken. Der **Wirkungsgrad** gibt an, wie viel der aufgenommenen Leistung tatsächlich bei den Bauteilen ankommt – der Rest wird zu Wärme. Das Siegel **80 PLUS** (Bronze bis Titanium) bescheinigt einen hohen Wirkungsgrad.
+
+> [!IMPORTANT]
+> **Wirkungsgrad η = abgegebene Leistung ÷ aufgenommene Leistung**
+
+> [!NOTE]
+> **Beispiel**
+>
+> Die Komponenten eines PCs brauchen 300 W. Das Netzteil hat einen Wirkungsgrad von 90 %.  
+> Aufgenommene Leistung = 300 W ÷ 0,90 = **333,3 W**. Verlust als Wärme: 33,3 W.  
+> Mit 80 % Wirkungsgrad wären es 375 W – also 41,7 W mehr, die bezahlt und weggekühlt werden müssen.
+
+## Massenspeicher: SSD und HDD
+
+<table><tr><th></th><th>SSD (Flash-Speicher)</th><th>HDD (Magnetfestplatte)</th></tr>
+<tr><td>Technik</td><td>Speicherzellen (NAND-Flash), keine beweglichen Teile</td><td>rotierende Magnetscheiben, Schreib-/Lesekopf bewegt sich</td></tr>
+<tr><td>Zugriffszeit</td><td>unter 0,1 ms</td><td>5–10 ms</td></tr>
+<tr><td>Datenrate</td><td>SATA ca. 550 MB/s, NVMe (PCIe 4.0) bis ca. 7.000 MB/s</td><td>ca. 150–250 MB/s</td></tr>
+<tr><td>Robustheit, Geräusch, Strom</td><td>stoßfest, lautlos, sparsam</td><td>stoßempfindlich, hörbar, mehr Strom</td></tr>
+<tr><td>Preis pro GB</td><td>höher</td><td>niedrig – gut für große Datenmengen und Archive</td></tr>
+<tr><td>Verschleiß</td><td>begrenzte Zahl an Schreibvorgängen (TBW: Terabytes Written)</td><td>mechanischer Verschleiß</td></tr></table>
+
+**Warum ist die SSD so viel schneller?** Bei der HDD muss sich der Lesekopf erst an die richtige Stelle bewegen und warten, bis die Scheibe die Daten vorbeidreht. Bei vielen kleinen Dateien – genau das passiert beim Starten von Windows und Programmen – summiert sich diese Wartezeit. Die SSD greift elektronisch ohne Wartezeit zu.
+
+**Bauformen:** 2,5-Zoll-SATA-SSD, M.2-SSD mit SATA oder mit **NVMe**. **M.2 ist eine Bauform** (ein Steckplatz), **NVMe ist ein Protokoll** über PCIe. Eine M.2-SSD kann also SATA- oder NVMe-Geschwindigkeit haben – das Datenblatt verrät es.
+
+> [!WARNING]
+> **Sicher löschen:** Bei SSDs hilft einfaches Überschreiben nicht zuverlässig, weil der Controller Daten intern auf andere Zellen verteilt. Richtig ist der „Secure Erase“-Befehl bzw. das Herstellerwerkzeug – oder die SSD von Anfang an verschlüsseln und zum Löschen den Schlüssel vernichten. Defekte Datenträger mit personenbezogenen Daten werden physisch vernichtet.
+
+**Dateisysteme** legen fest, wie Dateien auf dem Datenträger organisiert werden: **NTFS** (Windows, mit Rechten und Verschlüsselung), **FAT32** (überall lesbar, aber max. 4 GB pro Datei), **exFAT** (für USB-Sticks und Speicherkarten, ohne 4-GB-Grenze), **APFS** (macOS), **ext4** (Linux).
 
 ## Schnittstellen
 
-<table><tr><th>Schnittstelle</th><th>Datenrate (max.)</th><th>Hinweis</th></tr>
+<table><tr><th>Schnittstelle</th><th>max. Datenrate</th><th>Hinweis</th></tr>
 <tr><td>USB 2.0</td><td>480 Mbit/s</td><td>Maus, Tastatur</td></tr>
-<tr><td>USB 3.2 Gen 1 (früher 3.0)</td><td>5 Gbit/s</td><td></td></tr>
+<tr><td>USB 3.2 Gen 1 (früher USB 3.0)</td><td>5 Gbit/s</td><td></td></tr>
 <tr><td>USB 3.2 Gen 2</td><td>10 Gbit/s</td><td></td></tr>
 <tr><td>USB 3.2 Gen 2x2</td><td>20 Gbit/s</td><td>nur USB-C</td></tr>
-<tr><td>USB4 / Thunderbolt 4</td><td>40 Gbit/s</td><td>USB-C, Video + Daten + Strom</td></tr>
-<tr><td>USB4 v2 / Thunderbolt 5</td><td>80 Gbit/s (bis 120 asymm.)</td><td>neu</td></tr>
-<tr><td>HDMI 2.1</td><td>48 Gbit/s</td><td>4K@120 Hz, 8K@60 Hz, Audio</td></tr>
-<tr><td>DisplayPort 1.4 / 2.1</td><td>32,4 / bis 80 Gbit/s</td><td>Daisy-Chain (MST) möglich</td></tr></table>
+<tr><td>USB4 / Thunderbolt 4</td><td>40 Gbit/s</td><td>USB-C; Daten, Bild und Strom über ein Kabel</td></tr>
+<tr><td>USB4 v2 / Thunderbolt 5</td><td>80 Gbit/s</td><td>neueste Generation</td></tr>
+<tr><td>HDMI 2.1</td><td>48 Gbit/s</td><td>4K mit 120 Hz, Ton; Fernseher, Beamer</td></tr>
+<tr><td>DisplayPort 1.4 / 2.1</td><td>32,4 / bis 80 Gbit/s</td><td>Monitore hintereinanderschalten möglich (Daisy Chain)</td></tr></table>
 
 > [!IMPORTANT]
-> **USB-C ist nur der Stecker!** Was er kann (Daten, Video per **DisplayPort Alternate Mode**, Laden per **USB Power Delivery** bis 100 W bzw. 240 W mit PD 3.1), hängt vom Port und Kabel ab.
+> **USB-C ist nur die Steckerform.** Was eine Buchse kann – welche Datenrate, ob sie ein Bild ausgibt (DisplayPort Alternate Mode), ob sie lädt (USB Power Delivery, bis 100 W bzw. 240 W) –, hängt von Gerät und Kabel ab. Deshalb im Datenblatt nachsehen.
 
-**Dockingstation**: ein Kabel (USB-C/Thunderbolt) zum Notebook → Monitore, LAN, Tastatur, Maus, Laden. Vorteile: schneller Wechsel zwischen mobil und Schreibtisch, Desk-Sharing/Clean Desk, weniger Kabelsalat, ergonomischer Arbeitsplatz mit großen Monitoren.
+**Docking-Station:** Ein einziges USB-C- bzw. Thunderbolt-Kabel verbindet das Notebook mit Monitoren, Netzwerk, Tastatur, Maus und Stromversorgung. **Warum?** Mitarbeitende wechseln in Sekunden zwischen mobilem Arbeiten und einem ergonomischen Schreibtischplatz mit großen Monitoren. Bei Desk-Sharing kann jeder an jedem Platz andocken.
+
+> [!NOTE]
+> **Beispiel**
+>
+> **Reicht die Schnittstelle?**  
+> Eine externe SSD liest mit 1.000 MB/s. Angeschlossen an USB 3.2 Gen 1 (5 Gbit/s): 5 Gbit/s ÷ 8 = 625 MB/s brutto – die Schnittstelle bremst die SSD aus. An USB 3.2 Gen 2 (10 Gbit/s ≈ 1.250 MB/s) erreicht sie ihre volle Geschwindigkeit.
 
 ## Monitore
 
-Auflösungen: Full HD 1920×1080, WQHD 2560×1440, 4K UHD 3840×2160. Seitenverhältnis 16:9 (16:10 mehr Höhe für Office). Panel: IPS (Farbtreue, Blickwinkel – Grafik), VA (Kontrast), TN (schnell, günstig), OLED. Bildwiederholrate (Hz), Reaktionszeit (ms), Helligkeit (cd/m²), ergonomisch: höhenverstellbar, Pivot, entspiegelt, Flicker-free. Pixeldichte (ppi) = Diagonale in Pixeln ÷ Diagonale in Zoll.
+<table><tr><th>Angabe</th><th>Bedeutung</th><th>worauf achten?</th></tr>
+<tr><td>Diagonale (Zoll)</td><td>Bildgröße, 1 Zoll = 2,54 cm</td><td>Büro 24–27 Zoll</td></tr>
+<tr><td>Auflösung</td><td>Bildpunkte in Breite × Höhe</td><td>Full HD 1920 × 1080, WQHD 2560 × 1440, 4K UHD 3840 × 2160</td></tr>
+<tr><td>Pixeldichte (ppi)</td><td>Pixel pro Zoll – je höher, desto schärfer</td><td>ergibt sich aus Auflösung und Diagonale</td></tr>
+<tr><td>Seitenverhältnis</td><td>16:9 Standard, 16:10 mehr Höhe für Dokumente, 21:9 sehr breit</td><td>Büro: 16:10 angenehm</td></tr>
+<tr><td>Bildwiederholrate (Hz)</td><td>Bilder pro Sekunde</td><td>60 Hz reichen fürs Büro</td></tr>
+<tr><td>Reaktionszeit (ms)</td><td>Zeit für einen Farbwechsel</td><td>bei schnellen Bewegungen (Spiele, Video)</td></tr>
+<tr><td>Helligkeit (cd/m²), Kontrast</td><td>Leuchtstärke, Verhältnis Hell zu Dunkel</td><td>helle Räume brauchen mehr Helligkeit</td></tr>
+<tr><td>Paneltyp</td><td>IPS: farbtreu, blickwinkelstabil · VA: hoher Kontrast · TN: schnell, günstig, schwache Farben · OLED: perfektes Schwarz, teuer</td><td>Grafik und Foto: IPS mit großem Farbraum</td></tr>
+<tr><td>Ergonomie</td><td>höhenverstellbar, neigbar, drehbar, Pivot (hochkant), entspiegelt, flimmerfrei</td><td>Pflicht für Bildschirmarbeitsplätze</td></tr></table>
+
+> [!IMPORTANT]
+> **Pixeldichte = Diagonale in Pixeln ÷ Diagonale in Zoll**  
+> Diagonale in Pixeln = √(Breite² + Höhe²) (Satz des Pythagoras)
+
+> [!NOTE]
+> **Beispiel**
+>
+> **27 Zoll mit WQHD (2560 × 1440)**  
+> Diagonale in Pixeln: √(2560² + 1440²) = √(6.553.600 + 2.073.600) = √8.627.200 ≈ 2.937 Pixel  
+> Pixeldichte: 2.937 ÷ 27 ≈ **109 ppi**  
+> Zum Vergleich 24 Zoll mit Full HD: √(1920² + 1080²) ≈ 2.203 Pixel ÷ 24 ≈ 92 ppi. Der 27-Zöller zeigt also mehr Inhalt **und** ein schärferes Bild.
 
 ## Geräteklassen
 
-- **Desktop-PC/Workstation**: leistungsstark, erweiterbar, günstig je Leistung – stationär.
-- **Notebook**: mobil, Akku; Business-Geräte mit Docking, TPM, Smartcard.
-- **Thin Client**: minimale lokale Hardware, Anwendungen laufen zentral (Terminalserver/VDI) – sparsam, zentral administriert, sicher, aber netzabhängig.
-- **Tablet/Smartphone**: mobil, Touch, MDM-Verwaltung nötig.
-- **Mini-PC**: platzsparend hinter dem Monitor.
+<table><tr><th>Gerät</th><th>Stärken</th><th>Schwächen</th></tr>
+<tr><td>Desktop-PC, Workstation</td><td>viel Leistung fürs Geld, gut aufrüstbar, gut zu kühlen</td><td>nicht mobil, braucht Platz</td></tr>
+<tr><td>Notebook</td><td>mobil, Akku; Business-Geräte mit Docking, TPM, Smartcard-Leser</td><td>teurer bei gleicher Leistung, schlecht aufrüstbar</td></tr>
+<tr><td>Convertible, 2-in-1</td><td>Notebook mit Touchscreen, als Tablet nutzbar</td><td>Kompromiss bei Tastatur und Leistung</td></tr>
+<tr><td>Mini-PC</td><td>klein, sparsam, kann hinter den Monitor geschraubt werden</td><td>kaum aufrüstbar</td></tr>
+<tr><td>All-in-One-PC</td><td>Rechner im Monitorgehäuse – wenig Kabel, schick am Empfang</td><td>schlecht aufrüstbar, bei Defekt fällt alles aus</td></tr>
+<tr><td>Thin Client</td><td>Anwendungen laufen zentral; günstig, sparsam, zentral verwaltet, keine Daten lokal</td><td>ohne Netzwerk und Server keine Arbeit möglich</td></tr>
+<tr><td>Tablet, Smartphone</td><td>mobil, Touch, Kamera</td><td>Verwaltung per MDM nötig, eingeschränkte Programme</td></tr></table>
 
-## Strom, Leistung, Energie
-
-> [!IMPORTANT]
-> P = U × I (Leistung in Watt = Spannung in Volt × Strom in Ampere)  
-> W = P × t (Energie in kWh = Leistung in kW × Zeit in h)  
-> Kosten = Energie (kWh) × Preis (€/kWh)
-
-Beispiel: PC mit 120 W, 8 h/Tag, 220 Arbeitstage, 0,35 €/kWh → 0,12 kW × 8 h × 220 = 211,2 kWh → **73,92 €/Jahr**.
-
-**USV** (unterbrechungsfreie Stromversorgung): überbrückt Stromausfälle (Akku), schützt vor Spannungsspitzen, ermöglicht kontrolliertes Herunterfahren. Typen: Offline (VFD), Line-Interactive (VI), Online/Doppelwandler (VFI – höchster Schutz). Dimensionierung in VA: S = P / cos φ.
-
-## Kennzeichnungen & Normen
-
-**CE** (Hersteller erklärt EU-Konformität), **Energy Star**, **EU-Energielabel** (Monitore A–G), **TCO Certified** (Ergonomie, Umwelt, Sozialstandards), **Blauer Engel**, **80 PLUS** (Netzteil-Effizienz), **GS** (geprüfte Sicherheit), **WEEE-Symbol** (durchgestrichene Mülltonne: nicht in den Hausmüll).
-
-## Drucker, Scanner & weitere Peripherie
+## Drucker, Scanner und Peripherie
 
 <table><tr><th></th><th>Laserdrucker</th><th>Tintenstrahldrucker</th><th>Thermodrucker</th></tr>
-<tr><td>Prinzip</td><td>Toner wird elektrostatisch auf Trommel übertragen und eingebrannt (Fixiereinheit)</td><td>Tintentröpfchen werden aufgesprüht (Piezo/Bubblejet)</td><td>Wärme schwärzt Spezialpapier (Etiketten, Kassenbons)</td></tr>
-<tr><td>Stärken</td><td>schnell (ppm), geringe Seitenkosten bei Text, wischfest, hohe Druckvolumen</td><td>günstige Anschaffung, guter Fotodruck, wenig Energie</td><td>leise, schnell, wartungsarm, kein Verbrauchsmaterial außer Papier</td></tr>
-<tr><td>Schwächen</td><td>Feinstaub/Ozon (Aufstellort!), Aufwärmzeit, teurer Farblaser</td><td>höhere Seitenkosten, Tinte trocknet ein, langsamer</td><td>Ausdrucke verblassen, nur s/w, Spezialpapier</td></tr>
-<tr><td>Einsatz</td><td>Büro, Abteilungsdrucker</td><td>Homeoffice, Fotos, geringe Mengen</td><td>Kasse, Lager-Etiketten, Versand</td></tr></table>
+<tr><td>Prinzip</td><td>Toner wird elektrostatisch auf eine Trommel übertragen und auf dem Papier eingebrannt</td><td>Tintentröpfchen werden aufgesprüht</td><td>Wärme schwärzt Spezialpapier</td></tr>
+<tr><td>Stärken</td><td>schnell, niedrige Seitenkosten bei Text, wischfest, für große Mengen</td><td>günstig in der Anschaffung, gute Fotos, wenig Strom</td><td>leise, schnell, wartungsarm, kein Verbrauchsmaterial außer Papier</td></tr>
+<tr><td>Schwächen</td><td>Feinstaub (Aufstellort beachten), Aufwärmzeit</td><td>höhere Seitenkosten, Tinte trocknet ein</td><td>Ausdrucke verblassen, Spezialpapier</td></tr>
+<tr><td>Einsatz</td><td>Büro, Abteilungsdrucker</td><td>Homeoffice, Fotos, kleine Mengen</td><td>Kassenbons, Etiketten, Versand</td></tr></table>
 
-**Kenngrößen**: Druckgeschwindigkeit (ppm = pages per minute), Auflösung (dpi), Duplexdruck, monatliches Druckvolumen (Duty Cycle), Papierfächer, Schnittstellen (LAN, WLAN, USB), Sicherheitsfunktionen (Follow-Me-/PIN-Druck – Ausdrucke erst nach Anmeldung am Gerät freigeben, damit vertrauliche Dokumente nicht im Ausgabefach liegen).
+**Kenngrößen:** Seiten pro Minute (ppm), Auflösung (dpi), Duplexdruck, empfohlenes Druckvolumen pro Monat, Anschlüsse. Wichtig für den Datenschutz ist der **PIN- bzw. Follow-Me-Druck**: Der Ausdruck kommt erst, wenn sich die Person am Gerät anmeldet – vertrauliche Dokumente liegen nicht offen im Ausgabefach.
 
 > [!IMPORTANT]
-> **Seitenkosten** = Preis Verbrauchsmaterial ÷ Reichweite (Seiten). Toner 90 € für 3.000 Seiten → 0,03 €/Seite. Bei Farbe: Kosten aller beteiligten Patronen addieren, ggf. Trommel/Wartungskit (Preis ÷ Lebensdauer) und Papier dazurechnen.
+> **Seitenkosten = Preis des Verbrauchsmaterials ÷ Reichweite in Seiten**
 
-**Multifunktionsgerät (MFP)**: Drucken, Scannen, Kopieren, Faxen in einem Gerät – platz- und kostensparend, zentral verwaltbar; aber Ausfall betrifft alle Funktionen. Oft als **Managed Print Service** (Leasing mit Klickpreis pro Seite inkl. Toner und Wartung).  
-**Scanner**: Flachbett (Bücher, Fotos), Einzugsscanner mit ADF (automatischer Dokumenteneinzug, Duplex – Digitalisierung von Akten), Auflösung (300 dpi für Dokumente, höher für Fotos), **OCR** (Texterkennung → durchsuchbare PDFs), Scan-to-Mail/Ordner.  
-**Weitere Peripherie**: Headset (USB/Bluetooth, Noise Cancelling, Teams-zertifiziert), Webcam, Dokumentenkamera, Kartenleser/Smartcard-Reader, Barcodescanner, Unterschriftenpad, KVM-Switch (eine Tastatur/Maus/Monitor für mehrere Rechner), Presenter, Grafiktablett, USV.
+> [!NOTE]
+> **Beispiel**
+>
+> Toner für 90 € reicht für 3.000 Seiten → 90 € ÷ 3.000 = 0,03 € pro Seite. Dazu kommen ggf. Trommel (z. B. 120 € für 30.000 Seiten = 0,004 €) und Papier (0,01 €) → **0,044 € pro Seite**.
 
-## Sensoren, IoT und Industrie 4.0
+**Multifunktionsgerät:** Drucken, Scannen, Kopieren in einem Gerät – spart Platz und Kosten, ist zentral verwaltbar. Fällt es aus, fallen aber alle Funktionen aus. Oft gemietet als Managed Print Service mit Preis pro Seite inklusive Toner und Wartung.
 
-**Sensoren** erfassen physikalische Größen und wandeln sie in elektrische Signale: Temperatur (Serverraum, CPU), Feuchtigkeit, Bewegung/Präsenz (Licht, Alarm), Helligkeit (automatische Displayhelligkeit), Beschleunigung/Lage (Smartphone dreht Bild, Festplatten-Fallschutz), Näherung, Fingerabdruck/IR-Kamera (biometrische Anmeldung), Rauch, Tür-/Fensterkontakt, GPS. **Aktoren** setzen Signale in Aktionen um (Lüfter, Motor, Ventil, Relais).  
-**IoT** (Internet of Things): vernetzte Geräte mit Sensoren/Aktoren (Smart Building, Umgebungsüberwachung im Serverraum). **Industrie 4.0**: Vernetzung von Maschinen, Produkten und IT (cyber-physische Systeme, Smart Factory, vorausschauende Wartung/Predictive Maintenance, digitaler Zwilling). Risiken: unsichere Standardpasswörter, fehlende Updates → IoT-Geräte in eigenes VLAN, Firmware aktuell halten.
+**Scanner:** Flachbett für Bücher und Fotos, Einzugsscanner mit automatischem Dokumenteneinzug (ADF) und Duplex für Akten. 300 dpi reichen für Dokumente. Mit **OCR** (Texterkennung) entstehen durchsuchbare PDFs.
 
-## Weitere Geräteklassen
+**Weitere Peripherie:** Headset (mit Geräuschunterdrückung, für Teams zertifiziert), Webcam, Smartcard-Leser, Barcodescanner, Unterschriftenpad, KVM-Switch (eine Tastatur, Maus und ein Monitor für mehrere Rechner), Grafiktablett, USV.
 
-**All-in-One-PC**: Rechner im Monitorgehäuse – platzsparend, wenig Kabel, schick für Empfang/Kundenbereich; aber schlecht aufrüstbar, bei Defekt fällt alles aus. **Mini-PC**, **Thin Client**, **Workstation**, **Convertible/2-in-1** (Notebook mit Touch, umklappbar).
+## Sensoren und IoT
 
-## Wichtige BIOS/UEFI-Einstellungen
+**Sensoren** messen physikalische Größen und wandeln sie in elektrische Signale um. **Aktoren** machen aus Signalen eine Aktion (Lüfter, Motor, Ventil, Relais).
 
-Bootreihenfolge (USB/Netzwerk-PXE für Installation), Secure Boot an/aus, TPM aktivieren, Virtualisierung (Intel VT-x / AMD-V) für Hyper-V/WSL/Docker, Administrator-/Setup-Passwort, Wake-on-LAN, SATA-Modus (AHCI), Datum/Uhrzeit, Firmware-Update.
+<table><tr><th>Sensor</th><th>Einsatz in der IT</th></tr>
+<tr><td>Temperatur, Luftfeuchtigkeit</td><td>Serverraum überwachen, CPU-Temperatur regeln</td></tr>
+<tr><td>Bewegung, Präsenz</td><td>Licht und Alarmanlage, Bildschirm sperren, wenn niemand davor sitzt</td></tr>
+<tr><td>Helligkeit</td><td>Displayhelligkeit automatisch anpassen</td></tr>
+<tr><td>Beschleunigung, Lage</td><td>Bild im Smartphone drehen, Fallschutz bei Festplatten</td></tr>
+<tr><td>Fingerabdruck, Infrarot-Kamera</td><td>biometrische Anmeldung (Windows Hello)</td></tr>
+<tr><td>Rauch, Wasser, Tür- und Fensterkontakt</td><td>Serverraum absichern</td></tr>
+<tr><td>GPS</td><td>Standort von Geräten und Fahrzeugen</td></tr></table>
 
-## Elektrische Sicherheit (Schutzmaßnahmen nach DIN VDE 0100-410)
+**IoT** (Internet of Things) bezeichnet vernetzte Geräte mit Sensoren und Aktoren, z. B. im Smart Building. In der **Industrie 4.0** sind Maschinen, Produkte und IT vernetzt; Sensordaten ermöglichen z. B. vorausschauende Wartung (eine Maschine meldet Verschleiß, bevor sie ausfällt). **Risiko:** IoT-Geräte haben oft Standardpasswörter und bekommen selten Updates. Deshalb: Passwort ändern, Firmware aktuell halten, Geräte in ein eigenes VLAN.
+
+## BIOS/UEFI und TPM
+
+Die Firmware (heute **UEFI**, früher BIOS) prüft beim Start die Hardware und lädt das Betriebssystem. Wichtige Einstellungen:
+
+- **Bootreihenfolge** – z. B. von USB oder per Netzwerk (PXE) starten, um ein Betriebssystem zu installieren
+- **Secure Boot** – startet nur signierte Bootloader und verhindert so, dass sich Schadsoftware vor dem Betriebssystem einnistet
+- **TPM** (Trusted Platform Module) – Sicherheitschip, der Schlüssel geschützt speichert, z. B. für BitLocker und Windows Hello. TPM 2.0 und Secure Boot sind Voraussetzung für Windows 11.
+- **Virtualisierung** (Intel VT-x, AMD-V) – nötig für Hyper-V, WSL und Docker
+- **Firmware-Passwort** – verhindert, dass jemand Einstellungen ändert oder von einem fremden Stick startet
+- **Wake-on-LAN** – Rechner per Netzwerk einschalten, z. B. für nächtliche Updates
+
+## Strom, Leistung, Energiekosten
+
+> [!IMPORTANT]
+> **Leistung P = U × I** (Watt = Volt × Ampere)  
+> **Energie W = P × t** (kWh = kW × h)  
+> **Kosten = Energie in kWh × Preis pro kWh**
+
+Wichtig ist die Umrechnung: Watt in **Kilowatt** (÷ 1.000), bevor du mit Stunden multiplizierst.
+
+> [!NOTE]
+> **Beispiel**
+>
+> **Stromkosten von 20 PCs pro Jahr**  
+> Betrieb: 65 W, 8 h an 220 Arbeitstagen. Stand-by: 2 W in der übrigen Zeit. Strompreis 0,30 €/kWh.  
+>
+> Betriebsstunden: 8 h × 220 = 1.760 h  
+> Stand-by-Stunden: 8.760 h (ein Jahr) − 1.760 h = 7.000 h  
+> Energie Betrieb: 0,065 kW × 1.760 h = 114,4 kWh  
+> Energie Stand-by: 0,002 kW × 7.000 h = 14,0 kWh  
+> Summe pro PC: 128,4 kWh × 0,30 €/kWh = 38,52 €  
+> 20 PCs: 20 × 38,52 € = **770,40 € pro Jahr**  
+> Ein Modell mit 35 W im Betrieb würde 20 × 0,030 kW × 1.760 h × 0,30 € = **316,80 €** pro Jahr einsparen.
+
+#### USV – unterbrechungsfreie Stromversorgung
+
+Eine USV überbrückt Stromausfälle mit einem Akku, glättet Spannungsschwankungen und gibt dem Server Zeit, sich kontrolliert herunterzufahren. **Warum?** Ein plötzlicher Stromausfall kann Dateien und Datenbanken beschädigen, die gerade geschrieben werden.
+
+<table><tr><th>Typ</th><th>Funktion</th><th>Schutz</th></tr>
+<tr><td>Offline (VFD)</td><td>schaltet erst bei Ausfall auf Akku um</td><td>einfach, günstig – für Arbeitsplatz-PCs</td></tr>
+<tr><td>Line-Interactive (VI)</td><td>regelt zusätzlich Spannungsschwankungen aus</td><td>mittel – für kleine Server und Netzwerktechnik</td></tr>
+<tr><td>Online, Doppelwandler (VFI)</td><td>Verbraucher werden ständig über den Akku-Wechselrichter versorgt, keine Umschaltzeit</td><td>höchster Schutz – für wichtige Server</td></tr></table>
+
+USVs werden in **VA** (Scheinleistung) angegeben. Umrechnung: Scheinleistung S = Wirkleistung P ÷ Leistungsfaktor cos φ.
+
+> [!NOTE]
+> **Beispiel**
+>
+> Server 400 W, Switch 60 W, Firewall 40 W → 500 W. Leistungsfaktor 0,8: 500 W ÷ 0,8 = 625 VA. Mit 25 % Reserve: 625 VA × 1,25 ≈ 781 VA → gewählt wird eine USV mit **1.000 VA**.
+
+## Elektrische Sicherheit und Kennzeichnungen
 
 <table><tr><th>Schutzklasse</th><th>Prinzip</th><th>Beispiel</th></tr>
-<tr><td>I</td><td>Schutzleiter (PE, grün-gelb) am Metallgehäuse</td><td>Desktop-PC, Server, Drucker</td></tr>
-<tr><td>II</td><td>Schutzisolierung (doppelte/verstärkte Isolierung), kein Schutzleiter, Symbol: zwei ineinanderliegende Quadrate</td><td>Notebook-Netzteil, Monitor</td></tr>
-<tr><td>III</td><td>Schutzkleinspannung (SELV, max. 50 V AC / 120 V DC)</td><td>USB-Geräte, Telefone, PoE</td></tr></table>
+<tr><td>I</td><td>Schutzleiter (grün-gelb) am Metallgehäuse: Bei einem Fehler fließt der Strom darüber ab und die Sicherung löst aus</td><td>Desktop-PC, Server, Drucker</td></tr>
+<tr><td>II</td><td>Schutzisolierung (doppelte Isolierung), kein Schutzleiter; Symbol: zwei ineinanderliegende Quadrate</td><td>Notebook-Netzteil, Monitor</td></tr>
+<tr><td>III</td><td>Schutzkleinspannung (höchstens 50 V Wechsel- bzw. 120 V Gleichspannung)</td><td>USB-Geräte, PoE-Geräte</td></tr></table>
 
-**Fehlerstrom-Schutzschalter (RCD/FI)** schaltet ab, wenn Strom über einen falschen Weg (z. B. den Menschen) fließt. Elektrische Geräte im Betrieb werden regelmäßig nach **DGUV Vorschrift 3** geprüft (Prüfsiegel). Arbeiten an elektrischen Anlagen nur durch Elektrofachkräfte.
+Ein **Fehlerstrom-Schutzschalter (FI, RCD)** schaltet ab, wenn Strom einen falschen Weg nimmt, etwa durch einen Menschen. Elektrische Betriebsmittel werden regelmäßig nach **DGUV Vorschrift 3** geprüft (Prüfplakette). Arbeiten an elektrischen Anlagen dürfen nur Elektrofachkräfte durchführen.
 
-## Kenngrößen im Datenblatt lesen
+**Kennzeichnungen:** **CE** (Hersteller erklärt die Einhaltung der EU-Vorschriften), **GS** (geprüfte Sicherheit durch eine unabhängige Stelle), **EU-Energielabel** (z. B. für Monitore, Klassen A bis G), **Energy Star**, **TCO Certified** (Ergonomie, Umwelt, Sozialstandards), **Blauer Engel**, **80 PLUS** (Netzteil-Wirkungsgrad), **WEEE-Symbol** (durchgestrichene Mülltonne: Elektroschrott, nicht in den Hausmüll).
 
-In der Prüfung bekommst du oft Datenblätter oder Angebote und sollst begründen, welches Gerät zur Anforderung passt. Dafür musst du die wichtigsten Angaben einordnen können.
+> [!CAUTION]
+> **Typische Fehler**
+>
+> - Watt nicht in Kilowatt umrechnen und dadurch Stromkosten um den Faktor 1.000 falsch berechnen.
+> - Stand-by-Verbrauch vergessen, wenn er in der Aufgabe angegeben ist.
+> - M.2 und NVMe gleichsetzen.
+> - Annehmen, jeder USB-C-Anschluss könne Bild und Strom übertragen.
+> - DDR4-Module in ein DDR5-Mainboard empfehlen.
+> - SSDs durch Überschreiben „sicher löschen“.
+> - Komponenten ohne Bezug zum Einsatzzweck empfehlen („mehr Kerne sind besser“).
 
-<table><tr><th>Bauteil</th><th>Angabe</th><th>Bedeutung</th></tr>
-<tr><td rowspan="5"><b>Prozessor (CPU)</b></td><td>Kerne / Threads (z. B. 8C/16T)</td><td>Kerne = eigenständige Recheneinheiten. Threads = gleichzeitig bearbeitbare Aufgaben (mit SMT/Hyper-Threading zwei pro Kern). Wichtig für Rendering, Virtualisierung, viele Programme parallel.</td></tr>
-<tr><td>Taktfrequenz (GHz)</td><td>Arbeitsschritte pro Sekunde je Kern. Wichtig für Programme, die nur einen Kern nutzen. Nur innerhalb einer CPU-Generation direkt vergleichbar.</td></tr>
-<tr><td>Cache (L1–L3, MB)</td><td>sehr schneller Zwischenspeicher in der CPU</td></tr>
-<tr><td>TDP (Watt)</td><td>Thermal Design Power: Wärme, die die Kühlung abführen muss – Anhaltspunkt für Stromverbrauch und Lautstärke</td></tr>
-<tr><td>integrierte Grafik</td><td>Grafikeinheit in der CPU – reicht für Büroarbeit</td></tr>
-<tr><td rowspan="3"><b>Arbeitsspeicher (RAM)</b></td><td>Kapazität (GB)</td><td>Büro 16 GB, Entwicklung/VMs/Video 32 GB und mehr</td></tr>
-<tr><td>Typ (DDR4 / DDR5)</td><td>nicht untereinander kompatibel – das Mainboard gibt den Typ vor</td></tr>
-<tr><td>Bauform</td><td>DIMM im Desktop, SO-DIMM im Notebook; im Notebook oft verlötet (nicht aufrüstbar)</td></tr>
-<tr><td rowspan="3"><b>Mainboard</b></td><td>Sockel und Chipsatz</td><td>bestimmen, welche CPUs passen und welche Funktionen es gibt</td></tr>
-<tr><td>Formfaktor</td><td>ATX, Micro-ATX, Mini-ITX – muss ins Gehäuse passen</td></tr>
-<tr><td>Steckplätze</td><td>RAM-Bänke, M.2, PCIe – entscheiden über die Aufrüstbarkeit</td></tr>
-<tr><td rowspan="2"><b>Grafik (GPU)</b></td><td>integriert / dediziert</td><td>dedizierte Karte für CAD, Videoschnitt, KI, 3D</td></tr>
-<tr><td>Grafikspeicher (VRAM)</td><td>wichtig bei hohen Auflösungen und großen Projekten</td></tr>
-<tr><td><b>Netzteil</b></td><td>Leistung (W), 80 PLUS</td><td>muss den Bedarf aller Komponenten mit Reserve decken; 80 PLUS bescheinigt den Wirkungsgrad</td></tr></table>
+**📝 Prüfungsaufgabe:** **Ein Server nimmt im Durchschnitt 250 W auf und läuft rund um die Uhr. Berechnen Sie die jährlichen Stromkosten bei 0,32 €/kWh. (3 Punkte)**
 
-> [!IMPORTANT]
-> **Merke:** „Besser“ gibt es nicht ohne Einsatzzweck. Viele Kerne helfen beim Rendern, bringen im Büro aber nichts und kosten Strom. Begründe immer mit der Anforderung aus der Ausgangssituation.
+<details><summary>Lösung anzeigen</summary>
 
-Ein **Benchmark** ist ein standardisierter Leistungstest. Er macht Geräte vergleichbar, sagt aber nur etwas für die getestete Art von Aufgabe aus.
+Stunden pro Jahr: 24 × 365 = 8.760 h (1). Energie: 0,25 kW × 8.760 h = 2.190 kWh (1). Kosten: 2.190 kWh × 0,32 € = **700,80 €** (1).
 
-## Monitor-Kenngrößen
+</details>
 
-<table><tr><th>Angabe</th><th>Bedeutung</th><th>worauf achten?</th></tr>
-<tr><td>Diagonale (Zoll)</td><td>Bildgröße, 1 Zoll = 2,54 cm</td><td>Büro 24–27″</td></tr>
-<tr><td>Auflösung</td><td>Pixel in Breite × Höhe</td><td>Full HD 1920 × 1080, WQHD 2560 × 1440, 4K UHD 3840 × 2160</td></tr>
-<tr><td>Pixeldichte (ppi)</td><td>Pixel pro Zoll – je höher, desto schärfer</td><td>ergibt sich aus Auflösung und Diagonale</td></tr>
-<tr><td>Bildwiederholrate (Hz)</td><td>Bilder pro Sekunde</td><td>60 Hz reichen fürs Büro</td></tr>
-<tr><td>Reaktionszeit (ms)</td><td>Zeit für einen Farbwechsel</td><td>wichtig bei schnellen Bewegungen</td></tr>
-<tr><td>Helligkeit (cd/m²) und Kontrast</td><td>Leuchtstärke und Verhältnis von Hell zu Dunkel</td><td>helle Räume brauchen mehr Helligkeit</td></tr>
-<tr><td>Paneltyp</td><td>IPS: farbtreu, blickwinkelstabil · VA: hoher Kontrast · TN: schnell und günstig, schwache Farben · OLED: perfektes Schwarz, teuer</td><td>Grafik → IPS</td></tr></table>
+**📝 Prüfungsaufgabe:** **Ein Grafikbüro möchte die alten HDDs der Arbeitsplatzrechner durch SSDs ersetzen. Erläutern Sie zwei Vorteile. (4 Punkte)**
+
+<details><summary>Lösung anzeigen</summary>
+
+Je Vorteil 2 Punkte, z. B.: deutlich kürzere Zugriffszeiten, weil kein mechanischer Lesekopf bewegt werden muss – Programme und große Projektdateien öffnen sich viel schneller; höhere Datenraten, besonders mit NVMe, sodass große Bilddateien schneller gespeichert werden; geringerer Stromverbrauch und lautloser Betrieb, was Kosten senkt und die Arbeitsumgebung verbessert.
+
+</details>
+
+**📝 Prüfungsaufgabe:** **Berechnen Sie die Pixeldichte eines 24-Zoll-Monitors mit 3840 × 2160 Pixeln. (2 Punkte)**
+
+<details><summary>Lösung anzeigen</summary>
+
+√(3840² + 2160²) = √(14.745.600 + 4.665.600) = √19.411.200 ≈ 4.406 Pixel (1). 4.406 ÷ 24 ≈ **184 ppi** (1).
+
+</details>
+
+**📝 Prüfungsaufgabe:** **Für einen Serverschrank mit 1.200 W Wirkleistung soll eine USV beschafft werden (cos φ = 0,9). Welche Scheinleistung muss sie mindestens haben, und welcher USV-Typ ist geeignet? (3 Punkte)**
+
+<details><summary>Lösung anzeigen</summary>
+
+S = 1.200 W ÷ 0,9 ≈ **1.333 VA** (1), mit Reserve also z. B. 1.500–2.000 VA (1). Geeignet ist eine Online-USV (VFI), weil sie die Server ohne Umschaltzeit versorgt und den höchsten Schutz vor Spannungsschwankungen bietet (1).
+
+</details>
+
+**📝 Prüfungsaufgabe:** **Ein Kunde fragt, warum sein neues Notebook mit USB-C-Anschluss kein Bild auf dem Monitor ausgibt. Erklären Sie mögliche Ursachen. (2 Punkte)**
+
+<details><summary>Lösung anzeigen</summary>
+
+USB-C ist nur die Steckerform. Der Anschluss unterstützt möglicherweise keinen DisplayPort Alternate Mode bzw. kein Thunderbolt (1), oder das verwendete Kabel überträgt nur Daten bzw. Strom und kein Bildsignal (1).
+
+</details>
 
 ---
 

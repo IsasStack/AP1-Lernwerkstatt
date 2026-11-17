@@ -15,7 +15,7 @@ Inhaltlich richtet sie sich nach dem **Prüfungskatalog ab 2025**. Gestrichene I
 
 | | |
 |---|---|
-| 📖 **19 Themen** | Lerntexte von Prüfung & Projekt über Hardware, Netzwerk, IP/Subnetting, Sicherheit und Datenschutz bis zu Programmierung/UML |
+| 📖 **19 Themen** | ausführliche Lerntexte von Prüfung & Projekt über Hardware, Netzwerk, IP/Subnetting, Sicherheit und Datenschutz bis zu Programmierung/UML – mit Erklärungen, durchgerechneten Beispielen, Diagrammen, typischen Fehlern und Prüfungsaufgaben mit Lösung |
 | 🃏 **561 Karteikarten** | Leitner-System mit Wiederholungsintervallen |
 | ✍️ **410 Übungsaufgaben** | Wie in der Prüfung ohne Ankreuzen: Kurzantworten (werden automatisch erkannt), Rechenaufgaben und ausführliche Aufgaben mit Musterlösung und Punkten |
 | ⏱️ **3 Prüfungssätze im AP1-Format** | Eine Firma als Ausgangssituation, vier Aufgaben zu je 25 Punkten mit Teilaufgaben und Anlagen, 90 Minuten Timer, Note nach IHK-Schlüssel |

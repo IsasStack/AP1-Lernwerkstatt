@@ -8,122 +8,251 @@
 
 ---
 
+Ein Arbeitsplatz ist erst fertig, wenn er sicher ist. „Umsetzung des arbeitsplatzbezogenen Sicherheitskonzepts“ gehört zu den Themen, die in fast jeder AP1 vorkommen. Du sollst Schutzziele zuordnen, den Schutzbedarf begründen, Bedrohungen erkennen, passende Maßnahmen auswählen, Passwortregeln bewerten und ein Backupkonzept erklären.
+
 > [!WARNING]
-> **Katalog 2025:** Gestrichen: ISO-2700x-Details, Risikomatrix, Anti-Spam als eigener Punkt, „SSH vs. Telnet“. Neu/betont: Schutzziele, Hashwerte, 2FA, Härtung, Personal Firewall anpassen, Passwort-Policy bewerten, Schutzbedarf ableiten und begründen, ISMS, NAS für Verfügbarkeit, Auszüge aus dem IT-Grundschutz-Kompendium.
+> **Prüfungskatalog 2025:** Gestrichen sind Details zu ISO 2700x, die Risikomatrix, Anti-Spam als eigener Punkt und der Vergleich „SSH vs. Telnet“. **Neu bzw. betont:** Schutzziele, Hashverfahren, Zwei-Faktor-Authentifizierung, Härtung, Personal Firewall anpassen, Passwortrichtlinien bewerten, Schutzbedarf ableiten und begründen, ISMS, NAS für Verfügbarkeit und Auszüge aus dem IT-Grundschutz-Kompendium.
 
-## Schutzziele (Grundwerte)
+## Schutzziele
 
-<table><tr><th>Schutzziel</th><th>Bedeutung</th><th>Maßnahmen</th></tr>
-<tr><td><b>Vertraulichkeit</b></td><td>nur Befugte haben Zugriff</td><td>Verschlüsselung, Zugriffsrechte, Authentifizierung</td></tr>
-<tr><td><b>Integrität</b></td><td>Daten sind korrekt und unverändert; Änderungen erkennbar</td><td>Hashwerte, digitale Signaturen, Protokollierung, Rechte</td></tr>
-<tr><td><b>Verfügbarkeit</b></td><td>Systeme/Daten stehen bei Bedarf zur Verfügung</td><td>Backups, USV, Redundanz, DDoS-Schutz, Wartung</td></tr></table>
+Informationssicherheit bedeutet, drei Grundwerte zu schützen. Jede Bedrohung und jede Maßnahme lässt sich mindestens einem davon zuordnen:
 
-Erweitert: **Authentizität** (Echtheit des Kommunikationspartners/der Daten), **Verbindlichkeit/Nichtabstreitbarkeit**, Zurechenbarkeit.
+<table><tr><th>Schutzziel</th><th>Bedeutung</th><th>verletzt, wenn …</th><th>Maßnahmen</th></tr>
+<tr><td><b>Vertraulichkeit</b></td><td>Nur Befugte können Daten lesen.</td><td>Gehaltsliste liegt offen auf dem Drucker; gestohlenes Notebook ohne Verschlüsselung</td><td>Verschlüsselung, Zugriffsrechte, Authentifizierung</td></tr>
+<tr><td><b>Integrität</b></td><td>Daten sind korrekt und vollständig; Änderungen sind erkennbar.</td><td>Angreifer ändert die Kontonummer in einer Rechnung; Übertragungsfehler</td><td>Hashwerte, digitale Signaturen, Rechte, Protokollierung</td></tr>
+<tr><td><b>Verfügbarkeit</b></td><td>Systeme und Daten sind nutzbar, wenn sie gebraucht werden.</td><td>Server fällt aus; Ransomware verschlüsselt alle Dateien; Stromausfall</td><td>Backup, USV, Redundanz, Wartung, Schutz vor Überlastangriffen</td></tr></table>
 
-## BSI IT-Grundschutz
+Erweitert werden oft genannt: **Authentizität** (Echtheit – die Mail kommt wirklich vom Absender), **Verbindlichkeit** bzw. Nichtabstreitbarkeit (jemand kann eine Handlung nicht leugnen) und **Zurechenbarkeit** (eine Handlung lässt sich einer Person zuordnen).
 
-Methodik des Bundesamts für Sicherheit in der Informationstechnik: BSI-Standards **200-1** (ISMS), **200-2** (Vorgehensweise), **200-3** (Risikoanalyse), **200-4** (Notfallmanagement/BCM) + **IT-Grundschutz-Kompendium** mit Bausteinen (z. B. SYS.2.2.3 Clients unter Windows, NET.2.2 WLAN-Nutzung, CON.3 Datensicherungskonzept, ORP.4 Identitäts- und Berechtigungsmanagement).
+> [!NOTE]
+> **Beispiel**
+>
+> **Schutzziel zuordnen**  
+> „Ein Mitarbeiter verschickt versehentlich die Kundendatei an eine falsche Adresse.“ → **Vertraulichkeit**.  
+> „Nach einem Stromausfall ist die Datenbank des Webshops beschädigt, Bestellungen fehlen.“ → **Integrität** (Daten falsch/unvollständig) und **Verfügbarkeit** (Shop nicht nutzbar).  
+> „Ein Angreifer legt den Webserver mit massenhaft Anfragen lahm.“ → **Verfügbarkeit**.
 
-**Vorgehen (200-2)**: Strukturanalyse → **Schutzbedarfsfeststellung** → Modellierung (Bausteine zuordnen) → IT-Grundschutz-Check (Soll-Ist) → ggf. Risikoanalyse → Umsetzung.
+## Schutzbedarf feststellen (BSI IT-Grundschutz)
 
-<table><tr><th>Schutzbedarfskategorie</th><th>Schadensauswirkung</th></tr>
+Nicht alles muss gleich stark geschützt werden – ein Infobildschirm in der Kantine braucht weniger Schutz als der Server mit den Patientendaten. Das **BSI** (Bundesamt für Sicherheit in der Informationstechnik) beschreibt mit dem **IT-Grundschutz** ein bewährtes Vorgehen. Es besteht aus den BSI-Standards 200-1 bis 200-4 und dem **IT-Grundschutz-Kompendium** mit Bausteinen für typische Systeme (z. B. „Clients unter Windows“, „WLAN-Nutzung“, „Datensicherungskonzept“), die konkrete Anforderungen enthalten.
+
+**Vorgehen:** Strukturanalyse (Was haben wir? Anwendungen, Systeme, Räume, Verbindungen) → **Schutzbedarfsfeststellung** → Modellierung (passende Bausteine zuordnen) → IT-Grundschutz-Check (Soll-Ist-Vergleich) → bei hohem Schutzbedarf zusätzliche Risikoanalyse → Umsetzung.
+
+<table><tr><th>Schutzbedarf</th><th>Schadensauswirkung</th></tr>
 <tr><td>normal</td><td>begrenzt und überschaubar</td></tr>
 <tr><td>hoch</td><td>beträchtlich</td></tr>
 <tr><td>sehr hoch</td><td>existenziell bedrohlich, katastrophal</td></tr></table>
 
-Bewertet wird je Grundwert (V, I, V). **Maximumprinzip**: Ein IT-System erbt den höchsten Schutzbedarf der darauf laufenden Anwendungen. Kumulationseffekt (viele kleine Schäden ergeben höheren Bedarf), Verteilungseffekt (Redundanz senkt Bedarf). Bei „hoch“/„sehr hoch“ ist eine Risikoanalyse nach 200-3 nötig. Schutzbedarf wird festgestellt für Anwendungen, IT-Systeme, Räume, Kommunikationsverbindungen.
+Der Schutzbedarf wird **je Schutzziel** getrennt bestimmt und anhand möglicher Schäden begründet: Verstoß gegen Gesetze, Beeinträchtigung von Personen, Gefahr für Leib und Leben, Beeinträchtigung der Aufgabenerfüllung, Ansehensverlust, finanzielle Folgen.
+
+> [!IMPORTANT]
+> **Maximumprinzip:** Ein System erbt den höchsten Schutzbedarf der Anwendungen, die darauf laufen.  
+> **Kumulationseffekt:** Viele kleine Schäden zusammen können einen höheren Schutzbedarf ergeben.  
+> **Verteilungseffekt:** Ist eine Anwendung auf mehrere Systeme verteilt (Redundanz), kann der Bedarf für das einzelne System sinken.
+
+> [!NOTE]
+> **Beispiel**
+>
+> **Schutzbedarf eines Servers in einer Arztpraxis**  
+> Auf dem Server laufen die Praxissoftware mit Patientenakten und das Intranet mit dem Speiseplan.  
+> Praxissoftware – **Vertraulichkeit: sehr hoch**, weil Gesundheitsdaten besonders geschützt sind (Art. 9 DSGVO, ärztliche Schweigepflicht). **Integrität: sehr hoch**, weil falsche Medikationsdaten Patienten gefährden können. **Verfügbarkeit: hoch**, weil ohne Akten kaum Behandlungen möglich sind, Notfälle aber auf Papier überbrückt werden können.  
+> Intranet – überall **normal**.  
+> Nach dem Maximumprinzip hat der **Server** den Schutzbedarf: Vertraulichkeit sehr hoch, Integrität sehr hoch, Verfügbarkeit hoch.
 
 ## Bedrohungen
 
-- **Malware**: Virus (hängt sich an Dateien, braucht Wirt), Wurm (verbreitet sich selbstständig über Netz), Trojaner (getarnt als nützliches Programm), **Ransomware** (verschlüsselt Daten, Lösegeld), Spyware, Keylogger, Rootkit, Botnetz.
-- **Social Engineering**: Manipulation von Menschen – **Phishing** (gefälschte Mails/Seiten), Spear-Phishing (gezielt), Vishing (Telefon), Smishing (SMS), CEO-Fraud, Quishing (QR-Code), Tailgating (hinterherlaufen).
-- Angriffe: Brute Force, Wörterbuchangriff, Credential Stuffing, Man-in-the-Middle, DoS/DDoS, SQL-Injection, XSS, Zero-Day-Exploit.
-- Höhere Gewalt/Technik: Brand, Wasser, Stromausfall, Hardwaredefekt, menschliches Versagen.
+<table><tr><th>Schadsoftware</th><th>Merkmal</th></tr>
+<tr><td>Virus</td><td>hängt sich an Dateien oder Programme und verbreitet sich, wenn diese ausgeführt werden</td></tr>
+<tr><td>Wurm</td><td>verbreitet sich selbstständig über das Netzwerk, ohne Zutun des Nutzers</td></tr>
+<tr><td>Trojaner</td><td>tarnt sich als nützliches Programm und führt im Hintergrund Schadfunktionen aus</td></tr>
+<tr><td>Ransomware</td><td>verschlüsselt Daten und erpresst Lösegeld, droht oft zusätzlich mit Veröffentlichung</td></tr>
+<tr><td>Spyware, Keylogger</td><td>spioniert Eingaben und Daten aus</td></tr>
+<tr><td>Rootkit</td><td>versteckt sich tief im System und verbirgt andere Schadsoftware</td></tr>
+<tr><td>Bot</td><td>macht den Rechner fernsteuerbar, Teil eines Botnetzes (z. B. für Überlastangriffe)</td></tr></table>
 
-## Maßnahmen-Kategorien (TOP)
+**Social Engineering** greift nicht die Technik an, sondern den Menschen: **Phishing** (gefälschte Mails und Webseiten), **Spear-Phishing** (gezielt auf eine Person zugeschnitten), Vishing (Telefon), Smishing (SMS), Quishing (QR-Code), **CEO-Fraud** (angebliche Anweisung der Geschäftsleitung zu einer dringenden Überweisung) und Tailgating (unbefugt hinter jemandem durch eine Tür gehen). **Warum so erfolgreich?** Angreifer nutzen Zeitdruck, Autorität, Hilfsbereitschaft und Neugier aus – technische Schutzmaßnahmen helfen nicht, wenn jemand sein Passwort freiwillig eingibt.
 
-- **Technisch**: Firewall, Virenschutz/EDR, Updates/Patchmanagement, Verschlüsselung, MFA, Backup, Spamfilter, VPN.
-- **Organisatorisch**: Sicherheitsrichtlinie, Passwort-Policy, Berechtigungskonzept, Notfallplan, IT-Sicherheitsbeauftragter, Clean-Desk-Policy, Vier-Augen-Prinzip.
-- **Personell**: Schulungen/Awareness, Verpflichtung auf Vertraulichkeit, geregelter Ein-/Austritt.
-- **Infrastrukturell**: Zutrittskontrolle, abschließbarer Serverraum, Brandschutz, Klimatisierung, USV.
+**Weitere Angriffe:** Brute Force (alle Passwörter durchprobieren), Wörterbuchangriff, Credential Stuffing (gestohlene Zugangsdaten bei anderen Diensten ausprobieren), Man-in-the-Middle (Kommunikation abfangen), DoS/DDoS (Überlastung), Ausnutzen unbekannter Sicherheitslücken (Zero-Day). Dazu kommen **höhere Gewalt und Technik**: Brand, Wasser, Stromausfall, Hardwaredefekt und menschliche Fehler.
 
-**Security by Design**: Sicherheit von Anfang an in Entwicklung/Planung berücksichtigen. **Security by Default**: sichere Grundeinstellungen ab Werk (z. B. kein Standardpasswort, Dienste aus).
+## Maßnahmen: technisch, organisatorisch, personell, infrastrukturell
 
-## Härtung eines Arbeitsplatzes
+<table><tr><th>Art</th><th>Beispiele</th></tr>
+<tr><td>technisch</td><td>Firewall, Virenschutz, Updates, Verschlüsselung, MFA, Backup, Spamfilter, VPN</td></tr>
+<tr><td>organisatorisch</td><td>Sicherheitsrichtlinie, Passwortrichtlinie, Berechtigungskonzept, Notfallplan, Vier-Augen-Prinzip bei Überweisungen, Clean-Desk-Regel</td></tr>
+<tr><td>personell</td><td>Schulungen zur Sensibilisierung, Verpflichtung auf Vertraulichkeit, geregelter Ein- und Austritt (Konten sperren!)</td></tr>
+<tr><td>infrastrukturell</td><td>Zutrittskontrolle, abgeschlossener Serverraum, Brandmelder, Klimatisierung, USV</td></tr></table>
 
-- Aktuelles, unterstütztes OS; automatische Updates; Firmware/UEFI aktuell, Secure Boot an, UEFI-Passwort.
-- Keine lokalen Adminrechte für Nutzer; Standardkonten deaktivieren/umbenennen.
-- Nicht benötigte Dienste, Programme, Ports deaktivieren; USB-Massenspeicher per GPO sperren.
-- Festplattenverschlüsselung (**BitLocker** mit TPM), Virenschutz (Defender), Host-Firewall aktiv.
-- Bildschirmsperre nach kurzer Inaktivität, Windows Hello/MFA, Application Control (AppLocker), Makros aus dem Internet blockieren.
-- Protokollierung aktivieren, Konfiguration dokumentieren (Baseline, z. B. Microsoft Security Baselines/CIS).
+**Security by Design:** Sicherheit wird von Anfang an mitgeplant, nicht nachträglich angebaut. **Security by Default:** Geräte und Programme sind ab Werk sicher eingestellt – kein Standardpasswort, unnötige Dienste aus.
 
-## Authentifizierung
+## Arbeitsplatz härten
 
-Faktoren: **Wissen** (Passwort, PIN), **Besitz** (Smartphone-App, Hardware-Token, Smartcard), **Inhärenz/Sein** (Fingerabdruck, Gesicht). **2FA/MFA** = mindestens zwei **verschiedene** Kategorien (Passwort + PIN ist keine 2FA!). Einmalpasswörter: TOTP (zeitbasiert, 30 s), HOTP. Phishing-resistent: **FIDO2/Passkeys**, Windows Hello for Business.
+**Härten** heißt: die Angriffsfläche verkleinern. Alles, was nicht gebraucht wird, ist ein möglicher Einstieg für Angreifer.
 
-**Passwortrichtlinie** (nach BSI/NIST heute): lieber **lang** (≥ 12–14 Zeichen, Passphrase) als komplex; kein regelmäßiger Zwangswechsel, sondern bei Verdacht auf Kompromittierung; keine Wiederverwendung; Passwortmanager; Kontosperre nach Fehlversuchen; Abgleich mit Leak-Listen.
+- aktuelles, vom Hersteller unterstütztes Betriebssystem; automatische Updates; Firmware aktuell, Secure Boot an, UEFI-Passwort
+- Benutzer ohne lokale Administratorrechte; Standardkonten deaktivieren
+- nicht benötigte Programme, Dienste und Ports entfernen bzw. abschalten; USB-Speicher per Gruppenrichtlinie sperren
+- Festplatte mit BitLocker verschlüsseln (Schlüssel im TPM), Virenschutz und Host-Firewall aktiv
+- Bildschirmsperre nach kurzer Inaktivität, Anmeldung mit Windows Hello oder MFA
+- Makros in Dokumenten aus dem Internet blockieren, nur freigegebene Programme zulassen
+- Protokollierung aktivieren und die Konfiguration als Sicherheitsbasis dokumentieren (z. B. nach den Empfehlungen des Herstellers oder des CIS)
 
-## Firewall & VPN
-
-- **Paketfilter** (L3/L4): erlaubt/verbietet nach IP, Port, Protokoll. **Stateful Inspection**: merkt sich Verbindungszustände. **Application-Level-Gateway/Proxy** (L7): prüft Inhalte. **Next-Generation Firewall**: + IPS, App-Erkennung. **WAF**: schützt Webanwendungen. Personal/Host-Firewall auf dem Client.
-- Grundregel: **Default Deny** – alles verboten, was nicht explizit erlaubt ist.
-- **DMZ**: eigenes Netzsegment für öffentlich erreichbare Server zwischen zwei Firewalls.
-- **VPN**: verschlüsselter Tunnel über unsichere Netze. Site-to-Site (Standorte) / Client-to-Site/Remote Access (Homeoffice). Protokolle: IPsec, OpenVPN, WireGuard, SSL-VPN.
-
-## Datensicherung (Backup)
-
-<table><tr><th>Art</th><th>Sichert</th><th>Wiederherstellung</th></tr>
-<tr><td><b>Vollsicherung</b></td><td>alle Daten</td><td>schnell – nur eine Sicherung nötig; braucht viel Platz/Zeit</td></tr>
-<tr><td><b>Differenziell</b></td><td>alle Änderungen seit der letzten <b>Vollsicherung</b></td><td>Vollsicherung + letzte differenzielle</td></tr>
-<tr><td><b>Inkrementell</b></td><td>Änderungen seit der letzten Sicherung (egal welcher Art)</td><td>Vollsicherung + <b>alle</b> Inkremente der Reihe nach – am aufwendigsten; Sicherung selbst am schnellsten</td></tr></table>
-
-> [!IMPORTANT]
-> **3-2-1-Regel:** 3 Kopien der Daten, auf 2 verschiedenen Medien, davon 1 außer Haus (offsite). Erweitert 3-2-1-1-0: + 1 offline/unveränderbar (Schutz vor Ransomware) + 0 Fehler bei Restore-Tests.
-
-Weitere Begriffe: **Generationenprinzip** (Großvater-Vater-Sohn), Backup ≠ Archivierung, **RPO** (max. tolerierter Datenverlust in Zeit), **RTO** (max. Wiederherstellungsdauer). **Restore regelmäßig testen!** Redundanz (z. B. gespiegelte Platten) ersetzt kein Backup – gelöschte oder verschlüsselte Daten werden mitgespiegelt.
-
-## Sichere Protokolle statt unsicherer Klassiker
-
-<table><tr><th>Unsicher (Klartext)</th><th>Sicher</th></tr>
-<tr><td>Telnet (23)</td><td>SSH (22)</td></tr>
-<tr><td>FTP (20/21)</td><td>SFTP (über SSH, 22) oder FTPS (FTP mit TLS)</td></tr>
-<tr><td>HTTP (80)</td><td>HTTPS (443)</td></tr>
-<tr><td>POP3/IMAP/SMTP ohne TLS</td><td>POP3S (995), IMAPS (993), SMTP mit STARTTLS/SMTPS (587/465)</td></tr>
-<tr><td>LDAP (389)</td><td>LDAPS (636)</td></tr>
-<tr><td>SNMPv1/v2c (Community-String im Klartext)</td><td>SNMPv3 (Authentifizierung + Verschlüsselung)</td></tr></table>
-
-## Personal Firewall anpassen (Windows Defender Firewall)
-
-- **Netzwerkprofile**: Domäne (Firmennetz), Privat (vertrauenswürdig), Öffentlich (Hotel, Bahn – am restriktivsten). Unterwegs immer „Öffentlich“.
-- **Regeln** für eingehenden und ausgehenden Verkehr: nach Programm, Port/Protokoll (z. B. TCP 3389 nur aus dem Firmennetz), Remote-IP-Bereich; Standard: eingehend blockieren, ausgehend erlauben.
-- Zentrale Verteilung per **GPO oder Intune**, Nutzer dürfen Regeln nicht selbst ändern; Protokollierung blockierter Verbindungen.
-
-## ISMS & Verfügbarkeit
-
-**ISMS** (Informationssicherheits-Managementsystem): Regeln, Verfahren und Verantwortlichkeiten, um Informationssicherheit dauerhaft zu planen, umzusetzen, zu prüfen und zu verbessern (PDCA). Du unterstützt es, indem du Richtlinien einhältst, Vorfälle meldest und Maßnahmen dokumentierst.  
-**NAS** (Network Attached Storage): Netzwerkspeicher für Freigaben und Backups – mit mehreren Platten gespiegelt für Verfügbarkeit, mit Snapshots gegen versehentliches Löschen; ersetzt aber kein externes/offline Backup.  
-**Gesetzlicher Rahmen**: IT-Sicherheitsgesetz/BSI-Gesetz und die EU-**NIS-2**-Richtlinie verpflichten Betreiber kritischer Infrastrukturen (KRITIS) und viele mittlere/große Unternehmen zu Risikomanagement, Meldung erheblicher Sicherheitsvorfälle und Mindestmaßnahmen.
-
-## Identifizieren, authentifizieren, autorisieren
+## Anmeldung: Faktoren, MFA und Passwörter
 
 <table><tr><th>Schritt</th><th>Frage</th><th>Beispiel</th></tr>
-<tr><td><b>Identifikation</b></td><td>Wer behauptest du zu sein?</td><td>Benutzername eingeben</td></tr>
-<tr><td><b>Authentifizierung</b></td><td>Bist du es wirklich?</td><td>Passwort, Smartcard, Fingerabdruck prüfen</td></tr>
-<tr><td><b>Autorisierung</b></td><td>Was darfst du?</td><td>Rechte auf Ordner, Programme, Funktionen zuweisen</td></tr></table>
+<tr><td>Identifikation</td><td>Wer behauptest du zu sein?</td><td>Benutzername</td></tr>
+<tr><td>Authentifizierung</td><td>Bist du es wirklich?</td><td>Passwort, Smartcard, Fingerabdruck prüfen</td></tr>
+<tr><td>Autorisierung</td><td>Was darfst du?</td><td>Rechte auf Ordner und Programme</td></tr></table>
 
-Erst wird die Identität bewiesen, danach werden Rechte vergeben. Ein angemeldeter Benutzer ist also authentifiziert – ob er die Gehaltsliste öffnen darf, entscheidet die Autorisierung (Berechtigungskonzept, Least Privilege).
+Für die Authentifizierung gibt es drei **Faktoren**: **Wissen** (Passwort, PIN), **Besitz** (Smartphone mit Authenticator-App, Hardware-Token, Smartcard) und **Inhärenz** (biometrische Merkmale wie Fingerabdruck oder Gesicht). **Zwei-Faktor-Authentifizierung** (2FA, allgemein MFA) kombiniert mindestens **zwei verschiedene** Faktoren.
 
-**Biometrie** (Fingerabdruck, Gesicht, Iris) gehört zum Faktor *Inhärenz*. Vorteil: bequem, nicht vergessbar. Nachteil: nicht änderbar, wenn das Merkmal einmal kompromittiert ist, und datenschutzrechtlich besonders schützenswert.
+**Warum ist 2FA so wirksam?** Ein gestohlenes oder erratenes Passwort allein reicht dem Angreifer nicht mehr – er bräuchte zusätzlich das Smartphone oder den Finger. Achtung: **Passwort + PIN ist keine 2FA**, weil beides Wissen ist.
 
-## Backup-Generationen und Archivierung
+Einmalcodes aus Authenticator-Apps (TOTP) wechseln alle 30 Sekunden. Besonders sicher gegen Phishing sind **Passkeys bzw. FIDO2-Schlüssel**: Sie funktionieren nur auf der echten Webseite, eine gefälschte Seite bekommt nichts Verwertbares.
 
-Beim **Generationenprinzip** (Großvater-Vater-Sohn) werden mehrere Sicherungsstände aufbewahrt: tägliche Sicherungen (Sohn), wöchentliche (Vater) und monatliche (Großvater). So kann man auch auf einen Stand von vor mehreren Wochen zurückgehen – wichtig, wenn ein Fehler oder Schadsoftware erst spät bemerkt wird.
+#### Passwortrichtlinie bewerten
+
+Heute empfehlen BSI und NIST: **Länge vor Komplexität**. Lange Passphrasen (ab ca. 12–14 Zeichen, z. B. aus mehreren Wörtern), kein Zwangswechsel in festen Abständen, sondern nur bei Verdacht auf Kompromittierung, keine Wiederverwendung, Passwortmanager nutzen, Konto nach mehreren Fehlversuchen sperren oder verzögern, neue Passwörter gegen Listen bekannter geleakter Passwörter prüfen.
+
+> [!NOTE]
+> **Beispiel**
+>
+> **Warum Länge mehr bringt als Sonderzeichen**  
+> Ein Angreifer probiert 10 Milliarden (1010) Passwörter pro Sekunde.  
+> 8 Zeichen aus Groß-, Kleinbuchstaben und Ziffern (62 Zeichen): 628 ≈ 2,2 × 1014 Möglichkeiten → ca. 22.000 Sekunden ≈ **6 Stunden**.  
+> 14 Zeichen nur aus Kleinbuchstaben (26 Zeichen): 2614 ≈ 6,5 × 1019 Möglichkeiten → ca. 6,5 × 109 Sekunden ≈ **200 Jahre**.  
+> Jedes zusätzliche Zeichen vervielfacht die Zahl der Möglichkeiten. Und eine lange Passphrase kann man sich leichter merken als „X7#k!pQ2“.
+
+> [!CAUTION]
+> **Typische Fehler**
+>
+> Eine Richtlinie „mindestens 8 Zeichen, Sonderzeichen, Wechsel alle 30 Tage“ klingt streng, führt aber zu schwachen Mustern („Sommer2026!“ → „Herbst2026!“) und zu Passwörtern auf Zetteln. Bei der Bewertung genau das ansprechen.
+
+## Firewall, VPN und sichere Protokolle
+
+<table><tr><th>Firewall-Art</th><th>prüft</th></tr>
+<tr><td>Paketfilter</td><td>IP-Adressen, Ports, Protokoll (Schicht 3/4)</td></tr>
+<tr><td>Stateful Inspection</td><td>zusätzlich den Verbindungszustand – nur Antworten auf eigene Anfragen kommen herein</td></tr>
+<tr><td>Application-Level-Gateway (Proxy)</td><td>den Inhalt auf Anwendungsebene</td></tr>
+<tr><td>Next-Generation-Firewall</td><td>zusätzlich Anwendungserkennung und Angriffserkennung (IPS)</td></tr>
+<tr><td>Personal Firewall (Host-Firewall)</td><td>Verkehr direkt auf dem Endgerät</td></tr></table>
+
+Grundregel: **Default Deny** – alles ist verboten, was nicht ausdrücklich erlaubt ist. Öffentlich erreichbare Server (Webserver, Mail-Gateway) stehen in einer **DMZ**, einem eigenen Netzsegment zwischen Internet und internem Netz. Wird dort ein Server übernommen, ist das interne Netz noch durch eine weitere Firewall geschützt.
+
+> [!NOTE]
+> **Beispiel**
+>
+> **Firewallregeln lesen**  
+>
+> | Nr. | Quelle | Ziel | Port | Aktion |
+> | --- | --- | --- | --- | --- |
+> | 1 | internes Netz | beliebig | TCP 443 | erlauben |
+> | 2 | VPN-Clients | Fileserver | TCP 445 | erlauben |
+> | 3 | beliebig | beliebig | beliebig | verweigern |
+>
+> Regeln werden von oben nach unten geprüft, die erste passende gilt. Mitarbeitende im Büro dürfen Webseiten per HTTPS aufrufen, VPN-Nutzer auf Dateifreigaben zugreifen – alles andere blockiert Regel 3. Ein Versuch, per RDP (3389) von außen zuzugreifen, wird also abgewiesen.
+
+**Personal Firewall anpassen:** Windows unterscheidet Netzwerkprofile – **Domäne** (Firmennetz), **Privat** und **Öffentlich** (Hotel, Bahn; am strengsten). Regeln lassen sich nach Programm, Port und Quell-IP-Bereich festlegen, z. B. „Remotedesktop (TCP 3389) nur aus dem Firmennetz erlauben“. Standard: eingehend blockieren, ausgehend erlauben. In Firmen werden die Regeln zentral per Gruppenrichtlinie oder Intune verteilt; Nutzer dürfen sie nicht selbst ändern.
+
+**VPN:** ein verschlüsselter Tunnel durch ein unsicheres Netz wie das Internet – Site-to-Site zwischen Standorten, Client-to-Site für Mitarbeitende im Homeoffice (Protokolle z. B. IPsec, WireGuard, OpenVPN).
+
+<table><tr><th>unsicher (Klartext)</th><th>sicher</th></tr>
+<tr><td>Telnet (23)</td><td>SSH (22)</td></tr>
+<tr><td>FTP (20/21)</td><td>SFTP (über SSH) oder FTPS (FTP mit TLS)</td></tr>
+<tr><td>HTTP (80)</td><td>HTTPS (443)</td></tr>
+<tr><td>POP3, IMAP, SMTP ohne Verschlüsselung</td><td>POP3S (995), IMAPS (993), SMTP mit TLS (587/465)</td></tr>
+<tr><td>LDAP (389)</td><td>LDAPS (636)</td></tr>
+<tr><td>SNMP v1/v2c</td><td>SNMPv3</td></tr></table>
+
+## Datensicherung
+
+Ein Backup ist die letzte Verteidigungslinie: gegen Hardwaredefekte, versehentliches Löschen, Ransomware, Brand und Diebstahl. **Ohne funktionierendes Backup kann ein einziger Vorfall ein Unternehmen ruinieren.**
+
+![Vollsicherung, differenzielle und inkrementelle Sicherung im Vergleich](img/sicherheit-1.svg)
+
+<table><tr><th>Art</th><th>sichert</th><th>Wiederherstellung</th><th>Bewertung</th></tr>
+<tr><td><b>Vollsicherung</b></td><td>alle Daten</td><td>nur die letzte Vollsicherung</td><td>einfachste Wiederherstellung, aber viel Speicher und Zeit</td></tr>
+<tr><td><b>differenziell</b></td><td>alle Änderungen seit der letzten <b>Vollsicherung</b></td><td>Vollsicherung + <b>letzte</b> differenzielle</td><td>Mittelweg; die Sicherungen wachsen von Tag zu Tag</td></tr>
+<tr><td><b>inkrementell</b></td><td>alle Änderungen seit der letzten Sicherung <b>jeglicher Art</b></td><td>Vollsicherung + <b>alle</b> Inkremente in der richtigen Reihenfolge</td><td>schnellste Sicherung, wenig Speicher; aufwendigste Wiederherstellung – fehlt ein Inkrement, fehlen Daten</td></tr></table>
+
+> [!NOTE]
+> **Beispiel**
+>
+> **Wiederherstellung am Freitagabend** (Daten aus dem Bild oben)  
+> Differenziell: Vollsicherung Mo (500 GB) + Differenz Fr (80 GB) = 2 Sicherungen.  
+> Inkrementell: Vollsicherung Mo + Di + Mi + Do + Fr = 5 Sicherungen.  
+> Speicherbedarf der Woche: Voll täglich 2.500 GB · differenziell 500 + 20 + 40 + 60 + 80 = 700 GB · inkrementell 500 + 4 × 20 = 580 GB.
+
+> [!IMPORTANT]
+> **3-2-1-Regel:** mindestens **3** Kopien der Daten, auf **2** verschiedenen Medien, davon **1** außer Haus. Erweitert **3-2-1-1-0**: zusätzlich **1** Kopie offline bzw. unveränderbar (Schutz vor Ransomware, die erreichbare Backups mitverschlüsselt) und **0** Fehler bei regelmäßigen Wiederherstellungstests.
+
+- **Generationenprinzip** (Großvater-Vater-Sohn): tägliche, wöchentliche und monatliche Sicherungen werden aufbewahrt. So kann man auch zu einem Stand von vor Wochen zurück – wichtig, wenn ein Fehler oder Schadsoftware erst spät bemerkt wird.
+- **RPO** (Recovery Point Objective): Wie viel Datenverlust ist höchstens tragbar? Bei RPO 24 h reicht eine tägliche Sicherung. **RTO** (Recovery Time Objective): Wie lange darf die Wiederherstellung höchstens dauern?
+- **Wiederherstellung regelmäßig testen** – ein Backup, das sich nicht zurückspielen lässt, ist wertlos.
+- **Redundanz ist kein Backup:** Gespiegelte Festplatten schützen vor einem Plattendefekt, aber gelöschte oder verschlüsselte Dateien werden sofort mitgespiegelt.
+- **NAS** (Netzwerkspeicher): mit gespiegelten Platten für Verfügbarkeit und mit Snapshots gegen versehentliches Löschen gut geeignet – ersetzt aber keine Kopie außer Haus bzw. offline.
 
 <table><tr><th></th><th>Backup</th><th>Archivierung</th></tr>
-<tr><td>Zweck</td><td>Wiederherstellung nach Verlust oder Defekt</td><td>langfristige, unveränderbare Aufbewahrung</td></tr>
-<tr><td>Daten</td><td>Kopie der aktuellen Arbeitsdaten</td><td>abgeschlossene Vorgänge, die nicht mehr geändert werden</td></tr>
+<tr><td>Zweck</td><td>Wiederherstellung nach Verlust</td><td>langfristige, unveränderbare Aufbewahrung</td></tr>
+<tr><td>Daten</td><td>Kopie der aktuellen Arbeitsdaten</td><td>abgeschlossene Vorgänge</td></tr>
 <tr><td>Dauer</td><td>Tage bis Monate, wird überschrieben</td><td>Jahre, nach gesetzlichen Aufbewahrungsfristen</td></tr></table>
+
+## ISMS und rechtlicher Rahmen
+
+Ein **ISMS** (Informationssicherheits-Managementsystem) sorgt dafür, dass Sicherheit nicht einmalig eingerichtet, sondern dauerhaft geplant, umgesetzt, überprüft und verbessert wird (PDCA-Zyklus: Plan – Do – Check – Act). Als Fachkraft unterstützt du es, indem du Richtlinien einhältst, Sicherheitsvorfälle meldest und deine Maßnahmen dokumentierst.
+
+Das **BSI-Gesetz** und die EU-Richtlinie **NIS-2** verpflichten Betreiber kritischer Infrastrukturen und viele mittlere und große Unternehmen zu Risikomanagement, Mindestmaßnahmen und zur Meldung erheblicher Sicherheitsvorfälle.
+
+> [!CAUTION]
+> **Typische Fehler**
+>
+> - Schutzziele nur nennen, ohne sie dem Fall zuzuordnen und zu begründen.
+> - Den Schutzbedarf ohne Begründung über mögliche Schäden angeben.
+> - Das Maximumprinzip vergessen, wenn mehrere Anwendungen auf einem Server laufen.
+> - Passwort + PIN als Zwei-Faktor-Authentifizierung bezeichnen.
+> - Regelmäßigen Passwortwechsel als moderne Empfehlung nennen.
+> - Differenzielle und inkrementelle Sicherung vertauschen.
+> - RAID, Spiegelung oder Snapshots als Backup bezeichnen.
+> - Die Wiederherstellungstests vergessen.
+
+**📝 Prüfungsaufgabe:** **Ordnen Sie den Maßnahmen je ein Schutzziel zu: a) Festplattenverschlüsselung b) USV c) Hashwert einer heruntergeladenen Datei prüfen (3 Punkte)**
+
+<details><summary>Lösung anzeigen</summary>
+
+a) Vertraulichkeit (1) b) Verfügbarkeit (1) c) Integrität (1)
+
+</details>
+
+**📝 Prüfungsaufgabe:** **Die Passwortrichtlinie eines Unternehmens lautet: „Mindestens 8 Zeichen mit Sonderzeichen, Wechsel alle 30 Tage.“ Beurteilen Sie die Richtlinie und schlagen Sie zwei Verbesserungen vor. (4 Punkte)**
+
+<details><summary>Lösung anzeigen</summary>
+
+8 Zeichen sind zu kurz, um Angriffen durch Ausprobieren standzuhalten; der häufige Zwangswechsel führt zu vorhersehbaren Mustern und notierten Passwörtern (2). Verbesserungen (je 1): Mindestlänge von 12–14 Zeichen bzw. Passphrasen; Wechsel nur bei Verdacht auf Kompromittierung; Zwei-Faktor-Authentifizierung; Passwortmanager; Abgleich mit Listen geleakter Passwörter.
+
+</details>
+
+**📝 Prüfungsaufgabe:** **Ein Unternehmen sichert sonntags voll und montags bis samstags inkrementell. Am Donnerstagmorgen fällt der Server aus. Welche Sicherungen werden für die Wiederherstellung benötigt? (2 Punkte)**
+
+<details><summary>Lösung anzeigen</summary>
+
+Die Vollsicherung von Sonntag (1) und die inkrementellen Sicherungen von Montag, Dienstag und Mittwoch in dieser Reihenfolge (1).
+
+</details>
+
+**📝 Prüfungsaufgabe:** **Erläutern Sie, warum ein NAS mit gespiegelten Festplatten im selben Büro kein ausreichendes Backup-Konzept ist, und nennen Sie eine Ergänzung. (3 Punkte)**
+
+<details><summary>Lösung anzeigen</summary>
+
+Die Spiegelung schützt nur gegen den Ausfall einer Festplatte; gelöschte oder von Ransomware verschlüsselte Dateien werden sofort auf beide Platten übernommen (1). Bei Brand, Wasserschaden oder Diebstahl im Büro sind Original und Kopie gleichzeitig verloren (1). Ergänzung: zusätzliche Sicherung außer Haus bzw. in der Cloud und eine offline oder unveränderbar gespeicherte Kopie nach der 3-2-1-Regel (1).
+
+</details>
+
+**📝 Prüfungsaufgabe:** **Ein Mitarbeiter erhält eine Mail der „Geschäftsführerin“, er solle sofort 18.000 € an einen neuen Lieferanten überweisen und niemandem davon erzählen. Benennen Sie den Angriff und zwei Gegenmaßnahmen. (3 Punkte)**
+
+<details><summary>Lösung anzeigen</summary>
+
+CEO-Fraud, eine Form des Social Engineering bzw. Spear-Phishing (1). Gegenmaßnahmen (je 1): Rückruf bei der Geschäftsführerin über eine bekannte Telefonnummer; Vier-Augen-Prinzip für Überweisungen; Schulung der Mitarbeitenden; Kennzeichnung externer Mails.
+
+</details>
 
 ---
 

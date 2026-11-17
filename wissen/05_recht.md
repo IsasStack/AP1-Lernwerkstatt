@@ -8,109 +8,231 @@
 
 ---
 
+Jede Beschaffung und jeder IT-Auftrag ist ein Vertrag – auch wenn niemand ein Dokument unterschreibt. In der AP1 musst du erkennen, welcher Vertrag vorliegt, wann er zustande gekommen ist und welche Rechte bestehen, wenn etwas schiefgeht: Die Ware ist defekt, kommt zu spät oder wird nicht bezahlt. Dazu kommen Lizenzmodelle für Software und die Abnahme von Leistungen.
+
 > [!WARNING]
-> **Katalog 2025:** Gestrichen: Grundlagen des Urheberrechts, Rollout-Prozesse, Arten der zu übergebenden Dokumentation, Stilllegung von Altsystemen/Archivdaten. Weiterhin wichtig: Inhalt des Abnahmeprotokolls, Vertragsarten, Vertragsbestandteile inkl. Sanktionen/Konventionalstrafen, Vertragsstörungen, Lizenzmodelle, SLA.
+> **Prüfungskatalog 2025:** Gestrichen sind die Grundlagen des Urheberrechts, Rollout-Prozesse, Arten der zu übergebenden Dokumentation und die Stilllegung von Altsystemen. **Weiterhin wichtig:** Vertragsarten, Vertragsbestandteile einschließlich Vertragsstrafen, Vertragsstörungen, Inhalt des Abnahmeprotokolls, Lizenzmodelle und SLA.
 
-## Vertragsarten (BGB)
+## Wie ein Vertrag zustande kommt
 
-<table><tr><th>Vertrag</th><th>Geschuldet wird</th><th>IT-Beispiel</th></tr>
-<tr><td>Kaufvertrag (§ 433)</td><td>Übergabe &amp; Eigentum an einer Sache gegen Kaufpreis</td><td>Kauf von 20 Monitoren</td></tr>
-<tr><td>Werkvertrag (§ 631)</td><td>ein <b>Erfolg</b> (fertiges Werk), Abnahme nötig</td><td>Individualsoftware erstellen, Netzwerk installieren</td></tr>
-<tr><td>Dienstvertrag (§ 611)</td><td>eine <b>Tätigkeit</b>, kein Erfolg</td><td>Beratung, Schulung, Support nach Stunden</td></tr>
-<tr><td>Mietvertrag (§ 535)</td><td>Gebrauchsüberlassung gegen Miete</td><td>Server für 6 Monate mieten</td></tr>
-<tr><td>Leasingvertrag</td><td>Nutzung gegen Raten, Sonderform der Miete</td><td>Notebook-Flotte leasen</td></tr>
-<tr><td>Lizenzvertrag</td><td>Nutzungsrecht an Software</td><td>Microsoft-365-Abo</td></tr>
-<tr><td>Werklieferungsvertrag (§ 650)</td><td>Herstellung beweglicher Sachen (Kaufrecht gilt)</td><td>speziell konfigurierte PCs bauen</td></tr></table>
+Ein Vertrag entsteht durch **zwei übereinstimmende Willenserklärungen**: einen **Antrag** und dessen **Annahme**. Eine Unterschrift oder Schriftform ist dafür in den meisten Fällen nicht nötig – auch eine E-Mail, ein Telefonat oder ein Klick im Onlineshop reicht. Schriftlich festgehalten wird ein Vertrag trotzdem, damit man später beweisen kann, was vereinbart war.
 
-**Zustandekommen:** Antrag + Annahme (zwei übereinstimmende Willenserklärungen). Ein Angebot an die Allgemeinheit (Onlineshop, Katalog) ist nur eine Aufforderung zur Abgabe eines Angebots.
+![Ablauf vom Angebot zum Vertrag](img/recht-1.svg)
 
-## SLA – Service Level Agreement
+<table><tr><th>Schritt</th><th>rechtliche Bedeutung</th></tr>
+<tr><td>Anfrage des Kunden</td><td>unverbindlich – nur die Bitte um ein Angebot. Man kann bei mehreren Lieferanten anfragen.</td></tr>
+<tr><td>Angebot des Lieferanten</td><td><b>verbindlicher Antrag</b> – der Lieferant ist daran gebunden, außer es enthält eine Freizeichnungsklausel („freibleibend“, „unverbindlich“, „solange der Vorrat reicht“).</td></tr>
+<tr><td>Bestellung des Kunden</td><td><b>Annahme</b> – wenn sie rechtzeitig und ohne Änderungen erfolgt, ist der Vertrag geschlossen.</td></tr>
+<tr><td>Auftragsbestätigung</td><td>nur rechtlich nötig, wenn noch kein Vertrag besteht: bei freibleibendem Angebot, bei verspäteter oder geänderter Bestellung, bei Bestellung ohne vorheriges Angebot.</td></tr></table>
 
-Vereinbarung über messbare Leistungsqualität: **Verfügbarkeit** (z. B. 99,9 %), **Reaktionszeit**, **Wiederherstellungszeit**, Servicezeiten (z. B. Mo–Fr 8–18 Uhr), Eskalation, Berichte, Vertragsstrafen.
+**Wie lange ist ein Angebot bindend?** Unter Anwesenden (auch am Telefon) nur sofort. Unter Abwesenden (Brief, E-Mail) so lange, wie man unter normalen Umständen mit einer Antwort rechnen darf – bei einer E-Mail also wenige Tage. Ist eine Frist genannt („gültig bis 30.11.“), gilt diese.
+
+**Warum ist ein Onlineshop kein Angebot?** Würde jede Produktseite als verbindlicher Antrag gelten, müsste der Händler an jeden liefern, der bestellt – auch wenn der Vorrat längst weg ist. Deshalb ist die Darstellung im Shop, im Katalog oder im Schaufenster nur eine **Aufforderung, ein Angebot abzugeben**. Der Antrag kommt vom Kunden mit der Bestellung, die Annahme vom Händler (Auftragsbestätigung oder Lieferung).
+
+> [!NOTE]
+> **Beispiel**
+>
+> **Kommt ein Vertrag zustande?**  
+> 1. Lieferant bietet am 02.11. 10 Switches zu je 320 € an, gültig bis 15.11. Der Kunde bestellt am 10.11. 10 Switches zu je 320 €. → **Ja**, Antrag und Annahme stimmen überein, rechtzeitig.  
+> 2. Der Kunde bestellt am 10.11. 10 Switches zu je **300 €**. → **Nein.** Die geänderte Bestellung ist ein **neuer Antrag**. Der Vertrag entsteht erst, wenn der Lieferant ihn annimmt, z. B. per Auftragsbestätigung.  
+> 3. Der Kunde bestellt am 20.11. zu den Bedingungen des Angebots. → **Nein**, das Angebot ist abgelaufen. Auch die verspätete Bestellung ist ein neuer Antrag.
+
+## Vertragsarten
+
+Welche Rechte und Pflichten gelten, hängt von der Vertragsart ab. Die wichtigste Frage ist: **Was genau wird geschuldet?**
+
+<table><tr><th>Vertrag</th><th>geschuldet wird …</th><th>IT-Beispiel</th></tr>
+<tr><td><b>Kaufvertrag</b> (§ 433 BGB)</td><td>Übergabe einer Sache und Eigentum gegen Zahlung des Kaufpreises</td><td>20 Monitore kaufen</td></tr>
+<tr><td><b>Werkvertrag</b> (§ 631 BGB)</td><td>ein <b>Erfolg</b>, ein fertiges Werk – mit Abnahme</td><td>Individualsoftware programmieren, Netzwerk einrichten, Website erstellen</td></tr>
+<tr><td><b>Dienstvertrag</b> (§ 611 BGB)</td><td>eine <b>Tätigkeit</b>, kein Erfolg</td><td>Beratung, Schulung, IT-Support nach Stunden, externer Administrator</td></tr>
+<tr><td><b>Mietvertrag</b> (§ 535 BGB)</td><td>Überlassung zum Gebrauch auf Zeit gegen Miete</td><td>Server für ein halbes Jahr mieten</td></tr>
+<tr><td><b>Leasingvertrag</b></td><td>Sonderform der Miete: Nutzung gegen Raten, oft mit Erneuerung</td><td>Notebook-Flotte leasen</td></tr>
+<tr><td><b>Werklieferungsvertrag</b> (§ 650 BGB)</td><td>Herstellung einer beweglichen Sache – es gilt Kaufrecht</td><td>PCs nach Kundenwunsch zusammenbauen</td></tr>
+<tr><td><b>Lizenzvertrag</b></td><td>Recht, Software zu nutzen</td><td>Microsoft-365-Abonnement</td></tr></table>
+
+**Warum ist die Unterscheidung Werk- oder Dienstvertrag so wichtig?** Beim Werkvertrag haftet der Auftragnehmer dafür, dass das Ergebnis funktioniert. Läuft die bestellte Software nicht, muss er nachbessern, und bezahlt wird erst nach der Abnahme. Beim Dienstvertrag wird die Arbeitszeit bezahlt, auch wenn das Problem am Ende nicht gelöst ist – solange ordentlich gearbeitet wurde.
+
+> [!NOTE]
+> **Beispiel**
+>
+> **Werk oder Dienst?**  
+> „Richten Sie unser WLAN so ein, dass es in allen Räumen funktioniert.“ → Werkvertrag (Erfolg: funktionierendes WLAN).  
+> „Unterstützen Sie unsere IT-Abteilung zwei Tage pro Woche.“ → Dienstvertrag (Tätigkeit).  
+> „Schulen Sie unsere Mitarbeitenden in Microsoft Teams.“ → Dienstvertrag (Schulung als Tätigkeit, der Lernerfolg ist nicht geschuldet).
+
+## Pflichten und Vertragsbestandteile
+
+Beim **Kaufvertrag** muss der Verkäufer die Ware mangelfrei und rechtzeitig übergeben und das Eigentum verschaffen. Der Käufer muss die Ware annehmen und rechtzeitig bezahlen.
+
+**Typische Vertragsbestandteile:** Art, Beschaffenheit und Menge der Ware oder Leistung · Preis und Preisnachlässe · Lieferzeit · Lieferbedingungen (z. B. „frei Haus“: Verkäufer trägt die Versandkosten) · Zahlungsbedingungen (z. B. „30 Tage netto, 2 % Skonto bei Zahlung innerhalb von 10 Tagen“) · Gewährleistung und Garantie · Erfüllungsort und Gerichtsstand · Vertragsstrafen.
+
+**Konventionalstrafe (Vertragsstrafe):** ein vorher vereinbarter Betrag, den eine Seite zahlen muss, wenn sie eine Pflicht verletzt, z. B. 500 € pro Tag Verspätung bei der Fertigstellung. **Warum?** Ohne sie müsste der Kunde im Streitfall seinen Schaden genau nachweisen. Mit ihr ist die Folge klar und der Druck, Termine einzuhalten, steigt.
+
+**AGB** (Allgemeine Geschäftsbedingungen) sind vorformulierte Vertragsbedingungen für viele Verträge. Sie gelten nur, wenn vor Vertragsschluss deutlich auf sie hingewiesen wurde und der Kunde sie zur Kenntnis nehmen konnte. Individuelle Absprachen gehen den AGB vor, überraschende oder unangemessen benachteiligende Klauseln sind unwirksam.
+
+**Eigentumsvorbehalt:** Die Ware bleibt Eigentum des Verkäufers, bis sie vollständig bezahlt ist. Zahlt der Kunde nicht, kann der Verkäufer vom Vertrag zurücktreten und die Ware zurückverlangen. Der Kunde ist also schon **Besitzer** (er hat die Ware), aber noch nicht **Eigentümer** (sie gehört ihm rechtlich noch nicht).
+
+**SLA** (Service Level Agreement): Bei Dienstleistungen wie Hosting oder Support werden messbare Leistungen vereinbart – Verfügbarkeit, Reaktions- und Lösungszeiten, Servicezeiten, Eskalation, Berichte und Vertragsstrafen bei Unterschreitung. Wie man die erlaubte Ausfallzeit berechnet, steht im Thema Kundenberatung.
+
+## Mangelhafte Lieferung
+
+Eine Ware ist mangelhaft, wenn sie bei der Übergabe nicht die vereinbarte oder übliche Beschaffenheit hat.
+
+<table><tr><th>Mangelart</th><th>Beispiel</th></tr>
+<tr><td>Sachmangel: Beschaffenheit</td><td>Monitor hat Pixelfehler, Notebook mit 8 statt vereinbarten 16 GB RAM</td></tr>
+<tr><td>Falschlieferung</td><td>Drucker eines anderen Modells geliefert</td></tr>
+<tr><td>Zuweniglieferung</td><td>18 statt 20 Docking-Stationen</td></tr>
+<tr><td>Montagemangel, fehlerhafte Montageanleitung</td><td>Servicetechniker baut den Server falsch ins Rack ein; Anleitung beschreibt das falsche Gerät</td></tr>
+<tr><td>Rechtsmangel</td><td>Software ohne gültige Lizenz, Ware gehört einem Dritten</td></tr></table>
+
+Nach der **Erkennbarkeit** unterscheidet man **offene** Mängel (sofort sichtbar, z. B. zerbrochenes Display), **versteckte** Mängel (zeigen sich erst später, z. B. Netzteil fällt nach drei Monaten aus) und **arglistig verschwiegene** Mängel (der Verkäufer wusste davon und hat es verschwiegen).
+
+**Wann muss gerügt werden?** Sind beide Seiten Kaufleute (zweiseitiger Handelskauf), muss der Käufer die Ware **unverzüglich prüfen** und einen offenen Mangel **unverzüglich rügen**, einen versteckten unverzüglich nach Entdeckung – sonst verliert er seine Rechte (§ 377 HGB). Die gesetzliche Gewährleistungsfrist beträgt **zwei Jahre** ab Übergabe, bei arglistig verschwiegenen Mängeln gilt die längere regelmäßige Verjährung.
+
+#### Rechte des Käufers – in dieser Reihenfolge
+
+1. **Vorrangig: Nacherfüllung.** Der Käufer wählt zwischen **Nachbesserung** (Reparatur) und **Ersatzlieferung** (neue Ware). Der Verkäufer bekommt also zuerst die Chance, den Fehler zu beheben.
+2. **Nachrangig**, wenn die Nacherfüllung fehlschlägt, verweigert wird oder eine angemessene Frist erfolglos abgelaufen ist:
+   - **Rücktritt** vom Vertrag (Ware zurück, Geld zurück) – nicht bei nur unerheblichen Mängeln
+   - **Minderung** (Ware behalten, Kaufpreis wird herabgesetzt)
+   - **Schadensersatz**, wenn den Verkäufer ein Verschulden trifft, oder Ersatz vergeblicher Aufwendungen
 
 > [!IMPORTANT]
-> Verfügbarkeit 99,9 % pro Jahr ⇒ erlaubte Ausfallzeit = 0,1 % × 8.760 h = **8,76 Stunden**. 99 % ⇒ 87,6 h.
+> **Gewährleistung** ist gesetzlich vorgeschrieben (2 Jahre), gilt gegenüber dem **Verkäufer** und betrifft Mängel, die schon bei Übergabe vorhanden waren. **Garantie** ist eine **freiwillige** Zusage, meist des Herstellers, mit selbst festgelegten Bedingungen und Fristen – sie gilt zusätzlich, nicht stattdessen.
 
-## Vertragsstörungen
+Bei Verbrauchern wird zugunsten des Käufers vermutet, dass ein Mangel, der sich innerhalb eines Jahres nach Übergabe zeigt, schon bei der Übergabe vorlag (Beweislastumkehr). Danach muss der Käufer das beweisen.
 
-- **Mangelhafte Lieferung** (Schlechtleistung): Sachmangel (Ware defekt, falsche Beschaffenheit), Falschlieferung, Minderlieferung (zu wenig), Montagemangel, Rechtsmangel.
-- **Rechte des Käufers**: zuerst **Nacherfüllung** (Nachbesserung oder Ersatzlieferung), danach Rücktritt, Minderung, Schadensersatz.
-- Gewährleistung: gesetzlich 2 Jahre. **Garantie**: freiwillige Zusage des Herstellers/Händlers.
-- Mängelarten nach Erkennbarkeit: offen, versteckt, arglistig verschwiegen. Beim zweiseitigen Handelskauf: unverzügliche Prüf- und Rügepflicht (§ 377 HGB).
-- **Lieferungsverzug**: Lieferung fällig, schuldhaft nicht erfolgt (ggf. Mahnung nötig, entbehrlich bei kalendermäßig bestimmtem Termin). **Zahlungsverzug**: spätestens 30 Tage nach Fälligkeit und Rechnungszugang.
-- **Konventionalstrafe**: vereinbarte Vertragsstrafe bei Nichteinhaltung (z. B. pro Tag Verzug).
+## Lieferungsverzug
 
-## Urheberrecht & Lizenzen
+Der Verkäufer liefert nicht rechtzeitig. Verzug liegt vor, wenn drei Voraussetzungen erfüllt sind:
 
-Software ist durch das **Urheberrechtsgesetz (UrhG)** geschützt; der Nutzer erwirbt nur ein Nutzungsrecht (Lizenz).
+1. **Fälligkeit:** Der Liefertermin ist erreicht.
+2. **Mahnung:** Der Käufer hat den Verkäufer zur Lieferung aufgefordert. Sie ist **entbehrlich**, wenn der Termin kalendermäßig bestimmt ist („Lieferung am 15.03.“ oder „bis 15.03.“).
+3. **Verschulden:** Der Verkäufer hat die Verzögerung zu vertreten (Vorsatz oder Fahrlässigkeit). Bei höherer Gewalt (Streik, Naturkatastrophe) fehlt das Verschulden – dann gibt es keinen Schadensersatz.
 
-<table><tr><th>Modell</th><th>Merkmal</th></tr>
-<tr><td>EULA</td><td>Endbenutzer-Lizenzvertrag, regelt Nutzungsbedingungen</td></tr>
-<tr><td>OEM</td><td>an Hardware gebunden, günstig, i. d. R. nicht übertragbar</td></tr>
-<tr><td>Einzelplatz / Volumen</td><td>ein Gerät bzw. viele Lizenzen mit Mengenrabatt</td></tr>
-<tr><td>Named User / Concurrent User</td><td>pro benannter Person / pro gleichzeitig angemeldeter Nutzer</td></tr>
-<tr><td>Subscription (Abo)</td><td>zeitlich begrenzt, laufende Updates, z. B. SaaS</td></tr>
-<tr><td>Pay-per-Use</td><td>Abrechnung nach tatsächlicher Nutzung</td></tr>
-<tr><td>Freeware / Shareware</td><td>kostenlos (Quellcode meist geschlossen) / kostenlos testen, dann zahlen</td></tr>
-<tr><td>Open Source – GPL</td><td><b>Copyleft</b>: Quellcode offen, Änderungen müssen unter GPL weitergegeben werden</td></tr>
-<tr><td>Open Source – MIT/BSD/Apache</td><td>permissiv: auch in proprietärer Software nutzbar, Lizenzhinweis beibehalten</td></tr></table>
+<table><tr><th>ohne Nachfrist</th><th>nach erfolglos abgelaufener Nachfrist</th></tr>
+<tr><td>auf Lieferung bestehen und zusätzlich den Verzögerungsschaden ersetzt verlangen (bei Verschulden)</td><td>Lieferung ablehnen und vom Vertrag <b>zurücktreten</b> und/oder <b>Schadensersatz statt der Leistung</b> verlangen, z. B. die Mehrkosten eines teureren Ersatzkaufs (Deckungskauf)</td></tr></table>
 
-**Proprietär** = Quellcode geschlossen, Hersteller bestimmt Nutzung. **Open Source** = Quellcode einsehbar, ändern & weitergeben erlaubt (Lizenzbedingungen beachten).
+Bei einem **Fixgeschäft** („Lieferung genau am 20.12., später sinnlos“, z. B. Technik für eine Messe) kann der Käufer bei Verspätung sofort ohne Nachfrist zurücktreten.
 
-## Leistungserbringung & Abnahme
+## Zahlungsverzug und Annahmeverzug
 
-- **Rollout**: Vorbereitung (Scope, Inventar, Images), Kunden-Onboarding, Formalitäten, Umsetzung, Nachbetreuung. Vor Ort vs. remote.
-- **Abnahmeprotokoll**: Gegenstand der Abnahme, beteiligte Personen, Ort, Datum/Uhrzeit, geprüfte Funktionen, festgestellte Mängel und Fristen, Unterschriften.
-- **Dokumentation**: Benutzerhandbuch, Administrations-/Netzwerkdokumentation, Programmdokumentation/Quellcode, Schnittstellen, Testprotokolle, Konfigurationen.
-- Stilllegung von Altsystemen: Daten migrieren, gesetzliche **Aufbewahrungsfristen** beachten (Handelsbriefe 6 Jahre, Buchungsbelege/Rechnungen 8 Jahre seit 2025, Bücher/Jahresabschlüsse 10 Jahre), Datenträger sicher löschen.
+**Zahlungsverzug:** Der Käufer zahlt nicht rechtzeitig. Verzug tritt ein nach Fälligkeit und Mahnung, ohne Mahnung spätestens **30 Tage nach Fälligkeit und Zugang der Rechnung** (bei Verbrauchern nur, wenn die Rechnung darauf hinweist). Der Verkäufer kann Verzugszinsen verlangen – gegenüber Verbrauchern 5 Prozentpunkte, unter Unternehmen 9 Prozentpunkte über dem Basiszinssatz –, dazu Mahnkosten und Schadensersatz. Nach erfolgloser Frist kann er zurücktreten und bei Eigentumsvorbehalt die Ware zurückholen.
 
-## Vom Angebot zum Vertrag
-
-Ein Vertrag entsteht durch zwei übereinstimmende Willenserklärungen: **Antrag** und **Annahme**. Wer welche Erklärung abgibt, hängt vom Ablauf ab:
-
-<table><tr><th>Schritt</th><th>Rechtliche Bedeutung</th></tr>
-<tr><td>Anfrage des Kunden</td><td>unverbindlich – nur Bitte um ein Angebot</td></tr>
-<tr><td>Angebot des Lieferanten</td><td><b>verbindlicher Antrag</b> – außer es enthält eine Freizeichnungsklausel („freibleibend“, „unverbindlich“, „solange der Vorrat reicht“)</td></tr>
-<tr><td>Bestellung des Kunden</td><td>Annahme, wenn sie rechtzeitig und ohne Änderungen erfolgt → Vertrag</td></tr>
-<tr><td>Auftragsbestätigung</td><td>nur nötig, wenn noch kein Vertrag besteht: bei freibleibendem Angebot, bei verspäteter oder geänderter Bestellung, bei Bestellung ohne vorheriges Angebot</td></tr></table>
-
-> [!IMPORTANT]
-> **Merke:** Eine Bestellung, die vom Angebot abweicht (anderer Preis, andere Menge, zu spät), ist ein **neuer Antrag**. Der Vertrag kommt dann erst durch die Auftragsbestätigung oder die Lieferung zustande.
-
-## Pflichten und Bestandteile beim Kaufvertrag
-
-- **Verkäufer:** Ware mangelfrei und rechtzeitig übergeben, Eigentum verschaffen.
-- **Käufer:** Ware annehmen und den Kaufpreis rechtzeitig zahlen.
-
-**Typische Vertragsbestandteile:** Art, Güte und Menge der Ware · Preis und Rabatte · Lieferzeit · Liefer- und Zahlungsbedingungen (z. B. „frei Haus“, „30 Tage netto, 2 % Skonto bei 10 Tagen“) · Gewährleistung/Garantie · Erfüllungsort und Gerichtsstand · Vertragsstrafen.
-
-**AGB** (Allgemeine Geschäftsbedingungen) sind vorformulierte Bedingungen für viele Verträge. Sie gelten nur, wenn vor Vertragsschluss auf sie hingewiesen wurde und der Kunde sie zur Kenntnis nehmen konnte. Individuelle Absprachen gehen vor, überraschende Klauseln sind unwirksam.
-
-**Eigentumsvorbehalt:** Die Ware bleibt bis zur vollständigen Bezahlung Eigentum des Verkäufers. Zahlt der Kunde nicht, kann der Verkäufer sie zurückverlangen.
-
-## Vertragsstörungen im Überblick
-
-<table><tr><th>Störung</th><th>Wer verletzt die Pflicht?</th><th>Voraussetzungen</th><th>Rechte der Gegenseite</th></tr>
-<tr><td><b>Mangelhafte Lieferung</b> (Schlechtleistung)</td><td>Verkäufer</td><td>Mangel bei Übergabe; unter Kaufleuten unverzüglich prüfen und rügen</td><td>zuerst Nacherfüllung (Nachbesserung oder Ersatzlieferung); nach erfolgloser Frist Minderung, Rücktritt, Schadensersatz</td></tr>
-<tr><td><b>Lieferungsverzug</b> (Nicht-rechtzeitig-Lieferung)</td><td>Verkäufer</td><td>Fälligkeit + Mahnung + Verschulden; Mahnung entfällt bei fest vereinbartem Kalendertermin</td><td>Lieferung verlangen und Verzugsschaden ersetzen lassen; nach erfolgloser Nachfrist Rücktritt und/oder Schadensersatz statt der Leistung</td></tr>
-<tr><td><b>Zahlungsverzug</b> (Nicht-rechtzeitig-Zahlung)</td><td>Käufer</td><td>Fälligkeit + Mahnung; ohne Mahnung spätestens 30 Tage nach Fälligkeit und Zugang der Rechnung</td><td>Verzugszinsen, Mahnkosten, nach Fristsetzung Rücktritt und Schadensersatz; Ware bei Eigentumsvorbehalt zurückholen</td></tr>
-<tr><td><b>Annahmeverzug</b></td><td>Käufer</td><td>Ware wurde ordnungsgemäß angeboten und nicht angenommen</td><td>auf Abnahme bestehen, Ware auf Kosten des Käufers einlagern, Selbsthilfeverkauf, Rücktritt</td></tr></table>
+**Annahmeverzug:** Der Käufer nimmt die ordnungsgemäß angebotene Ware nicht an. Der Verkäufer kann die Ware auf Kosten des Käufers einlagern, weiter auf Abnahme und Zahlung bestehen oder die Ware verkaufen lassen (Selbsthilfeverkauf). Die Haftung des Verkäufers für die Ware ist während des Annahmeverzugs auf Vorsatz und grobe Fahrlässigkeit beschränkt.
 
 > [!TIP]
-> **Prüfungstipp:** Schreibe bei Vertragsstörungen immer drei Dinge: **welche Störung** vorliegt, **warum** (Voraussetzungen am Fall prüfen) und **welche Rechte** daraus folgen – das Recht mit dem Vorrang zuerst.
+> Bei jeder Vertragsstörung schreibst du drei Dinge: **welche Störung** vorliegt, **warum** (Voraussetzungen am Fall prüfen: fällig? gemahnt? Verschulden?) und **welche Rechte** daraus folgen – das vorrangige Recht zuerst.
 
-## Weitere Lizenzbegriffe (Hintergrund)
+> [!NOTE]
+> **Beispiel**
+>
+> **Fall**  
+> Die Firma hat 15 Notebooks fest „zum 01.10.“ bestellt. Am 05.10. sind sie immer noch nicht da, der Lieferant hat die Bestellung vergessen.  
+> **Störung:** Lieferungsverzug.  
+> **Voraussetzungen:** fällig seit 01.10.; Mahnung ist entbehrlich, weil der Termin kalendermäßig bestimmt ist; Verschulden liegt vor (Bestellung vergessen = Fahrlässigkeit).  
+> **Rechte:** Die Firma kann weiter Lieferung verlangen und den Verzögerungsschaden ersetzt bekommen, z. B. Kosten für Mietgeräte in der Zwischenzeit. Setzt sie eine angemessene Nachfrist und läuft diese erfolglos ab, kann sie zurücktreten und bei einem anderen Händler kaufen; Mehrkosten trägt der Lieferant als Schadensersatz.
 
-<table><tr><th>Begriff</th><th>Bedeutung</th></tr>
-<tr><td>Proprietäre Software</td><td>Quellcode nicht offen, Nutzung nur nach den Bedingungen des Herstellers</td></tr>
-<tr><td>Freeware</td><td>kostenlos nutzbar, Quellcode aber nicht offen</td></tr>
-<tr><td>Shareware</td><td>darf kostenlos getestet werden, danach kostenpflichtig</td></tr>
-<tr><td>Public Domain</td><td>gemeinfrei – ohne urheberrechtliche Einschränkungen</td></tr>
-<tr><td>Open Source</td><td>Quellcode offen, darf genutzt, geändert und weitergegeben werden – nach den Regeln der jeweiligen Lizenz</td></tr></table>
+## Abnahme und Abnahmeprotokoll
 
-## Pflichtangaben einer Rechnung (Hintergrund)
+Beim **Werkvertrag** muss der Kunde das fertige Werk **abnehmen**, also bestätigen, dass es im Wesentlichen vertragsgemäß ist. Bei unwesentlichen Mängeln darf er die Abnahme nicht verweigern; diese Mängel werden im Protokoll festgehalten und später beseitigt.
 
-Name und Anschrift von Lieferant und Kunde · Steuernummer oder USt-IdNr. des Lieferanten · Rechnungsdatum · fortlaufende Rechnungsnummer · Menge und Bezeichnung der Leistung · Liefer- bzw. Leistungsdatum · Nettobetrag, Steuersatz, Steuerbetrag und Bruttobetrag.
+**Warum ist die Abnahme so wichtig?** Mit ihr
+
+- wird die **Vergütung fällig** – vorher muss der Kunde nicht bezahlen,
+- geht die **Gefahr** auf den Kunden über – wird das Werk danach beschädigt, trägt er das Risiko,
+- beginnt die **Verjährung** der Mängelansprüche,
+- kehrt sich die **Beweislast** um – nach der Abnahme muss der Kunde beweisen, dass ein Mangel vorliegt.
+
+**Inhalt eines Abnahmeprotokolls:** Projekt bzw. Gegenstand der Abnahme, Auftraggeber und Auftragnehmer mit den anwesenden Personen, Ort, Datum und Uhrzeit, geprüfte Leistungen und Funktionen (oft als Checkliste anhand des Pflichtenhefts), festgestellte Mängel mit Frist zur Beseitigung, Ergebnis (abgenommen / abgenommen unter Vorbehalt / verweigert), Unterschriften beider Seiten.
+
+## Softwarelizenzen
+
+Software ist urheberrechtlich geschützt. Wer Software kauft, erwirbt nicht das Programm selbst, sondern ein **Nutzungsrecht**: die Lizenz. Was genau erlaubt ist – auf wie vielen Geräten, von wie vielen Personen, wie lange, ob man sie weitergeben darf –, regelt der Lizenzvertrag (EULA, End User License Agreement).
+
+<table><tr><th>Lizenzmodell</th><th>Merkmal</th><th>passt, wenn …</th></tr>
+<tr><td>Einzelplatzlizenz</td><td>ein Gerät</td><td>wenige feste Arbeitsplätze</td></tr>
+<tr><td>Volumenlizenz</td><td>viele Lizenzen mit einem Vertrag, Mengenrabatt, zentrale Verwaltung</td><td>viele Arbeitsplätze</td></tr>
+<tr><td>OEM-Lizenz</td><td>an die mitgekaufte Hardware gebunden, günstig, meist nicht übertragbar</td><td>Betriebssystem auf neuem PC</td></tr>
+<tr><td>Named User</td><td>pro namentlich benannter Person, auf mehreren Geräten</td><td>Mitarbeitende mit PC, Notebook und Smartphone</td></tr>
+<tr><td>Concurrent User (Floating)</td><td>Höchstzahl gleichzeitiger Nutzer</td><td>viele gelegentliche Nutzer, z. B. Schichtbetrieb</td></tr>
+<tr><td>Subscription (Abo)</td><td>zeitlich begrenzt, laufende Updates inklusive, monatlich oder jährlich kündbar</td><td>immer aktuelle Version, planbare Kosten, SaaS</td></tr>
+<tr><td>Kauflizenz (dauerhaft)</td><td>einmal zahlen, unbegrenzt nutzen, Updates oft extra</td><td>Software wird lange unverändert genutzt</td></tr>
+<tr><td>Pay-per-Use</td><td>Abrechnung nach tatsächlicher Nutzung</td><td>stark schwankende Nutzung, Cloud</td></tr></table>
+
+> [!NOTE]
+> **Beispiel**
+>
+> **Named oder Concurrent?**  
+> Ein Callcenter hat 60 Mitarbeitende in drei Schichten, gleichzeitig arbeiten höchstens 20 mit dem Programm.  
+> Named User: 60 Lizenzen. Concurrent User: 20 Lizenzen. → Concurrent User ist hier deutlich günstiger, weil nie mehr als 20 Personen gleichzeitig angemeldet sind.
+
+**Proprietäre Software**: Quellcode ist nicht einsehbar, der Hersteller bestimmt die Nutzung. **Open Source**: Quellcode ist offen und darf genutzt, verändert und weitergegeben werden – nach den Regeln der jeweiligen Lizenz:
+
+- **Copyleft-Lizenzen** wie die **GPL**: Wer veränderte Software weitergibt, muss sie wieder unter der GPL mit Quellcode weitergeben. Für ein Unternehmen, das sein eigenes Produkt verkaufen will, ohne den Code offenzulegen, ist das ein Hindernis.
+- **Freizügige (permissive) Lizenzen** wie MIT, BSD oder Apache: Der Code darf auch in proprietärer Software verwendet werden; der Lizenz- und Urheberhinweis muss erhalten bleiben.
+
+Außerdem: **Freeware** ist kostenlos, aber nicht unbedingt quelloffen. **Shareware** darf kostenlos getestet werden, danach ist sie kostenpflichtig. **Public Domain** ist gemeinfrei, ohne urheberrechtliche Einschränkungen.
+
+> [!WARNING]
+> „Kostenlos“ heißt nicht „für alles erlaubt“. Viele Freeware-Programme sind nur für private Nutzung frei. Im Unternehmen ist dann eine kostenpflichtige Lizenz nötig – sonst drohen Abmahnungen und Nachzahlungen.
+
+## Rechnung und Aufbewahrung
+
+**Pflichtangaben einer Rechnung** (§ 14 UStG): Name und Anschrift von Lieferant und Kunde · Steuernummer oder USt-IdNr. des Lieferanten · Rechnungsdatum · fortlaufende Rechnungsnummer · Menge und Bezeichnung der Leistung · Liefer- bzw. Leistungsdatum · Nettobetrag, Steuersatz, Steuerbetrag und Bruttobetrag · gegebenenfalls Hinweis auf vereinbarte Preisnachlässe wie Skonto. Unter Unternehmen ist die elektronische Rechnung (E-Rechnung in strukturiertem Format) schrittweise Pflicht; empfangen können müssen sie alle Unternehmen seit 2025.
+
+**Aufbewahrungsfristen** (Hintergrund): Handels- und Geschäftsbriefe 6 Jahre, Buchungsbelege wie Rechnungen 8 Jahre (seit 2025), Bücher und Jahresabschlüsse 10 Jahre. Werden Altsysteme abgeschaltet, müssen diese Daten weiter lesbar bleiben.
+
+> [!CAUTION]
+> **Typische Fehler**
+>
+> - Den Onlineshop oder einen Katalog als verbindliches Angebot werten.
+> - Eine geänderte oder verspätete Bestellung als Annahme werten – sie ist ein neuer Antrag.
+> - Werk- und Dienstvertrag verwechseln: Entscheidend ist, ob ein Erfolg oder eine Tätigkeit geschuldet wird.
+> - Bei Mängeln sofort Rücktritt oder Minderung nennen – zuerst kommt die **Nacherfüllung**.
+> - Gewährleistung und Garantie gleichsetzen.
+> - Beim Lieferungsverzug die Mahnung verlangen, obwohl ein kalendermäßig bestimmter Termin vereinbart war.
+> - Bei Lizenzen nur das Modell nennen, ohne es mit der Situation zu begründen (Anzahl Nutzer, Geräte, gleichzeitige Nutzung).
+
+**📝 Prüfungsaufgabe:** **Ein Systemhaus bietet am 03.03. per E-Mail „freibleibend“ 25 Monitore an. Der Kunde bestellt am 05.03. genau zu diesen Bedingungen. Ist ein Kaufvertrag zustande gekommen? Begründen Sie. (3 Punkte)**
+
+<details><summary>Lösung anzeigen</summary>
+
+Nein (1). Wegen der Freizeichnungsklausel „freibleibend“ ist das Angebot nicht bindend, also kein Antrag, sondern nur eine Aufforderung zur Abgabe eines Angebots (1). Die Bestellung ist der Antrag; der Vertrag kommt erst durch die Annahme des Systemhauses zustande, z. B. durch eine Auftragsbestätigung oder die Lieferung (1).
+
+</details>
+
+**📝 Prüfungsaufgabe:** **Ein IT-Dienstleister soll für eine Arztpraxis ein neues Netzwerk einrichten, das am Ende in allen Räumen funktionieren muss. Um welche Vertragsart handelt es sich? Nennen Sie zwei Folgen der Abnahme. (3 Punkte)**
+
+<details><summary>Lösung anzeigen</summary>
+
+Werkvertrag, weil ein Erfolg (funktionierendes Netzwerk) geschuldet wird (1). Folgen der Abnahme (je 1): Vergütung wird fällig; Gefahr geht auf den Kunden über; Verjährungsfrist für Mängelansprüche beginnt; Beweislast für Mängel liegt danach beim Kunden.
+
+</details>
+
+**📝 Prüfungsaufgabe:** **Bei drei von 20 gelieferten Notebooks flackert das Display. Die Firma hat die Lieferung sofort geprüft und den Mangel noch am selben Tag gemeldet. Welche Rechte hat sie? (4 Punkte)**
+
+<details><summary>Lösung anzeigen</summary>
+
+Es liegt eine mangelhafte Lieferung (Sachmangel) vor, die rechtzeitig gerügt wurde (1). Vorrangig hat die Firma das Recht auf Nacherfüllung und kann zwischen Reparatur und Ersatzlieferung der drei Geräte wählen (1). Erst wenn diese scheitert oder eine gesetzte Frist erfolglos abläuft (1), kann sie vom Vertrag zurücktreten, den Preis mindern oder bei Verschulden Schadensersatz verlangen (1).
+
+</details>
+
+**📝 Prüfungsaufgabe:** **Ein Ingenieurbüro hat 12 Mitarbeitende, die eine CAD-Software nutzen. Gleichzeitig arbeiten höchstens 5 damit. Die Software soll immer auf dem neuesten Stand sein. Empfehlen Sie ein Lizenzmodell und begründen Sie. (3 Punkte)**
+
+<details><summary>Lösung anzeigen</summary>
+
+Concurrent-User-Lizenzen (5 Stück) im Abonnement (1). Concurrent, weil nie mehr als 5 Personen gleichzeitig arbeiten – das ist günstiger als 12 Named-User-Lizenzen (1). Abonnement, weil darin laufende Updates enthalten sind und die Software so immer aktuell bleibt (1).
+
+</details>
+
+**📝 Prüfungsaufgabe:** **Erläutern Sie den Unterschied zwischen Gewährleistung und Garantie. (2 Punkte)**
+
+<details><summary>Lösung anzeigen</summary>
+
+Die Gewährleistung ist gesetzlich vorgeschrieben, gilt zwei Jahre gegenüber dem Verkäufer und betrifft Mängel, die bei der Übergabe schon vorhanden waren (1). Die Garantie ist eine freiwillige Zusage, meist des Herstellers, dessen Bedingungen und Dauer er selbst festlegt; sie gilt zusätzlich zur Gewährleistung (1).
+
+</details>
 
 ---
 

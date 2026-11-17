@@ -8,189 +8,48 @@
 
 ---
 
-## Übersetzung von Programmen
-
-<table><tr><th></th><th>Compiler</th><th>Interpreter</th></tr>
-<tr><td>Arbeitsweise</td><td>übersetzt den gesamten Quellcode vorab in Maschinencode</td><td>führt den Code zur Laufzeit Zeile für Zeile aus</td></tr>
-<tr><td>Vorteile</td><td>schnelle Ausführung, Fehler vor dem Start erkannt, Quellcode bleibt geschützt</td><td>plattformunabhängig, schnelles Testen ohne Übersetzen</td></tr>
-<tr><td>Nachteile</td><td>Übersetzung für jede Plattform, Wartezeit beim Kompilieren</td><td>langsamer, Interpreter muss installiert sein</td></tr>
-<tr><td>Beispiele</td><td>C, C++, Go, Rust</td><td>Python, PHP, JavaScript, Bash</td></tr></table>
-
-**Linker**: verbindet kompilierte Objektdateien und Bibliotheken zu einem ausführbaren Programm. **Mischform**: Java/C# werden in **Bytecode** kompiliert, der von einer virtuellen Maschine (JVM/.NET CLR) mit JIT-Compiler ausgeführt wird. **Skriptsprachen** (Python, PowerShell, Bash) automatisieren Aufgaben, meist interpretiert. **Bibliothek** = Sammlung wiederverwendbarer Funktionen, die man aufruft; **Framework** = Grundgerüst, das den Ablauf vorgibt und eigenen Code aufruft (Inversion of Control), z. B. Laravel, Spring, Angular.
-
-## Programmierparadigmen
-
-**Prozedural**: Ablauf als Folge von Anweisungen und Prozeduren/Funktionen (C). **Objektorientiert**: Daten und Methoden in Objekten/Klassen gekapselt (Java, C#, Python). (Vererbung/Polymorphie im Detail: AP2.)
-
-## Datentypen & Variablen
-
-<table><tr><th>Typ</th><th>Beispiel</th><th>Hinweis</th></tr>
-<tr><td>Integer (int)</td><td>42, −7</td><td>Ganzzahl</td></tr>
-<tr><td>Float/Double</td><td>3.14</td><td>Gleitkommazahl</td></tr>
-<tr><td>Boolean</td><td>true / false</td><td>Wahrheitswert</td></tr>
-<tr><td>Char</td><td>'A'</td><td>einzelnes Zeichen</td></tr>
-<tr><td>String</td><td>"Hallo"</td><td>Zeichenkette</td></tr>
-<tr><td>Array/Liste</td><td>[3, 7, 1]</td><td>mehrere Werte, Index meist ab <b>0</b></td></tr></table>
-
-Eine **Variable** ist ein benannter Speicherplatz mit Datentyp; eine **Konstante** ist nach Zuweisung nicht änderbar. Operatoren: arithmetisch (+ − \* / %), Vergleich (== != < > <= >=), logisch (UND/AND/&&, ODER/OR/||, NICHT/NOT/!). **Modulo %** = Rest der ganzzahligen Division (17 % 5 = 2) – z. B. für „gerade Zahl?“ (x % 2 == 0).
-
-## Kontrollstrukturen
-
-- **Sequenz**: Anweisungen nacheinander.
-- **Verzweigung/Selektion**: WENN … DANN … SONST (if/else); Mehrfachauswahl (switch/case).
-- **Schleife/Iteration**: **kopfgesteuert** (while – Bedingung vorher, evtl. 0 Durchläufe), **fußgesteuert** (do-while – mindestens 1 Durchlauf), **Zählschleife** (for – feste Anzahl).
-
-## Pseudocode (Beispiel)
-
-```
-FUNKTION summeGerade(zahlen: Array von Ganzzahl): Ganzzahl
-    summe ← 0
-    FÜR i ← 0 BIS länge(zahlen) − 1
-        WENN zahlen[i] MOD 2 = 0 DANN
-            summe ← summe + zahlen[i]
-        ENDE WENN
-    ENDE FÜR
-    RÜCKGABE summe
-ENDE FUNKTION
-```
-
-Funktion = benannter, wiederverwendbarer Codeblock mit Parametern und ggf. Rückgabewert (Prozedur: ohne Rückgabewert).
-
-## Schreibtischtest (Trace-Tabelle)
-
-Algorithmus Schritt für Schritt „auf Papier“ ausführen und den Wert jeder Variablen nach jedem Schritt in eine Tabelle eintragen. Ziel: Ergebnis vorhersagen, logische Fehler finden.
-
-```
-x ← 1
-s ← 0
-SOLANGE x <= 4
-    s ← s + x * 2
-    x ← x + 1
-ENDE SOLANGE
-AUSGABE s
-```
-
-<table><tr><th>Durchlauf</th><th>x (vorher)</th><th>s</th><th>x (nachher)</th></tr>
-<tr><td>1</td><td>1</td><td>2</td><td>2</td></tr><tr><td>2</td><td>2</td><td>6</td><td>3</td></tr>
-<tr><td>3</td><td>3</td><td>12</td><td>4</td></tr><tr><td>4</td><td>4</td><td>20</td><td>5</td></tr></table>
-
-Ausgabe: **20**. Typische Fehler: **Off-by-one** (< statt <=, Index bis länge statt länge−1), Endlosschleife (Zähler wird nicht verändert), falsche Initialisierung, falscher Vergleichsoperator, Variable im falschen Gültigkeitsbereich.
-
-**Fehlerarten**: **Syntaxfehler** (formal: Tippfehler, fehlende Klammer – Compiler meldet ihn), **Laufzeitfehler** (Division durch 0, Datei fehlt), **logischer/semantischer Fehler** (Programm läuft, Ergebnis falsch – nur durch Tests/Debugging zu finden). **Debugging**: Haltepunkte (Breakpoints), Einzelschritt, Variablen beobachten.
-
-## UML-Aktivitätsdiagramm
-
-Modelliert Abläufe (Geschäftsprozesse, Algorithmen). **Die einzige Ablaufdiagramm-Notation der AP1** (Struktogramm und PAP sind gestrichen).
-
-<table><tr><th>Element</th><th>Symbol</th><th>Bedeutung</th></tr>
-<tr><td>Startknoten</td><td>● ausgefüllter Kreis</td><td>Beginn</td></tr>
-<tr><td>Endknoten</td><td>◉ Kreis mit Punkt</td><td>Ende der gesamten Aktivität</td></tr>
-<tr><td>Ablaufende</td><td>⊗ Kreis mit Kreuz</td><td>Ende eines Zweiges (Rest läuft weiter)</td></tr>
-<tr><td>Aktion</td><td>▭ abgerundetes Rechteck</td><td>Tätigkeit, z. B. „Benutzer anlegen“</td></tr>
-<tr><td>Kontrollfluss</td><td>→ Pfeil</td><td>Reihenfolge</td></tr>
-<tr><td>Verzweigung (Decision)</td><td>◇ Raute mit 1 Ein-, mehreren Ausgängen</td><td>Bedingungen in <b>Guards</b> [eckige Klammern], z. B. [Passwort korrekt] / [sonst]</td></tr>
-<tr><td>Zusammenführung (Merge)</td><td>◇ Raute mit mehreren Ein-, 1 Ausgang</td><td>Zweige laufen wieder zusammen</td></tr>
-<tr><td>Gabelung (Fork)</td><td>▬ Balken, 1 Ein-, mehrere Ausgänge</td><td>Parallele Abläufe starten</td></tr>
-<tr><td>Vereinigung (Join)</td><td>▬ Balken, mehrere Ein-, 1 Ausgang</td><td>Wartet, bis alle parallelen Zweige fertig sind</td></tr>
-<tr><td>Swimlane / Partition</td><td>Bahnen</td><td>Wer ist verantwortlich (Kunde, Service Desk, System)?</td></tr>
-<tr><td>Objektknoten</td><td>▭ Rechteck</td><td>Daten/Dokumente, z. B. „Ticket“</td></tr></table>
-
-![Beispiel UML-Aktivitätsdiagramm Passwort-Reset](img/programmierung-1.svg)
-
-Schleifen werden über eine Verzweigung mit Rückpfeil zu einem Merge-Knoten dargestellt. Guards müssen sich gegenseitig ausschließen und vollständig sein.
-
-Weitere UML-Diagramme (Überblick): Anwendungsfalldiagramm (Use Case – Akteure & Funktionen), Klassendiagramm, Sequenzdiagramm (Nachrichtenaustausch über Zeit).
-
-## Pseudocode in der AP1 – Konventionen
-
-Es gibt keine verbindliche Norm. In IHK-Aufgaben siehst du deutsche oder englische Schlüsselwörter. Wichtig: eindeutig, eingerückt, jede Kontrollstruktur sauber beendet.
-
-<table><tr><th>Deutsch</th><th>Englisch</th><th>Bedeutung</th></tr>
-<tr><td>x ← 5 / x := 5</td><td>x = 5</td><td>Zuweisung</td></tr>
-<tr><td>WENN … DANN … SONST … ENDE WENN</td><td>IF … THEN … ELSE … END IF</td><td>Verzweigung</td></tr>
-<tr><td>SOLANGE … ENDE SOLANGE</td><td>WHILE … END WHILE</td><td>kopfgesteuerte Schleife</td></tr>
-<tr><td>WIEDERHOLE … BIS …</td><td>REPEAT … UNTIL …</td><td>fußgesteuert (läuft, bis Bedingung wahr)</td></tr>
-<tr><td>FÜR i ← 1 BIS n</td><td>FOR i = 1 TO n</td><td>Zählschleife</td></tr>
-<tr><td>FUNKTION name(p): Typ … RÜCKGABE</td><td>FUNCTION … RETURN</td><td>Funktion</td></tr>
-<tr><td>AUSGABE / EINGABE</td><td>OUTPUT / INPUT</td><td>Ein-/Ausgabe</td></tr>
-<tr><td>MOD, DIV</td><td>%, //</td><td>Rest, ganzzahlige Division</td></tr></table>
-
-> [!TIP]
-> Typische AP1-Aufgaben: (1) Schreibtischtest mit Wertetabelle, (2) Lücken im Algorithmus ergänzen, (3) fehlerhafte Zeile finden und korrigieren, (4) Ablauf als UML-Aktivitätsdiagramm darstellen. Große Programme selbst schreiben ist AP2.
+„Programmierwerkzeuge kennen und anwenden“ kam in 7 von 8 bisherigen AP1-Prüfungen vor – damit ist es das häufigste Thema überhaupt. Du musst in der AP1 keine großen Programme schreiben. Gefragt ist, einen Algorithmus in Pseudocode **zu lesen**, ihn per **Schreibtischtest** nachzuvollziehen, **Lücken zu ergänzen**, **Fehler zu finden** und Abläufe als **UML-Aktivitätsdiagramm** darzustellen. Dazu kommen Grundbegriffe wie Datentypen, Operatoren, Klassen und Objekte.
 
 > [!WARNING]
-> WIEDERHOLE … BIS *Bedingung* läuft, **bis** die Bedingung wahr ist – das Gegenteil von SOLANGE. „SOLANGE x < 10“ entspricht „BIS x >= 10“.
+> **Prüfungskatalog 2025:** Struktogramm und Programmablaufplan sind gestrichen – das **UML-Aktivitätsdiagramm** ist die Ablaufdarstellung der AP1. Vererbung und Polymorphie kommen erst in der AP2. Neu betont: Klassen, Objekte, Attribute und Sichtbarkeit sowie der Schreibtischtest.
 
-## Grundbegriffe Objektorientierung (nur Überblick für die AP1)
+## Vom Quellcode zum Programm
 
-- **Klasse**: Bauplan/Vorlage mit Attributen (Eigenschaften) und Methoden (Funktionen), z. B. Klasse `Notebook` mit Attributen `seriennummer`, `ram` und Methode `starten()`.
-- **Objekt** (Instanz): konkretes Exemplar einer Klasse, z. B. das Notebook mit Seriennummer 4711.
-- **Kapselung**: Attribute sind nach außen geschützt (private) und nur über Methoden zugänglich (Getter/Setter).
-- Vererbung und Polymorphie werden seit 2025 erst in der AP2 geprüft.
+Programme werden in einer Programmiersprache geschrieben, die Menschen lesen können (**Quellcode**). Der Prozessor versteht aber nur Maschinencode. Die Übersetzung übernimmt ein Compiler oder ein Interpreter:
 
-## Sichtbarkeit & Klassendiagramm (Grundlagen)
+<table><tr><th></th><th>Compiler</th><th>Interpreter</th></tr>
+<tr><td>Arbeitsweise</td><td>übersetzt den gesamten Quellcode <b>vorab</b> in Maschinencode</td><td>führt den Code zur Laufzeit <b>Zeile für Zeile</b> aus</td></tr>
+<tr><td>Vorteile</td><td>schnelle Ausführung, viele Fehler schon vor dem Start erkannt, Quellcode muss nicht weitergegeben werden</td><td>sofort ausführbar ohne Übersetzungsschritt, läuft überall, wo der Interpreter installiert ist</td></tr>
+<tr><td>Nachteile</td><td>für jede Plattform neu übersetzen, Wartezeit beim Kompilieren</td><td>langsamer, Interpreter muss installiert sein, Fehler zeigen sich erst bei der Ausführung</td></tr>
+<tr><td>Beispiele</td><td>C, C++, Go, Rust</td><td>Python, PHP, JavaScript, PowerShell, Bash</td></tr></table>
 
-<table><tr><th>UML</th><th>Sichtbarkeit</th><th>Zugriff</th></tr>
-<tr><td>+</td><td>public</td><td>von überall</td></tr>
-<tr><td>−</td><td>private</td><td>nur innerhalb der Klasse</td></tr>
-<tr><td>#</td><td>protected</td><td>Klasse und abgeleitete Klassen</td></tr></table>
+**Mischform:** Java und C# werden in einen Zwischencode (Bytecode) übersetzt, den eine virtuelle Maschine auf jeder Plattform ausführt. Ein **Linker** fügt übersetzte Teile und Bibliotheken zu einem lauffähigen Programm zusammen. Eine **Bibliothek** ist eine Sammlung fertiger Funktionen, die man aufruft; ein **Framework** ist ein Grundgerüst, das den Ablauf vorgibt und den eigenen Code aufruft (z. B. Laravel, Spring, Angular).
 
-```
-┌──────────────────────────┐
-│        Notebook          │  ← Klassenname
-├──────────────────────────┤
-│ - seriennummer: String   │  ← Attribute (privat)
-│ - ramGB: int             │
-├──────────────────────────┤
-│ + starten(): void        │  ← Methoden (öffentlich)
-│ + getRamGB(): int        │
-└──────────────────────────┘
-```
+**Paradigmen:** Beim **prozeduralen** Programmieren besteht ein Programm aus einer Folge von Anweisungen und Funktionen. Beim **objektorientierten** Programmieren werden Daten und die Funktionen, die mit ihnen arbeiten, zu Objekten zusammengefasst (siehe unten).
 
-Ein **Objekt** ist eine konkrete Instanz, z. B. `nb1 : Notebook` mit seriennummer = "4711". Über **Getter/Setter** wird kontrolliert auf private Attribute zugegriffen (Kapselung).
+## Variablen, Konstanten, Datentypen
 
-## Use-Case-Diagramm (Überblick)
-
-Zeigt **Akteure** (Strichmännchen, z. B. Mitarbeiter, Admin) und die **Anwendungsfälle** (Ellipsen, z. B. „Ticket erstellen“) innerhalb der **Systemgrenze** (Rechteck) – also *was* ein System für wen leistet, nicht wie.
-
-## Bildschirmmasken & Corporate Identity
-
-**Corporate Identity (CI)** bzw. **Corporate Design (CD)**: einheitliches Erscheinungsbild des Unternehmens – Logo, Farben, Schriftarten, Bildsprache, Tonalität. Eingabemasken und Software sollten das CD übernehmen (Wiedererkennung, Professionalität). Gute **Maskengestaltung**: logische Gruppierung und Reihenfolge (Tab-Reihenfolge), Pflichtfelder kennzeichnen, sinnvolle Vorbelegungen, Eingabeprüfung mit verständlichen Fehlermeldungen, ausreichender Kontrast und Schriftgröße (Barrierefreiheit), konsistente Bedienelemente (ISO 9241-110).
-
-## HTML, XML, JSON & Dateiformate
-
-**HTML**: Auszeichnungssprache für Webseiten (`<h1>`, `<p>`, `<img alt="…">` – Alternativtext für Barrierefreiheit). **XML**: strukturierte Daten mit eigenen Tags, muss wohlgeformt sein (jedes Tag geschlossen, korrekt verschachtelt). **JSON**: leichtgewichtiges Datenformat für APIs (`{"name": "Isa", "ram": 16}`). **CSV**: Tabellendaten als Text.
-
-<table><tr><th>Format</th><th>Einsatz</th></tr>
-<tr><td>PDF / PDF/A</td><td>Dokumente plattformunabhängig; PDF/A für Langzeitarchivierung</td></tr>
-<tr><td>DOCX / XLSX / ODT</td><td>Office-Dokumente (ODT = offenes Format)</td></tr>
-<tr><td>JPEG / PNG / SVG / WebP</td><td>Foto (verlustbehaftet) / Grafik mit Transparenz (verlustfrei) / Vektorgrafik (skalierbar) / Web</td></tr>
-<tr><td>MP4 (H.264/H.265) / MP3</td><td>Video / Audio (komprimiert)</td></tr>
-<tr><td>ZIP / 7z</td><td>Archive, verlustfrei komprimiert</td></tr></table>
-
-## Variablen, Konstanten und Datentypen
-
-Eine **Variable** ist ein benannter Speicherplatz, dessen Wert sich ändern kann. Eine **Konstante** bekommt ihren Wert einmal und behält ihn (z. B. `UST ← 19`). Der **Datentyp** legt fest, welche Werte erlaubt sind und was man damit tun kann.
+Eine **Variable** ist ein benannter Speicherplatz, dessen Wert sich ändern kann. Eine **Konstante** bekommt einmal einen Wert und behält ihn (z. B. UST ← 19). Der **Datentyp** legt fest, welche Werte erlaubt sind und was man damit tun kann. **Warum Datentypen?** Damit das Programm weiß, wie viel Speicher es braucht, und damit Fehler auffallen – „Hamburg“ × 3 ergibt keinen Sinn.
 
 <table><tr><th>Datentyp</th><th>Inhalt</th><th>Beispiel</th><th>typisch für</th></tr>
 <tr><td>Ganzzahl (Integer)</td><td>Zahlen ohne Komma</td><td>42, −7</td><td>Anzahl, Alter, Zähler</td></tr>
-<tr><td>Gleitkommazahl (Float/Double)</td><td>Zahlen mit Komma</td><td>19,99</td><td>Preis, Messwert, Durchschnitt</td></tr>
+<tr><td>Gleitkommazahl (Float, Double)</td><td>Zahlen mit Komma</td><td>19.99</td><td>Preis, Messwert, Durchschnitt</td></tr>
 <tr><td>Zeichenkette (String)</td><td>Text</td><td>"Hamburg"</td><td>Name, PLZ, Telefonnummer, IP-Adresse</td></tr>
 <tr><td>Wahrheitswert (Boolean)</td><td>wahr oder falsch</td><td>wahr</td><td>„ist aktiv?“, „Newsletter?“</td></tr>
 <tr><td>Zeichen (Char)</td><td>ein einzelnes Zeichen</td><td>'A'</td><td>Kennbuchstabe</td></tr>
-<tr><td>Array / Liste</td><td>mehrere Werte desselben Typs</td><td>[4, 9, 2]</td><td>Messreihe, Namensliste</td></tr></table>
+<tr><td>Array, Liste</td><td>mehrere Werte desselben Typs</td><td>[4, 9, 2]</td><td>Messreihe, Namensliste</td></tr></table>
 
 > [!IMPORTANT]
-> **Merke:** PLZ und Telefonnummer sind **Zeichenketten**, keine Zahlen – man rechnet nicht mit ihnen, und führende Nullen (01067) würden als Zahl verloren gehen.
+> Postleitzahl und Telefonnummer sind **Zeichenketten**: Man rechnet nicht mit ihnen, und führende Nullen (01067) würden als Zahl verloren gehen. Bei Arrays beginnt der **Index meist bei 0** – das erste Element ist zahlen[0], das letzte zahlen[länge − 1].
 
 ## Operatoren
 
 <table><tr><th>Art</th><th>Operatoren</th><th>Ergebnis</th></tr>
-<tr><td>Arithmetisch</td><td>+  −  *  /  DIV  MOD</td><td>Zahl (17 DIV 5 = 3, 17 MOD 5 = 2)</td></tr>
-<tr><td>Vergleich</td><td>=  &lt;&gt;  &lt;  &gt;  &lt;=  &gt;=</td><td>Wahrheitswert</td></tr>
-<tr><td>Logisch</td><td>UND  ODER  NICHT</td><td>Wahrheitswert</td></tr></table>
+<tr><td>arithmetisch</td><td>+ − * / DIV MOD</td><td>Zahl</td></tr>
+<tr><td>Vergleich</td><td>= ≠ (&lt;&gt;) &lt; &gt; ≤ ≥</td><td>Wahrheitswert</td></tr>
+<tr><td>logisch</td><td>UND, ODER, NICHT</td><td>Wahrheitswert</td></tr></table>
 
-**Wahrheitstabelle** – die musst du auswendig hinschreiben können:
+**DIV** ist die ganzzahlige Division, **MOD** der Rest: 17 DIV 5 = 3, 17 MOD 5 = 2. MOD ist nützlicher, als es aussieht: `x MOD 2 = 0` prüft, ob x gerade ist; `jahr MOD 4 = 0` ist ein Teil der Schaltjahrregel.
 
 <table><tr><th>A</th><th>B</th><th>A UND B</th><th>A ODER B</th><th>NICHT A</th></tr>
 <tr><td>falsch</td><td>falsch</td><td>falsch</td><td>falsch</td><td>wahr</td></tr>
@@ -200,35 +59,340 @@ Eine **Variable** ist ein benannter Speicherplatz, dessen Wert sich ändern kann
 
 **UND** ist nur wahr, wenn beide Seiten wahr sind. **ODER** ist wahr, sobald mindestens eine Seite wahr ist. Rangfolge: erst NICHT, dann UND, dann ODER – im Zweifel Klammern setzen.
 
+> [!NOTE]
+> **Beispiel**
+>
+> **Ausdruck auswerten**  
+> alter = 17, mitglied = wahr, gutschein = falsch  
+> `alter ≥ 18 UND (mitglied ODER gutschein)`  
+> alter ≥ 18 → falsch · (wahr ODER falsch) → wahr · falsch UND wahr → **falsch**  
+> Ohne Klammern – `alter ≥ 18 UND mitglied ODER gutschein` – würde zuerst UND ausgewertet: (falsch UND wahr) ODER falsch → falsch. Hier zufällig gleich, aber mit gutschein = wahr wäre es ohne Klammern wahr, mit Klammern falsch. Klammern verhindern Missverständnisse.
+
+## Kontrollstrukturen und Pseudocode
+
+Jeder Algorithmus lässt sich aus drei Grundbausteinen zusammensetzen:
+
+- **Sequenz:** Anweisungen werden nacheinander ausgeführt.
+- **Verzweigung** (Selektion): WENN eine Bedingung gilt, DANN dies, SONST das. Mehrfachauswahl mit mehreren Fällen.
+- **Schleife** (Iteration): Anweisungen wiederholen.
+
+<table><tr><th>Schleife</th><th>Prinzip</th><th>Durchläufe</th><th>passt, wenn …</th></tr>
+<tr><td>kopfgesteuert (SOLANGE)</td><td>Bedingung wird <b>vor</b> jedem Durchlauf geprüft</td><td>0 oder mehr</td><td>unklar ist, ob überhaupt etwas zu tun ist</td></tr>
+<tr><td>fußgesteuert (WIEDERHOLE … BIS)</td><td>Bedingung wird <b>nach</b> jedem Durchlauf geprüft</td><td>mindestens 1</td><td>etwas mindestens einmal passieren muss, z. B. eine Eingabe</td></tr>
+<tr><td>Zählschleife (FÜR)</td><td>Zähler läuft von Start bis Ende</td><td>feste Anzahl</td><td>die Anzahl vorher bekannt ist, z. B. alle Elemente eines Arrays</td></tr></table>
+
+> [!WARNING]
+> **WIEDERHOLE … BIS** läuft, **bis** die Bedingung wahr ist – also genau umgekehrt zu SOLANGE. „SOLANGE x < 10“ entspricht „BIS x ≥ 10“.
+
+Für Pseudocode gibt es keine verbindliche Norm. In IHK-Aufgaben siehst du deutsche oder englische Schlüsselwörter; maßgeblich ist die Schreibweise im Belegsatz. Wichtig ist: eindeutig, eingerückt, jede Struktur sauber beendet.
+
+<table><tr><th>Deutsch</th><th>Englisch</th><th>Bedeutung</th></tr>
+<tr><td>x ← 5</td><td>x = 5, x := 5</td><td>Zuweisung</td></tr>
+<tr><td>WENN … DANN … SONST … ENDE WENN</td><td>IF … THEN … ELSE … END IF</td><td>Verzweigung</td></tr>
+<tr><td>SOLANGE … ENDE SOLANGE</td><td>WHILE … END WHILE</td><td>kopfgesteuerte Schleife</td></tr>
+<tr><td>WIEDERHOLE … BIS …</td><td>REPEAT … UNTIL …</td><td>fußgesteuerte Schleife</td></tr>
+<tr><td>FÜR i ← 1 BIS n … ENDE FÜR</td><td>FOR i = 1 TO n … NEXT</td><td>Zählschleife</td></tr>
+<tr><td>FUNKTION name(p): Typ … RÜCKGABE …</td><td>FUNCTION … RETURN …</td><td>Funktion</td></tr>
+<tr><td>AUSGABE, EINGABE</td><td>OUTPUT, INPUT</td><td>Ein- und Ausgabe</td></tr></table>
+
+> [!NOTE]
+> **Beispiel**
+>
+> **Mehrfachverzweigung: Rabattstaffel**  
+>
+> ```
+> WENN menge ≥ 100 DANN
+>     rabatt ← 15
+> SONST WENN menge ≥ 50 DANN
+>     rabatt ← 10
+> SONST WENN menge ≥ 10 DANN
+>     rabatt ← 5
+> SONST
+>     rabatt ← 0
+> ENDE WENN
+> ```
+>
+> **Warum die Reihenfolge wichtig ist:** Würde man zuerst „menge ≥ 10“ prüfen, bekäme jemand mit 120 Stück nur 5 % – denn die erste zutreffende Bedingung gewinnt. Deshalb von der strengsten Bedingung zur schwächsten prüfen.
+
 ## Funktionen
 
-Eine **Funktion** ist ein benannter Programmteil, der eine Aufgabe erledigt. Sie bekommt Werte über **Parameter** und liefert ein Ergebnis über den **Rückgabewert**. Eine **Prozedur** gibt nichts zurück.
+Eine **Funktion** ist ein benannter Programmteil, der eine Aufgabe erledigt. Sie erhält Werte über **Parameter** und liefert ein Ergebnis über den **Rückgabewert**. Eine Prozedur gibt nichts zurück.
 
 ```
-FUNKTION brutto(netto, ust): Kommazahl
+FUNKTION brutto(netto: Kommazahl, ust: Ganzzahl): Kommazahl
     RÜCKGABE netto * (1 + ust / 100)
 ENDE FUNKTION
 
-preis ← brutto(200, 19)      // preis = 238
+preis ← brutto(200, 19)     // preis = 238
 ```
 
-Vorteile: Code wird **wiederverwendbar**, **übersichtlicher**, leichter zu **testen** und Änderungen sind nur an einer Stelle nötig.
+**Warum Funktionen?** Der Code wird wiederverwendbar (einmal schreiben, überall aufrufen), übersichtlicher, leichter zu testen, und eine Änderung (z. B. neuer Steuersatz) ist nur an einer Stelle nötig.
+
+## Schreibtischtest
+
+Beim Schreibtischtest führst du einen Algorithmus von Hand aus und trägst nach jedem Schritt die Werte aller Variablen in eine Tabelle ein. So sagst du das Ergebnis vorher und findest logische Fehler.
 
 > [!TIP]
-> **Schreibtischtest – so gehst du vor:** Lege eine Tabelle an, eine Spalte pro Variable plus eine für die Bedingung. Jede Zeile ist ein Schritt. Schreibe jeden neuen Wert hin, auch wenn er dir klar erscheint – die meisten Fehler passieren beim Kopfrechnen über mehrere Schleifendurchläufe.
+> **So gehst du vor:** Eine Spalte pro Variable, eine für die Bedingung, eine Zeile pro Schritt bzw. Schleifendurchlauf. Schreib jeden neuen Wert hin, auch wenn er dir klar erscheint – die meisten Fehler passieren beim Kopfrechnen über mehrere Durchläufe. Prüfe die Schleifenbedingung jedes Mal ausdrücklich, besonders beim letzten Durchlauf.
 
-## BPMN – nur zum Wiedererkennen
+> [!NOTE]
+> **Beispiel**
+>
+> **Beispiel 1**
+>
+> ```
+> x ← 1
+> s ← 0
+> SOLANGE x ≤ 4
+>     s ← s + x * 2
+>     x ← x + 1
+> ENDE SOLANGE
+> AUSGABE s
+> ```
+>
+> | Durchlauf | Bedingung x ≤ 4 | s | x danach |
+> | --- | --- | --- | --- |
+> | Start | – | 0 | 1 |
+> | 1 | 1 ≤ 4 wahr | 0 + 1 · 2 = 2 | 2 |
+> | 2 | 2 ≤ 4 wahr | 2 + 2 · 2 = 6 | 3 |
+> | 3 | 3 ≤ 4 wahr | 6 + 3 · 2 = 12 | 4 |
+> | 4 | 4 ≤ 4 wahr | 12 + 4 · 2 = 20 | 5 |
+> | – | 5 ≤ 4 **falsch** → Ende | 20 | 5 |
+>
+> Ausgabe: **20**
 
-> [!TIP]
-> **Einordnung:** Der neue Katalog nennt neben UML auch BPMN als neuere Darstellungsform. Für die AP1 ist das UML-Aktivitätsdiagramm der sichere Schwerpunkt. Bei BPMN reicht es, die Grundsymbole wiederzuerkennen – frag in der Schule nach, ob es dort behandelt wird.
+> [!NOTE]
+> **Beispiel**
+>
+> **Beispiel 2 – was berechnet der Algorithmus?**
+>
+> ```
+> a ← 10
+> b ← 3
+> z ← 0
+> SOLANGE a ≥ b
+>     a ← a − b
+>     z ← z + 1
+> ENDE SOLANGE
+> AUSGABE z, a
+> ```
+>
+> | Durchlauf | Bedingung a ≥ b | a | z |
+> | --- | --- | --- | --- |
+> | Start | – | 10 | 0 |
+> | 1 | 10 ≥ 3 wahr | 7 | 1 |
+> | 2 | 7 ≥ 3 wahr | 4 | 2 |
+> | 3 | 4 ≥ 3 wahr | 1 | 3 |
+> | – | 1 ≥ 3 **falsch** → Ende | 1 | 3 |
+>
+> Ausgabe: **3, 1**. Der Algorithmus zieht so oft 3 ab, wie es geht: z ist das Ergebnis von **10 DIV 3**, a der Rest **10 MOD 3**.
 
-<table><tr><th>BPMN-Symbol</th><th>Bedeutung</th><th>entspricht im Aktivitätsdiagramm</th></tr>
-<tr><td>Kreis (dünner Rand)</td><td>Startereignis</td><td>Startknoten</td></tr>
-<tr><td>Kreis (dicker Rand)</td><td>Endereignis</td><td>Endknoten</td></tr>
-<tr><td>abgerundetes Rechteck</td><td>Aufgabe (Task)</td><td>Aktion</td></tr>
-<tr><td>Raute mit X</td><td>exklusives Gateway: genau ein Weg</td><td>Verzweigung</td></tr>
-<tr><td>Raute mit +</td><td>paralleles Gateway: alle Wege gleichzeitig</td><td>Gabelung/Vereinigung</td></tr>
-<tr><td>Pool und Lane</td><td>Beteiligte und ihre Zuständigkeiten</td><td>Swimlane</td></tr></table>
+> [!NOTE]
+> **Beispiel**
+>
+> **Beispiel 3 – Maximum in einem Array**
+>
+> ```
+> zahlen ← [4, 9, 2, 7]
+> max ← zahlen[0]
+> FÜR i ← 1 BIS 3
+>     WENN zahlen[i] > max DANN
+>         max ← zahlen[i]
+>     ENDE WENN
+> ENDE FÜR
+> AUSGABE max
+> ```
+>
+> | i | zahlen[i] | zahlen[i] > max? | max |
+> | --- | --- | --- | --- |
+> | – | – | – | 4 |
+> | 1 | 9 | 9 > 4 wahr | 9 |
+> | 2 | 2 | 2 > 9 falsch | 9 |
+> | 3 | 7 | 7 > 9 falsch | 9 |
+>
+> Ausgabe: **9**. Warum startet max mit zahlen[0] und nicht mit 0? Wären alle Zahlen negativ, würde 0 fälschlich als Maximum ausgegeben.
+
+## Fehler finden und Lücken ergänzen
+
+<table><tr><th>Fehlerart</th><th>Merkmal</th><th>Beispiel</th></tr>
+<tr><td><b>Syntaxfehler</b></td><td>Verstoß gegen die Schreibregeln; der Compiler meldet ihn, das Programm startet nicht</td><td>fehlende Klammer, Tippfehler im Befehl</td></tr>
+<tr><td><b>Laufzeitfehler</b></td><td>Programm startet, bricht aber bei der Ausführung ab</td><td>Division durch 0, Zugriff auf einen Index, den es nicht gibt, Datei fehlt</td></tr>
+<tr><td><b>logischer Fehler</b></td><td>Programm läuft, liefert aber ein falsches Ergebnis – nur durch Tests zu finden</td><td>&lt; statt ≤, falscher Startwert, falsche Reihenfolge</td></tr></table>
+
+**Typische logische Fehler:** Grenzfehler um eins (*off by one*: < statt ≤, Index bis länge statt länge − 1), Endlosschleife (die Variable der Bedingung wird in der Schleife nie verändert), falsche Startwerte, falscher Vergleichsoperator.
+
+> [!NOTE]
+> **Beispiel**
+>
+> **Fehler finden**
+>
+> ```
+> FUNKTION durchschnitt(werte: Array von Kommazahl): Kommazahl
+>     summe ← 0
+>     FÜR i ← 0 BIS länge(werte)
+>         summe ← summe + werte[i]
+>     ENDE FÜR
+>     RÜCKGABE summe / länge(werte)
+> ENDE FUNKTION
+> ```
+>
+> **Fehler 1:** Bei 4 Werten läuft i von 0 bis 4 – werte[4] gibt es nicht (Index 0 bis 3). Laufzeitfehler. Korrektur: `FÜR i ← 0 BIS länge(werte) − 1`.  
+> **Fehler 2:** Ist das Array leer, wird durch 0 geteilt. Korrektur: vorher prüfen:
+>
+> ```
+> WENN länge(werte) = 0 DANN
+>     RÜCKGABE 0
+> ENDE WENN
+> ```
+
+> [!NOTE]
+> **Beispiel**
+>
+> **Lücken ergänzen**  
+> Ein Onlineshop berechnet die Versandkosten: ab 50 € Bestellwert versandkostenfrei, sonst 4,90 €. Expressversand kostet immer 5 € zusätzlich.
+>
+> ```
+> versand ← 0
+> WENN bestellwert < 50 DANN
+>     versand ← 4.90
+> ENDE WENN
+> WENN express = wahr DANN
+>     versand ← versand + 5
+> ENDE WENN
+> AUSGABE versand
+> ```
+>
+> Probe mit Grenzwerten: Bestellwert 49,99 ohne Express → 4,90 · Bestellwert 50,00 mit Express → 5,00 ✓
+
+## UML-Aktivitätsdiagramm
+
+Das Aktivitätsdiagramm stellt Abläufe grafisch dar – Algorithmen genauso wie Geschäftsprozesse. **Warum grafisch?** Fachabteilungen, die keinen Code lesen, verstehen einen Ablauf als Bild sofort und können prüfen, ob er stimmt.
+
+<table><tr><th>Element</th><th>Symbol</th><th>Bedeutung</th></tr>
+<tr><td>Startknoten</td><td>● ausgefüllter Kreis</td><td>Beginn</td></tr>
+<tr><td>Endknoten</td><td>◉ Kreis mit Punkt</td><td>Ende der gesamten Aktivität</td></tr>
+<tr><td>Ablaufende</td><td>⊗ Kreis mit Kreuz</td><td>Ende nur eines Zweigs, der Rest läuft weiter</td></tr>
+<tr><td>Aktion</td><td>abgerundetes Rechteck</td><td>eine Tätigkeit, z. B. „Passwort eingeben“</td></tr>
+<tr><td>Kontrollfluss</td><td>Pfeil</td><td>Reihenfolge</td></tr>
+<tr><td>Verzweigung</td><td>Raute, ein Eingang, mehrere Ausgänge</td><td>Bedingungen als Guards in eckigen Klammern, z. B. [Passwort korrekt]</td></tr>
+<tr><td>Zusammenführung</td><td>Raute, mehrere Eingänge, ein Ausgang</td><td>Zweige laufen wieder zusammen</td></tr>
+<tr><td>Gabelung (Fork)</td><td>Balken, ein Eingang, mehrere Ausgänge</td><td>parallele Abläufe starten</td></tr>
+<tr><td>Vereinigung (Join)</td><td>Balken, mehrere Eingänge, ein Ausgang</td><td>wartet, bis alle parallelen Zweige fertig sind</td></tr>
+<tr><td>Partition (Swimlane)</td><td>Bahnen</td><td>wer ist verantwortlich?</td></tr></table>
+
+Eine **Schleife** entsteht, indem ein Pfeil von einer Verzweigung zurück zu einer Zusammenführung weiter oben läuft. Die Guards an einer Verzweigung müssen sich **gegenseitig ausschließen** und **alle Fälle abdecken**.
+
+![UML-Aktivitätsdiagramm Anmeldung mit höchstens drei Versuchen](img/programmierung-1.svg)
+
+Im Bild: Nach jeder Eingabe wird der Zähler erhöht. Ist das Passwort korrekt, folgt die Anmeldung. Ist es falsch und es gab weniger als drei Versuche, führt der Rückpfeil zur Zusammenführung vor der Eingabe – das ist die Schleife. Nach dem dritten Fehlversuch wird das Konto gesperrt.
+
+![Beispiel UML-Aktivitätsdiagramm Passwort-Reset](img/programmierung-2.svg)
+
+Das zweite Beispiel zeigt Swimlanes (wer macht was) und einen parallelen Ablauf (Fork): Nach der bestätigten Identität werden Passwort-Reset und Dokumentation gleichzeitig erledigt.
+
+**Weitere UML-Diagramme im Überblick:** Das **Anwendungsfalldiagramm** (Use Case) zeigt Akteure (Strichmännchen) und Anwendungsfälle (Ellipsen) innerhalb der Systemgrenze – also *was* ein System für wen leistet, nicht *wie*. Das **Sequenzdiagramm** zeigt den Nachrichtenaustausch zwischen Objekten über die Zeit. **BPMN** ist eine weitere Notation für Geschäftsprozesse: Kreis = Ereignis, abgerundetes Rechteck = Aufgabe, Raute mit X = genau ein Weg, Raute mit + = parallele Wege, Pools und Lanes = Beteiligte. Für die AP1 reicht es, BPMN wiederzuerkennen.
+
+## Klassen und Objekte
+
+In der objektorientierten Programmierung beschreibt eine **Klasse** einen Bauplan: welche Eigenschaften (**Attribute**) und welche Fähigkeiten (**Methoden**) Objekte dieser Art haben. Ein **Objekt** ist ein konkretes Exemplar (Instanz) dieser Klasse mit eigenen Werten.
+
+![UML-Klassendiagramm der Klasse Notebook](img/programmierung-3.svg)
+
+> [!NOTE]
+> **Beispiel**
+>
+> Die Klasse **Notebook** ist der Bauplan. Die Objekte sind die einzelnen Geräte:  
+> nb1: seriennummer = "4711", ramGB = 16, eingeschaltet = falsch  
+> nb2: seriennummer = "4712", ramGB = 32, eingeschaltet = wahr  
+> Ruft man `nb1.starten()` auf, ändert sich nur der Zustand von nb1.
+
+**Kapselung:** Attribute sind **privat** (−) und nur über öffentliche Methoden (+) erreichbar, sogenannte Getter und Setter. **Warum?** Die Klasse kann so Eingaben prüfen: setRamGB(−8) lässt sich abweisen. Würde jeder direkt auf ramGB zugreifen, könnte er Unsinn eintragen. Außerdem lässt sich das Innere der Klasse später ändern, ohne dass anderer Code angepasst werden muss.
+
+## Datenformate: HTML, XML, JSON
+
+<table><tr><th>Format</th><th>Zweck</th><th>Beispiel</th></tr>
+<tr><td>HTML</td><td>Struktur von Webseiten</td><td><code>&lt;h1&gt;Titel&lt;/h1&gt;</code>, <code>&lt;img src="logo.png" alt="Firmenlogo"&gt;</code> – der Alternativtext ist für Barrierefreiheit nötig</td></tr>
+<tr><td>XML</td><td>strukturierte Daten mit eigenen Tags; muss wohlgeformt sein (jedes Tag geschlossen, korrekt verschachtelt)</td><td><code>&lt;geraet&gt;&lt;typ&gt;Notebook&lt;/typ&gt;&lt;ram&gt;16&lt;/ram&gt;&lt;/geraet&gt;</code></td></tr>
+<tr><td>JSON</td><td>schlankes Datenformat, z. B. für Schnittstellen (APIs)</td><td><code>{"typ": "Notebook", "ram": 16, "aktiv": true}</code></td></tr>
+<tr><td>CSV</td><td>Tabellendaten als Text, Werte durch Trennzeichen getrennt</td><td><code>typ;ram</code> / <code>Notebook;16</code></td></tr></table>
+
+<table><tr><th>Dateiformat</th><th>Einsatz</th></tr>
+<tr><td>PDF, PDF/A</td><td>Dokumente plattformunabhängig; PDF/A für die Langzeitarchivierung</td></tr>
+<tr><td>DOCX, XLSX, ODT</td><td>Office-Dokumente (ODT = offenes Format)</td></tr>
+<tr><td>JPEG, PNG, SVG</td><td>Fotos (verlustbehaftet), Grafiken mit Transparenz (verlustfrei), Vektorgrafik (beliebig skalierbar)</td></tr>
+<tr><td>MP4, MP3</td><td>Video, Audio (komprimiert)</td></tr>
+<tr><td>ZIP, 7z</td><td>Archive, verlustfrei komprimiert</td></tr></table>
+
+> [!CAUTION]
+> **Typische Fehler**
+>
+> - Beim Schreibtischtest die Schleifenbedingung nach dem letzten Durchlauf nicht mehr prüfen – oder einen Durchlauf zu viel machen.
+> - WIEDERHOLE … BIS wie SOLANGE lesen (die Bedingung ist umgekehrt).
+> - Den Array-Index bei 1 statt bei 0 beginnen bzw. bis länge statt länge − 1 laufen lassen.
+> - Bei Mehrfachverzweigungen die Bedingungen in der falschen Reihenfolge prüfen.
+> - Im Aktivitätsdiagramm Guards vergessen oder Bedingungen, die sich überschneiden.
+> - Verzweigung (Raute) und Gabelung (Balken) verwechseln.
+> - Klasse und Objekt gleichsetzen.
+> - Postleitzahlen als Ganzzahl deklarieren.
+
+**📝 Prüfungsaufgabe:** **Führen Sie einen Schreibtischtest durch und geben Sie die Ausgabe an. (4 Punkte)**
+
+```
+summe ← 0
+i ← 1
+WIEDERHOLE
+    WENN i MOD 2 = 1 DANN
+        summe ← summe + i
+    ENDE WENN
+    i ← i + 1
+BIS i > 6
+AUSGABE summe
+```
+
+<details><summary>Lösung anzeigen</summary>
+
+i = 1: ungerade → summe 1, i 2 · i = 2: gerade → summe 1, i 3 · i = 3: ungerade → summe 4, i 4 · i = 4: gerade → summe 4, i 5 · i = 5: ungerade → summe 9, i 6 · i = 6: gerade → summe 9, i 7 → 7 > 6 wahr, Ende (3). Ausgabe: **9** – die Summe der ungeraden Zahlen 1 + 3 + 5 (1).
+
+</details>
+
+**📝 Prüfungsaufgabe:** **Der folgende Algorithmus soll die Zahlen 1 bis 5 ausgeben, endet aber nie. Finden und korrigieren Sie den Fehler. (2 Punkte)**
+
+```
+i ← 1
+SOLANGE i ≤ 5
+    AUSGABE i
+ENDE SOLANGE
+```
+
+<details><summary>Lösung anzeigen</summary>
+
+i wird in der Schleife nie verändert, die Bedingung bleibt immer wahr – Endlosschleife (1). Korrektur: nach AUSGABE i die Zeile `i ← i + 1` einfügen (1).
+
+</details>
+
+**📝 Prüfungsaufgabe:** **Erstellen Sie ein UML-Aktivitätsdiagramm: Ein Mitarbeiter stellt einen Urlaubsantrag. Die Teamleitung prüft ihn. Bei Genehmigung wird der Urlaub im Kalender eingetragen, bei Ablehnung erhält der Mitarbeiter eine Begründung. (5 Punkte)**
+
+<details><summary>Lösung anzeigen</summary>
+
+Startknoten → Aktion „Urlaubsantrag stellen“ → Aktion „Antrag prüfen“ → Verzweigung mit den Guards [genehmigt] und [abgelehnt] (2) → [genehmigt]: Aktion „Urlaub im Kalender eintragen“; [abgelehnt]: Aktion „Begründung senden“ (1) → beide Zweige in einer Zusammenführung vereinen (1) → Endknoten (1). Optional mit Swimlanes „Mitarbeiter“ und „Teamleitung“.
+
+</details>
+
+**📝 Prüfungsaufgabe:** **Erläutern Sie den Unterschied zwischen einer Klasse und einem Objekt an einem Beispiel. (3 Punkte)**
+
+<details><summary>Lösung anzeigen</summary>
+
+Eine Klasse ist ein Bauplan, der Attribute und Methoden festlegt (1), z. B. die Klasse Drucker mit den Attributen modell und standort sowie der Methode drucken() (1). Ein Objekt ist ein konkretes Exemplar dieser Klasse mit eigenen Attributwerten, z. B. der Drucker „LaserJet“ im Raum 2.14 (1).
+
+</details>
+
+**📝 Prüfungsaufgabe:** **Unterscheiden Sie Syntaxfehler und logische Fehler. (2 Punkte)**
+
+<details><summary>Lösung anzeigen</summary>
+
+Ein Syntaxfehler verletzt die Schreibregeln der Sprache und wird vom Compiler bzw. Interpreter gemeldet; das Programm läuft nicht (1). Bei einem logischen Fehler läuft das Programm, liefert aber falsche Ergebnisse; er wird nur durch Tests wie den Schreibtischtest gefunden (1).
+
+</details>
 
 ---
 
