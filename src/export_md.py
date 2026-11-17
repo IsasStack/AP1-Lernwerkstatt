@@ -9,7 +9,8 @@ WD = os.path.join(OUT, "wissen")
 os.makedirs(os.path.join(WD, "img"), exist_ok=True)
 d = json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "data.json"), encoding="utf-8"))
 
-ALERT = {"tip": "TIP", "merke": "IMPORTANT", "warn": "WARNING"}
+ALERT = {"tip": "TIP", "merke": "IMPORTANT", "warn": "WARNING", "bsp": "NOTE", "fehler": "CAUTION"}
+ALERT_TITLE = {"bsp": "**Beispiel**\n\n", "fehler": "**Typische Fehler**\n\n"}
 
 
 
@@ -52,7 +53,17 @@ def lesson_md(html, tid):
         elif name == "div" and cls in ALERT:
             inner = el.decode_contents()
             inner = re.sub(r"<table.*?</table>", lambda m: "\n\n" + clean_table(m.group(0)) + "\n\n", inner, flags=re.S)
-            blocks.append(quote(f"[!{ALERT[cls]}]\n" + md_inline(inner)))
+            blocks.append(quote(f"[!{ALERT[cls]}]\n" + ALERT_TITLE.get(cls, "") + md_inline(inner)))
+        elif name == "div" and cls == "aufgabe":
+            det = el.find("details")
+            sol = ""
+            if det:
+                if det.summary:
+                    det.summary.extract()
+                sol = md_inline(det.decode_contents())
+                det.extract()
+            blocks.append("**📝 Prüfungsaufgabe:** " + md_inline(el.decode_contents())
+                          + (f"\n\n<details><summary>Lösung anzeigen</summary>\n\n{sol}\n\n</details>" if sol else ""))
         elif name == "table":
             blocks.append(clean_table(str(el)))
         else:

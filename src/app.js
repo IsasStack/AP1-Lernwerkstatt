@@ -227,7 +227,7 @@ function renderTopic(app, t) {
   </div>`;
   const b = $("#tbody");
   if (topicTab === "wissen") {
-    b.innerHTML = `<div class="lesson">${t.lesson}</div>
+    b.innerHTML = `${lessonToc(t.lesson)}
     <div class="card" style="margin-top:24px;max-width:820px">
       <div class="row" style="justify-content:space-between">
         <div><b>${S.read[t.id] ? "✅ Als gelesen markiert" : "Fertig gelesen?"}</b><div class="small muted">Danach: Karten festigen, dann Quiz.</div></div>
@@ -608,6 +608,14 @@ function renderSearch(app) {
   const i = $("#sq"); i.focus(); i.setSelectionRange(i.value.length, i.value.length); doSearch();
 }
 const PLAIN = {};
+/* Inhaltsverzeichnis für lange Lerntexte: verlinkt alle Abschnitte (h3). */
+function lessonToc(html) {
+  const d = document.createElement("div"); d.innerHTML = html;
+  const hs = [...d.querySelectorAll("h3")];
+  hs.forEach((h, i) => { h.id = "abs" + i; });
+  const toc = hs.length >= 5 ? `<div class="toc"><b>Inhalt</b><ol>${hs.map((h, i) => `<li><button onclick="document.getElementById('abs${i}').scrollIntoView({behavior:'smooth',block:'start'})">${esc(h.textContent)}</button></li>`).join("")}</ol></div>` : "";
+  return `${toc}<div class="lesson">${d.innerHTML}</div>`;
+}
 function plainLesson(t) { if (!PLAIN[t.id]) { const d = document.createElement("div"); d.innerHTML = t.lesson; PLAIN[t.id] = d.textContent.replace(/\s+/g, " "); } return PLAIN[t.id]; }
 function hl(text, q) { const i = text.toLowerCase().indexOf(q.toLowerCase()); if (i < 0) return esc(text); return esc(text.slice(0, i)) + "<mark>" + esc(text.slice(i, i + q.length)) + "</mark>" + esc(text.slice(i + q.length)); }
 function doSearch() {
